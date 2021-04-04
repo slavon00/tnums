@@ -1,4 +1,5 @@
 ;TESTS
+;need to load tnums.lisp and user-function.lisp before
 ;(num-to-tnum 42.123)
 ;#<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {1001EBF73B}>
 
