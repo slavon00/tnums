@@ -1,4 +1,4 @@
-;PACKAGE TNUMS 
+;PACKAGE TNUMS
 ;Author: slavon00
 ;prevod cisla na tnum
 (defun num-to-tnum (num)
