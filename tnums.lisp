@@ -1,5 +1,6 @@
-;PACKAGE TNUMS
-;Author: slavon00
+;PACKAGE TNUMS 
+;AUTHOR:    slavon00
+;INSTITUTE: UPOL/PRF/KI
 ;prevod cisla na tnum
 (defun num-to-tnum (num)
   (lambda (eps)
