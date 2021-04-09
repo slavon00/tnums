@@ -1,4 +1,4 @@
-;PACKAGE TNUMS
+;PACKAGE TNUMS 
 ;AUTHOR:    slavon00
 ;INSTITUTE: UPOL/PRF/KI
 ;prevod cisla na tnum
