@@ -92,7 +92,7 @@ All functions take exactly one argument.
     secant(x) = (tnum-sec x)
     cosecant(x) = (tnum-cos x)
 
-### Calculation tnum
+### Calculating tnum
 #### As number
 To calculate tnum with precission, call `tnum-to-num` with tnum and presission.
 
@@ -101,7 +101,7 @@ To calculate tnum with precission, call `tnum-to-num` with tnum and presission.
 The relationship between number `x` and its tnum `T^x` is as follows: |(tnum-to-num T^x eps) - x| < eps. The precission eps should be 0<eps<=1. The other value of eps is meant as 10^(-|eps|).
 
 #### As string
-To get value of tnum in string, call `tnum-tp-string` with tnum and count of decimal places.
+To get value of tnum in string, call `tnum-to-string` with tnum and count of decimal places.
 
     Value of T^x as a string output with n decimal places = (tnum-to-string T^x n)
 
