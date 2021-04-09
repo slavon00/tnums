@@ -93,161 +93,163 @@ All functions take exactly one argument.
     cosecant(x) = (tnum-cos x)
 
 ### Calculation tnum
-To calculate tnum with precission, call `tnum-to-num` with tnum and presission. The precission eps should be 0<eps<=1. The non-positive value of eps is meant as 10^eps.
+#### As number
+To calculate tnum with precission, call `tnum-to-num` with tnum and presission.
 
-    Value of x at precission eps = (tnum-to-num x eps)
+    Value of T^x at precission eps = (tnum-to-num T^x eps)
 
-The function returns ratio as that is the only precise representation value with many decimal places. If you want something unprecise but readable by human, use `tnum-to-float` which returns tnum calculated with precission coerced to `float`.
+The relationship between number `x` and its tnum `T^x` is as follows: |(tnum-to-num T^x eps) - x| < eps. The precission eps should be 0<eps<=1. The other value of eps is meant as 10^(-|eps|).
 
-    Long-float of x at precission eps = (tnum-to-float x eps)
+#### As string
+To get value of tnum in string, call `tnum-tp-string` with tnum and count of decimal places.
+
+    Value of T^x as a string output with n decimal places = (tnum-to-string T^x n)
 
 ## Examples
-Tnums do not always return exact values, but you can use the precission to make them as exact as you need. This means the arbitrary precission. So |(tnum-to-num T(x) eps) -x | < eps, denoting T(x) as a tnum representating x.
+Tnums do not always return exact values, but you can use the precission to make them as exact as you need. This means the arbitrary precission. So |(tnum-to-num T^x eps) -x | < eps, denoting T^x as a tnum representating x.
 
     e^pi at precission 0.001 = (tnum-to-num (tnum-expt (tnum-e) (tnum-pi)) 0.001)
-or
+or in shorter form
 
-    (tnum-to-num (tnum-exp (tnum-pi)) -3).
+    (tnum-to-num (tnum-exp (tnum-pi)) 3).
 
-If you use tnum-to-num with non-positive argument -n, you get n-1 decimal places (if the last is not 0 or 9).
-
-    First 7 decimal places of pi = (tnum-to-float (tnum-pi) -8)
-
-But tnums are strong in returning `ratio`s. So you can use the results in other applications. You get the precise number.
+Tnums are strong in returning `ratio`s. So you can use the results in other applications. You get the precise number.
 
     First 15 decimal places of phi = (coerce (tnum-to-num (tnum-phi) -16) 'long-float)
+
+Or if you do not need to use output as a number, but for example to print it to the file, you can use tnum-to-string.
+
+    (tnum-to-string (tnum-pi) 1000)
 
 And if you wish, you can build a tnum and evaluate it afterwards.
 
     * (tnum-csc (tnum*num (tnum-pi) (/ 2 3)))
     #<FUNCTION (LAMBDA (EPS) :IN /TNUM) {100212091B}>
-    * (tnum-to-num * -100)
+    * (tnum-to-num * 100)
     ...VERY LONG RATIO...
 
-Note that tnums library is not meant to be a calculator. Of course there are ways to do so, but I do not feel about it and rather build and improve this library so the user can write his own functions to work with precise numbers. Or anybody can write a calculator or other programs based on tnums and share it with others and this would be much better than creating a calculator from tnums.
+Note that tnums library is not meant to be a calculator. Of course there are ways to do so, but I do not feel about it and rather build and improve this library so the user can write his own functions to work with precise numbers. Or anybody can write a calculator or other programs based on tnums and share it with others and this would be much better than my creation of a calculator for tnums.
 
 The usage of all operations follows.
 ### Adition
-    * (tnum-to-num (tnum+) -20)
-    0
-    * (tnum-to-num (tnum+ (num-to-tnum -200)) -20)
-    -200
-    * (tnum-to-num (tnum+ (num-to-tnum 6/5) (num-to-tnum 299/3)) -20)
+    * (tnum-to-string (tnum+) 50)
+    "0.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum+ (num-to-tnum -200)) 50)
+    "-200.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-num (tnum+ (num-to-tnum 6/5) (num-to-tnum 299/3)) 50)
     1513/15
-    * (coerce (tnum-to-num (tnum+ (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) -20) 'long-float)
-    8.477908470798733d0
+    * (tnum-to-string (tnum+ (num-to-tnum 6/5) (num-to-tnum 299/3)) 50)
+    "100.86666666666666666666666666666666666666666666666666..."
+    * (tnum-to-string (tnum+ (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) 50)
+    "8.47790847079873332202751768899780349967472567288082..."
 
 ### Negation
-    * (princ (tnum-to-num (-tnum (tnum-pi)) -5))
-    -16071212445820879/5115625817702400 
-    -16071212445820879/5115625817702400
+    * (tnum-to-string (-tnum (tnum-pi)) 50)
+    "-3.14159265358979323846264338327950288419716939937510..."
+
 
 ### Substraction
-    * (tnum-to-num (tnum- (num-to-tnum -200)) -20)
-    200
-    * (tnum-to-num (tnum- (num-to-tnum 6/5) (num-to-tnum 299/3)) -20)
-    -1477/15
-    * (coerce (tnum-to-num (tnum- (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) -20) 'long-float)
-    -2.194723163619147d0
+    * (tnum-to-string (tnum- (num-to-tnum -200)) 50)
+    "200.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum- (num-to-tnum 6/5) (num-to-tnum 299/3)) 50)
+    "-98.46666666666666666666666666666666666666666666666666..."
+    * (tnum-to-string (tnum- (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) 50)
+    "-2.19472316361914684510223092243879773128038687413061..."
 
 ### Multiplication
-    * (tnum-to-num (tnum*) -20)
-    1
-    * (tnum-to-num (tnum* (num-to-tnum -200)) -20)
-    -200
-    * (tnum-to-num (tnum* (num-to-tnum 6/5) (num-to-tnum 299/3)) -20)
-    598/5
-    * (coerce (tnum-to-num (tnum* (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) -20) 'long-float)
-    13.817580227176494d0
+    * (tnum-to-string (tnum*) 50)
+    "1.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum* (num-to-tnum -200)) 50)
+    "-200.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum* (num-to-tnum 6/5) (num-to-tnum 299/3)) 50)
+    "119.60000000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum* (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) 50)
+    "13.81758022717649443973675620120759565921921254251536..."
 
 ### Reversion
-    * (tnum-to-num (/tnum (tnum-e)) -20)
-    25545471085854720000/69439789852104840011
-    * (float *)
-    0.36787945
+    * (tnum-to-string (/tnum (tnum-e)) 50)
+    "0.36787944117144232159552377016146086744581113103176..."
 
 ### Division
-    * (tnum-to-num (tnum/ (num-to-tnum -200)) -20)
-    -1/200
-    * (tnum-to-num (tnum/ (num-to-tnum 6/5) (num-to-tnum 299/3)) -20)
-    18/1495
-    * (coerce (tnum-to-num (tnum/ (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) -20) 'long-float)
-    0.7142787838986283d0
+    * (tnum-to-string (tnum/ (num-to-tnum -200)) 50)
+    "-0.00500000000000000000000000000000000000000000000000..."
+    * (tnum-to-string (tnum/ (num-to-tnum 6/5) (num-to-tnum 299/3)) 50)
+    "0.01204013377926421404682274247491638795986622073578..."
+    * (tnum-to-string (tnum/ (tnum-pi) (tnum-e) (tnum-phi) (num-to-tnum 1)) 50)
+    "0.71427878389862830105313858884996215912911202055654..."
 
 ### Exponentiation
     * (setq r (num-to-tnum 100))
     #<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {10023D570B}>
-    * (tnum-to-float (tnum* (tnum-pi) (tnum-expt r (num-to-tnum 2))) -7)
+    * (float (tnum-to-num (tnum* (tnum-pi) (tnum-expt r (num-to-tnum 2))) 7))
     31415.926
-    * (tnum-to-float (tnum-expt r (tnum-pi)) -7)
+    * (float (tnum-to-num (tnum-expt r (tnum-pi)) 7))
     1919487.6
 
 ### Logarithm
-    * (tnum-to-float (tnum-log (num-to-tnum 2) (num-to-tnum 16)) -20)
-    4.0
-    * (tnum-to-num (tnum-log (tnum-phi) (tnum-phi)) -20)
-    ...VERY VERY LONG RATIO...
-    * (* 1.0d0 *)
-    1.0d0
-    * (tnum-to-float (tnum-log (tnum-pi) (tnum-e)) -20)
-    0.87356853
+    * (tnum-to-string (tnum-log (num-to-tnum 2) (num-to-tnum 16)) 50)
+    "4.00000000000000000000000000000000000000000000000000..."
+    * (tnum-to-num (tnum-log (tnum-phi) (tnum-phi)) 10)
+    1
+    * (tnum-to-string (tnum-log (tnum-pi) (tnum-e)) 50)
+    "0.87356852683023186835397746476334273882072986617613..."
 
 ### Root
-    * (tnum-to-float (tnum-root (num-to-tnum 4) (num-to-tnum 16)) -20)
-    2.0
-    * (tnum-to-float (tnum-root (tnum-pi) (tnum-expt (tnum-e) (num-to-tnum 2))) -7)
+    * (tnum-to-string (tnum-root (num-to-tnum 4) (num-to-tnum 16)) 50)
+    "1.99999999999999999999999999999999999999999999999999..."
+    * (float (tnum-to-num (tnum-root (tnum-pi) (tnum-expt (tnum-e) (num-to-tnum 2))) 7))
     1.8900812
 
-And functions.
+Note that the string is precise only if the last digit is not 9 or 0.
 
 ### Exponential
-    * (tnum-to-float (tnum-exp (num-to-tnum 2.1)) -20)
-    8.16617
-    * (tnum-to-float (tnum-exp (tnum-phi)) -20)
-    5.0431657
+    * (tnum-to-string (tnum-exp (num-to-tnum 2.1)) 50)
+    "8.16616991256765007344972741047863128518315260430523..."
+    * (tnum-to-string (tnum-exp (tnum-phi)) 50)
+    "5.04316564336002865131188218928542471032359017541384..."
 
 ### NatLog
-    * (tnum-to-float (tnum-ln (num-to-tnum 10)) -20)
-    2.3025851
-    * (coerce (tnum-to-num (tnum-ln (num-to-tnum 2)) -20) 'long-float)
-    0.6931471805599453d0
+    * (tnum-to-string (tnum-ln (num-to-tnum 10)) 50)
+    "2.30258509299404568401799145468436420760110148862877..."
+    * (tnum-to-string (tnum-ln (num-to-tnum 2)) 50)
+    "0.69314718055994530941723212145817656807550013436025..."
 
 ### Incrementation
-    * (setq n (num-to-tnum 1000000))
-    #<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {10041B488B}>
-    * (tnum-to-float (tnum-expt (tnum-1+ (/tnum n)) n) -20)
-    2.7182806
+    * (setq n (num-to-tnum 100000000000000000000000000000000))
+    #<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {10021AFEEB}>
+    * (float (tnum-to-num (tnum-expt (tnum-1+ (/tnum n)) n) 50))
+    2.7182817
 
 ### Decrementation
-    * (tnum-to-float (tnum-1- (tnum-1- (tnum-1- (tnum-pi)))) -20)
-    0.14159265
+    * (tnum-to-string (tnum-1- (tnum-1- (tnum-1- (tnum-pi)))) 50)
+    "0.14159265358979323846264338327950288419716939937510..."
 
 ### Square root
-    * (coerce (tnum-to-num (tnum-sqrt (num-to-tnum 2)) -20) 'long-float)
-    1.4142135623730951d0
-    * (tnum-to-num (tnum-sqrt (num-to-tnum 2)) -4)
+    * (tnum-to-string (tnum-sqrt (num-to-tnum 2)) 50)
+    "1.41421356237309504880168872420969807856967187537694..."
+    * (tnum-to-num (tnum-sqrt (num-to-tnum 2)) 4)
     194363389812315075599657859994834246/137435994817044508577304502085109375
 
 ### Sine
-    * (tnum-to-float (tnum-sin (num-to-tnum (/ 2))) -20)
-    0.47942555
+    * (tnum-to-string (tnum-sin (num-to-tnum (/ 2))) 50)
+    "0.47942553860420300027328793521557138808180336794060..."
 
 ### Cosine
-    * (tnum-to-float (tnum-cos (num-to-tnum (/ 2))) -20)
-    0.87758255
+    * (tnum-to-string (tnum-cos (num-to-tnum (/ 2))) 50)
+    "0.87758256189037271611628158260382965199164519710974..."
 
 ### Tangent
-    * (tnum-to-float (tnum-tan (num-to-tnum 1)) -20)
-    1.5574077
+    * (tnum-to-string (tnum-tan (num-to-tnum 1)) 50)
+    "1.55740772465490223050697480745836017308725077238152..."
 
 ### Cotangent
-    * (tnum-to-float (tnum-ctan (num-to-tnum 1)) -20)
-    0.64209265
+    * (tnum-to-string (tnum-ctan (num-to-tnum 1)) 50)
+    "0.64209261593433070300641998659426562023027811391817..."
 
 ### Secant
-    * (tnum-to-float (tnum-sec (tnum-pi)) -20)
-    -1.0
+    * (tnum-to-string (tnum-sec (tnum-pi)) 50)
+    "-1.00000000000000000000000000000000000000000000000000..."
 
 ### Cosecant
-    * (tnum-to-float (tnum-csc (tnum- (tnum-pi) (num-to-tnum .000001))) -7)
-    1000000.0
+    * (tnum-to-string (tnum-csc (tnum- (tnum-pi) (num-to-tnum (expt 10 -25)))) 25)
+    "10000000000000000000000000.0000000000000000000000000..."

@@ -4,12 +4,13 @@
 ;prevod cisla na tnum
 (defun num-to-tnum (num)
   (lambda (eps)
+    (declare (ignore eps))
     (rationalize num)))
 
 ;prevod tnum na cislo
 (defun tnum-to-num (tnum eps)
-  (when (>= 0 eps) (setf eps (expt 10 eps)))
-  (when (< 1 eps) (setf eps 1))
+  (when (or (>= 0 eps) (<= 1 eps))
+    (setf eps (expt 10 (- (abs eps)))))
   (funcall tnum (rationalize eps)))
 
 ;faktorial prirozeneho cisla
@@ -27,11 +28,9 @@
 
 ;presnost na pocet clenu souctu
 (defun eps-to-n (eps nth)
-  (let ((n 1))
-    (loop 
-      (if (< (abs (funcall nth n)) eps)
-        (return n)
-        (incf n)))))
+  (loop for n from 0
+    until (< (abs (funcall nth n)) eps)
+    finally (return n)))
 
 ;polynom nad faktorialem
 (defun factorial-series-to-num (eps nth)
@@ -84,12 +83,22 @@
     (-tnum tnum1)
     (tnum+ tnum1 (-tnum (apply 'tnum+ tnums)))))
 
+;vycisleni nenuloveho tnumu
+(defun get-nonzero-tnum+eps (tnum eps)
+  (let ((num (tnum-to-num tnum eps)))
+    (if (and (zerop num) (< (abs num) eps))
+      (get-nonzero-tnum+eps tnum (/ eps 10))
+      (values num eps))))
+
 ;obraceni tnumu
 (defun /tnum (tnum)
   (lambda (eps)
-    (let ((num (tnum-to-num tnum eps)))
-      (/ (tnum-to-num tnum 
-        (* eps (if (zerop num) eps (abs num))))))))
+    (multiple-value-bind (num eps0)
+      (get-nonzero-tnum+eps tnum eps)
+      (let* ((absnum (abs num))
+          (neweps (* eps absnum (- absnum eps0))))
+        (/ (if (> neweps eps) num
+          (get-nonzero-tnum+eps tnum neweps)))))))
 
 ;list pro nasobeni
 (defun create-list-for-multiplication (tnums eps)
