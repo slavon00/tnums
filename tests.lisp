@@ -1,5 +1,5 @@
 ;TESTS
-;need to load tnums.lisp and user-function.lisp before using (load "tnums.lisp") and (load "user-functions.lisp") or (load "load.lisp")
+;need to load tnums.lisp and user-functions.lisp before using: (load "tnums.lisp") and (load "user-functions.lisp") or (load "load.lisp")
 ;(num-to-tnum 42.123)
 ;#<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {1001EBF73B}>
 
@@ -23,28 +23,36 @@
 ;(tnum-to-string (tnum-phi) 50)
 ;"1.61803398874989484820458683436563811772030917980576..."
 
+;(tnum-to-string (tnum-log (num-to-tnum 9) (num-to-tnum 2)) 50)
+;"0.31546487678572871854976355717138042714979282006594..."
+
+;(coerce (tnum-to-num (tnum-sin (num-to-tnum 1)) -20) 'long-float)
+;0.8414709848078965d0
+
 ;(time (setq tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
 ;(...)
-;0.000009 s
-(...)
+;0.000015 s
+;(...)
+;#<FUNCTION (LAMBDA (EPS) :IN TNUM*) {1004A658CB}>
 
 ;(time (tnum-to-string tn 50))
 ;(...)
-;0.600614 s
+;2.344134 s
 ;(...)
 ;"0.71427878389862830105313858884996215912911202055654..."
 
 ;(time (tnum-to-string (tnum-sin tn) 50))
 ;(...)
-;30.933354 s
+;68.088872 s
 ;"0.65507266083018698987837667114834999658318351993255..."
 
 ;(time (tnum-to-string (tnum-csc tn) 50))
 ;(...)
-;1242.738475 s
+;3549.717515 s
 ;"1.52654821334274511450496570931719335427594133724623..."
-
+  
 ;(time (tnum-to-string (tnum-ctan tn) 50))
 ;(...)
-; ? s
+;? s
 ;(...)
+;"1.15340775429157196785956910059250320817360752216933..."

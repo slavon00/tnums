@@ -1,11 +1,9 @@
 ;USER-FUNCTIONS
-;need to load tnums.lisp before using (load "tnums.lisp") or (load "load.lisp") 
+;need to load tnums.lisp before using: (load "tnums.lisp") or (load "load.lisp") 
 ;funkce pro prevod tnumu na string o delce minimalne count
 (defun tnum-to-string (tnum count)
   (let ((num (tnum-to-num tnum (1+ count))) (output ""))
-    (when (< num 0)
-      (setf output "-"
-        num (- num)))
+    (when (< num 0) (setf output "-" num (- num)))
     (multiple-value-bind (digit rem)
         (floor num)
         (setf output (concatenate 'string output 

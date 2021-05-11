@@ -3,9 +3,9 @@
 ;INSTITUTE: UPOL/PRF/KI
 ;prevod cisla na tnum
 (defun num-to-tnum (num)
-  (lambda (eps)
-    (declare (ignore eps))
-    (rationalize num)))
+  (let ((rat_num (rationalize num)))
+    (lambda (eps) (declare (ignore eps))
+      rat_num)))
 
 ;prevod tnum na cislo
 (defun tnum-to-num (tnum eps)
@@ -57,10 +57,10 @@
 
 ;tnum vynasobeny konstantou
 (defun tnum*num (tnum num)
-  (lambda (eps)
-    (if (zerop num)
-      (num-to-tnum 0)
-      (let ((rat_num (rationalize num)))
+  (let ((rat_num (rationalize num)))
+    (lambda (eps)
+      (if (zerop num)
+        (num-to-tnum 0)
         (* (tnum-to-num tnum (/ eps (abs rat_num))) rat_num)))))
 
 ;negace tnumu
@@ -84,21 +84,21 @@
     (tnum+ tnum1 (-tnum (apply 'tnum+ tnums)))))
 
 ;vycisleni nenuloveho tnumu
-(defun get-nonzero-tnum+eps (tnum eps)
+(defun get-nonzero-num+eps (tnum eps)
   (let ((num (tnum-to-num tnum eps)))
     (if (and (zerop num) (< (abs num) eps))
-      (get-nonzero-tnum+eps tnum (/ eps 10))
+      (get-nonzero-num+eps tnum (/ eps 10))
       (values num eps))))
 
 ;obraceni tnumu
 (defun /tnum (tnum)
   (lambda (eps)
     (multiple-value-bind (num eps0)
-      (get-nonzero-tnum+eps tnum eps)
+      (get-nonzero-num+eps tnum eps)
       (let* ((absnum (abs num))
           (neweps (* eps absnum (- absnum eps0))))
-        (/ (if (> neweps eps) num
-          (get-nonzero-tnum+eps tnum neweps)))))))
+        (/ (if (>= neweps eps) num
+          (get-nonzero-num+eps tnum neweps)))))))
 
 ;list pro nasobeni
 (defun create-list-for-multiplication (tnums eps)
@@ -106,13 +106,11 @@
       (nums
         (mapcar (lambda (tnum) (tnum-to-num tnum eps)) tnums)))
     (dotimes (i (list-length tnums) result)
-      (let ((actual-eps eps))
+      (let ((actual-eps (/ eps (list-length tnums))))
         (dotimes (j (list-length tnums))
-          (when (not (= i j))
+          (unless (= i j)
             (setf actual-eps (/ actual-eps
-              (if (zerop (nth j nums))
-                1
-                (nth j nums))))))
+              (+ (nth j nums) eps)))))
         (setf result (cons
           (tnum-to-num (nth i tnums) actual-eps) result))))))
 
@@ -129,32 +127,69 @@
     (/tnum tnum1)
     (tnum* tnum1 (/tnum (apply 'tnum* tnums)))))
 
+;exponenciala cisla
+(defun num-exp (num eps)
+  (factorial-series-to-num eps
+    (lambda (n) (/ (expt num n) (factorial n)))))
+
+;; ;stredobod pro funkce
+;; (defun get-function-value (tnum eps f)
+;;   (let* ((num (tnum-to-num tnum eps))
+;;       (fnum (funcall f num eps))
+;;       (new 1))
+;;     (loop
+;;       (if (= num new)
+;;         (return fnum)
+;;         (setf new (if (> (abs fnum) 1)
+;;             (tnum-to-num tnum (/ eps (abs fnum)))
+;;             num)
+;;           num new
+;;           fnum (funcall f num eps))))))
+
+;stredobod pro funkce
+(defun get-function-value (tnum eps f)
+  (let* ((num (tnum-to-num tnum eps))
+      (fnum (funcall f num eps))
+      (new 1))
+    (loop 
+      until (= num new)
+      do (setf new (if (> (abs fnum) 1)
+          (tnum-to-num tnum (/ eps (+ (abs fnum) eps)))
+          num)
+        num new
+        fnum (funcall f num eps))
+      finally (return fnum))))
+
 ;exponenciala
 (defun tnum-exp (tnum)
   (lambda (eps)
-    (let ((x (tnum-to-num tnum eps)))
-      (factorial-series-to-num eps
-        (lambda (n) (/ (expt x n) (factorial n)))))))
+    (get-function-value tnum eps 'num-exp )))
+
+;sinus cisla
+(defun num-sin (num eps)
+  (factorial-series-to-num eps
+    (lambda (n)
+      (/ (expt num (1+ (* 2 n)))
+        (factorial (1+ (* 2 n)))
+        (expt (- 1) n)))))
 
 ;sinus
 (defun tnum-sin (tnum)
   (lambda (eps)
-    (let ((x (tnum-to-num tnum eps)))
-      (factorial-series-to-num eps
-        (lambda (n)
-          (/ (expt x (1+ (* 2 n)))
-            (factorial (1+ (* 2 n)))
-            (expt (- 1) n)))))))
+    (get-function-value tnum eps 'num-sin )))
 
-;cosinus
+;kosinus cisla
+(defun num-cos (num eps)
+  (factorial-series-to-num eps
+    (lambda (n)
+      (/ (expt num (* 2 n))
+        (factorial (* 2 n))
+        (expt (- 1) n)))))
+
+;kosinus
 (defun tnum-cos (tnum)
   (lambda (eps)
-    (let ((x (tnum-to-num tnum eps)))
-      (factorial-series-to-num eps
-        (lambda (n)
-          (/ (expt x (* 2 n))
-            (factorial (* 2 n))
-            (expt (- 1) n)))))))
+    (get-function-value tnum eps 'num-cos )))
 
 ;tangens
 (defun tnum-tan (tnum)
@@ -172,21 +207,20 @@
 (defun tnum-ctan (tnum)
   (/tnum (tnum-tan tnum)))
 
-;pomocna funkce na logaritmus
-(defun do-tnum-ln (tnum)
-  (lambda (eps)
-    (let* ((x (tnum-to-num tnum eps))
-        (x-1/x+1 (/ (1- x) (1+ x))))
-      (nth-partial-sum 
-        (eps-to-n eps
-          (lambda (n)
-            (/ (expt x-1/x+1 (* 2 (1+ n))) (- 1 x-1/x+1))))
+;logaritmus cisla
+(defun num-ln (num eps)
+  (let ((q (/ (1- num) (1+ num))))
+    (* 2 (nth-partial-sum 
+      (eps-to-n eps
         (lambda (n)
-          (/ (expt x-1/x+1 (1+ (* 2 n))) (1+ (* 2 n))))))))
+          (/ (expt q (* 2 (1+ n))) (- 1 q))))
+      (lambda (n)
+        (/ (expt q (1+ (* 2 n))) (1+ (* 2 n))))))))
 
 ;logaritmus
 (defun tnum-ln (tnum)
-  (tnum*num (do-tnum-ln tnum) 2))
+  (lambda (eps)
+    (get-function-value tnum eps 'num-ln )))
 
 ;tnum1 na tnum2-tou
 (defun tnum-expt (tnum1 tnum2)
