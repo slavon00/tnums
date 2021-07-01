@@ -10,7 +10,8 @@ As said above, the computing of numbers is made in two steps:
 2. Computing a structure using 'tnum-to-num' (this can take a while, but will end)
 
 ### Creating tnum
-There is sort of functions to create a tnum. You can use translation from lisp number using `num-to-tnum` or you can use constants such as `tnum-pi`, `tnum-e`, `tnum-phi`. Than you can use operation such as `tnum+`, `-tnum`, `tnum-`, `tnum*`, `/tnum`, `tnum/`, `tnum-expt`, `tnum-log` and `tnum-root`. Than there are functions of tnums such as `tnum-exp`, `tnum-ln`, `tnum-sin`, `tnum-cos`, `tnum-tan`, `tnum-ctan`, `tnum-sec`, `tnum-csc`, `tnum-sqrt`,  `tnum-1-` and `tnum-1+`. One special function is called `tnum*num` and it multiplies tnum and number.
+There is sort of functions to create a tnum. You can use translation from lisp number using `num-to-tnum` or you can use constants such as `tnum-pi`, `tnum-e`, `tnum-phi`. Than you can use operation such as `tnum+`, `-tnum`, `tnum-`, `tnum*`, `/tnum`, `tnum/`, `tnum-expt`, `tnum-log` and `tnum-root`. Than there are functions of tnums such as `tnum-exp`, `tnum-ln`, `tnum-sin`, `tnum-cos`, `tnum-tan`, `tnum-ctan`, `tnum-sec`, `tnum-csc`, `tnum-sqrt`,  `tnum-1-` and `tnum-1+`.
+
 #### Constants
 For creating constant from **Lisp number** there is function `num-to-tnum`. This function also coerces floating-point numbers to ratio to be arbitrary precise.
 
