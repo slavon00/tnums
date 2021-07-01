@@ -56,3 +56,11 @@
 ;? s
 ;(...)
 ;"1.15340775429157196785956910059250320817360752216933..."
+
+;(tnum-to-string (tnum-sin (num-to-tnum 100)) 52)
+
+(let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
+    (time (tnum-to-string tn 50))
+    (time (tnum-to-string (tnum-sin tn) 50))
+    (time (tnum-to-string (tnum-csc tn) 50))
+    (time (tnum-to-string (tnum-ctan tn) 50)))
