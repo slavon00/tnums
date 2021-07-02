@@ -1,0 +1,58 @@
+Zde uvedu některé důkazy, na které potřebujeme širší aparát, než jsem v práci zavedl, nebo jsou mimo těžiště práce a pro pochopení práce s tnumy nejsou zapotřebí.
+\subsection{Fakt \ref{vet:o_castecnem_souctu_geometricke_rady} -- O částečném součtu geometrické řady}\label{duk:o_castecnem_souctu_geometricke_rady}
+\begin{proof}
+Částečný součet je z definice $s^a_n=a+aq+\ldots+aq^n$. Užitím vztahu
+\begin{equation}
+(1-q)(1+q+q^2+\ldots+q^n)=(1-q)^{n+1}
+\end{equation}
+dostaneme
+\begin{equation}
+s^a_n=a(1+q+q^2+\ldots+q^n)=a\frac{1-q^{n+1}}{1-q}.
+\end{equation}
+\end{proof}
+
+\subsection{Fakt \ref{vet:o_geometricke_rade} -- O geometrické řadě}\label{duk:o_geometricke_rade}
+\begin{proof}
+Po užití limity na obě strany ze lemmatu \ref{vet:o_castecnem_souctu_geometricke_rady} dostáváme 
+\begin{equation}
+\sum_{i\in\mathbb{N}}aq^i=\lim_{n\to\infty}s^a_n=\lim_{n\to\infty}a\frac{1-q^{n+1}}{1-q}=\frac{a}{1-q}.
+\end{equation}
+\end{proof}
+
+\subsection{Fakt \ref{vet:o_zbytku_geometricke_rady} -- O zbytku geometrické řady}\label{duk:o_zbytku_geometricke_rady}	
+\begin{proof}
+\begin{equation}
+R_n = \sum_{i\in\mathbb{N}}aq^i -s^a_n =\frac{a}{1-q} - a\frac{1-q^{n+1}}{1-q} = \frac{a-a+aq^{n+1}}{1-q} = \frac{aq^{n+1}}{1-q}
+\end{equation}
+\end{proof}
+
+\subsection{Fakt \ref{vet:funkce_jako_rada} -- O ztotožnění Taylorovy řady s funkcí}\label{duk:funkce_jako_rada}
+\begin{proof}
+Rovnost \ref{vet:funkce_jako_rada} platí na $I$ právě tehdy, když $\lim s^T_n(x) = f(x)$ pro $x\in I$. Avšak $s^T_n(x)=T^{f,a}_n(x)=f(x)-R^{f,a}_n(x)$, takže $\lim s^T_n(x)=f(x)$ právě tehdy, když $\lim R^{f,a}_n(x)=0$ na $I$.
+\end{proof}
+\subsection{Fakt \ref{vet:exp_jako_rada} -- O exponenciále jako Maclaurinově řadě}\label{duk:exp_jako_rada}
+\begin{proof}
+\begin{equation}
+\begin{split}
+exp(x) = \sum_{i\in\mathbb{N}}\frac{exp^{(i)}(0)}{i!}x^i = \left[\begin{matrix}\frac{d}{dx} exp(x) = exp(x) \\ \end{matrix}\right] = \frac{exp(0)}{1} + \frac{exp(0)}{1}x +\\ +\frac{exp(0)}{2}x^2 + \ldots= \left[\begin{matrix} exp(0)=1 \end{matrix}\right] = \frac{1}{1} + \frac{x}{1} + \frac{x^2}{2} + \ldots=\sum_{i\in\mathbb{N}}\frac{x^i}{i!}
+\end{split}
+\end{equation}
+\end{proof}
+
+\subsection{Fakt \ref{vet:sin_jako_rada} -- O sinu jako Maclaurinově řadě}\label{duk:sin_jako_rada}
+\begin{proof}
+\begin{equation}
+\begin{split}
+sin(x)=\sum_{i\in\mathbb{N}}\frac{sin^{(i)}(0)}{i!}x^i=\left[\begin{matrix}\frac{d}{dx} sin(x)=cos(x) \\ \frac{d}{dx} cos(x)=-sin(x) \end{matrix} \right] =\\= \frac{sin(0)}{1} + \frac{cos(0)}{1}x-\frac{sin(0)}{2}x^2-\frac{cos(0)}{6}x^3+\frac{sin(0)}{24}x^4+\frac{cos(0)}{120}x^5\ldots=\\=\left[\begin{matrix} sin(0)=0\\ cos(0)=1 \end{matrix}\right]=\frac{x}{1}-\frac{x^3}{6}+\frac{x^5}{120}+\ldots=\sum_{i\in\mathbb{N}}(-1)^i\frac{x^{2i+1}}{(2i+1)!}
+\end{split}
+\end{equation}
+\end{proof}
+
+\subsection{Fakt \ref{vet:cos_jako_rada} -- O kosinu jako Maclaurinově řadě}\label{duk:cos_jako_rada}
+\begin{proof}
+\begin{equation}
+\begin{split}
+cos(x)=\sum_{i\in\mathbb{N}}\frac{cos^{(i)}(0)}{i!}x^i=\left[\begin{matrix}\frac{d}{dx} cos(x)=-sin(x) \\ \frac{d}{dx} sin(x)=cos(x) \end{matrix} \right] = \\ =\frac{cos(0)}{1} - \frac{sin(0)}{1}x - \frac{cos(0)}{2}x^2+\frac{sin(0)}{6}x^3+\frac{cos(0)}{24}x^4\ldots=\\=\left[\begin{matrix} cos(0)=1 \\ sin(0)=0 \end{matrix}\right]=\frac{1}{1}-\frac{x^2}{2}+\frac{x^4}{24}+\ldots=\sum_{i\in\mathbb{N}}(-1)^i\frac{x^{2i}}{(2i)!}
+\end{split}
+\end{equation}
+\end{proof}

@@ -1,0 +1,162 @@
+Svoje struktury jsem zvolil jako funkce dvou proměnných -- reprezentovaného čísla a přesnosti. Podíváme se, jak se dají matematicky definovat, po Lispovsku vymodelovat a na závěr dokážu několik tvrzení, aby čtenář pochopil, jak se tnumy pracuje. Nebude chybět prvních několik kódů, i když nejvíce programování bude spíše ke konci této části.
+\subsection{Vztah čísel a tnumů}
+Funkce, kterými budu modelovat rekurzivní čísla a implementovat práci s nimi pomocí jazyka Lisp, budu nazývat \textit{True Numbers}, zkráceně \textit{tnums}. Vystihuje to jejich podstatu a cíl - budou ve výsledku opravdovější a přesnější, než ostatní čísla, která by měla mít nekonečný rozvoj, ale jsou uložena jako hodnoty – často jako nějaká plovoucí čísla (jakási Nil Numbers). Vzniknuvší knihovna se pak jmenuje \texttt{tnums}.
+
+\begin{definition}[Tnum]\label{def:tnum}
+Funkci $\mathcal{T}(x, \varepsilon )$ nazýváme tnum. Po částečném dosazení za $x$ dostáváme funkci jedné proměnné, kterou budeme značit $\mathcal{T}^x(\varepsilon)$. 
+
+Proměnnou $x$ myslíme číslo, které tnum reprezentuje a proměnná $\varepsilon$ představuje přesnost, na kterou chceme číslo $x$ vyčíslit. Přesnost předpokládáme v~rozmezí $0<\varepsilon<1$. Pro hodnotu tnumu pak platí
+\begin{equation}\label{rov:def:tnum}
+|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon.
+\end{equation}
+\end{definition}
+
+Místo tohoto vztahu lze psát $\mathcal{T}^x(\varepsilon)\in[x-\varepsilon,x+\varepsilon]$ nebo $(\mathcal{T}^x(\varepsilon)\leq x+\varepsilon)\land\land(\mathcal{T}^x(\varepsilon)\geq x-\varepsilon)$. 
+
+Kvůli možnosti částečného dosazení (kterému říkáme currying) lze nejprve k~číslu $x$ vytvořit částečně dosazený tnum (toto bude výpočetně rychlé) a až poté tento tnum nechat vyčíslit (zavolat s přesností) a toto může být na dlouho. Ekvivalencí částečně dosazených tnumů rozumíme ekvivalenci na číslech, čili $(\forall x \in \mathbb{R})(\forall y\in\mathbb{R})((x=y)\to(\mathcal{T}^x=\mathcal{T}^y))$. Symbolem $\mathfrak{T}$ označíme množinu všech tnumů.
+
+Tnumy přesných čísel lze vyčíslit s dokonalou přesností. Využiji co nejvíce z~přesnosti, kterou nabízí Lisp a ten přesně reprezentuje všechna racionální čísla. To je ve shodě s představou o vyčíslení rekurzivního čísla. Pomocí $\mathcal{T}^r(\varepsilon)$ tedy získáváme $q$ z nerovnice \ref{rov:rac_u_real}. Číslu, jak ho chápe Lisp říkám nadále num (number).
+
+\begin{lemma}[O numu jako tnumu]\label{lem:num-to-tnum}
+Pro všechna $x\in\mathbb{R}$ a všechna $\varepsilon \in (0,1)$ platí: číslo $\mathcal{T}^x(\varepsilon)$ lze nahradit $x$.
+\begin{proof}
+Z nerovnosti \ref{rov:def:tnum} získáváme $|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon$. Po dosazení $\mathcal{T}^x(\varepsilon) := x$ pak $|x - x | = 0 \leq \varepsilon$, což platí pro všechna uvažovaná $x$ i $\varepsilon$.
+\end{proof}
+\end{lemma}
+
+Nejpřesnější reprezentace čísla reprezentovaného tnumem reprezentujícím čí\-slo je toto číslo samotné. Proto je tedy vhodné co nejvíce takových čísel přenechat na reprezentaci Lispu a počítat jen s těmi, které nezvládne. Protože Lisp pracuje i se zlomky (typ \texttt{ratio}), nejvyšší obor čísel, který umí vracet s nulovou odchylkou jsou racionální čísla.
+
+\begin{lispcode}{\texttt{num-to-tnum}}{Funkce převádějící číslo z interní reprezentace Lispu na tnum}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-to-tnum} (num)
+  (\textcolor{vedlejsi}{let} ((rat_num (\textcolor{matematicke}{rationalize} num)))
+    (\textcolor{funkcionalni}{lambda} (eps) (\textcolor{vedlejsi}{declare} (\textcolor{vedlejsi}{ignore} eps))
+      rat_num)))
+\end{lispcode}
+
+Převod opačným směrem je také jednoduchý. Pokud chci vyčíslit číslo $x$ s~přesností $\varepsilon$, stačí zavolat $\mathcal{T}^x(\varepsilon)$. Přesnost musí být z $(0, 1)$, takže jiné číslo by byl vstup nevalidní, budeme ho interpretovat jako $10^{-|\varepsilon|}$.
+
+\begin{lemma}[O převodu tnumu na num]
+Pokud existuje funkce $\mathcal{T}^x$, pak po zavolání s argumentem $\varepsilon$ vrací hodnotu $\mathcal{T}^x(\varepsilon)$ splňující $(|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon)$.
+\begin{proof}
+Plyne přímo z definice \ref{def:tnum}.
+\end{proof}
+\end{lemma}
+
+Protože se někdy při vyhodnocení funkce \texttt{expt} výsledek reprezentuje jako plovoucí číslo, přidáme si ještě vlastní funkci pro racionální umocňování.
+
+\begin{lispcode}{rat-expt}{Funkce pro racionální umocňování}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{rat-expt} (num exp)
+  (\textcolor{matematicke}{rationalize} (\textcolor{matematicke}{expt} num exp)))
+\end{lispcode}
+
+\begin{lispcode}{\texttt{tnum-to-num}}{Funkce převádějící tnum na číslo}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-to-num} (tnum eps)
+  (\textcolor{funkcionalni}{when} (\textcolor{funkcionalni}{or} (\textcolor{matematicke}{>=} 0 eps) (\textcolor{matematicke}{<=} 1 eps))
+    (\textcolor{vedlejsi}{setf} eps (\textcolor{moje}{rat-expt} 10 (\textcolor{matematicke}{-} (\textcolor{matematicke}{abs} eps)))))
+  (\textcolor{funkcionalni}{funcall} tnum (\textcolor{matematicke}{rationalize} eps)))
+\end{lispcode}
+
+Zatímco tedy pro převod z čísla na tnum jsme toto mohli udělat pro všechna čísla, opačným směrem toto funguje pouze za předpokladu, že daný tnum existuje. V našem systému teď máme jen tnumy pro racionální čísla a umíme je převádět tam a zpět. V dalším textu tedy půjde hlavně o to zaplnit tuto mezeru a přinést existenci co nejvíce tnumů.
+
+\subsection{Ludolfovo číslo}
+Prvním iracionálním číslem, které do knihovny přidáme je číslo Ludolfovo.
+
+\begin{definition}[Ludolfovo číslo \cite{piratio}]
+Ludolfovým číslem myslíme poměr obvodu kružnice k jejímu průměru.
+\end{definition}
+
+Ludolfovo číslo je asi nejslavnější transcendentní konstanta a proto není divu, že pro její vyčíslení existuje bezpočet vzorců. Asi nejpřímější je Leibnizův vzorec, který vypočítává čtvrtinu Ludolfova čísla a plyne z Taylorovy řady funkce arctan v bodě 1. Pokud Ludolfovo číslo značím $\pi$, pak ho lze zapsat jako $\pi=4\sum_{n\in\mathbb{N}}\frac{(-1)^n}{2n+1}$ \cite{approxpi}, tato řada ale konverguje velmi pomalu. Já proto použiji aproximaci jinou. Tento vzorec se jmenuje BBP podle svých tvůrců (Bailey, Borwein, Plouffe) a je zapsán ve formě řady.
+
+\begin{fact}[Ludolfovo číslo jako řada \cite{BBP}]
+Nechť $\pi$ značí Ludolfovo číslo. Pak jej lze zapsat jako
+\begin{equation}
+\pi=\sum_{i\in\mathbb{N}}\frac{1}{16^i}\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right).
+\end{equation}
+\end{fact}
+
+Mám tedy řadu, která generuje konstantu, kterou chci přidat do \texttt{tnums}. Výraz $\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right)$ je pro $i>0$ menší než jedna, proto se každý nenultý člen může zhora omezit $\frac{1}{16^i}$ a to je geometrická posloupnost, jejíž zbytek je dle faktu \ref{vet:o_zbytku_geometricke_rady} roven $\frac{1}{16^{i+1}}*\frac{16}{15}$, což je $\frac{1}{16^i*15}$. Platí tedy
+
+\begin{equation}
+\left|\pi - \sum_{i=0}^n\frac{1}{16^i}\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right) \right| \leq \frac{1}{16^n*15}.
+\end{equation}
+
+Kód vypadá trochu složitěji, ale není to nic jiného, než co bylo právě popsáno. Nižší čitelnost je zde vykoupena vyšší efektivitou a protože je vyčíslování $\pi$ jedna z nejdůležitějších funkcionalit, rozhodl jsem se ji zavést takto efektivně, ač na úkor čitelnosti.
+
+\begin{lispcode}{\texttt{tnum-pi}}{Funkce na vytvoření $\mathcal{T}^\pi$}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-pi} ()
+  (\textcolor{funkcionalni}{lambda} (eps)
+    (\textcolor{vedlejsi}{let*} ((n 0) (/16pown 0) (result 0) (above 1))
+      (\textcolor{funkcionalni}{loop} 
+        \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} above eps)
+        \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
+          (\textcolor{vedlejsi}{setf} /16pown (\textcolor{moje}{rat-expt} 16 (\textcolor{matematicke}{-} n)))
+          (\textcolor{vedlejsi}{incf} result
+            (\textcolor{matematicke}{*} /16pown
+              (\textcolor{matematicke}{-} (\textcolor{matematicke}{/} 4 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 1))
+                (\textcolor{matematicke}{/} 2 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 4))
+                (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 5))
+                (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 6)))))
+          (\textcolor{vedlejsi}{setf} above (\textcolor{matematicke}{/} /16pown 15))
+          (\textcolor{vedlejsi}{incf} n))
+        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result)))))
+\end{lispcode}
+
+\subsection{Přenásobování numem}
+
+Posledním dílkem, který přidám v této kapitole je přenásobování tnumu konstantou. Když už máme všechna racionální čísla a Ludolfovo číslo, zvládneme pak i například $2\pi$ nebo $\frac{\pi}{-2}$.
+
+\begin{theorem}[O přenásobení tnumu racionální konstantou]
+Pro racionální konstantu $c$, reálné $x$ a jeho tnum platí 
+\begin{equation}
+\mathcal{T}^{c*x}(\varepsilon)=\begin{cases}c*\mathcal{T}^{x}\left(\frac{\varepsilon}{|c|}\right) & \text{pro~}c\not = 0\\\mathcal{T}^0&\text{jinak}\end{cases}
+\end{equation}
+\begin{proof}
+Pokud přenásobíme tnum nulou, je výsledkem nula, protože je to agresivní prvek vůči násobení. Znění věty pro nenulovou konstantu dokážeme tak, že z předpokladu $|\mathcal{T}^{x}(\varepsilon)-x|\leq\varepsilon$ odvodíme $|c*\mathcal{T}^{x}(\frac{\varepsilon}{|c|})-c*x|\leq\varepsilon$. Protože pracujeme s nerovnicemi, budeme v důkazu postupovat dvěmi větvemi -- pro $c$ kladné a záporné.
+
+Z definice tnumu předpokládáme
+\begin{equation}
+|\mathcal{T}^{x}(\varepsilon)-x|\leq\varepsilon,
+\end{equation}
+po přenásobení kladným $c>0$ dostáváme
+\begin{equation}
+c*|\mathcal{T}^{x}(\varepsilon)-x|\leq c*\varepsilon,
+\end{equation}
+protože je ale $c$ kladné, můžu jím absolutní hodnotu roznásobit
+\begin{equation}
+|c*\mathcal{T}^{x}(\varepsilon)-c*x|\leq c*\varepsilon,
+\end{equation}
+a protože na pravé straně potřebuji přesnost $\varepsilon$, v argumentu ji podělím $c$ a pak
+\begin{equation}
+\left|c*\mathcal{T}^{x}\left(\frac{\varepsilon}{c}\right)-c*x\right|\leq \varepsilon.
+\end{equation}
+Pro zápornou konstantu je běh důkazu podobný a protože jako argument tnumů bereme kladné číslo, přibývý v děliteli v argumentu tnumu ještě absolutní hodnota. Dohromady pak získáváme
+\begin{equation}
+\left|c*\mathcal{T}^{x}\left(\frac{\varepsilon}{|c|}\right)-c*x\right|\leq\varepsilon,
+\end{equation}
+což jsme chtěli ukázat.
+\end{proof}
+\end{theorem}
+
+\begin{lispcode}{\texttt{tnum*num}}{Funkce přenásobující tnum racionální konstantou}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum*num} (tnum num)
+  (\textcolor{vedlejsi}{let} ((rat_num (\textcolor{matematicke}{rationalize} num)))
+    (\textcolor{funkcionalni}{lambda} (eps)
+      (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} num)
+        (\textcolor{moje}{num-to-tnum} 0)
+        (\textcolor{matematicke}{*} (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{abs} rat_num))) rat_num)))))
+\end{lispcode}
+
+\begin{consequence}[Opačný tnum]\label{dusl:negace_tnumu}
+\begin{equation}
+\mathcal{T}^{-x}(\varepsilon)=-\mathcal{T}^x(\varepsilon)
+\end{equation}
+\begin{proof}
+Protože $-x = (-1)x$ a $|-1|=1$, pak podle přechozí věty dostáváme $\mathcal{T}^{-x}(\varepsilon) = \mathcal{T}^{(-1)x}(\varepsilon)=(-1)\mathcal{T}^{x}(\frac{\varepsilon}{|-1|})=(-1)\mathcal{T}^{x}(\frac{\varepsilon}{1})=(-1)\mathcal{T}^{x}(\varepsilon)=-\mathcal{T}^{x}(\varepsilon)$.
+\end{proof}
+\end{consequence}
+
+\begin{lispcode}{\texttt{-tnum}}{Funkce pro opačný tnum}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{-tnum} (tnum)
+  (\textcolor{moje}{tnum*num} tnum (\textcolor{matematicke}{-} 1)))
+\end{lispcode}
+

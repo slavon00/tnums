@@ -1,0 +1,161 @@
+\documentclass[
+master=false,
+field=inf,
+encoding=utf8,
+language=czech,
+printversion=false,]{kidiplom}
+
+\definecolor{funkcionalni}{RGB}{0,0,100}
+\definecolor{pojmenovan}{RGB}{0,100,0}
+\definecolor{vedlejsi}{RGB}{100,0,0}
+\definecolor{matematicke}{RGB}{100,0,50}
+\definecolor{moje}{RGB}{0,50,50}
+\definecolor{lightlightgray}{gray}{.875}
+\definecolor{lightpink}{RGB}{255,233,233}
+\definecolor{obarvi}{RGB}{59,55,20}
+\definecolor{lightlightblue}{RGB}{245,251,255}
+\newcounter{lispcodecnt}
+
+\setcounter{section}{-1}
+
+\declaretheoremstyle[
+headfont=\normalfont\bfseries,
+notebraces={(}{)},
+headpunct={:}]{mystyle}
+
+\declaretheorem[name=Lispový kód, style=mystyle]{lispcodethm}
+
+\newenvironment{lispcode}[2]
+{\def\firstarg{#1}
+\def\secondarg{#2}
+\VerbatimEnvironment
+\begin{mdframed}[backgroundcolor=lightlightgray]
+\begin{Verbatim}[commandchars=\\\{\}, numbers=left]}
+{\end{Verbatim}
+\end{mdframed}
+%\vspace{-.92\baselineskip}
+\begin{center}
+\noindent\begin{minipage}[c]{.9\linewidth}
+\begin{lispcodethm}[\firstarg]
+\textit{\secondarg}
+\end{lispcodethm}
+\end{minipage}
+\end{center}}
+
+\declaretheorem[name=Lispový test, style=mystyle]{lispcodetest}
+
+\newenvironment{myfigure}[1]{\begin{figure}[#1]\begin{mdframed}[backgroundcolor=lightlightblue,innertopmargin=-2.5pt,innerbottommargin=2.5pt]}{\end{mdframed}\end{figure}}
+
+\newenvironment{lisptest}[2]
+{\def\firstarg{#1}
+\def\secondarg{#2}
+\VerbatimEnvironment
+\begin{mdframed}[backgroundcolor=lightlightgray]
+\begin{Verbatim}[commandchars=\\\{\}, numbers=left]}
+{\end{Verbatim}
+\end{mdframed}
+%\vspace{-.92\baselineskip}
+\begin{center}
+\noindent\begin{minipage}[c]{.9\linewidth}
+\begin{lispcodetest}[\firstarg]\textit{\secondarg}
+\end{lispcodetest}
+\end{minipage}
+\end{center}}
+
+\title{Přesné výpočty s reálnými čísly}
+\title[english]{Precise computation of real numbers}
+
+\author{Ondřej Slavík}
+\supervisor{doc. RNDr. Michal Krupka, Ph.D.}
+
+\annotation{Fenomén vyčíslitelnosti reálných čísel provází každého informatika, který se někdy snažil používat počítač k počítání. Jakmile se totiž musíme spolehnout na výpočty s čísly uloženými jako hodnoty, narážíme na limity přesnosti a rozsahu takto reprezentovaných čísel. Řešením není spřesňování pomocí vyšší dotace paměťového prostoru (např. binary32 $\rightarrow$ binary64) a související změna architektury systému, nýbrž fundamentální změna v přístupu k vyčíselní reálných čísel. Tato práce dává návod, jak takovýto přístup přijmout a přináší knihovnu, která základní výpočty a vyčíslení reálných čísel umožňuje.}
+
+\annotation[english]{The Real Numbers' computation phenomenon meets every single computer scientist trying to use computer to compute. When one needs to trust to calculations of numbers saved with their values, the limitations of these numbers' precisivity and range appear. The solution is not to assign more memory (e.g. binary32 $\rightarrow$ binary64) and linked swap of system's architecture but fundamental switch in approach to real numbers' computatuons. The Work gives a guideline how to admit the access and brings library providing basic real numbers' enumeration and calculation.}
+
+\keywords{reálná čísla, funkce, Lisp, líné vyhodnocování, libovolná přesnost}
+\keywords[english]{real numbers, functions, Lisp, lazy evaluation, arbitrary precision}
+
+\thanks{Mockrát děkuji doc. RNDr. Michalu Krupkovi, Ph.D. za vedení práce a rodině za podporu.}
+
+\makeatletter
+\AtBeginDocument{%
+\@ifpackageloaded{amsthm}%
+ {%
+  \renewrobustcmd\mdf@patchamsthm{%
+   \chardef\kludge@catcode@hyphen=\catcode`\-
+   \catcode`\-=12
+   \let\mdf@deferred@thm@head\deferred@thm@head
+   \pretocmd{\deferred@thm@head}{\@inlabelfalse}%
+      {\mdf@PackageInfo{mdframed detected package amsthm ^^J%
+                        changed the theorem header of amsthm\MessageBreak}%
+      }{%
+       \mdf@PackageError{mdframed detected package amsthm ^^J%
+                         changed the theorem header of amsthm
+                         failed\MessageBreak}%
+       }%
+   \catcode`\-=\kludge@catcode@hyphen
+     }%
+ }{}%
+}
+\makeatother
+
+\newcommand{\mypart}{\newpage\part}
+
+\begin{document}
+\setcounter{tocdepth}{3}
+\maketitle
+\section{Úvod}
+\input{uvod.tex}
+\mypart{Teorie}
+V teoretické části se podíváme na axiomatickou teorii množin a poté naznačíme, jak se z ní dají vytvořit čísla. Zjistíme, že čísla jsou množinami. Poté se stručně podíváme na matematické operace a matematické funkce. Zjistíme, že jakékoli číslo lze vyjádřit jako funkci a že funkce je také množina. Poté se zaměříme na uložení čísla v paměti počítače, která je z fyzikální podstaty konečná. Nejprve jako intelektuální cvičení a poté jako reálně existující knihovny.
+\section{Čísla}
+\input{cisla.tex}	
+\clearpage
+\section{Čísla v počítači}
+\input{cisla_v_pocitaci.tex}
+\mypart{Implementace}
+V implementační části propojíme teoreticky orientované výsledky s aplikovaným aspektem a dáme vzniknout knihovně \texttt{tnums}. Jak jsem napsal výše, všechna čísla i manipulaci s nimi lze vyjádřit jako funkce. Nejpřímější aplikace tohoto poznání tedy vede k užití funkcionálního paradigmatu. Jako jeho zástupce byl vedoucím práce zvolen Lisp. Nejprve se podíváme na jednoduché převody mezi reprezentacemi v Lispu a tnumy, poté se podíváme na matematické operace tnumů a nakonec také na matematické funkce tnumů.
+\section{Tnumy}
+\input{tnumy.tex}
+\clearpage
+\section{Operace tnumů}
+\input{operace_tnumu.tex}
+\clearpage
+\section{Funkce tnumů}
+\input{funkce_tnumu.tex}
+\mypart{Rozhraní}
+V uživatelské části pojednám o vlastním používání knihovny \texttt{tnums}. Nejprve zkusíme převádět čísla mezi interními reprezentacemi Lispu a tnumů. Poté se podíváme, jak se používají matematické operace a poté spočítáme nějaké matematické funkce. Také ještě několik funkcí doprogramujeme, ale nezávisle na vnitřní implementaci tnumů. Nakonec se podíváme na nedostatky knihovny a její výhled jak v oblasti rozšiřování funkcionality, tak na poli zvyšování efektivity.
+\section{Uživatelské funkce}
+\input{uzivatelske_funkce.tex}
+\clearpage
+\section{Perspektiva}
+\input{perspektiva.tex}
+\begin{kiconclusions}
+Popsal jsem, jak jsou vytvořena přirozená čísla pomocí teorie množin, také jak na tomto základě vznikají další číselné obory. Dále jsem popsal, jak se s \textbf{čísly} pracuje v paměti v počítače.
+
+Také bylo zmíněno, že číselná osa je tvořena \textbf{reálnými čísly} a pokud použijeme více os, dostáváme strukturovaná čísla. Zamysleli jsme se, jestli jsou všechna reálná čísla rekurzivní a bohužel jsme dostali negativní odpověď.
+
+Představil jsem, jak vypadají \textbf{výpočty s reálnými čísly}. Kromě matematických operací to byly matematické funkce. Zjistili jsme, že všechny tyto výpočty, včetně samotných reálných konstant lze reprezentovat jako funkce.
+
+V textu jsme se věnovali i produktu celého tohoto snažení a sice programování Lispovské knihovny \texttt{tnums} implementující \textbf{přesné výpočty s reálnými čísly}. Také jsem přinesl několik příkladů, jak uživatelsky funkcionalitu rozšiřovat.
+\end{kiconclusions}
+\begin{kiconclusions}[english]
+I have described how natural numbers are created using set theory, as well as on this basis, other numerical fields are created. I also described how to deal with \textbf{numbers} in memory on a computer.
+
+It was also mentioned that the numerical axis is made up of \textbf{real numbers} and if we use more axes, we get structured numbers. We wondered if they were all there real numbers computable and unfortunately we got a negative answer.
+
+I introduced what \textbf{real numbers' computation} look like. In addition to mathematical operations there were mathematical functions. We found that all these calculations, including the real constants themselves, can be represented as functions.
+
+In the text, we also focused on the product of all this effort, namely programming Lisp \texttt{tnums} library implementing \textbf{precise real numbers' computation}.
+
+I also brought some examples of how user can extend functionality.
+\end{kiconclusions}
+\clearpage
+\printbibliography[heading=bibintoc, title={Seznam literatury}]
+\appendix
+\section{Některé důkazy}\label{pril:dukazy}
+\input{dukazy.tex}
+\clearpage
+\section{Obsah přiloženého CD/DVD}\label{pril:adresar}
+\input{obsah.tex}
+\end{document}

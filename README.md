@@ -4,6 +4,13 @@ Tnums (True Numbers) provide arbitrary precission computation of real numbers. I
 
 After building a structure corresponding with the number, it can be represented as ratio using the function `tnum-to-num`. This does not coerce to floating numbers, but is as precise as you wish. The result can be used in other functions as a number, so that one does not need to copy-paste this.
 
+## Running
+Open you favourite LISP compilator and evaluate file `load.lisp`. For example in my SBCL I can navigate to the project folder and type
+
+    (load "load.lisp")
+
+and that is it. In GUI editors with in-built interpreteurs (LispWorks etc.) you can just open the file and evaluate it by clicking.
+
 ## Usage
 As said above, the computing of numbers is made in two steps:
 1. Building a tnum (this is fast and lazy)

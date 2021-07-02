@@ -1,2 +1,2 @@
-(and (load "tnums.lisp") 
-    (load "user-functions.lisp"))
+(and (load "src/tnums.lisp") 
+    (load "src/user-functions.lisp"))

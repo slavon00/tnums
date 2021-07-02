@@ -1,0 +1,1238 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{wiki:cislo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3c7397097589523a75bc738d5ffeea4b}{%
+           family={{Přispěvatelé Wikipedie}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wikipedie: Otevřená encyklopedie}%
+      }
+      \strng{namehash}{3c7397097589523a75bc738d5ffeea4b}
+      \strng{fullhash}{3c7397097589523a75bc738d5ffeea4b}
+      \strng{bibnamehash}{3c7397097589523a75bc738d5ffeea4b}
+      \strng{authorbibnamehash}{3c7397097589523a75bc738d5ffeea4b}
+      \strng{authornamehash}{3c7397097589523a75bc738d5ffeea4b}
+      \strng{authorfullhash}{3c7397097589523a75bc738d5ffeea4b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Číslo}
+      \field{urlday}{21}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cs.wikipedia.org/w/index.php?title=\%C4\%8C\%C3\%ADslo&oldid=19341576
+      \endverb
+      \verb{url}
+      \verb https://cs.wikipedia.org/w/index.php?title=%5C%C4%5C%8C%5C%C3%5C%ADslo&oldid=19341576
+      \endverb
+    \endentry
+    \entry{TtLG}{book}{}
+      \name{author}{1}{}{%
+        {{hash=158abe6a41d884d94cb4683cee47d48b}{%
+           family={Carroll},
+           familyi={C\bibinitperiod},
+           given={Lewis},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Praha}%
+      }
+      \list{publisher}{1}{%
+        {Městská knihovna v Praze}%
+      }
+      \strng{namehash}{158abe6a41d884d94cb4683cee47d48b}
+      \strng{fullhash}{158abe6a41d884d94cb4683cee47d48b}
+      \strng{bibnamehash}{158abe6a41d884d94cb4683cee47d48b}
+      \strng{authorbibnamehash}{158abe6a41d884d94cb4683cee47d48b}
+      \strng{authornamehash}{158abe6a41d884d94cb4683cee47d48b}
+      \strng{authorfullhash}{158abe6a41d884d94cb4683cee47d48b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{978-80-7602-231-7}
+      \field{title}{Alenka v kraji divů a za zrcadlem}
+      \field{year}{2018}
+    \endentry
+    \entry{LambdaCalcul}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c1877dc945cc34c8614fc465f3667c5b}{%
+           family={Rojas},
+           familyi={R\bibinitperiod},
+           given={Raul},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Freie Universität}%
+      }
+      \strng{namehash}{c1877dc945cc34c8614fc465f3667c5b}
+      \strng{fullhash}{c1877dc945cc34c8614fc465f3667c5b}
+      \strng{bibnamehash}{c1877dc945cc34c8614fc465f3667c5b}
+      \strng{authorbibnamehash}{c1877dc945cc34c8614fc465f3667c5b}
+      \strng{authornamehash}{c1877dc945cc34c8614fc465f3667c5b}
+      \strng{authorfullhash}{c1877dc945cc34c8614fc465f3667c5b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Tutorial Introduction to the Lambda Calculus}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/tutorials/lambda.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/tutorials/lambda.pdf
+      \endverb
+    \endentry
+    \entry{TeMno}{book}{}
+      \name{author}{2}{}{%
+        {{hash=bda1f5c597f0e2613f1bf002d1194d69}{%
+           family={Balcar},
+           familyi={B\bibinitperiod},
+           given={Bohuslav},
+           giveni={B\bibinitperiod}}}%
+        {{hash=6316e8c20dafa4f948d9b34960b1671f}{%
+           family={Štěpánek},
+           familyi={Š\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Praha}%
+      }
+      \list{publisher}{1}{%
+        {Academia, nakladatelství AV ČR}%
+      }
+      \strng{namehash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \strng{fullhash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \strng{bibnamehash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \strng{authorbibnamehash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \strng{authornamehash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \strng{authorfullhash}{0eb49b319ac0ce072d4be0009154a4b4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2., opravené a rozšířené}
+      \field{isbn}{80-200-0470-X}
+      \field{title}{Teorie množin}
+      \field{year}{2001}
+    \endentry
+    \entry{OEIS:integer}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f37ed451e694e30a11d54cb6bfc22894}{%
+           family={Sloane},
+           familyi={S\bibinitperiod},
+           given={Neil\bibnamedelimb James\bibnamedelima Alexander},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f37ed451e694e30a11d54cb6bfc22894}
+      \strng{fullhash}{f37ed451e694e30a11d54cb6bfc22894}
+      \strng{bibnamehash}{f37ed451e694e30a11d54cb6bfc22894}
+      \strng{authorbibnamehash}{f37ed451e694e30a11d54cb6bfc22894}
+      \strng{authornamehash}{f37ed451e694e30a11d54cb6bfc22894}
+      \strng{authorfullhash}{f37ed451e694e30a11d54cb6bfc22894}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Canonical enumeration of integers: interleaved positive and negative integers with zero prepended}
+      \field{title}{A001057}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://oeis.org/A001057
+      \endverb
+      \verb{url}
+      \verb https://oeis.org/A001057
+      \endverb
+    \endentry
+    \entry{SPIVAK:calculus}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ee3293a9c2577bc8e7bb84e4d67e85c5}{%
+           family={Spivak},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Houston}%
+      }
+      \list{publisher}{1}{%
+        {Publish or Perish}%
+      }
+      \strng{namehash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \strng{fullhash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \strng{bibnamehash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \strng{authorbibnamehash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \strng{authornamehash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \strng{authorfullhash}{ee3293a9c2577bc8e7bb84e4d67e85c5}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{edition}{3}
+      \field{isbn}{9780521867443}
+      \field{year}{2006}
+    \endentry
+    \entry{tabulky}{book}{}
+      \name{author}{4}{}{%
+        {{hash=87b6aa82bf27268f26ea7d83729fb2ed}{%
+           family={Mikulčák},
+           familyi={M\bibinitperiod},
+           given={Jiří},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a1ea784b01c74cde548b6fe832dc46ef}{%
+           family={Charvát},
+           familyi={C\bibinitperiod},
+           given={Jura},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f53e5e4a9dfae596a23030897041d0fb}{%
+           family={Macháček},
+           familyi={M\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b3026550ec3b6d5f6ec4026818e7ddf5}{%
+           family={Zemánek},
+           familyi={Z\bibinitperiod},
+           given={František},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Havlíčkův brod}%
+      }
+      \list{publisher}{1}{%
+        {Prometheus}%
+      }
+      \strng{namehash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \strng{fullhash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \strng{bibnamehash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \strng{authorbibnamehash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \strng{authornamehash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \strng{authorfullhash}{9be002eb11f959bf1a6ffc79d89a01ec}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{9788071962649}
+      \field{title}{Matematické, fyzikální a chemické tabulky a vzorce pro střední školy}
+      \field{year}{2012}
+    \endentry
+    \entry{TeCis}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c8623ddf9ba9e57862c145c70c067afd}{%
+           family={Halaš},
+           familyi={H\bibinitperiod},
+           given={Radomír},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Olomouc}%
+      }
+      \list{publisher}{1}{%
+        {Univerzita Palackého}%
+      }
+      \strng{namehash}{c8623ddf9ba9e57862c145c70c067afd}
+      \strng{fullhash}{c8623ddf9ba9e57862c145c70c067afd}
+      \strng{bibnamehash}{c8623ddf9ba9e57862c145c70c067afd}
+      \strng{authorbibnamehash}{c8623ddf9ba9e57862c145c70c067afd}
+      \strng{authornamehash}{c8623ddf9ba9e57862c145c70c067afd}
+      \strng{authorfullhash}{c8623ddf9ba9e57862c145c70c067afd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2., upravené}
+      \field{isbn}{978-80-244-4068-2}
+      \field{title}{Teorie čísel}
+      \field{year}{2014}
+    \endentry
+    \entry{wiki:CompN}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1890598e81a8ac330faf8049c123312d}{%
+           family={{Přispěvatelé wikipedie}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wikipedie: Otevřená encyklopedie}%
+      }
+      \strng{namehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{fullhash}{1890598e81a8ac330faf8049c123312d}
+      \strng{bibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorbibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Computable number}
+      \field{urlday}{3}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Computable_number&oldid=997421913
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Computable_number&oldid=997421913
+      \endverb
+    \endentry
+    \entry{DAaQT}{online}{}
+      \name{author}{1}{}{%
+        {{hash=77c130b1ed4688a565b29481eee08ae3}{%
+           family={Baez},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{77c130b1ed4688a565b29481eee08ae3}
+      \strng{fullhash}{77c130b1ed4688a565b29481eee08ae3}
+      \strng{bibnamehash}{77c130b1ed4688a565b29481eee08ae3}
+      \strng{authorbibnamehash}{77c130b1ed4688a565b29481eee08ae3}
+      \strng{authornamehash}{77c130b1ed4688a565b29481eee08ae3}
+      \strng{authorfullhash}{77c130b1ed4688a565b29481eee08ae3}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Division Algebras and Quantum Theory}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/1101.5690.pdf
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/1101.5690.pdf
+      \endverb
+    \endentry
+    \entry{Operations}{online}{}
+      \name{author}{2}{}{%
+        {{hash=159a7b20dfbbcd80c77c77cf0db5f9f3}{%
+           family={Rubstov},
+           familyi={R\bibinitperiod},
+           given={Constantin\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=293af03aa25bc1c9098736f1231d659f}{%
+           family={Romerio},
+           familyi={R\bibinitperiod},
+           given={Giovanni\bibnamedelima F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{0ec2050d5aebff33b818e571ec793f53}
+      \strng{fullhash}{0ec2050d5aebff33b818e571ec793f53}
+      \strng{bibnamehash}{0ec2050d5aebff33b818e571ec793f53}
+      \strng{authorbibnamehash}{0ec2050d5aebff33b818e571ec793f53}
+      \strng{authornamehash}{0ec2050d5aebff33b818e571ec793f53}
+      \strng{authorfullhash}{0ec2050d5aebff33b818e571ec793f53}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ackerman’s Function and New Arithmetical Operations}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2004}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.rotarysaluzzo.it/Z_Vecchio_Sito/filePDF/Iperoperazioni\%20(1).pdf
+      \endverb
+      \verb{url}
+      \verb http://www.rotarysaluzzo.it/Z_Vecchio_Sito/filePDF/Iperoperazioni%5C%20(1).pdf
+      \endverb
+    \endentry
+    \entry{EPJVMAI}{book}{}
+      \name{author}{2}{}{%
+        {{hash=62545e07e9d2561744678bbf84d0f48b}{%
+           family={Pelantová},
+           familyi={P\bibinitperiod},
+           given={Edita},
+           giveni={E\bibinitperiod}}}%
+        {{hash=ebc1ff74ce6e3acc5a6fd8e6ed477e26}{%
+           family={Vondráčková},
+           familyi={V\bibinitperiod},
+           given={Jana},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Praha}%
+      }
+      \list{publisher}{1}{%
+        {České vysoké učení technické}%
+      }
+      \strng{namehash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \strng{fullhash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \strng{bibnamehash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \strng{authorbibnamehash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \strng{authornamehash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \strng{authorfullhash}{21a5bc236c0b66577eeeb97a952d70a8}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Matematická analýza I}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb http://km.fjfi.cvut.cz/ma/data/uploads/skripta-matematicka-analyza-1.pdf
+      \endverb
+      \verb{url}
+      \verb http://km.fjfi.cvut.cz/ma/data/uploads/skripta-matematicka-analyza-1.pdf
+      \endverb
+    \endentry
+    \entry{RachALG1}{book}{}
+      \name{author}{2}{}{%
+        {{hash=60dcd81e6f590b7de8c301b63cde38b3}{%
+           family={Hort},
+           familyi={H\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6bf23ddc77fbd83ea639b386e2b82abb}{%
+           family={Rachůnek},
+           familyi={R\bibinitperiod},
+           given={Jiří},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Olomouc}%
+      }
+      \list{publisher}{1}{%
+        {Univerzita Palackého}%
+      }
+      \strng{namehash}{92af1df49a6b521d00791da85c86acdf}
+      \strng{fullhash}{92af1df49a6b521d00791da85c86acdf}
+      \strng{bibnamehash}{92af1df49a6b521d00791da85c86acdf}
+      \strng{authorbibnamehash}{92af1df49a6b521d00791da85c86acdf}
+      \strng{authornamehash}{92af1df49a6b521d00791da85c86acdf}
+      \strng{authorfullhash}{92af1df49a6b521d00791da85c86acdf}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra 1}
+      \field{year}{2003}
+    \endentry
+    \entry{DK:DPFJP}{online}{}
+      \name{author}{2}{}{%
+        {{hash=b5c92874969c858ae82310a594f58307}{%
+           family={Došlá},
+           familyi={D\bibinitperiod},
+           given={Zuzana},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=a17003c6ff09f8c19fe4551f4a43b40e}{%
+           family={Kuben},
+           familyi={K\bibinitperiod},
+           given={Jaromír},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Brno}%
+      }
+      \list{publisher}{1}{%
+        {Masarykova univerzita}%
+      }
+      \strng{namehash}{33fe1fda40a222c4d92525a6575862b5}
+      \strng{fullhash}{33fe1fda40a222c4d92525a6575862b5}
+      \strng{bibnamehash}{33fe1fda40a222c4d92525a6575862b5}
+      \strng{authorbibnamehash}{33fe1fda40a222c4d92525a6575862b5}
+      \strng{authornamehash}{33fe1fda40a222c4d92525a6575862b5}
+      \strng{authorfullhash}{33fe1fda40a222c4d92525a6575862b5}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{80-210-3121-2}
+      \field{title}{Diferenciální počet funkcí jedné proměnné}
+      \field{year}{2004}
+    \endentry
+    \entry{ZDVNNR}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b5c92874969c858ae82310a594f58307}{%
+           family={Došlá},
+           familyi={D\bibinitperiod},
+           given={Zuzana},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=bbb8e052803b16f7ce27b2a90ea3cf1b}{%
+           family={Novák},
+           familyi={N\bibinitperiod},
+           given={Vítězslav},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Brno}%
+      }
+      \list{publisher}{1}{%
+        {Masarykova univerzita}%
+      }
+      \strng{namehash}{25e61e01dc13989617fe5ad0dfac442d}
+      \strng{fullhash}{25e61e01dc13989617fe5ad0dfac442d}
+      \strng{bibnamehash}{25e61e01dc13989617fe5ad0dfac442d}
+      \strng{authorbibnamehash}{25e61e01dc13989617fe5ad0dfac442d}
+      \strng{authornamehash}{25e61e01dc13989617fe5ad0dfac442d}
+      \strng{authorfullhash}{25e61e01dc13989617fe5ad0dfac442d}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{80-210-1949-2}
+      \field{title}{Nekonečné řady}
+      \field{year}{2002}
+    \endentry
+    \entry{KepOS}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f61020ca200cbc57bcb3d9fe9c509eeb}{%
+           family={Keprt},
+           familyi={K\bibinitperiod},
+           given={Aleš},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Olomouc}%
+      }
+      \list{publisher}{1}{%
+        {Univerzita Palackého}%
+      }
+      \strng{namehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \strng{fullhash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \strng{bibnamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \strng{authorbibnamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \strng{authornamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \strng{authorfullhash}{f61020ca200cbc57bcb3d9fe9c509eeb}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Operační systémy}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://phoenix.inf.upol.cz/esf/ucebni/OpSys.pdf
+      \endverb
+      \verb{url}
+      \verb https://phoenix.inf.upol.cz/esf/ucebni/OpSys.pdf
+      \endverb
+    \endentry
+    \entry{Knu02}{book}{}
+      \name{author}{1}{}{%
+        {{hash=16ba958eaf56fad580491eef4f771cee}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima Ervin},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Brno}%
+      }
+      \list{publisher}{1}{%
+        {Computer Press}%
+      }
+      \strng{namehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{fullhash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{bibnamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authorbibnamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authornamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authorfullhash}{16ba958eaf56fad580491eef4f771cee}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{978-80-251-2898-5}
+      \field{subtitle}{Seminumerické algoritmy}
+      \field{title}{Umění programování. 2. díl}
+      \field{year}{2010}
+    \endentry
+    \entry{wiki:float}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1890598e81a8ac330faf8049c123312d}{%
+           family={{Přispěvatelé wikipedie}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wikipedie: Otevřená encyklopedie}%
+      }
+      \strng{namehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{fullhash}{1890598e81a8ac330faf8049c123312d}
+      \strng{bibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorbibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
+      \field{extraname}{2}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Single-precision floating-point format}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Single-precision_floating-point_format&oldid=1005180810
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Single-precision_floating-point_format&oldid=1005180810
+      \endverb
+    \endentry
+    \entry{wiki:file:binary32}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fdd2f61af59ed2a44fd676d9fe00190b}{%
+           family={{Stannered}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wikimedia Commons}%
+      }
+      \strng{namehash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \strng{fullhash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \strng{bibnamehash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \strng{authorbibnamehash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \strng{authornamehash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \strng{authorfullhash}{fdd2f61af59ed2a44fd676d9fe00190b}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{Dostupný pod licencí CC BY-SA 3.0}
+      \field{title}{Binary representation of a 32-bit floating-point number}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2008}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg
+      \endverb
+      \verb{url}
+      \verb https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg
+      \endverb
+    \endentry
+    \entry{wiki:LD}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1890598e81a8ac330faf8049c123312d}{%
+           family={{Přispěvatelé wikipedie}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wikipedie: Otevřená encyklopedie}%
+      }
+      \strng{namehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{fullhash}{1890598e81a8ac330faf8049c123312d}
+      \strng{bibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorbibnamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
+      \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
+      \field{extraname}{3}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Long double}
+      \field{urlday}{18}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Long_double&oldid=1003717804
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Long_double&oldid=1003717804
+      \endverb
+    \endentry
+    \entry{mpmath}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=6c4a804ce0589508eaff59d8f0f68a20}{%
+           family={Johansson},
+           familyi={J\bibinitperiod},
+           given={Fredrik\bibnamedelimb a\bibnamedelima kol.},
+           giveni={F\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim k\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \strng{fullhash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \strng{bibnamehash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \strng{authorbibnamehash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \strng{authornamehash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \strng{authorfullhash}{6c4a804ce0589508eaff59d8f0f68a20}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{subtitle}{a Python library for arbitrary-precision floating-point arithmetic}
+      \field{title}{mpmath}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mpmath.org
+      \endverb
+      \verb{url}
+      \verb http://mpmath.org
+      \endverb
+    \endentry
+    \entry{jscience}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=577c772e504efcfcc6e0b45594b8de24}{%
+           family={Dautelle},
+           familyi={D\bibinitperiod},
+           given={Jean-Marie},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub.io}%
+      }
+      \strng{namehash}{577c772e504efcfcc6e0b45594b8de24}
+      \strng{fullhash}{577c772e504efcfcc6e0b45594b8de24}
+      \strng{bibnamehash}{577c772e504efcfcc6e0b45594b8de24}
+      \strng{authorbibnamehash}{577c772e504efcfcc6e0b45594b8de24}
+      \strng{authornamehash}{577c772e504efcfcc6e0b45594b8de24}
+      \strng{authorfullhash}{577c772e504efcfcc6e0b45594b8de24}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Tools \& Libraries for the Advancement of Sciences}
+      \field{title}{jscience}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/javolution/jscience
+      \endverb
+      \verb{url}
+      \verb https://github.com/javolution/jscience
+      \endverb
+    \endentry
+    \entry{wiki:gmp}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=2b87a9e692bb7dff9525d9e6d83292ac}{%
+           family={Granlund},
+           familyi={G\bibinitperiod},
+           given={Torbjörn\bibnamedelimb a\bibnamedelima kol.},
+           giveni={T\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim k\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \strng{fullhash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \strng{bibnamehash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \strng{authorbibnamehash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \strng{authornamehash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \strng{authorfullhash}{2b87a9e692bb7dff9525d9e6d83292ac}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{The GNU Multiple Precision Arithmetic Library}
+      \field{title}{GNU MP}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://gmplib.org/gmp-man-6.2.1.pdf
+      \endverb
+      \verb{url}
+      \verb https://gmplib.org/gmp-man-6.2.1.pdf
+      \endverb
+    \endentry
+    \entry{wiki:mpfr}{manual}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{The Multiple Precision Floating-Point Reliable Library}
+      \field{title}{GNU MPFR}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mpfr.org/mpfr-current/mpfr.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mpfr.org/mpfr-current/mpfr.pdf
+      \endverb
+    \endentry
+    \entry{wiki:mpir}{manual}{}
+      \name{author}{3}{}{%
+        {{hash=5513cc4d6595d5f20dee545c00b6e70a}{%
+           family={Granlund},
+           familyi={G\bibinitperiod},
+           given={Torbjörn},
+           giveni={T\bibinitperiod}}}%
+        {{hash=980ccea2fb21edaaaefedfa29f991688}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e151fba6391b4770c3a3bcffe491cdc7}{%
+           family={Gladman},
+           familyi={G\bibinitperiod},
+           given={Brian\bibnamedelimb a\bibnamedelima kol.},
+           giveni={B\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim k\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d57df5d659180398852b86c3bbb234d}
+      \strng{fullhash}{3d57df5d659180398852b86c3bbb234d}
+      \strng{bibnamehash}{3d57df5d659180398852b86c3bbb234d}
+      \strng{authorbibnamehash}{3d57df5d659180398852b86c3bbb234d}
+      \strng{authornamehash}{3d57df5d659180398852b86c3bbb234d}
+      \strng{authorfullhash}{3d57df5d659180398852b86c3bbb234d}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{The Multiple Precision Integers and Rationals Library}
+      \field{title}{MPIR}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mpir.org/mpir-3.0.0.pdf
+      \endverb
+      \verb{url}
+      \verb http://mpir.org/mpir-3.0.0.pdf
+      \endverb
+    \endentry
+    \entry{wiki:CLN}{manual}{}
+      \name{author}{2}{}{%
+        {{hash=ac81a6883377e022358bce641cbe6c90}{%
+           family={Haible},
+           familyi={H\bibinitperiod},
+           given={Bruno},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d7486d12337627865834c433d8be4afa}{%
+           family={Kreckel},
+           familyi={K\bibinitperiod},
+           given={Richard\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{a894657f4322ed592ad9fbf54e7d819e}
+      \strng{fullhash}{a894657f4322ed592ad9fbf54e7d819e}
+      \strng{bibnamehash}{a894657f4322ed592ad9fbf54e7d819e}
+      \strng{authorbibnamehash}{a894657f4322ed592ad9fbf54e7d819e}
+      \strng{authornamehash}{a894657f4322ed592ad9fbf54e7d819e}
+      \strng{authorfullhash}{a894657f4322ed592ad9fbf54e7d819e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{a Class Library for Numbers}
+      \field{title}{CLN}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ginac.de/CLN/cln.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ginac.de/CLN/cln.pdf
+      \endverb
+    \endentry
+    \entry{gh:cr}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=e2ade80adbfbfd71f022302debc80b92}{%
+           family={Stoll},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub.io}%
+      }
+      \strng{namehash}{e2ade80adbfbfd71f022302debc80b92}
+      \strng{fullhash}{e2ade80adbfbfd71f022302debc80b92}
+      \strng{bibnamehash}{e2ade80adbfbfd71f022302debc80b92}
+      \strng{authorbibnamehash}{e2ade80adbfbfd71f022302debc80b92}
+      \strng{authornamehash}{e2ade80adbfbfd71f022302debc80b92}
+      \strng{authorfullhash}{e2ade80adbfbfd71f022302debc80b92}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Arbitrary precision, automatic re-computing real numbers in Common Lisp}
+      \field{title}{computable-reals}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/stylewarning/computable-reals
+      \endverb
+      \verb{url}
+      \verb https://github.com/stylewarning/computable-reals
+      \endverb
+    \endentry
+    \entry{lpb:numbers}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e628a0bac74ac10f0c52a0a1aba401fc}{%
+           family={{The Common Lisp Cookbook Project}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GotHub.io}%
+      }
+      \strng{namehash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \strng{fullhash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \strng{bibnamehash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \strng{authorbibnamehash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \strng{authornamehash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \strng{authorfullhash}{e628a0bac74ac10f0c52a0a1aba401fc}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Numbers}
+      \field{title}{The Common Lisp Cookbook}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://lispcookbook.github.io/cl-cookbook/numbers.html
+      \endverb
+      \verb{url}
+      \verb https://lispcookbook.github.io/cl-cookbook/numbers.html
+      \endverb
+    \endentry
+    \entry{PS:PCL}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2c2f121ccb852d836d3aa06800b6fc8d}{%
+           family={Seibel},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Apress}%
+      }
+      \strng{namehash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \strng{fullhash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \strng{bibnamehash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \strng{authorbibnamehash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \strng{authornamehash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \strng{authorfullhash}{2c2f121ccb852d836d3aa06800b6fc8d}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{1590592395}
+      \field{title}{Practical Common Lisp}
+      \field{year}{2005}
+    \endentry
+    \entry{piratio}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e619d088dfcd740618030bc6b83296f5}{%
+           family={Richeson},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dickinson College}%
+      }
+      \strng{namehash}{e619d088dfcd740618030bc6b83296f5}
+      \strng{fullhash}{e619d088dfcd740618030bc6b83296f5}
+      \strng{bibnamehash}{e619d088dfcd740618030bc6b83296f5}
+      \strng{authorbibnamehash}{e619d088dfcd740618030bc6b83296f5}
+      \strng{authornamehash}{e619d088dfcd740618030bc6b83296f5}
+      \strng{authorfullhash}{e619d088dfcd740618030bc6b83296f5}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Circular Reasoning: Who First Proved That $C/d$ Is a Constant?}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2010}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/1303.0904.pdf
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/1303.0904.pdf
+      \endverb
+    \endentry
+    \entry{approxpi}{online}{}
+      \name{author}{1}{}{%
+        {{hash=38add6717a284ced8cfef47c3480a814}{%
+           family={Jansson},
+           familyi={J\bibinitperiod},
+           given={Madeleine},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Lund University}%
+      }
+      \strng{namehash}{38add6717a284ced8cfef47c3480a814}
+      \strng{fullhash}{38add6717a284ced8cfef47c3480a814}
+      \strng{bibnamehash}{38add6717a284ced8cfef47c3480a814}
+      \strng{authorbibnamehash}{38add6717a284ced8cfef47c3480a814}
+      \strng{authornamehash}{38add6717a284ced8cfef47c3480a814}
+      \strng{authorfullhash}{38add6717a284ced8cfef47c3480a814}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Approximation of $\pi$}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=8983341&fileOId=8983342
+      \endverb
+      \verb{url}
+      \verb https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=8983341&fileOId=8983342
+      \endverb
+    \endentry
+    \entry{BBP}{online}{}
+      \name{author}{3}{}{%
+        {{hash=07539ff50924d8011bbdd60c37daff3f}{%
+           family={Bailey},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=86e7b84d8adeabc3f69abb52df304f6a}{%
+           family={Borwein},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=49ab69cf8d7fe557da93a1aebf1f9212}{%
+           family={Plouffe},
+           familyi={P\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{223d5ed5e503687dc73a3112bead489b}
+      \strng{fullhash}{223d5ed5e503687dc73a3112bead489b}
+      \strng{bibnamehash}{223d5ed5e503687dc73a3112bead489b}
+      \strng{authorbibnamehash}{223d5ed5e503687dc73a3112bead489b}
+      \strng{authornamehash}{223d5ed5e503687dc73a3112bead489b}
+      \strng{authorfullhash}{223d5ed5e503687dc73a3112bead489b}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On the Rapid Computation of Various Polylogarithmic Constants}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{1997}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ams.org/journals/mcom/1997-66-218/S0025-5718-97-00856-9/S0025-5718-97-00856-9.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ams.org/journals/mcom/1997-66-218/S0025-5718-97-00856-9/S0025-5718-97-00856-9.pdf
+      \endverb
+    \endentry
+    \entry{MTTP}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ea83938f1023688d7a44926bd8fce12d}{%
+           family={Habala},
+           familyi={H\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Praha}%
+      }
+      \list{publisher}{1}{%
+        {České vysoké učení technické}%
+      }
+      \strng{namehash}{ea83938f1023688d7a44926bd8fce12d}
+      \strng{fullhash}{ea83938f1023688d7a44926bd8fce12d}
+      \strng{bibnamehash}{ea83938f1023688d7a44926bd8fce12d}
+      \strng{authorbibnamehash}{ea83938f1023688d7a44926bd8fce12d}
+      \strng{authornamehash}{ea83938f1023688d7a44926bd8fce12d}
+      \strng{authorfullhash}{ea83938f1023688d7a44926bd8fce12d}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Taylorův polynom}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://math.fel.cvut.cz/mt/txtc/4/txc3ca4e.htm
+      \endverb
+      \verb{url}
+      \verb https://math.fel.cvut.cz/mt/txtc/4/txc3ca4e.htm
+      \endverb
+    \endentry
+    \entry{TMA:Calculus}{book}{}
+      \name{author}{1}{}{%
+        {{hash=125cfbd85cc6e304e8467fb8dded9ad1}{%
+           family={Apostol},
+           familyi={A\bibinitperiod},
+           given={Tom\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \strng{fullhash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \strng{bibnamehash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \strng{authorbibnamehash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \strng{authornamehash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \strng{authorfullhash}{125cfbd85cc6e304e8467fb8dded9ad1}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{0-471-00005-1}
+      \field{subtitle}{Volume I}
+      \field{title}{Calculus}
+      \field{year}{1967}
+    \endentry
+    \entry{HoMF}{online}{}
+      \name{author}{2}{}{%
+        {{hash=b30c3e9da438d36efb5827b2fe852284}{%
+           family={Abramowitz},
+           familyi={A\bibinitperiod},
+           given={Milton},
+           giveni={M\bibinitperiod}}}%
+        {{hash=94cadaf0db044088c2558aa77e72748b}{%
+           family={Stegun},
+           familyi={S\bibinitperiod},
+           given={Irene\bibnamedelima A.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington}%
+      }
+      \list{publisher}{1}{%
+        {U.S. Government Printing Office}%
+      }
+      \strng{namehash}{63984f02de086b7d6004b5486dbf6cab}
+      \strng{fullhash}{63984f02de086b7d6004b5486dbf6cab}
+      \strng{bibnamehash}{63984f02de086b7d6004b5486dbf6cab}
+      \strng{authorbibnamehash}{63984f02de086b7d6004b5486dbf6cab}
+      \strng{authornamehash}{63984f02de086b7d6004b5486dbf6cab}
+      \strng{authorfullhash}{63984f02de086b7d6004b5486dbf6cab}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{10, with corrections}
+      \field{subtitle}{With Formulas, Graphs and Mathematical Tables}
+      \field{title}{Handbook of Mathematical Functions}
+      \field{urlday}{28}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{1964}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.math.ubc.ca/~cbm/aands/abramowitz_and_stegun.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.math.ubc.ca/~cbm/aands/abramowitz_and_stegun.pdf
+      \endverb
+    \endentry
+    \entry{GR}{online}{}
+      \name{author}{1}{}{%
+        {{hash=59513463f1dc9a1ea22337107690f00b}{%
+           family={Spira},
+           familyi={S\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidade Federal de Minas Gerais}%
+      }
+      \strng{namehash}{59513463f1dc9a1ea22337107690f00b}
+      \strng{fullhash}{59513463f1dc9a1ea22337107690f00b}
+      \strng{bibnamehash}{59513463f1dc9a1ea22337107690f00b}
+      \strng{authorbibnamehash}{59513463f1dc9a1ea22337107690f00b}
+      \strng{authornamehash}{59513463f1dc9a1ea22337107690f00b}
+      \strng{authorfullhash}{59513463f1dc9a1ea22337107690f00b}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On the Golden Ratio}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mathunion.org/fileadmin/ICMI/Conferences/ICME/ICME12/www.icme12.org/upload/submission/1948_F.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mathunion.org/fileadmin/ICMI/Conferences/ICME/ICME12/www.icme12.org/upload/submission/1948_F.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

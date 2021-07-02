@@ -1,0 +1,37 @@
+Na samotném konci textu práce je uveden stručný popis obsahu
+přiloženého CD/DVD, tj.~jeho závazné adresářové struktury, důležitých
+souborů apod.
+
+\begin{description}
+\item[\texttt{doc/}] \hfill \\
+Adresář se soubory
+\begin{itemize}
+\item{\texttt{OndrejSlavikBP.pdf} -- tento text ve formátu PDF a}
+\item{\texttt{bak/} -- adresář se všemi soubory pro vysázení tohoto textu, stačí dvakrát přeložit \texttt{PDFLaTex}em.}
+\end{itemize}
+
+\item[\texttt{load.lisp}] \hfill \\
+Přeložením tohoto souboru ve vašem oblíbeném interpretu/kompilátoru Lispu získáte plnou funkcionalitu knihovny \texttt{tnums}, kterou jsme právě doprogramovali. Načítá soubory \texttt{src/tnums.lisp} a \texttt{src/user-functions.lisp}.
+
+\item[\texttt{src/}] \hfill \\
+Adresář se soubory
+\begin{itemize}
+\item{\texttt{tnums.lisp} -- základ knihovny z části 2 této práce,}
+\item{\texttt{user-function.lisp} -- rozšíření knihovny o vědomě uživatelské funkce ze šesté kapitoly a}
+\item{\texttt{tests.lisp} -- zakomentované výrazy, které zde byly popsány jako Lispový test i s výsledky, na které se vyhodnotí.}
+\end{itemize}
+
+\item[\texttt{README.md}] \hfill \\
+Soubor představující knihovnu \texttt{tnums} a obsahující i několik příkladů výpočtů, které podporuje. Součástí je i kapitola o načtení knihovny evaluací souboru \texttt{load.lisp}, nejedná se tedy o instalaci v pravém slova smyslu.
+
+\item[\texttt{install/}] \hfill \\
+Adresář se soubory
+\begin{itemize}
+\item{\texttt{sbcl-2.1.6-source.tar.bz2} -- intalátor SBCL, konzolového kompilátoru ANSI Common Lispu,}
+\item{\texttt{code-1.57.1-1623937013-amd64.deb} -- instalátor VS code, rozšiřitelného textového editoru a}
+\item{\texttt{2gua.rainbow-brackets-0.0.6.vsix} -- instalátor rozšíření Rainbow Brackets pro přehledné obarvování závorek.}
+\end{itemize}
+
+\item[\texttt{LISENCE}] \hfill \\
+Licenší soubor -- knihovna je publikována pod GNU GPLv3.
+\end{description}

@@ -1,0 +1,283 @@
+Při tvorbě knihovny pracující s tnumy jsem už některé funkce, které bych prohlásil za uživatelské napsal. Uživatelskou funkcí myslím takovou funkci, která je nezávislá na vnitřní reprezentaci tnumů a jen rozšiřuje funkčnost a nevolá pomocné vnitřní funkce. Takovými byly třeba \texttt{tnum-}, \texttt{tnum-tan} nebo \texttt{tnum-root}. V této kapitole některé další uživatelské funkce dopíšeme, aby bylo vidět, jak se knihovna \texttt{tnums} používá. Poté, co si projdeme proces instalace se podíváme na jednoduché převody a vyčíslování konstant, poté přidáme operace a na závěr funkce. Ukážeme, že síla knihovny spočívá v jednoduchém vytváření nových tnumů a ve velmi silně oddělené vnitřní implementaci od vnějšího chování.
+
+\subsection{Vymezení}
+\begin{definition}[Uživatelská funkce]
+Uživatelskou funkcí myslíme takovou funkci, která nezná reálnou vnitřní implementaci tnumů a nepoužívá vnitřní pomocné funkce. Sama je veřejná.
+\end{definition}
+
+Rozdělení funkcí na funkce na rozhraní a na pomocné vnitřní funkce zobrazuje tabulka \ref{tab:vnitrni_vnejsi_funkce}. Uživatelská funkce rozšiřuje funkcionalitu, musí tedy být vnější.
+
+\begin{table}
+\begin{mdframed}[backgroundcolor=lightpink,innertopmargin=-2.5pt,innerbottommargin=2.5pt]
+\centering
+\caption{Vnitřní a vnější funkce}
+\label{tab:vnitrni_vnejsi_funkce}
+\begin{tabular}{| >{\columncolor[gray]{1}} c >{\columncolor[gray]{1}}c|>{\columncolor[gray]{1}}c|}
+\hline
+\multicolumn{2}{|>{\columncolor[gray]{1}}c|}{vnější} & vnitřní\\ \hline \hline
+\texttt{num-to-tnum} & \texttt{tnum-to-num} & \texttt{factorial} \\
+\texttt{tnum-e} & \texttt{tnum-pi} & \texttt{rat-expt}\\
+\texttt{tnum+} & \texttt{tnum*} & \texttt{num-cos}\\
+\texttt{tnum-} & \texttt{tnum/} & \texttt{num-ln}\\
+\texttt{-tnum} & \texttt{/tnum} & \texttt{get-nonzero-tnum+eps} \\
+\texttt{tnum-exp} & \texttt{tnum-ln} & \texttt{create-list-for-multiplication} \\
+\texttt{tnum-sin} & \texttt{tnum-csc} & \texttt{num-exp}\\
+\texttt{tnum-cos} & \texttt{tnum-sec} & \texttt{num-sin}\\
+\texttt{tnum-tan} & \texttt{tnum-ctan} & \texttt{precise-operator}\\
+\texttt{tnum-expt} & \texttt{tnum-root} & \texttt{tnum*num}\\ \hline
+\end{tabular}
+
+Tabulka zobrazuje v prvním sloupci funkce pro používání uživatelem, ve druhém pak pomocné funkce, které by uživatelem být volány neměly.
+\end{mdframed}
+\end{table}
+
+Jiné rozdělení funkcí je na ty znalé vnitřní implementace tnumů a ty, které s~tnumy nízkoúrovňově pracovat nemusí. Uživatelská funkce -- která stavbu tnumu nezná -- je tedy nezávislá na konkrétní implementaci a pokud se implementace změní (což já jsem udělal už dvakrát, více v sekci \ref{sss:ideoveperip}), tyto funkce zůstanou. Toto rozdělení zobrazuje tabulka \ref{tab:vysoko_nizko_funkce}.
+
+\begin{table}
+\begin{mdframed}[backgroundcolor=lightpink,innertopmargin=-2.5pt,innerbottommargin=2.5pt]
+\centering
+\caption{Nízkoúrovňové a vysokoúrovňové funkce}
+\label{tab:vysoko_nizko_funkce}
+\begin{tabular}{| >{\columncolor[gray]{1}} c | >{\columncolor[gray]{1}}c >{\columncolor[gray]{1}}c|}\hline
+implementačně závislé & \multicolumn{2}{>{\columncolor[gray]{1}}c|}{implementačně nezávislé}\\ \hline \hline
+\texttt{num-to-tnum}	& \texttt{factorial} & \texttt{tnum-sec}\\
+\texttt{tnum-to-num} & \texttt{rat-expt} &\texttt{tnum-tan}\\
+\texttt{tnum-ln} & \texttt{tnum-e} &\texttt{-tnum}\\
+\texttt{tnum-pi} & \texttt{num-ln} &\texttt{tnum-}\\
+\texttt{tnum*num} & \texttt{tnum-ctan}&\texttt{tnum/}\\
+\texttt{tnum+} & \texttt{tnum-expt}&\texttt{tnum-csc}\\
+\texttt{/tnum} & \texttt{get-nonzero-tnum+eps}&\texttt{num-exp}\\
+\texttt{tnum*} & \texttt{create-list-for-multiplication}&\texttt{num-sin}\\
+\texttt{tnum-exp} &\texttt{precise-operator}&\texttt{num-cos}\\
+\texttt{tnum-sin} & \texttt{tnum-root}&\\
+\texttt{tnum-cos} & &\\\hline
+\end{tabular}
+
+Tabulka zobrazuje v prvním sloupci funkce, které pracují s konkrétní implementací tnumů jako funkcí přesnosti a ve druhém ty, které jsou od tohoto faktu odstíněny.
+\end{mdframed}
+\end{table}
+
+Knihovna \texttt{tnums} obsahuje 30 funkcí. Podívejme se nyní, které z nich jsou uživatelské, tedy vnější funkce, které jsou implementačně nezávislé a nevolají žádnou pomocnou funkci: \texttt{tnum-}, \texttt{tnum/}, \texttt{tnum-csc}, \texttt{tnum-sec}, \texttt{tnum-tan}, \texttt{tnum-ctan}, \texttt{tnum-expt} a \texttt{tnum-root}. To je osm funkcí, což je celkem hezký počet na to, že jsme je uživatelsky naprogramovali v podstatě mimoděk. S přimhouřenýma očima lze za uživatelské prohlásit i \texttt{tnum-e} a \texttt{-tnum}, čímž jsme na plné třetině.
+
+V následujícím textu tento počet rozšíříme, aby bylo jasné, jaké možnosti uživatelské rozšiřitelnosti i takto funkcionálně skromná knihovna nabízí.
+
+\subsection{Instalace}
+Knihovna \texttt{tnums} je k dostání na githubu na odkaze \url{https://github.com/slavon00/tnums} nebo pro čtenáře tištěné verze na přiloženém fyzickém disku. Je to Lispová knihovna a od uživatele předpokládá základy práce s Lispem a REPLem.
+
+Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{tnums.lisp} a všechny funkce, které přidáme v této kapitole pak v \texttt{user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{tests.lisp}. Vše je možné jednoduše načíst jen evaluací souboru \texttt{load.lisp}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
+
+Knihovna se v budoucnosti může měnit, takže tyto informace mohou zastarat. Pro zpětnou kompatibilitu ale knihovna na githubu bude vždy obsahovat soubor \texttt{README.md} nebo ekvivalentní, aby mohla instalace proběhnout bez problémů.
+
+\begin{myfigure}{H}
+\caption{Načtení knihovny \texttt{tnum} do \texttt{SBCL}}
+\includegraphics[width=\linewidth]{./graphics/loading.png}\label{obr:loading}
+Aby se nemusely ručně načítat všechny soubory, lze knihovnu \texttt{tnums} též načíst jen evaluací souboru \texttt{load.lisp}. 
+\end{myfigure}
+
+\subsection{Převody a konstanty}
+Téměř všechny naprogramované funkce berou jako vstup tnumy. To jsou abstraktní struktury, které interně reprezentujeme jako funkce malých čísel. Pokud chceme vytvořit tnum z nějakého čísla, které již máme nějak uložené v Lispu, slouží k tomu funkce \texttt{num-to-tnum}.
+
+\begin{lisptest}{\texttt{num-to-tnum}}{Představení funkce pro převod numu na tnum}
+* (num-to-tnum 42.123)
+#<FUNCTION (LAMBDA (EPS) :IN NUM-TO-TNUM) {10020A056B}>
+\end{lisptest}
+
+Pro převod opačným směrem máme inverzní funkci \texttt{tnum-to-num}, která kro\-mě tnumu bere i druhý argument představující přesnost, se kterou chceme daný tnum vyčíslit.
+
+\begin{lisptest}{\texttt{tnum-to-num}}{Představení funkce na převod tnumu na num}
+* (tnum-to-num * 0.1)
+34246/813
+\end{lisptest}
+
+Jak vidno, num vrácený funkcí \texttt{tnum-to-num} je racionální číslo.
+
+\begin{lisptest}{Typ výstupu je číslo}{Ověření typu vraceného numu}
+* (type-of *)
+RATIO
+* (float **)
+42.123
+\end{lisptest}
+
+Protože knihovna vrací čísla jak je chápe Lisp, jsou výsledky vyčíslení plně kompatibilní s ostatními funkcemi pro čísla. Naprogramujme nyní funkci, která bude tnumy převádět na textové řetězce. Takto získáme dlouhé rozvoje v čitelné podobě, ne jen jako lidskému oku nic neříkající velké zlomky.
+
+\begin{lispcode}{\texttt{tnum-to-string}}{Funkce na převod tnumu na textový řetězec}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-to-string} (tnum count)
+  (\textcolor{vedlejsi}{let} ((num (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{1+} count))) (output ""))
+    (\textcolor{funkcionalni}{when} (\textcolor{matematicke}{<} num 0) (\textcolor{vedlejsi}{setf} output "-" num (\textcolor{matematicke}{-} num)))
+    (\textcolor{matematicke}{multiple-value-bind} (digit rem)
+        (\textcolor{matematicke}{floor} num)
+        (\textcolor{vedlejsi}{setf} output (\textcolor{matematicke}{concatenate} \textquotesingle\textcolor{moje}{string} output 
+              (\textcolor{funkcionalni}{write-to-string} digit) ".")
+          num (\textcolor{matematicke}{*} 10 rem)))
+    (\textcolor{funkcionalni}{dotimes} (i count (\textcolor{matematicke}{concatenate} \textquotesingle\textcolor{moje}{string} output "..."))
+      (\textcolor{matematicke}{multiple-value-bind} (digit rem)
+        (\textcolor{matematicke}{floor} num)
+        (\textcolor{vedlejsi}{setf} output (\textcolor{matematicke}{concatenate} \textquotesingle\textcolor{moje}{string} output 
+              (\textcolor{funkcionalni}{write-to-string} digit))
+          num (\textcolor{matematicke}{*} 10 rem))))))
+\end{lispcode}
+Funkce bere jako vstup tnum a přirozené číslo značící počet desetinných míst. Otestujeme ji na výpisu Ludolfova čísla.
+
+\begin{lisptest}{\texttt{tnum-string} a \texttt{tnum-pi}}{Vyčíslení Ludolfova čísla na 50 desetinných míst}
+* (tnum-to-string (tnum-pi) 50)
+"3.14159265358979323846264338327950288419716939937510..."
+\end{lisptest}
+
+Vzhledem k rozšíření množiny přípustných hodnot funkce \texttt{tnum-to-num} je možné pohodlně přepínat mezi návratovou hodnotou jako číslem a textovým řetězcem. Ukážeme si to na vyčíslení Eulerova čísla.
+
+\begin{lisptest}{\texttt{tnum-string} a \texttt{tnum-e}}{Vyčíslení Eulerova čísla na 20 desetinných míst a jeho vrácení jako čísla a jako stringu}
+* (tnum-to-num (tnum-e) 20)
+611070150698522592097/224800145555521536000
+* (tnum-to-string (tnum-e) 20)
+"2.71828182845904523536..."
+\end{lisptest}
+
+\subsection{Operace}
+Operace tnumu je funkce $\bigtimes_{i=0}^{n-1}\mathfrak{T}\rightarrow\mathfrak{T}$, kde $n\in\mathbb{N}$ nazýváme aritou. Operace \texttt{tnum+} a \texttt{tnum*} mohou mít libovolný počet argumentů, jsou tedy $(n \in \mathbb{N})$-ární, operace \texttt{-tnum} a \texttt{/tnum} jsou striktně unární, operace \texttt{tnum-} a \texttt{tnum/} potřebují alespoň jeden argument, jsou tedy $(n \in \mathbb{N}^+)$-ární a operace \texttt{tnum-expt} a \texttt{tnum-root} jsou binární.
+
+V lispu jsou dvě hezké funkce na inkrementaci a dekrementaci čísla. To samé nyní přidáme pro tnumy.
+
+\begin{lispcode}{\texttt{tnum-1+}}{Funkce pro inkrementaci tnumu o jedničku}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-1+} (tnum)
+  (\textcolor{moje}{tnum+} (\textcolor{moje}{num-to-tnum} 1) tnum))
+\end{lispcode}
+
+Funkce pro dekrementaci se také dá napsat pohodlně uživatelsky.
+
+\begin{lispcode}{\texttt{tnum-1-}}{Funkce pro dekrementaci tnumu o jedničku}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-1-} (tnum)
+  (\textcolor{moje}{tnum-} tnum (\textcolor{moje}{num-to-tnum} 1)))
+\end{lispcode}
+
+Také by šla napsat nejpoužívanější odmocnina a sice druhá.
+
+\begin{lispcode}{\texttt{tnum-sqrt}}{Funkce pro druhou odmocninu tnumu}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-sqrt} (tnum)
+  (\textcolor{moje}{tnum-root} (\textcolor{moje}{num-to-tnum} 2) tnum))
+\end{lispcode}
+
+Výše naprogramované použijeme k zavedení další konstanty, zlatého řezu.
+
+\begin{definition}[Zlatý řez \cite{GR}]
+Zlatý řez představuje kladné řešení rovnice $x^2-x-1=0$, je tedy roven hodnotě
+\begin{equation}
+\varphi=\frac{1+\sqrt{5}}{2}
+\end{equation}
+\end{definition}
+
+Jedná se o další iracionální konstantu, tentokrát algebraickou, protože je řešením algebraické rovnice a její tnum je jen syntaktický přepis uvedené definice.
+
+\begin{lispcode}{\texttt{tnum-phi}}{Funkce vracející tnum představující zlatý řez}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-phi} ()
+  (\textcolor{moje}{tnum/} (\textcolor{moje}{tnum-1+} (\textcolor{moje}{tnum-sqrt} (\textcolor{moje}{num-to-tnum} 5))) (\textcolor{moje}{num-to-tnum} 2)))
+\end{lispcode}
+
+A ještě test.
+
+\begin{lisptest}{\texttt{tnum-phi}}{Představení funkce pro zlatý řez}
+* (tnum-to-string (tnum-phi) 50)
+"1.61803398874989484820458683436563811772030917980576..."
+\end{lisptest}
+
+\subsection{Funkce}
+Funkce tnumů jsou všechny unární. Jedná se o přirozený logaritmus, goniometrické funkce a přirozenou exponenciálu. Omezení definičního oboru jsou stejná jako jsme zvyklí, naprogramované funkce tedy nejsou o nic \uv{slabší}.
+
+Exponenciálu jsme využili už při psaní obecné mocniny. V podobném duchu nyní zavedeme obecný logaritmus. Vyjdeme z faktu, že lze převádět mezi různými základy.
+
+\begin{fact}[Obecný logaritmus jako podíl přirozených  \cite{tabulky}]
+Pro $a>1$ a $x\in\mathbb{R}^+$ platí
+\begin{equation}
+\log_a(x)=\frac{ln(x)}{ln(a)}
+\end{equation}
+\end{fact}
+
+Nová funkce bude brát dva argumenty a proto nejde tak úplně o funkci tnumu, jak ji v této práci chápeme, ale spíše o matematickou operaci, nicméně na eleganci zápisu to nic neubírá.
+
+\begin{lispcode}{\texttt{tnum-log}}{Funkce pro výpočet obecného logaritmu}
+(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-log} (tnum1 tnum2)
+  (\textcolor{moje}{tnum/} (\textcolor{moje}{tnum-ln} tnum2) (\textcolor{moje}{tnum-ln} tnum1)))
+\end{lispcode}
+
+Uživatelská funkce potom podobně jako u odmocniny prohazuje argumenty, protože mluvíme vždy o nějakém logaritmu něčeho, například \uv{devítkový logaritmus dvou}. Ten je i předmětem následujícího testu.
+
+\begin{lisptest}{\texttt{tnum-log}}{Vyčíslení devítkového logaritmu dvou}
+* (tnum-to-string (tnum-log (num-to-tnum 9) (num-to-tnum 2)) 50)
+"0.31546487678572871854976355717138042714979282006594..."
+\end{lisptest}
+
+Gomiometrické funkce jsou z velké části napsány též uživatelsky, takže by mělo být jasné, jak se s nimi z tohoto pohledu pracuje. Ukážu tedy jen vyčíslení, aby bylo vidět, že funkce opravdu fungují. Následuje výpočet sinu jedničky.
+
+\begin{lisptest}{\texttt{tnum-sin}}{Představení funkce na výpočet sinu tnumu}
+* (coerce (tnum-to-num (tnum-sin (num-to-tnum 1)) -20)
+    'long-float)
+0.8414709848078965d0
+\end{lisptest}
+
+Pokud má čtenář pocit, že takovéto číslo už někdy viděl, je tento pocit správný, protože přesně tímto způsobem jsem naplnil tabulku \ref{tab:sinus_input_output}.
+
+V tomto bodě bychom tedy měli mít jasnou představu, jak se funkce používají a že fungují. Dokonce jsme nějaké funkce přidali a to bez nutnosti znalosti vnitřního provedení tnumů. Také jsme viděli, že skrze rozhraní a hlavně funkci \texttt{tnum-to-num} lze získat přesné číslo a lze s ním dále nakládat v dalších aplikacích. Trochu blíže se na toto ještě zaměříme v další kapitole, nyní se podívejme ještě na rychlost, jakou knihovna pracuje a přehled všech funkcí rozhraní.
+
+\subsection{Rychlost}
+Tabulka \ref{tab:rychlost} zobrazuje, jak dlouho trvalo vyhodnocení příkazů. Hodnoty budou vždy závislé na konkrétním stroji a jeho momentálním zatížení, obecnou představu o časové náročnosti výpočtů by ale měly poskytnout.
+
+\begin{table}[H]
+\begin{mdframed}[backgroundcolor=lightpink,innertopmargin=-2.5pt,innerbottommargin=2.5pt]
+\centering
+\caption{Doba výpočtů daných výrazů}
+\label{tab:rychlost}
+\begin{tabular}{| >{\columncolor[gray]{1}} l |>{\columncolor[gray]{1}}c|}
+\hline
+\multicolumn{1}{|>{\columncolor[gray]{1}}c|}{Výraz} & Doba vyhodnocení (s)\\\hline\hline
+\texttt{((let ((tn}& \cellcolor[gray]{1} \\
+\texttt{~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi)))} & \multirow{-2}{*}{-}\\ \hline
+\texttt{ (tnum-to-string tn 50)} & 1.415019 \\ \hline
+\texttt{ (tnum-to-string (tnum-sin tn) 50)} & 56.346948 \\ \hline
+\texttt{ (tnum-to-string (tnum-csc tn) 50)} & ? \\ \hline
+\texttt{ (tnum-to-string (tnum-ctan tn) 50))} & ? \\ \hline
+\end{tabular}
+
+Tabulka v prvním sloupci zobrazuje výrazy, které byly vyhodnocovány a ve druhém čas, který toto vyhodnocení zabralo. Doba byla měřena makrem \texttt{time} a hodnoty jsou z řádku \uv{(\ldots) seconds of total run time}.
+\end{mdframed}
+\end{table}
+
+\subsection{Vnější volání}
+Pro přehlednost, jaké rozhraní knihovna \texttt{tnums} nabízí následuje souhrnná tabulka zobrazující všechny funkce určené k volání uživatelem. 
+
+\begin{table}[H]
+\begin{mdframed}[backgroundcolor=lightpink,innertopmargin=-2.5pt,innerbottommargin=2.5pt]
+\centering
+\caption{Funkce nabízené knihovnou \texttt{tnums}}
+\label{tab:funkce_rozhrani}
+\begin{tabular}{| >{\columncolor[gray]{1}} c |>{\columncolor[gray]{1}}c|>{\columncolor[gray]{1}}p{4.8cm}|}
+\hline
+Název & Argumenty & Význam\\ \hline \hline
+\texttt{tnum-to-num} & \texttt{tnum:tnum}, \texttt{eps:num} & převod \texttt{tnum}u na číslo s~přesností \texttt{eps}\\
+\texttt{tnum-to-string} & \texttt{tnum:tnum}, \texttt{count:num} & převod \texttt{tnum}u na textový řetězec o \texttt{count} desetinných místech\\\hline
+\texttt{num-to-tnum}&\texttt{num:num}&převod \texttt{num}u na tnum\\
+\texttt{tnum-pi}&$\emptyset$&Ludolfovo číslo jako tnum\\
+\texttt{tnum-e}&$\emptyset$&Eulerovo číslo jako tnum\\
+\texttt{tnum-phi}&$\emptyset$&Zlatý řez jako tnum\\\hline
+\texttt{-tnum}&\texttt{tnum:tnum}&$-\texttt{tnum}$\\
+\texttt{tnum+}&0+ \texttt{tnum}ů&součet tnumů\\
+\texttt{tnum-}&1+ \texttt{tnum}ů&rozdíl tnumů\\
+\texttt{/tnum}&\texttt{tnum:tnum}&$1/\texttt{tnum}$\\
+\texttt{tnum*}&0+ \texttt{tnum}ů&součin tnumů\\
+\texttt{tnum/}&1+ \texttt{tnum}ů&podíl tnumů\\
+\texttt{tnum-expt}&\texttt{arg1:tnum}, \texttt{arg2:tnum}&$\texttt{arg1}^{\texttt{arg2}}$\\
+\texttt{tnum-sqrt}&\texttt{arg1:tnum}, \texttt{arg2:tnum}&$\sqrt[\texttt{arg1}]{\texttt{arg2}}$\\
+\texttt{tnum-1+}&\texttt{tnum:tnum}&$\texttt{tnum} + 1$\\
+\texttt{tnum-1-}&\texttt{tnum:tnum}&$\texttt{tnum} - 1$\\\hline
+\texttt{tnum-exp}&\texttt{tnum:tnum}&přirozená mnocnina \texttt{tnum}u\\
+\texttt{tnum-ln}&\texttt{tnum:tnum}&přirozený logaritmus \texttt{tnum}u\\
+\texttt{tnum-sqrt}&\texttt{tnum:tnum}&druhá odmocnina \texttt{tnum}u\\
+\texttt{tnum-sin}&\texttt{tnum:tnum}&sinus \texttt{tnum}u\\
+\texttt{tnum-cos}&\texttt{tnum:tnum}&kosinus \texttt{tnum}u\\
+\texttt{tnum-tan}&\texttt{tnum:tnum}&tangens \texttt{tnum}u\\
+\texttt{tnum-csc}&\texttt{tnum:tnum}&kotangens \texttt{tnum}u\\
+\texttt{tnum-sec}&\texttt{tnum:tnum}&sekans \texttt{tnum}u\\
+\texttt{tnum-ctan}&\texttt{tnum:tnum}&kosekans \texttt{tnum}u\\
+\hline\end{tabular}
+
+Tabulka v prvním sloupci zobrazuje funkční symbol, v posledním význam funkce aplikované na argumenty z prostředního sloupce. Čtyři části rozdělené horizontálními čarami jsou po řadě funkce pro převody, konstanty, operace a matematické funkce. Součástí jsou i uživatelské funkce.
+\end{mdframed}
+\end{table}
