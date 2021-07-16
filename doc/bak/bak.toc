@@ -147,13 +147,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{\numberline {7.3.4.4}Rychlost}{65}{paragraph.7.3.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.3.4.5}Kontext knihovny}{66}{paragraph.7.3.4.5}%
+\contentsline {subsection}{\numberline {7.4}Svébytnost}{65}{subsection.7.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.3.4.6}Kontext práce}{66}{paragraph.7.3.4.6}%
+\contentsline {subsubsection}{\numberline {7.4.1}Kontext knihovny}{65}{subsubsection.7.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.3.4.7}K zapamatování}{66}{paragraph.7.3.4.7}%
+\contentsline {subsubsection}{\numberline {7.4.2}Kontext práce}{66}{subsubsection.7.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.3.4.8}Adakvátnost}{66}{paragraph.7.3.4.8}%
+\contentsline {subsubsection}{\numberline {7.4.3}K zapamatování}{66}{subsubsection.7.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {7.4.4}Adakvátnost}{66}{subsubsection.7.4.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Z\'av\v er}{67}{section*.10}%
 \babel@toc {czech}{}
