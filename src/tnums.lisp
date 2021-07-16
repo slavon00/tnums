@@ -132,24 +132,20 @@
   (lambda (eps)
     (num-exp 1 eps)))
 
-;stredobod pro funkce
-(defun precise-operator (tnum eps f)
-  (let* ((num (tnum-to-num tnum eps))
-         (fnum (funcall f num eps))
-         (new 1))
-    (loop 
-      until (= num new)
-      do (setf new (if (> (abs fnum) 1)
-            (tnum-to-num tnum (/ eps (+ (abs fnum) eps)))
-            num)
-        num new
-        fnum (funcall f num eps))
-      finally (return fnum))))
-
-;exponenciala
+;exponenciala tnumu
 (defun tnum-exp (tnum)
   (lambda (eps)
-    (precise-operator tnum eps 'num-exp )))
+    (let* ((num (tnum-to-num tnum eps))
+          (expnum (num-exp num eps))
+          (new 1))
+      (loop 
+        until (= num new)
+        do (setf new (if (> expnum 1)
+              (tnum-to-num tnum (/ eps (+ expnum eps)))
+              num)
+          num new
+          expnum (num-exp num eps))
+        finally (return expnum)))))
 
 ;sinus cisla
 (defun num-sin (x eps)
@@ -170,7 +166,7 @@
 ;sinus
 (defun tnum-sin (tnum)
   (lambda (eps)
-    (precise-operator tnum eps 'num-sin )))
+    (num-sin (tnum-to-num tnum eps) eps)))
 
 ;kosinus cisla
 (defun num-cos (x eps)
@@ -191,7 +187,7 @@
 ;kosinus
 (defun tnum-cos (tnum)
   (lambda (eps)
-    (precise-operator tnum eps 'num-cos )))
+    (num-cos (tnum-to-num tnum eps) eps)))
 
 ;tangens
 (defun tnum-tan (tnum)
@@ -225,7 +221,9 @@
 ;logaritmus
 (defun tnum-ln (tnum)
   (lambda (eps)
-    (precise-operator tnum eps 'num-ln )))
+    (multiple-value-bind (num eps0)
+      (get-nonzero-num+eps tnum eps)
+      (num-ln (tnum-to-num tnum eps) (* eps (- num eps0))))))
 
 ;tnum1 na tnum2-tou
 (defun tnum-expt (tnum1 tnum2)

@@ -157,75 +157,73 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}16\else \numberline {16}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-e}}}{38}{lispcodethm.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}54\else \numberline {54}Definice\fi \thmtformatoptarg {Precizní operátor}}{42}{definition.54}%
+\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}54\else \numberline {54}Pozn\'{a}mka\fi }{42}{remark.54}%
 \defcounter {refsection}{0}\relax 
-\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}55\else \numberline {55}Pozn\'{a}mka\fi \thmtformatoptarg {Vše je operátor}}{42}{remark.55}%
+\contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}55\else \numberline {55}Lemma\fi \thmtformatoptarg {O přesnosti závislé proměnné}}{42}{lemma.55}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}17\else \numberline {17}Lispový kód\fi \thmtformatoptarg {\texttt {precise-operator}}}{42}{lispcodethm.17}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{42}{thmt@dummyctr.dummy.82}%
 \defcounter {refsection}{0}\relax 
-\contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}56\else \numberline {56}D\r {u}sledek\fi \thmtformatoptarg {O exponenciále tnumu}}{42}{consequence.56}%
+\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}56\else \numberline {56}Definice\fi \thmtformatoptarg {Precizní operátor exponenciály}}{42}{definition.56}%
 \defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{42}{thmt@dummyctr.dummy.84}%
+\contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}57\else \numberline {57}D\r {u}sledek\fi \thmtformatoptarg {O exponenciále tnumu}}{42}{consequence.57}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}18\else \numberline {18}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-exp}}}{43}{lispcodethm.18}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{42}{thmt@dummyctr.dummy.85}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}57\else \numberline {57}Fakt\fi \thmtformatoptarg {Sinus jako Maclaurinova řada \cite {ZDVNNR}}}{43}{fact.57}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}17\else \numberline {17}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-exp}}}{43}{lispcodethm.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}58\else \numberline {58}D\r {u}sledek\fi \thmtformatoptarg {Sinus numu}}{43}{consequence.58}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}58\else \numberline {58}Fakt\fi \thmtformatoptarg {Sinus jako Maclaurinova řada \cite {ZDVNNR}}}{43}{fact.58}%
 \defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{43}{thmt@dummyctr.dummy.88}%
+\contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}59\else \numberline {59}D\r {u}sledek\fi \thmtformatoptarg {Sinus numu}}{43}{consequence.59}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}19\else \numberline {19}Lispový kód\fi \thmtformatoptarg {\texttt {num-sin}}}{44}{lispcodethm.19}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{44}{thmt@dummyctr.dummy.89}%
 \defcounter {refsection}{0}\relax 
-\contentsline {hypothesis}{\ifthmt@listswap Hypot\'{e}za\nobreakspace {}59\else \numberline {59}Hypot\'{e}za\fi \thmtformatoptarg {O funkci tnumu}}{44}{hypothesis.59}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}18\else \numberline {18}Lispový kód\fi \thmtformatoptarg {\texttt {num-sin}}}{44}{lispcodethm.18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}60\else \numberline {60}D\r {u}sledek\fi \thmtformatoptarg {Sinus tnumu}}{44}{consequence.60}%
+\contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}60\else \numberline {60}Lemma\fi \thmtformatoptarg {O sinu tnumu}}{44}{lemma.60}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}20\else \numberline {20}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sin}}}{44}{lispcodethm.20}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{44}{thmt@dummyctr.dummy.92}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}61\else \numberline {61}Fakt\fi \thmtformatoptarg {Kosinus jako Maclaurinova řada \cite {ZDVNNR}}}{44}{fact.61}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}19\else \numberline {19}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sin}}}{44}{lispcodethm.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}61\else \numberline {61}Fakt\fi \thmtformatoptarg {Kosinus jako Maclaurinova řada \cite {ZDVNNR}}}{45}{fact.61}%
 \defcounter {refsection}{0}\relax 
 \contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}62\else \numberline {62}D\r {u}sledek\fi \thmtformatoptarg {Kosinus numu}}{45}{consequence.62}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}21\else \numberline {21}Lispový kód\fi \thmtformatoptarg {\texttt {num-cos}}}{45}{lispcodethm.21}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}20\else \numberline {20}Lispový kód\fi \thmtformatoptarg {\texttt {num-cos}}}{45}{lispcodethm.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}63\else \numberline {63}Lemma\fi \thmtformatoptarg {O kosinu tnumu}}{45}{lemma.63}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}21\else \numberline {21}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-cos}}}{46}{lispcodethm.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{45}{thmt@dummyctr.dummy.97}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}63\else \numberline {63}Fakt\fi \thmtformatoptarg {Tangens jako poměr sinu a kosinu \cite {tabulky}}}{46}{fact.63}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}22\else \numberline {22}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-cos}}}{46}{lispcodethm.22}%
+\contentsline {convention}{\ifthmt@listswap \'{U}mluva\nobreakspace {}64\else \numberline {64}\'{U}mluva\fi \thmtformatoptarg {O vypuštění některých důsledků}}{46}{convention.64}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}64\else \numberline {64}Fakt\fi \thmtformatoptarg {Tangens jako poměr sinu a kosinu \cite {tabulky}}}{46}{fact.64}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}22\else \numberline {22}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-tan}}}{46}{lispcodethm.22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {convention}{\ifthmt@listswap \'{U}mluva\nobreakspace {}65\else \numberline {65}\'{U}mluva\fi \thmtformatoptarg {O vypuštění některých důsledků}}{46}{convention.65}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}65\else \numberline {65}Fakt\fi \thmtformatoptarg {Kosekans jako obrácená hodnota sinu \cite {tabulky}}}{46}{fact.65}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}23\else \numberline {23}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-tan}}}{46}{lispcodethm.23}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}23\else \numberline {23}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-csc}}}{46}{lispcodethm.23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}66\else \numberline {66}Fakt\fi \thmtformatoptarg {Kosekans jako obrácená hodnota sinu \cite {tabulky}}}{46}{fact.66}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}66\else \numberline {66}Fakt\fi \thmtformatoptarg {Sekans jako obrácená hodnota kosinu \cite {tabulky}}}{46}{fact.66}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}24\else \numberline {24}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-csc}}}{46}{lispcodethm.24}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}24\else \numberline {24}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sec}}}{47}{lispcodethm.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}67\else \numberline {67}Fakt\fi \thmtformatoptarg {Sekans jako obrácená hodnota kosinu \cite {tabulky}}}{46}{fact.67}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}67\else \numberline {67}Fakt\fi \thmtformatoptarg {Kotangens jako obrácená hodnota tangentu \cite {tabulky}}}{47}{fact.67}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}25\else \numberline {25}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sec}}}{47}{lispcodethm.25}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}25\else \numberline {25}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-ctan}}}{47}{lispcodethm.25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}68\else \numberline {68}Fakt\fi \thmtformatoptarg {Kotangens jako obrácená hodnota tangentu \cite {tabulky}}}{47}{fact.68}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}68\else \numberline {68}Fakt\fi \thmtformatoptarg {Logaritmus jako řada \cite {HoMF}}}{47}{fact.68}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}26\else \numberline {26}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-ctan}}}{47}{lispcodethm.26}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}26\else \numberline {26}Lispový kód\fi \thmtformatoptarg {\texttt {num-ln}}}{47}{lispcodethm.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}69\else \numberline {69}Fakt\fi \thmtformatoptarg {Logaritmus jako řada \cite {HoMF}}}{47}{fact.69}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}27\else \numberline {27}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-ln}}}{48}{lispcodethm.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}27\else \numberline {27}Lispový kód\fi \thmtformatoptarg {\texttt {num-ln}}}{47}{lispcodethm.27}%
+\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}69\else \numberline {69}Pozn\'{a}mka\fi \thmtformatoptarg {Dokončení systému}}{48}{remark.69}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}28\else \numberline {28}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-ln}}}{48}{lispcodethm.28}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}28\else \numberline {28}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-expt}}}{48}{lispcodethm.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}70\else \numberline {70}Pozn\'{a}mka\fi \thmtformatoptarg {Dokončení systému}}{48}{remark.70}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}29\else \numberline {29}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-root}}}{48}{lispcodethm.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}29\else \numberline {29}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-expt}}}{48}{lispcodethm.29}%
-\defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}30\else \numberline {30}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-root}}}{48}{lispcodethm.30}%
-\defcounter {refsection}{0}\relax 
-\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}71\else \numberline {71}Definice\fi \thmtformatoptarg {Uživatelská funkce}}{49}{definition.71}%
+\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}70\else \numberline {70}Definice\fi \thmtformatoptarg {Uživatelská funkce}}{49}{definition.70}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}1\else \numberline {1}Lispový test\fi \thmtformatoptarg {\texttt {num-to-tnum}}}{52}{lispcodetest.1}%
 \defcounter {refsection}{0}\relax 
@@ -233,55 +231,57 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}3\else \numberline {3}Lispový test\fi \thmtformatoptarg {Typ výstupu je číslo}}{52}{lispcodetest.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}31\else \numberline {31}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-to-string}}}{52}{lispcodethm.31}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}30\else \numberline {30}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-to-string}}}{52}{lispcodethm.30}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}4\else \numberline {4}Lispový test\fi \thmtformatoptarg {\texttt {tnum-string} a \texttt {tnum-pi}}}{53}{lispcodetest.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}5\else \numberline {5}Lispový test\fi \thmtformatoptarg {\texttt {tnum-string} a \texttt {tnum-e}}}{53}{lispcodetest.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}32\else \numberline {32}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-1+}}}{53}{lispcodethm.32}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}31\else \numberline {31}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-1+}}}{53}{lispcodethm.31}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}33\else \numberline {33}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-1-}}}{53}{lispcodethm.33}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}32\else \numberline {32}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-1-}}}{53}{lispcodethm.32}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}34\else \numberline {34}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sqrt}}}{53}{lispcodethm.34}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}33\else \numberline {33}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-sqrt}}}{53}{lispcodethm.33}%
 \defcounter {refsection}{0}\relax 
-\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}72\else \numberline {72}Definice\fi \thmtformatoptarg {Zlatý řez \cite {GR}}}{54}{definition.72}%
+\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}71\else \numberline {71}Definice\fi \thmtformatoptarg {Zlatý řez \cite {GR}}}{54}{definition.71}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}35\else \numberline {35}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-phi}}}{54}{lispcodethm.35}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}34\else \numberline {34}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-phi}}}{54}{lispcodethm.34}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}6\else \numberline {6}Lispový test\fi \thmtformatoptarg {\texttt {tnum-phi}}}{54}{lispcodetest.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}73\else \numberline {73}Fakt\fi \thmtformatoptarg {Obecný logaritmus jako podíl přirozených \cite {tabulky}}}{54}{fact.73}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}72\else \numberline {72}Fakt\fi \thmtformatoptarg {Obecný logaritmus jako podíl přirozených \cite {tabulky}}}{54}{fact.72}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}36\else \numberline {36}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-log}}}{54}{lispcodethm.36}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}35\else \numberline {35}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-log}}}{54}{lispcodethm.35}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}7\else \numberline {7}Lispový test\fi \thmtformatoptarg {\texttt {tnum-log}}}{55}{lispcodetest.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}8\else \numberline {8}Lispový test\fi \thmtformatoptarg {\texttt {tnum-sin}}}{55}{lispcodetest.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}37\else \numberline {37}Lispový kód\fi \thmtformatoptarg {\texttt {tsin}}}{57}{lispcodethm.37}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}36\else \numberline {36}Lispový kód\fi \thmtformatoptarg {\texttt {tsin}}}{57}{lispcodethm.36}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}9\else \numberline {9}Lispový test\fi \thmtformatoptarg {\texttt {tsin}}}{57}{lispcodetest.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}74\else \numberline {74}Lemma\fi \thmtformatoptarg {O sčítání tnumu s numem}}{58}{lemma.74}%
+\contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}73\else \numberline {73}Lemma\fi \thmtformatoptarg {O sčítání tnumu s numem}}{58}{lemma.73}%
 \defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{58}{thmt@dummyctr.dummy.134}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{58}{thmt@dummyctr.dummy.133}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}38\else \numberline {38}Lispový kód\fi \thmtformatoptarg {\texttt {t+}}}{58}{lispcodethm.38}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}37\else \numberline {37}Lispový kód\fi \thmtformatoptarg {\texttt {t+}}}{58}{lispcodethm.37}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}10\else \numberline {10}Lispový test\fi \thmtformatoptarg {\texttt {t+}}}{58}{lispcodetest.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}39\else \numberline {39}Lispový kód\fi \thmtformatoptarg {\texttt {t*}}}{59}{lispcodethm.39}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}38\else \numberline {38}Lispový kód\fi \thmtformatoptarg {\texttt {t*}}}{59}{lispcodethm.38}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}11\else \numberline {11}Lispový test\fi \thmtformatoptarg {\texttt {t*}}}{59}{lispcodetest.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}40\else \numberline {40}Lispový kód\fi \thmtformatoptarg {\texttt {calc-sin}}}{59}{lispcodethm.40}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}39\else \numberline {39}Lispový kód\fi \thmtformatoptarg {\texttt {calc-sin}}}{59}{lispcodethm.39}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}12\else \numberline {12}Lispový test\fi \thmtformatoptarg {\texttt {calc-sin}}}{60}{lispcodetest.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}41\else \numberline {41}Lispový kód\fi \thmtformatoptarg {\texttt {global-sin}}}{60}{lispcodethm.41}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}40\else \numberline {40}Lispový kód\fi \thmtformatoptarg {\texttt {global-sin}}}{60}{lispcodethm.40}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodetest}{\ifthmt@listswap Lispový test\nobreakspace {}13\else \numberline {13}Lispový test\fi \thmtformatoptarg {\texttt {global-sin}}}{60}{lispcodetest.13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{72}{thmt@dummyctr.dummy.142}%
 \defcounter {refsection}{0}\relax 
 \contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{72}{thmt@dummyctr.dummy.143}%
 \defcounter {refsection}{0}\relax 
@@ -289,8 +289,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{72}{thmt@dummyctr.dummy.145}%
 \defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{72}{thmt@dummyctr.dummy.146}%
+\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{73}{thmt@dummyctr.dummy.146}%
 \defcounter {refsection}{0}\relax 
 \contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{73}{thmt@dummyctr.dummy.147}%
-\defcounter {refsection}{0}\relax 
-\contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{73}{thmt@dummyctr.dummy.148}%

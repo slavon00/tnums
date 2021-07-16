@@ -23,8 +23,8 @@ Rozdělení funkcí na funkce na rozhraní a na pomocné vnitřní funkce zobraz
 \texttt{tnum-exp} & \texttt{tnum-ln} & \texttt{create-list-for-multiplication} \\
 \texttt{tnum-sin} & \texttt{tnum-csc} & \texttt{num-exp}\\
 \texttt{tnum-cos} & \texttt{tnum-sec} & \texttt{num-sin}\\
-\texttt{tnum-tan} & \texttt{tnum-ctan} & \texttt{precise-operator}\\
-\texttt{tnum-expt} & \texttt{tnum-root} & \texttt{tnum*num}\\ \hline
+\texttt{tnum-tan} & \texttt{tnum-ctan} & \texttt{tnum*num}\\
+\texttt{tnum-expt} & \texttt{tnum-root} & \\ \hline
 \end{tabular}
 
 Tabulka zobrazuje v prvním sloupci funkce pro používání uživatelem, ve druhém pak pomocné funkce, které by uživatelem být volány neměly.
@@ -48,8 +48,8 @@ implementačně závislé & \multicolumn{2}{>{\columncolor[gray]{1}}c|}{implemen
 \texttt{tnum+} & \texttt{tnum-expt}&\texttt{tnum-csc}\\
 \texttt{/tnum} & \texttt{get-nonzero-tnum+eps}&\texttt{num-exp}\\
 \texttt{tnum*} & \texttt{create-list-for-multiplication}&\texttt{num-sin}\\
-\texttt{tnum-exp} &\texttt{precise-operator}&\texttt{num-cos}\\
-\texttt{tnum-sin} & \texttt{tnum-root}&\\
+\texttt{tnum-exp} &\texttt{tnum-root} &\texttt{num-cos}\\
+\texttt{tnum-sin} & &\\
 \texttt{tnum-cos} & &\\\hline
 \end{tabular}
 
@@ -64,7 +64,7 @@ V následujícím textu tento počet rozšíříme, aby bylo jasné, jaké možn
 \subsection{Instalace}
 Knihovna \texttt{tnums} je k dostání na githubu na odkaze \url{https://github.com/slavon00/tnums} nebo pro čtenáře tištěné verze na přiloženém fyzickém disku. Je to Lispová knihovna a od uživatele předpokládá základy práce s Lispem a REPLem.
 
-Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{tnums.lisp} a všechny funkce, které přidáme v této kapitole pak v \texttt{user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{tests.lisp}. Vše je možné jednoduše načíst jen evaluací souboru \texttt{load.lisp}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
+Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{src/tnums.lisp} a všechny funkce, které přidáme v této kapitole pak v \texttt{src/user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{src/tests.lisp}. Vše je možné jednoduše načíst jen evaluací souboru \texttt{load.lisp}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
 
 Knihovna se v budoucnosti může měnit, takže tyto informace mohou zastarat. Pro zpětnou kompatibilitu ale knihovna na githubu bude vždy obsahovat soubor \texttt{README.md} nebo ekvivalentní, aby mohla instalace proběhnout bez problémů.
 
@@ -225,15 +225,15 @@ Tabulka \ref{tab:rychlost} zobrazuje, jak dlouho trvalo vyhodnocení příkazů.
 \centering
 \caption{Doba výpočtů daných výrazů}
 \label{tab:rychlost}
-\begin{tabular}{| >{\columncolor[gray]{1}} l |>{\columncolor[gray]{1}}c|}
+\begin{tabular}{| >{\columncolor[gray]{1}} l |>{\columncolor[gray]{1}}p{2.5cm}|}
 \hline
-\multicolumn{1}{|>{\columncolor[gray]{1}}c|}{Výraz} & Doba vyhodnocení (s)\\\hline\hline
+\multicolumn{1}{|>{\columncolor[gray]{1}}c|}{Výraz} & Doba vyhodnocení~(s)\\\hline\hline
 \texttt{((let ((tn}& \cellcolor[gray]{1} \\
-\texttt{~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi)))} & \multirow{-2}{*}{-}\\ \hline
-\texttt{ (tnum-to-string tn 50)} & 1.415019 \\ \hline
-\texttt{ (tnum-to-string (tnum-sin tn) 50)} & 56.346948 \\ \hline
-\texttt{ (tnum-to-string (tnum-csc tn) 50)} & 3273.217844 \\ \hline
-\texttt{ (tnum-to-string (tnum-ctan tn) 50))} & ? \\ \hline
+\texttt{~~~~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi)))} & \multirow{-2}{*}{-}\\ \hline
+\texttt{~~~(tnum-to-string tn 50)} & 2.228978 \\ \hline
+\texttt{~~~(tnum-to-string (tnum-sin tn) 50)} & 31.015740 \\ \hline
+\texttt{~~~(tnum-to-string (tnum-csc tn) 50)} & ? \\ \hline
+\texttt{~~~(tnum-to-string (tnum-ctan tn) 50))} & ? \\ \hline
 \end{tabular}
 
 Tabulka v prvním sloupci zobrazuje výrazy, které byly vyhodnocovány a ve druhém čas, který toto vyhodnocení zabralo. Doba byla měřena makrem \texttt{time} a hodnoty jsou z řádku \uv{(\ldots) seconds of total run time}.

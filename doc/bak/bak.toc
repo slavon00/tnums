@@ -91,7 +91,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.3.1}Sinus}{43}{subsubsection.5.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.2}Kosinus}{44}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2}Kosinus}{45}{subsubsection.5.3.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.3.3}Další goniometrické funkce}{46}{subsubsection.5.3.3}%
 \defcounter {refsection}{0}\relax 

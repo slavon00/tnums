@@ -1,4 +1,4 @@
-Zde uvedu některé důkazy, na které potřebujeme širší aparát, než jsem v práci zavedl, nebo jsou mimo těžiště práce a pro pochopení práce s tnumy nejsou zapotřebí.
+Zde uvedu některé důkazy, které jsou mimo těžiště práce a pro pochopení práce s tnumy nejsou zapotřebí. Nějaké zájemce by ale mohlo zajímat, jak se některé důkazy vedou a ikdyž se nehodí je napsat přímo v textu práce, zde mohou být.
 \subsection{Fakt \ref{vet:o_castecnem_souctu_geometricke_rady} -- O částečném součtu geometrické řady}\label{duk:o_castecnem_souctu_geometricke_rady}
 \begin{proof}
 Částečný součet je z definice $s^a_n=a+aq+\ldots+aq^n$. Užitím vztahu
@@ -26,15 +26,11 @@ R_n = \sum_{i\in\mathbb{N}}aq^i -s^a_n =\frac{a}{1-q} - a\frac{1-q^{n+1}}{1-q} =
 \end{equation}
 \end{proof}
 
-\subsection{Fakt \ref{vet:funkce_jako_rada} -- O ztotožnění Taylorovy řady s funkcí}\label{duk:funkce_jako_rada}
-\begin{proof}
-Rovnost \ref{vet:funkce_jako_rada} platí na $I$ právě tehdy, když $\lim s^T_n(x) = f(x)$ pro $x\in I$. Avšak $s^T_n(x)=T^{f,a}_n(x)=f(x)-R^{f,a}_n(x)$, takže $\lim s^T_n(x)=f(x)$ právě tehdy, když $\lim R^{f,a}_n(x)=0$ na $I$.
-\end{proof}
 \subsection{Fakt \ref{vet:exp_jako_rada} -- O exponenciále jako Maclaurinově řadě}\label{duk:exp_jako_rada}
 \begin{proof}
 \begin{equation}
 \begin{split}
-exp(x) = \sum_{i\in\mathbb{N}}\frac{exp^{(i)}(0)}{i!}x^i = \left[\begin{matrix}\frac{d}{dx} exp(x) = exp(x) \\ \end{matrix}\right] = \frac{exp(0)}{1} + \frac{exp(0)}{1}x +\\ +\frac{exp(0)}{2}x^2 + \ldots= \left[\begin{matrix} exp(0)=1 \end{matrix}\right] = \frac{1}{1} + \frac{x}{1} + \frac{x^2}{2} + \ldots=\sum_{i\in\mathbb{N}}\frac{x^i}{i!}
+e^x = \sum_{i\in\mathbb{N}}\frac{exp^{(i)}(0)}{i!}x^i = \left[\begin{matrix}\frac{d}{dx} exp(x) = exp(x) \\ \end{matrix}\right] = \frac{exp(0)}{1} + \frac{exp(0)}{1}x +\\ +\frac{exp(0)}{2}x^2 + \ldots= \left[\begin{matrix} exp(0)=1 \end{matrix}\right] = \frac{1}{1} + \frac{x}{1} + \frac{x^2}{2} + \ldots=\sum_{i\in\mathbb{N}}\frac{x^i}{i!}
 \end{split}
 \end{equation}
 \end{proof}

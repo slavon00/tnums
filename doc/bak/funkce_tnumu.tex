@@ -176,7 +176,7 @@ Podívejme se nyní, jaký vztah je mezi $w$ a $\varepsilon$. Pro úhel $\alpha$
 w = \frac{\varepsilon}{\mathrm{ctan}(\alpha)} = \frac{\varepsilon}{\mathrm{tan}(\frac{\pi}{2}-\alpha)} = \frac{\varepsilon}{exp(x+w)}.
 \end{equation}
 
-Vychází rekurzivní vztah pro $w$, po jeho dosazení do vztahu \ref{invpresexp} dostáváme
+Poslední úprava je přepsání skutečnosti, že tangens je v tomto bodě roven derivaci a derivace exponenciály je exponenciála. Vychází rekurzivní vztah pro $w$, po jeho dosazení do vztahu \ref{invpresexp} dostáváme
 \begin{equation}\label{rekpresexp}
 \mathrm{exp}(x)+\varepsilon=\mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}(x+\ldots)}\right)}\right).
 \end{equation}
@@ -193,40 +193,34 @@ dohromady to pak po propojení s notací tnumů dává vztah
 \mathrm{exp}\left(x-\frac{\varepsilon}{\mathrm{exp}\left(x-\frac{\varepsilon}{\mathrm{exp}(x-\ldots)}\right)}\right), \mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}(x+\ldots)}\right)}\right)\right].
 \end{equation}
 
-Nyní by mělo být jasné, že při implementaci budeme hledat pevný bod a proto si zavedeme tzv. \textit{precizní operátor}.
+\begin{remark}
+Odložím si zde obecnější trvzení, které vychází z právě dokázaného vztahu pro exponenciálu, jeho platnost by nyní měla být jasná pro všechny funkce spojité v $x$.
+\begin{lemma}[O přesnosti závislé proměnné]\label{lem:presprom}
+\begin{equation}\label{eq:presprom}
+f(x)+\varepsilon=f(x+w)\text{,~kde~}w=f\left(x+\frac{\varepsilon}{f^{'}(x+w)}\right).
+\end{equation}
+\begin{proof}
+Tělo důkazu je již v řádcích a obrázcích nad tímto lemmatem. Protože $\varepsilon$ může být jakkoli malé, je úhel $\alpha$ roven derivaci v bodě $x+w$ a proto pak platí právě uvedený vztah.
+\end{proof}
+\end{lemma}
+Rekurzivní vztah vede k nějakému iterativnímu výpočtu, na ten se podíváme v následujících řádcích ohledně exponenciály a logaritmu.
+\end{remark}
 
-\begin{definition}[Precizní operátor]
+Z výše uvedených vztahů by mělo být jasné, že při implementaci budeme hledat pevný bod a proto si zavedeme tzv. \textit{precizní operátor}.
+
+\begin{definition}[Precizní operátor exponenciály]
 Definujme následující posloupnost:
 \begin{equation}
-\left[ \mathcal{T}^x\right]_0^{f,\varepsilon}=\mathcal{T}^{f(\mathcal{T}^x(\varepsilon))}(\varepsilon),
+\left[ \mathcal{T}^x\right]_0^{\mathrm{exp},\varepsilon}=\mathcal{T}^{\mathrm{exp}(\mathcal{T}^x(\varepsilon))}(\varepsilon),
 \end{equation}
 \begin{equation}
-\left[ \mathcal{T}^x\right]_{n+1}^{f,\varepsilon}=\mathcal{T}^{f\left(\mathcal{T}^x\left(\frac{\varepsilon}{\left|\left[ \mathcal{T}^x\right]_n^{f,\varepsilon}\right|+\varepsilon}\right)\right)}(\varepsilon)
+\left[ \mathcal{T}^x\right]_{n+1}^{\mathrm{exp},\varepsilon}=\mathcal{T}^{\mathrm{exp}\left(\mathcal{T}^x\left(\frac{\varepsilon}{\left|\left[ \mathcal{T}^x\right]_n^{\mathrm{exp},\varepsilon}\right|+\varepsilon}\right)\right)}(\varepsilon)
 \end{equation}
 a pokud existuje $m$ tak, že
 \begin{equation}
-\left[\mathcal{T}^x\right]_m^{f,\varepsilon} = \left[\mathcal{T}^x\right]_{m+1}^{f,\varepsilon}\text{, pak klademe}\left[\mathcal{T}^x \right]_\infty^{f,\varepsilon} := \left[\mathcal{T}^x\right]_m^{f,\varepsilon}.
+\left[\mathcal{T}^x\right]_m^{\mathrm{exp},\varepsilon} = \left[\mathcal{T}^x\right]_{m+1}^{\mathrm{exp},\varepsilon}\text{, pak klademe}\left[\mathcal{T}^x \right]_\infty^{\mathrm{exp},\varepsilon} := \left[\mathcal{T}^x\right]_m^{\mathrm{exp},\varepsilon}.
 \end{equation}
 \end{definition}
-
-\begin{remark}[Vše je operátor]
-Jako operátor se v matematice běžně označuje funkce, která jako vstup nebere číslo, ale nějakou jinou funkci. V tomto pohledu jsou všechny funkce, které jsme naprogramovali pro tnumy ve skutečnosti operátory, nikoli funkcemi. My ale funkcemi simulujeme čísla a proto dodržíme zavedenou terminologii a operátorem budeme nazývat pouze Precizní operátor, ikdyž operátorem je v podstatě vše.
-\end{remark}
-
-\begin{lispcode}{\texttt{precise-operator}}{Funkce pro rozšíření funkcí z racionálních čísel na tnumy}
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{precise-operator} (tnum eps f)
-  (\textcolor{vedlejsi}{let*} ((num (\textcolor{moje}{tnum-to-num} tnum eps))
-         (fnum (\textcolor{funkcionalni}{funcall} f num eps))
-         (new 1))
-    (\textcolor{funkcionalni}{loop} 
-      \textcolor{obarvi}{until} (\textcolor{matematicke}{=} num new)
-      \textcolor{obarvi}{do} (\textcolor{vedlejsi}{setf} new (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} (\textcolor{matematicke}{abs} fnum) 1)
-            (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{+} (\textcolor{matematicke}{abs} fnum) eps)))
-            num)
-        num new
-        fnum (\textcolor{funkcionalni}{funcall} f num eps))
-      \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} fnum))))
-\end{lispcode}
 
 \begin{consequence}[O exponenciále tnumu]\label{dusl:expotnumu}
 Pro tnum $\mathcal{T}^x$ lze najít tnum $\mathcal{T}^{e^x}$ a má tvar
@@ -238,12 +232,20 @@ Vychází přímo ze vztahu \ref{rekpresexp3}.
 \end{proof}
 \end{consequence}
 
-Je jasné, že operátor musí brát jako argumenty tnum, přesnost a funkci. Exponenciálu tnumu s výše uvedeným již naprogramujeme velmi přehledně.
-
-\begin{lispcode}{\texttt{tnum-exp}}{Funkce pro výpočet exponenciály tnumu}
+\begin{lispcode}{\texttt{tnum-exp}}{Funkce pro rozšíření funkcí z racionálních čísel na tnumy}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-exp} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{moje}{precise-operator} tnum eps \textquotesingle\textcolor{moje}{num-exp})))
+    (\textcolor{vedlejsi}{let*} ((num (\textcolor{moje}{tnum-to-num} tnum eps))
+          (expnum (\textcolor{moje}{num-exp} num eps))
+          (new 1))
+      (\textcolor{funkcionalni}{loop} 
+        \textcolor{obarvi}{until} (\textcolor{matematicke}{=} num new)
+        \textcolor{obarvi}{do} (\textcolor{vedlejsi}{setf} new (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} expnum 1)
+              (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{+} expnum eps)))
+              num)
+          num new
+          expnum (\textcolor{moje}{num-exp} num eps))
+        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} expnum)))))
 \end{lispcode}
 
 \subsection{Goniometrické}
@@ -290,25 +292,21 @@ Běží podobně jako u exponenciály. Jde opět o exponenciálu nad faktoriále
       \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
-Pro rozšíření možných vstupů mimo racionálních čísel též na všechna reálná čísla, která mají tnumy použijeme opět Precizní operátor. Zformulujme si tedy nyní obecnější podobu důsledku \ref{dusl:expotnumu}.
+Protože derivace sinu je kosinus, který nabývá hodnot mezi $-1$ a $1$, nebude nutné provádět korekce přesnosti podle funkční hodnoty derivace a tato skutečnost vede na jednoduchý vztah.
 
-\begin{hypothesis}[O funkci tnumu]\label{hyp:ofcitnumu}
-Pro funkce $f$ a $\mathcal{T}^x$, $x\in D(f)$ platí
+\begin{lemma}[O sinu tnumu]
 \begin{equation}
-\mathcal{T}^{f(x)}(\varepsilon)=[\mathcal{T}^x]^{f, \varepsilon}_\infty.
+\mathcal{T}^{\mathrm{sin}(x)}(\varepsilon)=\mathcal{T}^{sin(\mathcal{T}^x(\varepsilon)}(\varepsilon)
 \end{equation}
-\end{hypothesis}
-
-\begin{consequence}[Sinus tnumu]
-\begin{equation}
-\mathcal{T}^{\mathrm{sin}(x)}(\varepsilon)=[\mathcal{T}^x]^{\mathrm{sin}, \varepsilon}_\infty
-\end{equation}
-\end{consequence}
+\begin{proof}
+Plyne z lemmatu \ref{lem:presprom} a z omezení absolutních funkčních hodnot kosinu jedničkou.
+\end{proof}
+\end{lemma}
 
 \begin{lispcode}{\texttt{tnum-sin}}{Funkce pro sinus tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-sin} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{moje}{precise-operator} tnum eps \textquotesingle\textcolor{moje}{num-sin})))
+    (\textcolor{moje}{num-sin} (\textcolor{moje}{tnum-to-num} tnum eps) eps)))
 \end{lispcode}
 
 \subsubsection{Kosinus}
@@ -348,22 +346,12 @@ a proto opět hledáme takové $n$, že když pro jakékoli $\varepsilon$ je $|\
       \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
-A nakonec právě naprogramovanou funkci využijeme ke kosinování jakékoli proměnné s tnumem. Nepřekvapí použití Precizního operátoru.
-
-\begin{lemma}[O kosinu tnumu]
-Pro funkci $\mathcal{T}^x$, $x\in\mathbb{R}$ existuje $\mathcal{T}^{\mathrm{cos}(x)}$ a je ve tvaru
-\begin{equation}
-\mathcal{T}^{\mathrm{cos}(x)}(\varepsilon)=[\mathcal{T}^x]_\infty^{\mathrm{cos}, \varepsilon}.
-\end{equation}
-\begin{proof}
-Protože $D(\mathrm{cos})=\mathbb{R}$, plyne přímo z hypotézy \ref{hyp:ofcitnumu}.
-\end{proof}
-\end{lemma}
+A nakonec právě naprogramovanou funkci využijeme ke kosinování jakékoli proměnné s tnumem. Postup je stejný jako u sinu a proto už nepíši příslušné lemma a nechávám ho ke zformulování čtenáři.
 
 \begin{lispcode}{\texttt{tnum-cos}}{Funkce pro výpočet kosinu tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-cos} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{moje}{precise-operator} tnum eps \textquotesingle\textcolor{moje}{num-cos})))
+    (\textcolor{moje}{num-cos} (\textcolor{moje}{tnum-to-num} tnum eps) eps)))
 \end{lispcode}
 
 Zbylé goniometrické funkce už naprogramujeme uživatelsky.
@@ -441,12 +429,26 @@ Pro $x\in\mathbb{R}^+$ platí
       \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} (\textcolor{matematicke}{*} 2 result)))))
 \end{lispcode}
 
-Tím bychom měli přirozený logaritmus pro čísla. Precizní operátor překvapivě funguje i zde, takže rozšíření na tnumy je již dílem okamžiku.
+Tím bychom měli přirozený logaritmus pro čísla. Podívejme se nyní, jak vypadá omezení nezávislé proměnné pro logaritmus. Po dosazení do vztahu \ref{eq:presprom} získáváme
+
+\begin{equation}
+\mathrm{ln}(x)+\varepsilon=\mathrm{ln}\left(x+\frac{\varepsilon}{\mathrm{ln}^{'}(x+w)}\right)
+\end{equation}
+
+a protože $\mathrm{ln}(x+w)=(x+w)^{-1}$, pak
+
+\begin{equation}
+\mathrm{ln}(x)+\varepsilon=\mathrm{ln}(x+\varepsilon(x+w))
+\end{equation}
+
+a protože přesnost nemůže být nulová, použijeme k vyčíslení $\mathcal{T}^x(w)$ nenulový tnum a tím je problém vyřešen. Vezmeme totiž pesimistický odhad $\mathcal{T}^x(\varepsilon_\emptyset)-\varepsilon_\emptyset$ a přenásobíme jím epsilon.
 
 \begin{lispcode}{\texttt{tnum-ln}}{Funkce pro logaritmus tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-ln} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{moje}{precise-operator} tnum eps \textquotesingle\textcolor{moje}{num-ln})))
+    (\textcolor{matematicke}{multiple-value-bind} (num eps0)
+      (\textcolor{moje}{get-nonzero-num+eps} tnum eps)
+      (\textcolor{moje}{num-ln} (\textcolor{moje}{tnum-to-num} tnum eps) (\textcolor{matematicke}{*} eps (\textcolor{matematicke}{-} num eps0))))))
 \end{lispcode}
 
 \begin{remark}[Dokončení systému]
