@@ -1,6 +1,7 @@
 ;PACKAGE TNUMS 
 ;AUTHOR:    slavon00
 ;INSTITUTE: UPOL/PRF/KI
+;-------------
 ;prevod cisla na tnum
 (defun num-to-tnum (num)
   (let ((rat_num (rationalize num)))

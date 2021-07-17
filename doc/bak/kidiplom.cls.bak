@@ -429,10 +429,9 @@
 \includegraphics{\@logofile}
 \vfill
 
-\begin{tabular}{@{}p{6.1cm}@{}@{\hspace{1cm}}@{}p{7cm}@{}}
+\begin{tabular}{@{}p{6cm}@{}@{\hspace{1cm}}@{}p{7cm}@{}}
 {\Large\@yearofsubmit} & {\Large\@author} \\[2ex]
-\@textsupervisor: & \@textfield:\\
-\@supervisor & \@field
+\@textsupervisor: \\\@supervisor & \@textfield: \@field
 \end{tabular}
 
 \end{center}
