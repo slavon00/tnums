@@ -57,7 +57,7 @@ Tabulka zobrazuje v prvním sloupci funkce, které pracují s konkrétní implem
 \end{mdframed}
 \end{table}
 
-Knihovna \texttt{tnums} obsahuje 30 funkcí. Podívejme se nyní, které z nich jsou uživatelské, tedy vnější funkce, které jsou implementačně nezávislé a nevolají žádnou pomocnou funkci: \texttt{tnum-}, \texttt{tnum/}, \texttt{tnum-csc}, \texttt{tnum-sec}, \texttt{tnum-tan}, \texttt{tnum-ctan}, \texttt{tnum-expt} a \texttt{tnum-root}. To je osm funkcí, což je celkem hezký počet na to, že jsme je uživatelsky naprogramovali v podstatě mimoděk. S přimhouřenýma očima lze za uživatelské prohlásit i \texttt{tnum-e} a \texttt{-tnum}, čímž jsme na plné třetině.
+Knihovna \texttt{tnums} obsahuje 29 funkcí. Podívejme se nyní, které z nich jsou uživatelské, tedy vnější funkce, které jsou implementačně nezávislé a nevolají žádnou pomocnou funkci: \texttt{tnum-}, \texttt{tnum/}, \texttt{tnum-csc}, \texttt{tnum-sec}, \texttt{tnum-tan}, \texttt{tnum-ctan}, \texttt{tnum-expt} a \texttt{tnum-root}. To je osm funkcí, což je celkem hezký počet na to, že jsme je uživatelsky naprogramovali v podstatě mimoděk. S přimhouřenýma očima lze za uživatelské prohlásit i \texttt{tnum-e} a \texttt{-tnum}, čímž jsme na více než třetině.
 
 V následujícím textu tento počet rozšíříme, aby bylo jasné, jaké možnosti uživatelské rozšiřitelnosti i takto funkcionálně skromná knihovna nabízí.
 

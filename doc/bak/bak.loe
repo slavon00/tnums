@@ -67,7 +67,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{23}{thmt@dummyctr.dummy.34}%
 \defcounter {refsection}{0}\relax 
-\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}2\else \numberline {2}Lispový kód\fi \thmtformatoptarg {rat-expt}}{23}{lispcodethm.2}%
+\contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}2\else \numberline {2}Lispový kód\fi \thmtformatoptarg {\texttt {rat-expt}}}{23}{lispcodethm.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}3\else \numberline {3}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-to-num}}}{24}{lispcodethm.3}%
 \defcounter {refsection}{0}\relax 
@@ -157,13 +157,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}16\else \numberline {16}Lispový kód\fi \thmtformatoptarg {\texttt {tnum-e}}}{38}{lispcodethm.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}54\else \numberline {54}Pozn\'{a}mka\fi }{42}{remark.54}%
+\contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}54\else \numberline {54}Pozn\'{a}mka\fi \thmtformatoptarg {Obecnější přesnost vzoru}}{42}{remark.54}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lemma}{\ifthmt@listswap Lemma\nobreakspace {}55\else \numberline {55}Lemma\fi \thmtformatoptarg {O přesnosti závislé proměnné}}{42}{lemma.55}%
 \defcounter {refsection}{0}\relax 
 \contentsline {proof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi D\r {u}kaz}{42}{thmt@dummyctr.dummy.82}%
 \defcounter {refsection}{0}\relax 
-\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}56\else \numberline {56}Definice\fi \thmtformatoptarg {Precizní operátor exponenciály}}{42}{definition.56}%
+\contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}56\else \numberline {56}Definice\fi \thmtformatoptarg {Precizní iterátor exponenciály}}{42}{definition.56}%
 \defcounter {refsection}{0}\relax 
 \contentsline {consequence}{\ifthmt@listswap D\r {u}sledek\nobreakspace {}57\else \numberline {57}D\r {u}sledek\fi \thmtformatoptarg {O exponenciále tnumu}}{42}{consequence.57}%
 \defcounter {refsection}{0}\relax 

@@ -157,15 +157,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.4.4}Adakvátnost}{66}{subsubsection.7.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Z\'av\v er}{67}{section*.10}%
+\contentsline {section}{Z\'av\v er}{67}{section*.11}%
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{68}{section*.12}%
+\contentsline {section}{Conclusions}{68}{section*.13}%
 \babel@toc {english}{}
 \babel@toc {czech}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Seznam literatury}{69}{section*.14}%
+\contentsline {section}{Seznam literatury}{69}{section*.15}%
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \babel@toc {czech}{}

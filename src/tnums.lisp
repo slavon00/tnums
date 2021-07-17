@@ -66,7 +66,7 @@
 ;vycisleni nenuloveho tnumu
 (defun get-nonzero-num+eps (tnum eps)
   (let ((num (tnum-to-num tnum eps)))
-    (if (and (zerop num) (< (abs num) eps))
+    (if (and (zerop num) (<= (abs num) eps))
       (get-nonzero-num+eps tnum (/ eps 10))
       (values num eps))))
 

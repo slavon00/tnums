@@ -8,15 +8,16 @@ V poslední části potom přidáme nějakou praktickou zkušenost a vymezíme p
 
 \section*{Značení}
 \begin{tabular}{l|l}
-$\square$ a $\blacksquare$ & konec důkazu a konec poznámky \\
+$\square$ & konec důkazu \\
+$\blacksquare$ & konec poznámky \\
 modré pozadí & obrázek \\
 cyan pozadí & tabulka \\
-$(a,b)$ a $[a,b]$ & otevřený interval mezi $a$ a $b$ uzavřený interval mezi $a$ a $b$ \\
-$\rightarrow$ & logická implikace nebo \uv{do} \\
+$(a,b)$ & otevřený interval mezi $a$ a $b$ \\
+$[a,b]$ & uzavřený interval mezi $a$ a $b$ \\
+$\rightarrow$ & logická implikace nebo \ \\
 $\leftrightarrow$ & logická ekvivalence \\
 $\Leftrightarrow$ & \uv{právě tehdy když} \\
-$\cup$ a $\cap$ & množinové sjednocení a množinový průnik \\
-$|a|$ & absolutní hodnota čísla $a$ \\
-:= & přiřazení \\
-$\frac{d}{dx}f(x)$ & derivace funkce $f$ v bodě $x$, je-li jasná proměnná, pak jen $f^{'}(x)$.
+$\cup$ & množinové sjednocení \\
+$\cap$ & množinový průnik \\
+$|a|$ & absolutní hodnota čísla $a$
 \end{tabular}

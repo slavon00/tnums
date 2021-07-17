@@ -57,7 +57,7 @@ Tabulka zobrazuje v prvním sloupci funkce, které pracují s konkrétní implem
 \end{mdframed}
 \end{table}
 
-Knihovna \texttt{tnums} obsahuje 30 funkcí. Podívejme se nyní, které z nich jsou uživatelské, tedy vnější funkce, které jsou implementačně nezávislé a nevolají žádnou pomocnou funkci: \texttt{tnum-}, \texttt{tnum/}, \texttt{tnum-csc}, \texttt{tnum-sec}, \texttt{tnum-tan}, \texttt{tnum-ctan}, \texttt{tnum-expt} a \texttt{tnum-root}. To je osm funkcí, což je celkem hezký počet na to, že jsme je uživatelsky naprogramovali v podstatě mimoděk. S přimhouřenýma očima lze za uživatelské prohlásit i \texttt{tnum-e} a \texttt{-tnum}, čímž jsme na plné třetině.
+Knihovna \texttt{tnums} obsahuje 29 funkcí. Podívejme se nyní, které z nich jsou uživatelské, tedy vnější funkce, které jsou implementačně nezávislé a nevolají žádnou pomocnou funkci: \texttt{tnum-}, \texttt{tnum/}, \texttt{tnum-csc}, \texttt{tnum-sec}, \texttt{tnum-tan}, \texttt{tnum-ctan}, \texttt{tnum-expt} a \texttt{tnum-root}. To je osm funkcí, což je celkem hezký počet na to, že jsme je uživatelsky naprogramovali v podstatě mimoděk. S přimhouřenýma očima lze za uživatelské prohlásit i \texttt{tnum-e} a \texttt{-tnum}, čímž jsme na více než třetině.
 
 V následujícím textu tento počet rozšíříme, aby bylo jasné, jaké možnosti uživatelské rozšiřitelnosti i takto funkcionálně skromná knihovna nabízí.
 
@@ -230,10 +230,10 @@ Tabulka \ref{tab:rychlost} zobrazuje, jak dlouho trvalo vyhodnocení příkazů.
 \multicolumn{1}{|>{\columncolor[gray]{1}}c|}{Výraz} & Doba vyhodnocení~(s)\\\hline\hline
 \texttt{((let ((tn}& \cellcolor[gray]{1} \\
 \texttt{~~~~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi)))} & \multirow{-2}{*}{-}\\ \hline
-\texttt{~~~(tnum-to-string tn 50)} & 2.228978 \\ \hline
-\texttt{~~~(tnum-to-string (tnum-sin tn) 50)} & 31.015740 \\ \hline
-\texttt{~~~(tnum-to-string (tnum-csc tn) 50)} & ? \\ \hline
-\texttt{~~~(tnum-to-string (tnum-ctan tn) 50))} & ? \\ \hline
+\texttt{~~~(tnum-to-string tn 50)} & 1.367339 \\ \hline
+\texttt{~~~(tnum-to-string (tnum-sin tn) 50)} & 28.180623 \\ \hline
+\texttt{~~~(tnum-to-string (tnum-csc tn) 50)} & 3600.500439 \\ \hline
+\texttt{~~~(tnum-to-string (tnum-ctan tn) 50))} 25431.702944 ? \\ \hline
 \end{tabular}
 
 Tabulka v prvním sloupci zobrazuje výrazy, které byly vyhodnocovány a ve druhém čas, který toto vyhodnocení zabralo. Doba byla měřena makrem \texttt{time} a hodnoty jsou z řádku \uv{(\ldots) seconds of total run time}.

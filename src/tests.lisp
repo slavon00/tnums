@@ -30,22 +30,7 @@
 ;0.8414709848078965d0
 
 ;; (let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
-;;     (time (tnum-to-string tn 50)) 1.415019
-;;     (time (tnum-to-string (tnum-sin tn) 50)) 56.346948
-;;     (time (tnum-to-string (tnum-csc tn) 50)) 3273.217844
-;;     (time (tnum-to-string (tnum-ctan tn) 50)) 22278.522199
-;;     (time (tnum-to-string (tnum-ln (tnum-ctan tn)) 50))) ?
-
-(let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
-    (time (tnum-to-string tn 50)) 2.228978
-    (time (tnum-to-string (tnum-sin tn) 50)) 31.015740
-    (time (tnum-to-string (tnum-csc tn) 50)) ?
-    (time (tnum-to-string (tnum-ctan tn) 50)) ?
-    (time (tnum-to-string (tnum-ln (tnum-ctan tn)) 50))) ?
-
-(let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
-    (time (tnum-to-string tn 50))
-    (time (tnum-to-string (tnum-sin tn) 50))
-    (time (tnum-to-string (tnum-csc tn) 50))
-    (time (tnum-to-string (tnum-ctan tn) 50))
-    (time (tnum-to-string (tnum-ln (tnum-ctan tn)) 50)))
+;;     (time (tnum-to-string tn 50)) 1.367339
+;;     (time (tnum-to-string (tnum-sin tn) 50)) 28.180623
+;;     (time (tnum-to-string (tnum-csc tn) 50)) 3600.500439
+;;     (time (tnum-to-string (tnum-ctan tn) 50))) 25431.702944
