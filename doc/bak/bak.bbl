@@ -244,8 +244,8 @@
       \strng{authorbibnamehash}{9be002eb11f959bf1a6ffc79d89a01ec}
       \strng{authornamehash}{9be002eb11f959bf1a6ffc79d89a01ec}
       \strng{authorfullhash}{9be002eb11f959bf1a6ffc79d89a01ec}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -408,8 +408,8 @@
       \strng{authorbibnamehash}{21a5bc236c0b66577eeeb97a952d70a8}
       \strng{authornamehash}{21a5bc236c0b66577eeeb97a952d70a8}
       \strng{authorfullhash}{21a5bc236c0b66577eeeb97a952d70a8}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Matematická analýza I}
@@ -512,8 +512,8 @@
       \strng{authorbibnamehash}{25e61e01dc13989617fe5ad0dfac442d}
       \strng{authornamehash}{25e61e01dc13989617fe5ad0dfac442d}
       \strng{authorfullhash}{25e61e01dc13989617fe5ad0dfac442d}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -541,8 +541,8 @@
       \strng{authorbibnamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
       \strng{authornamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
       \strng{authorfullhash}{f61020ca200cbc57bcb3d9fe9c509eeb}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Operační systémy}
@@ -865,8 +865,8 @@
       \strng{authorbibnamehash}{a894657f4322ed592ad9fbf54e7d819e}
       \strng{authornamehash}{a894657f4322ed592ad9fbf54e7d819e}
       \strng{authorfullhash}{a894657f4322ed592ad9fbf54e7d819e}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{a Class Library for Numbers}
@@ -1087,6 +1087,45 @@
       \endverb
       \verb{url}
       \verb https://www.ams.org/journals/mcom/1997-66-218/S0025-5718-97-00856-9/S0025-5718-97-00856-9.pdf
+      \endverb
+    \endentry
+    \entry{rice:kompr}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f90cabc304a16dc176463dd52cef5aca}{%
+           family={Rice},
+           familyi={R\bibinitperiod},
+           given={Henry\bibnamedelima Gordon},
+           giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{f90cabc304a16dc176463dd52cef5aca}
+      \strng{fullhash}{f90cabc304a16dc176463dd52cef5aca}
+      \strng{bibnamehash}{f90cabc304a16dc176463dd52cef5aca}
+      \strng{authorbibnamehash}{f90cabc304a16dc176463dd52cef5aca}
+      \strng{authornamehash}{f90cabc304a16dc176463dd52cef5aca}
+      \strng{authorfullhash}{f90cabc304a16dc176463dd52cef5aca}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the American Mathematical Society}
+      \field{number}{5}
+      \field{title}{Recursive Real Numbers}
+      \field{urlday}{22}
+      \field{urlmonth}{7}
+      \field{urlyear}{2021}
+      \field{volume}{5}
+      \field{year}{1954}
+      \field{urldateera}{ce}
+      \field{pages}{784\bibrangedash 791}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://www.ams.org/journals/proc/1954-005-05/S0002-9939-1954-0063328-5/home.html
+      \endverb
+      \verb{url}
+      \verb https://www.ams.org/journals/proc/1954-005-05/S0002-9939-1954-0063328-5/home.html
       \endverb
     \endentry
     \entry{MTTP}{online}{}

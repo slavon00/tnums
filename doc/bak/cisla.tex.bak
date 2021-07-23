@@ -1,24 +1,26 @@
-Číslo je matematický objekt, který na intuitivní úrovni všichni nějak chápeme. Mělo by to znamenat, že každý dokáže říci o nějakém objektu, jestli je to číslo, nebo nikoli a všichni se na tom shodneme. Je číslem $3$? Je číslem $2.999\ldots$? Je číslem $e$? Vágní pokus o definici by mohl vypadat tak jako na české wikipedii:
+Číslo je matematický objekt, který na intuitivní úrovni všichni chápeme. To znamená, že každý dokáže o libovolném objektu říci, zda se jedná o číslo, nebo nikoli, a všichni se na tom shodneme. Je číslem $3$? Je číslem $2.999\ldots$? Je číslem $e$? 
+
+Vágní pokus o definici by mohl vypadat tak jako na české wikipedii:
 
 \begin{definition}[Číslo -- naivní \cite{wiki:cislo}]
 Číslo je abstraktní entita užívaná pro vyjádření množství nebo pořadí.
 \end{definition}
 
-Uvedená definice přiřazuje číslům dvě funkce -- kardinální a ordinální. Jinak o povaze čísel neříká mnoho. Víme, že je to abstraktní entita -- to znamená, že ji nelze zapsat samu o sobě, ale pomocí nějakého symbolu. Symbol reprezentující číslo tři je $3$, $\frac{6}{2}$ nebo třeba i $2.999\ldots$. To ukazuje, že číslo není jednoznačně dáno svým zápisem, ale svým obsahem. To má společné s jinými matematickými objekty -- s množinami.
+Uvedená definice přiřazuje číslům dvě funkce -- kardinální a ordinální. Jinak o povaze čísel neříká mnoho. Víme, že je to abstraktní entita -- to znamená, že ji nelze zapsat samu o sobě, ale je třeba použít nějaký symbol. Symbolem reprezentujícím číslo tři je $3$, $\frac{6}{2}$ nebo třeba i $2.999\ldots$. Symbolický zápis čísla zřejmě není jednoznačný. $3$ není to samé jako $2.999\ldots$, ale číslo $3$ je to samé jako číslo $2.999\ldots$. Z toho plyne, že symbol s referencí na nějakou entitu a tato entita samotná se od sebe liší. Alenka takhle zjistila rozdíl mezi tím, jak se říká názvu písně, jaké je její jméno, jak se píseň jmenuje a co píseň opravdu je \cite{TtLG}. Známe-li rozdíl mezi koncepty čísla a symbolu, který ho repreznetuje, je možné využít pro reprezentaci čísel i jiné symboly než číslice jako jsou například písmena či složené matematické výrazy -- například $e = \lim_{n \to \infty} \left(1 +\frac{1}{n} \right)^n = \sum_{n\in\mathbb{N}}\frac{1}{n!}$.
 
-Množina je také dána svým obsahem (prvky), nikoli svým zápisem. Později budeme tuto jejich povahu nazývat principem extenzionality. Například $\{0, 1, 2, 3 \} = \{ n | n \in \mathbb{N} \land n \leq 3 \}$ je stejná množina s jinými zápisy. Je tedy něco jiného symbol s referencí na nějakou entitu a tato entita samotná. $3$ není to samé jako $2.999\ldots$, ale číslo $3$ je to samé jako číslo $2.999\ldots$. Alenka takhle zjistila rozdíl mezi tím, jak se říká názvu písně, jaké je její jméno, jak se píseň jmenuje a co píseň opravdu je \cite{TtLG}. Pokud koncept čísla a symbolu čísla čtenář začne rozlišovat, už mu nebude divné, že se čísla značí písmenem, nebo že má číslo dokonce nějaký divoký zápis, například $e = \lim_{n \to \infty} \left(1 +\frac{1}{n} \right)^n = \sum_{n\in\mathbb{N}}\frac{1}{n!}$.
+Číslo je tedy charakterizováno nikoli svým zápisem, ale svým obsahem. Tato vlastnost je společná s jinými matematickými objekty -- s množinami. Množina je také dána svým obsahem, nikoli svým zápisem (této vlastnosti se říká princip extenzionality). Například $\{0, 1, 2, 3 \} = \{ n | n \in \mathbb{N} \land n \leq 3 \}$ je stejná množina zapsaná dvěma různými způsoby. Symbol \uv{$=$} je tedy ekvivalence na hodnotách.
 
 \subsection{Přirozená čísla}
-Přirozená čísla jsou čísla, jejichž \textit{kardinalita} určuje nějaký počet nějakých nedělitelných částí nějakého celku. Historicky asi vznikla nejdříve, proto se nazývají přirozená (anglicky \textit{natural} -- přírodní). Jedná se o čísla nula, jedna, dva atd. Symboly těchto čísel jsou 0, 1, 2, atd. Množina přirozených čísel má vlastnost, že \textit{každé} číslo $n$ má následníka. Toho značíme $s(n)$ nebo také $n+1$ \cite{LambdaCalcul}.
+Přirozená čísla jsou čísla, jejichž \textit{kardinalita} určuje počet nedělitelných částí celku. Historicky asi vznikla nejdříve, proto se nazývají přirozená (anglicky \textit{natural} -- přírodní). Jedná se o čísla nula, jedna, dva, atd. Běžnými symboly těchto čísel jsou 0, 1, 2, atd. Vlastností přirozených čísel je, že \textit{každé} číslo $n$ má následníka. Toho značíme $s(n)$ nebo $n+1$ \cite{LambdaCalcul}.
 
-Hodnota přirozeného čísla je tedy počet entit v nějakém souboru. Například počet krav ve stádu, počet prstů na ruce, nebo třešniček na dortu. \textit{Následník} takového čísla značí, kolik entit bude v souboru, pokud přidáme jednu krávu, přišijeme jeden prst nebo vypěstujeme další třešničku.
+Hodnota přirozeného čísla je počet entit v nějakém souboru -- například počet krav ve stádu, počet prstů na ruce, nebo počet třešniček na dortu. \textit{Následník} takového čísla značí, kolik entit bude v souboru, pokud se do stáda narodí další kráva, na ruku se přišije jeden prst nebo je do krému přidána další třešnička.
 
-Jako v matematice skoro vše, jsou i přirozená čísla \textit{množiny}. Konkrétně v~tomto textu je zavedu v Zermelově-Fraenkelově axiomatici teorii množin. Je snadné nahlédnout, že stačí nějak zkonstruovat číslo nula a \textit{zobrazení} $s$ přiřazující každému číslu následníka. Poté budeme mít celou nekonečnou množinu přirozených čísel zkonstruovanou. Protože se jedná o výklad teorie množin, celý zbytek této podkapitoly je pouze velmi stručný výtah z \cite{TeMno}.
+I přirozená čísla jsou \textit{množiny}. Konkrétně v~tomto textu je zavedu v Zermelově-Fraenkelově (ZF) axiomatici teorii množin. Je snadné nahlédnout, že stačí zkonstruovat číslo nula a \textit{zobrazení} $s$ přiřazující každému číslu následníka. Poté budeme mít celou nekonečnou množinu přirozených čísel zkonstruovanou. Protože se jedná o výklad teorie množin, celý zbytek této podkapitoly je pouze velmi stručný výtah z \cite{TeMno}.
 
-Definice přirozených čísel je induktivní a stojí na jednoduché myšlence Johna von Neumanna, že \uv{přirozené číslo je množina všech menších přirozených čísel}. Číslo nula je zde prázdná množina značená $0$, $\emptyset$ nebo $\{ \}$. A následník čísla je sjednocení čísla s množinou toto obsahující, čili $s(n) = n \cup \{n\}$.
+Definice přirozených čísel je induktivní a stojí na jednoduché myšlence Johna von Neumanna, že \uv{přirozené číslo je množina všech menších přirozených čísel}. Číslo nula je zde prázdná množina značená $0$, $\emptyset$ nebo $\{ \}$. Následník čísla je sjednocení čísla s množinou obsahující toto číslo, čili $s(n) = n \cup \{n\}$.
 
-Několik prvních přirozených čísel tedy vypadá následovně.
-\begin{example}[První přirozená čísla coby množiny]
+Několik nejmenších přirozených čísel vypadá tedy následovně.
+\begin{example}[Nejnižší přirozená čísla coby množiny]
 \begin{equation}
 0 = \emptyset
 \end{equation}
@@ -36,18 +38,16 @@ Několik prvních přirozených čísel tedy vypadá následovně.
 4 =s(3)= 3 \cup \{ 3 \} = \{ \emptyset , \{ \emptyset \} , \{ \emptyset , \{ \emptyset \} \} \}  \cup \{ \{ \emptyset , \{ \emptyset \} , \{ \emptyset , \{ \emptyset \} \} \}  \} = \\ = \{ \emptyset , \{ \emptyset \} , \{ \emptyset , \{ \emptyset \} \} , \{ \emptyset , \{ \emptyset \} , \{ \emptyset , \{ \emptyset \} \} \}  \}
 \end{split}
 \end{equation}
-\begin{equation}
-5 =s(4)= 4 \cup \{ 4 \}
-\end{equation}
 \end{example}
 
 \begin{myremark}{Provázání hodnot a podmnožin}\label{pozn:kard_podm}
-Všimněme si, že kardinalita v tomto pojetí znamená počet podmnožin. Neboli číslo $n$ má $n$ podmnožin, čímž se provázaly dva zdánlivě cizí pojmy a sice \textit{podmnožinovost} a \textit{hodnota} čísla. V tomto kontextu pak není překvapivá podobnost srovnávacích symbolů $\subseteq$ a $\leq$.
+Všimněme si, že kardinalita v tomto pojetí znamená počet podmnožin, neboli číslo $n$ má $n$ podmnožin. Tím se provázaly dva zdánlivě cizí pojmy a sice \textit{podmnožinovost} a \textit{hodnota} čísla. V tomto kontextu pak není překvapivá podobnost srovnávacích symbolů $\subseteq$ a $\leq$.
 \end{myremark}
 
-Zermelova-Fraenkelova teorie stojí na následujících pěti axiomech a jednom axiomovém schématu (také se říká 6 axiomů) a nic jiného (kromě jazyka predikátové logiky) už nepotřebuje.
+Zermelova-Fraenkelova teorie stojí na následujících pěti axiomech a jednom axiomovém schématu (někdy uváděno jako 6 axiomů).
+
 \begin{itemize}
-\item Axiom extenzionality: $(\forall u)(u \in x \leftrightarrow u \in y) \rightarrow x = y$
+\item Axiom extenzionality: $(\forall u)((u \in x \leftrightarrow u \in y) \rightarrow x = y)$
 \item Axiom fundovanosti: $ (\forall a)(a \neq \emptyset \rightarrow (\exists x)(x \in a \land x \cap a = \emptyset))$
 \item Axiom sumy: $(\forall a)(\forall b)(\exists z)(\forall x)(x \in z \leftrightarrow (x = a \lor x = b))$
 \item Axiom potence: $(\forall a)(\exists z)(\forall x)(x \in z \leftrightarrow x \subset a)$
@@ -55,13 +55,13 @@ Zermelova-Fraenkelova teorie stojí na následujících pěti axiomech a jednom 
 \item Schéma axiomů nahrazení: Je-li $\Psi (u, v)$ formule, která neobsahuje volné proměnné $w$ a $z$, potom formule $$\begin{aligned}(\forall u)(\forall v)(\forall w)((\Psi (u,v) \land \Psi (u, w)) \rightarrow v = w) \rightarrow \\ \rightarrow (\forall a)(\exists z)(\forall v)(v \in z \leftrightarrow (\exists u)(u \in a \land \Psi (u,v))) \end{aligned}$$ je axiom nahrazení.
 \end{itemize}
 
-Z těchto axiomů je možné odvodit i (slabší) tvrzení, které se někdy přijímají jako axiomy a sice
+Z těchto axiomů je možné odvodit i (slabší) tvrzení, která se někdy přijímají jako axiomy a sice
 \begin{itemize}
 \item Axiom dvojice: $(\forall a)(\forall b)(\exists z)(\forall x)(x \in z \leftrightarrow (x = a \lor x = b))$
 \item Schéma axiomů vydělení: Je-li $\varphi (x)$ formule, která neobsahuje volnou proměnnou $z$, potom formule $(\forall a)(\exists z)(\forall x)(x \in z \leftrightarrow  (x \in a \land \varphi (x)))$ je axiom vydělení.
 \end{itemize}
 
-Z axiomů ZF je pro naše zkoumání důležitý napřílkad axiom nekonečna -- existuje alespoň jedna (nekonečná) množina. Za pomoci dalších axiomů poté konstruujeme další prvky, jako třeba prázdnou množinu -- tu dostaneme pomocí axiomu vydělení s jakoukoli množinou $a$ a formulí $\varphi(x) = x \neq x$ -- prázdná množina je tedy $\emptyset = \{ x: x \in a \land x \neq x \}$. Dále získáváme, že sjednocení množin je také množina, podobně jejich průnik. Tyto výstupy zde nebudu vyvozovat, zájemce odkáži na \cite{TeMno} a konečně přikročím k definici množiny přirozených čísel.
+Z axiomů ZF je pro naše zkoumání důležitý například axiom nekonečna -- existuje alespoň jedna (nekonečná) množina. Za pomoci dalších axiomů poté konstruujeme další prvky, jako třeba prázdnou množinu -- tu dostaneme pomocí axiomu vydělení s jakoukoli množinou $a$ a formulí $\varphi(x) = x \neq x$ -- prázdná množina je tedy $\emptyset = \{ x | x \in a \land x \neq x \}$. Dále získáváme, že sjednocení množin je také množina, podobně jejich průnik.
 
 \begin{definition}[Induktivní množina]
 Množina $A$ je \textit{induktivní}, pokud platí $(\emptyset \in A) \land (\forall a \in A)((a \cup \{ a \}) \in A)$.
@@ -69,21 +69,18 @@ Množina $A$ je \textit{induktivní}, pokud platí $(\emptyset \in A) \land (\fo
 
 \begin{definition}[Přirozená čísla]
 \begin{equation}
-\mathbb{N} = \bigcap \{A : A \text{~je induktivní} \}
+\mathbb{N} = \bigcap \{A | A \text{~je induktivní} \}
 \end{equation}
 \end{definition}
 
-Množina přirozených čísel je nejmenší induktivní množina a je podmnožinou každé induktivní množiny. Zajímavý je i důsledek, co znamená, že třída všech přirozených čísel (množin předchůdců) je množina -- $\mathbb{N}$ je nejmenší nekonečný \textit{kardinál} a také jediný \textit{spočetný} kardinál. Rozsah této práce ale nedovoluje se tomuto fenoménu věnovat více.
+Množina přirozených čísel je nejmenší induktivní množina a je podmnožinou každé induktivní množiny. $\mathbb{N}$ je nejmenší nekonečný \textit{kardinál} a také jediný \textit{spočetný} kardinál.
 
 \begin{myremark}{Značení přirozených čísel}
-Množina $z$ v axiomu nekonečna je stejná množina, jako $\mathbb{N}$. V teorii množin se značí $\omega$. Při zkoumání kardinality je pak $\aleph_0$. Pokud budu operovat s množinou přirozených čísel bez nuly, připíšu jako horní index $+$ ($\mathbb{N^+} = \mathbb{N} - \{0\}$). V~literatuře, kde se nula do přirozených čísel nezahrnuje naše přirozená čísla značí s nulou jako dolním indexem ($\mathbb{N}_0 = \mathbb{N} \cup \{0 \}$).
+Množina $z$ v axiomu nekonečna je stejná množina jako $\mathbb{N}$. V teorii množin se značí $\omega$, při zkoumání kardinality pak $\aleph_0$. Pro označení přirozených čísel bez nuly zaveďme horní index $+$ ($\mathbb{N^+} = \mathbb{N} - \{0\}$).
 \end{myremark}
 
 \begin{myremark}{Nula je přirozená}
-Z definice přirozených čísel podle ZF přímo vyplývá, že součástí přirozených čísel je i číslo nula. Intuitivně i stádo, ve kterém není žádná kráva je stále stádem. Ruka bez prstů je stále rukou, byť s nula prsty. Dort bez třešniček je sice smutný, ale i tak dort.
-
-Jestli je nula přirozená nechám spíše matematickým filosofům a v této práci, pokud neřeknu jinak, budu počítat s nulou jako přirozeným číslem. Už nikdy by zde čtenář tedy neměl vidět symbol $\mathbb{N}_0$.
-\end{myremark}
+Z definice přirozených čísel podle ZF přímo vyplývá, že součástí přirozených čísel je i číslo nula. Dle mého i stádo, ve kterém není žádná kráva, je stále stádem; ruka bez prstů je stále rukou; dort bez třešniček je i tak dort.\end{myremark}
 
 \subsection{Vyšší obory čísel}
 \label{kap:vyssi_obory_cisel}
@@ -100,13 +97,14 @@ Stále v našem číselném systému nemáme například délku úhlopříčky j
 
 V reálných číslech matematikové objevili ještě jemnější struktury, než jen dělení na obory, které jsem teď představil. První jmenované iracionální číslo ($\sqrt{2}$) je tzv. \textit{algebraické}, protože může vypadnout jako řešení z nějaké algebraické rovnice, např $x ^ 2 = 2$ nebo $(-x) ^ 2 = 2$, zatímco druhé jmenované -- tzv. \textit{Ludolfovo číslo} ($\pi$) takovouto vlastností nedisponuje, je \textit{nealgebraické}, též \textit{transcendentní} \cite{TeMno}. Dále v reálných číslech existují tzv. \textit{rekurzivní čísla} (\textit{computable reals} -- vizte kapitolu \ref{kap:computable-reals}), která se dají vyčíslit v konečném čase. Pro reálné číslo $r$ a dané $\varepsilon$ existuje vyčíslitelná funkce (pro konečný vstup někdy skončí), jejímž výsledkem je racionální číslo $q$ tak, že platí nerovnice \ref{rov:rac_u_real}. Ostatní čísla jsou nerekurzivní a protože Turingových strojů je spočetně mnoho, je nerekurzivních čísel nespočetně mnoho \cite{wiki:CompN}. Poznamenejme už nyní, že přechod od racionálních čísel k rekurzivním je velmi složitý a tato práce je hlavně o tomto přechodu. V jednom oboru jsou i složité věci vcelku jednoduché, zatímco v tom druhém jsou i jednoduché věci vceklu složité.
 
-Pokud nebudeme uvažovat pouze jednu číselnou osu, ale číslo bude mít více složek, přesněji $2^n$ složek, pak připouštíme existenci ještě vyšších číselných oborů -- komplexních čísel ($\mathbb{C}, n = 1$), kvaternionů ($\mathbb{H}, n = 2$), oktonionů ($\mathbb{O}, n = 3$) -- těmto čtyřem (společně s reálnými čísly) oborům říkáme \textit{normované algebry s dělením} (\textit{normed division algebra}) \cite{DAaQT}. Ještě vyšší obory (sedeniony -- $\mathbb{S}, n = 4$ atd.) už jsou úplně mimo ambice tohoto úvodu. V této práci již nadále \uv{číslem} myslím číslo \textit{rekurzivní}. Jiným názvem této práce by tedy mohlo být \uv{Přesné výpočty s rekurzivními čísly}.
+Pokud nebudeme uvažovat pouze jednu číselnou osu, ale číslo bude mít více složek, přesněji $2^n$ složek, pak připouštíme existenci ještě vyšších číselných oborů -- komplexních čísel ($\mathbb{C}, n = 1$), kvaternionů ($\mathbb{H}, n = 2$), oktonionů ($\mathbb{O}, n = 3$) -- těmto čtyřem (společně s reálnými čísly) oborům říkáme \textit{normované algebry s dělením} (\textit{normed division algebra}) \cite{DAaQT}. Ještě vyšší obory (sedeniony -- $\mathbb{S}, n = 4$ atd.) už jsou úplně mimo ambice tohoto úvodu.
+V této práci již nadále \uv{číslem} myslím číslo \textit{rekurzivní}. Jiným názvem této práce by tedy mohlo být \uv{Přesné výpočty s rekurzivními čísly}. Zadání tedy
 
 \subsection{Operace s čísly}
 \label{operace_s_cisly}
 Už při vymezování číselných oborů jsem zmínil 3 operace, které čísla většinou \uv{zmenšují}, bylo to \textit{odčítání} (rozdíl), \textit{dělení} (poměr) a \textit{odmocňování} (odmocnina). K nim patří ještě operace opačné, které čísla veskrze \uv{zvětšují} a ty po řadě nazýváme \textit{sčítání} (součet), \textit{násobení} (součin) a \textit{umocňování} (mocnina).
 
-Binární operace se značí znaménkem mezi operandy. Například součet čísel $x$ a $y$ značíme $x+y$, součin $x*y$ atd. Základní značení operací je uvedeno v~tabulce \ref{tab:znamenka_operaci}. Binárním operacím, které mají jako první operand neutrální prvek budeme říkat unární. Je to číslo opačné (k číslu $x$ je opak číslo $0-x$ a značíme ho $-x$) a převrácené číslo (k číslu $x\neq0$ je jeho převrácením číslo $1/x$ a značíme ho $x^{-1}$).
+Binární operace se značí znaménkem mezi operandy. Například součet čísel $x$ a $y$ značíme $x+y$, součin $x*y$ atd. Základní značení operací je uvedeno v~tabulce \ref{tab:znamenka_operaci}. Binárním operacím, které mají jako první operand neutrální prvek budeme říkat unární. Je to číslo opačné (k číslu $x$ je opak číslo $0-x$ a značíme ho $-x$) a převrácené číslo (k číslu $x\neq0$ je jeho převrácením číslo $1/x$ a značíme ho $/x$ nebo $x^{-1}$).
 
 Operacím $\langle +, -\rangle$ říkáme aditivní, $\langle +, /\rangle$ multiplikativní a $\langle\string^ , \surd\rangle$ mocninné. Zajímavé jsou vztahy mezi operacemi. Že se dvojice jmenují spolu naznačuje jejich příbuznost. Tyto vztahy bych nazval \uv{horizontální}. Mnohem zajímavější jsou ale vztahy \uv{vertikální}. Platí
 \begin{equation}

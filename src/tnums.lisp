@@ -91,7 +91,7 @@
         (dotimes (j (list-length tnums))
           (unless (= i j)
             (setf actual-eps (/ actual-eps
-              (+ (nth j nums) eps)))))
+              (+ (nth j nums) eps 1)))))
         (setf result (cons
           (tnum-to-num (nth i tnums) actual-eps) result))))))
 

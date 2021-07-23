@@ -159,85 +159,82 @@ Násobení bere libovolně mnoho argumentů. Pro žádný vrátí jedničku (jed
 \begin{theorem}[O součinu dvou tnumů]\label{vet:soucin_dvou_tnumu}
 Pro nenulová čísla $x$, $y$ a jejich tnumy platí
 \begin{equation}
-\mathcal{T}^{x*y}(\varepsilon)=\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)| + \varepsilon)}\right)*\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)| + \varepsilon)}\right)
+\mathcal{T}^{x*y}(\varepsilon)=\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)| + \varepsilon + 1)}\right)*\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)| + \varepsilon + 1)}\right)
 \end{equation}
 \begin{proof}
 Nejprve si dokážeme dvě nerovnice, které posléze použijeme v těle důkazu.
 První nerovnicí je 
 \begin{equation}\label{duk:soucin_prvni}
-\left|y * \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)-x\right|\leq\frac{\varepsilon}{2}.
+\frac{|y|}{|\mathcal{T}^y(\varepsilon)| + \varepsilon + 1}\leq 1.
 \end{equation}
-Tu podle $|a*b|=|a|*|b|$ přepíšeme na
+To je ekvivalentní s
 \begin{equation}
-|y|*\left|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)-x\right|\leq\frac{\varepsilon}{2},
+|y|\leq |\mathcal{T}^y(\varepsilon)|+\varepsilon+1
 \end{equation}
-což po vydělení nenulovým číslem $|y|$ je
+a protože $\mathcal{T}^y(\varepsilon)+\varepsilon\geq y$, platí
 \begin{equation}
-\left|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)-x\right|\leq\frac{\varepsilon}{2*|y|},
+|y|\leq |y|+1,
 \end{equation}
-a po úpravě přesnosti máme
-\begin{equation}
-\left|\mathcal{T}^x\left(\frac{\varepsilon*|y|}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)-x\right|\leq\frac{\varepsilon}{2}.
-\end{equation}
-Stačí ukázat, že
-\begin{equation}
-\frac{|y|}{|\mathcal{T}^y(\varepsilon)|+\varepsilon}\leq 1,
-\end{equation}
-to ovšem plyne z faktu, že
-\begin{equation}
-|y|\leq |\mathcal{T}^y(\varepsilon)|+\varepsilon.
-\end{equation}
+což je jistě pravda. 
+
 Druhá nerovnice je
 \begin{equation}\label{duk:soucin_druha}
-\left|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)\right| *\left|\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right)-y\right|\leq\frac{\varepsilon}{2}.
+\frac{|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|}{|\mathcal{T}^x(\varepsilon)|+\varepsilon+1}\leq 1.
 \end{equation}
-Stejně jako u předchozí nerovnice dostaneme levou absolutní hodnotu do argumentu vydělením a úpravou přesnosti. Dostáváme
+Ekvivalentní zápis je
 \begin{equation}
-\left|\mathcal{T}^y\left(\frac{\varepsilon *\left|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)\right|}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right)-y\right|\leq\frac{\varepsilon}{2}
+|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|\leq |\mathcal{T}^x(\varepsilon)|+\varepsilon+1
 \end{equation}
-a aby nerovnice platila, musí být
+a protože $\mathcal{T}^x(\varepsilon)+\varepsilon\geq x$, platí
 \begin{equation}
-\frac{\left|\mathcal{T}^x\left(\frac{\varepsilon}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)\right|}{|\mathcal{T}^x(\varepsilon)|+\varepsilon}\leq 1,
+|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|\leq |x|+1
 \end{equation}
-neboli
+a stejným postupem rozepíšeme levou stranu, takže dostáváme
 \begin{equation}
-\left|\mathcal{T}^x\left(\frac{\varepsilon}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right)\right|\leq |\mathcal{T}^x(\varepsilon)|+\varepsilon.
+|x|+|\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon+1)}|\leq |x|+1
 \end{equation}
-Protože ale
+a po odečtení $|x|$ zbyde
 \begin{equation}
-\frac{\varepsilon}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \leq 1,
+|\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon+1)}|\leq 1
 \end{equation}
-dokazovaná nerovnice platí.
+což ale platí, protože
+\begin{equation}
+|\mathcal{T}^x(\varepsilon)+\varepsilon\geq 0.
+\end{equation}
 
 Nyní konečně přejděme k důkazu věty. Aby věta platila, musíme dokázat
 \begin{equation}
-\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right) -xy \right|\leq\varepsilon.
+\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -xy \right|\leq\varepsilon.
 \end{equation}
 Rozepíšeme proto levou stranu
 \begin{equation}
-\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right) -xy \right| =
+\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -xy \right| =
 \end{equation}
-přičtením a odečtením členu $\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \right)y$ dostáváme
+přičtením a odečtením členu $\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y$ dostáváme
 \begin{equation}
-\begin{split}=\bigl\vert \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right) -&
-\\-\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \right)y + \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \right)y -xy \bigr\vert =&
+\begin{split}=\bigl\vert \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -&
+\\-\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y + \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y -xy \bigr\vert =&
 \end{split}
 \end{equation}
-a vytknutím tmumu $x$ pak
-\begin{equation}
-\begin{split}
-= \bigl\vert \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right) *\left(\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right) - y\right)+&\\
-+y\left(\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \right) - x \right)\bigr\vert\leq&\\
-\end{split}
-\end{equation}
-z trojúhelníkové nerovnosti pak vyplyne
+a po vytknutí $|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)|$ z prvních dvou členů a $|y|$ z druhých dvou máme
 \begin{equation}
 \begin{split}
-\leq \left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)}\right) *\left(\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon)}\right) - y\right)\right|+&\\
-+\left|y\left(\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon)} \right) - x \right)\right|\leq
+=|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)||\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right)-y|+\\+|y||\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)-x|\leq
 \end{split}
 \end{equation}
-a díky nerovnostem \ref{duk:soucin_prvni} a \ref{duk:soucin_druha} pak platí
+a po dvojím použití pravidla $|\mathcal{T}^x(\varepsilon)-x|\leq\varepsilon$ získáváme
+\begin{equation}
+\begin{split}
+\leq |\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)||\frac{\varepsilon}{2}||\frac{1}{(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}|+\\+|y||\frac{\varepsilon}{2}||\frac{1}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}|=
+\end{split}
+\end{equation}
+a zjednodušíme-li pomocí zlomku, dostáváme
+\begin{equation}
+\begin{split}
+= |\frac{\varepsilon}{2}||\frac{|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)|}{(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}|+\\+|\frac{\varepsilon}{2}||\frac{|y|}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}|\leq
+\end{split}
+\end{equation}
+a díky dokázaným nerovnostem \ref{duk:soucin_prvni} a \ref{duk:soucin_druha} pak platí
 \begin{equation}
 \leq\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
 \end{equation}
@@ -249,7 +246,7 @@ Právě dokázaná věta mluví o součinu dvou tnumů. Zobecnění na konečný
 \begin{fact}[Součin tnumů]\label{vet:soucin_tnumu}
 Pro nenulová čísla $\{x_i\}_{i=0}^{n}$ a jejich tnumy platí
 \begin{equation}
-\mathcal{T}^{\prod_{i=0}^nx_i}(\varepsilon)=\prod_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{(n+1)*\prod_{j=0, i\neq j}^n(|\mathcal{T}^{x_j}(\varepsilon)|+\varepsilon)}\right).
+\mathcal{T}^{\prod_{i=0}^nx_i}(\varepsilon)=\prod_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{(n+1)*\prod_{j=0, i\neq j}^n(|\mathcal{T}^{x_j}(\varepsilon)|+\varepsilon +1)}\right).
 \end{equation}
 \end{fact}
 
@@ -267,7 +264,7 @@ Samotná implementace pak využívá pomocnou mapovací funkci, která vypadá t
         (\textcolor{funkcionalni}{dotimes} (j (\textcolor{funkcionalni}{list-length} tnums))
           (\textcolor{funkcionalni}{unless} (\textcolor{matematicke}{=} i j)
             (\textcolor{vedlejsi}{setf} actual-eps (\textcolor{matematicke}{/} actual-eps
-              (\textcolor{matematicke}{+} (\textcolor{funkcionalni}{nth} j nums) eps)))))
+              (\textcolor{matematicke}{+} (\textcolor{funkcionalni}{nth} j nums) eps 1)))))
         (\textcolor{vedlejsi}{setf} result (cons
           (\textcolor{moje}{tnum-to-num} (\textcolor{funkcionalni}{nth} i tnums) actual-eps) result))))))
 \end{lispcode}
@@ -299,6 +296,8 @@ Jedná se o tnumovský protějšek funkce \texttt{/}. Pro jeden argument vrací 
     (\textcolor{moje}{/tnum} tnum1)
     (\textcolor{moje}{tnum*} tnum1 (\textcolor{moje}{/tnum} (\textcolor{funkcionalni}{apply} \textquotesingle\textcolor{moje}{tnum*} tnums)))))
 \end{lispcode}
+
+Pro tnumy $a, b\in\mathfrak{T}$ existuje tnum $a+b$ a $a*b$. Tyto operace jsou tedy uzavřené. Tnum i v tomto smyslu dobře reprezentuje rekurzivní číslo, rekurzivní čísla totiž tvoří číselné těleso \cite{rice:kompr}.
 
 \subsection{Mocninné operace}
 Jak už sem psal v úvodu k této kapitole, na mocnění a odmocňování ještě nemáme v našem systému dostatečný aparát. K implementaci mocninných operací totiž potřebujeme funkce přirozeného logaritmu a exponenciály, které přidáme až v další kapitole.

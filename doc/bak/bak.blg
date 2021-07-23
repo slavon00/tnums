@@ -1,14 +1,14 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'bak.blg'
-[55] biber:340> INFO - === Pá čec  2, 2021, 13:23:21
-[65] Biber.pm:415> INFO - Reading 'bak.bcf'
-[122] Biber.pm:952> INFO - Found 36 citekeys in bib section 0
-[135] Biber.pm:4340> INFO - Processing section 0
-[144] Biber.pm:4531> INFO - Looking for bibtex format file 'zdroje.bib' for section 0
-[146] bibtex.pm:1689> INFO - LaTeX decoding ...
-[187] bibtex.pm:1494> INFO - Found BibTeX data source 'zdroje.bib'
-[363] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[363] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
-[363] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
-[381] bbl.pm:654> INFO - Writing 'bak.bbl' with encoding 'UTF-8'
-[393] bbl.pm:757> INFO - Output to bak.bbl
+[81] biber:340> INFO - === Čt čec 22, 2021, 13:45:37
+[95] Biber.pm:415> INFO - Reading 'bak.bcf'
+[175] Biber.pm:952> INFO - Found 37 citekeys in bib section 0
+[191] Biber.pm:4340> INFO - Processing section 0
+[203] Biber.pm:4531> INFO - Looking for bibtex format file 'zdroje.bib' for section 0
+[206] bibtex.pm:1689> INFO - LaTeX decoding ...
+[273] bibtex.pm:1494> INFO - Found BibTeX data source 'zdroje.bib'
+[529] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[529] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
+[529] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
+[560] bbl.pm:654> INFO - Writing 'bak.bbl' with encoding 'UTF-8'
+[579] bbl.pm:757> INFO - Output to bak.bbl

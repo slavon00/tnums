@@ -1,7 +1,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {definition}{\ifthmt@listswap Definice\nobreakspace {}1\else \numberline {1}Definice\fi \thmtformatoptarg {Číslo -- naivní \cite {wiki:cislo}}}{2}{definition.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {example}{\ifthmt@listswap P\v {r}\'{i}klad\nobreakspace {}2\else \numberline {2}P\v {r}\'{i}klad\fi \thmtformatoptarg {První přirozená čísla coby množiny}}{3}{example.2}%
+\contentsline {example}{\ifthmt@listswap P\v {r}\'{i}klad\nobreakspace {}2\else \numberline {2}P\v {r}\'{i}klad\fi \thmtformatoptarg {Nejnižší přirozená čísla coby množiny}}{3}{example.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {remark}{\ifthmt@listswap Pozn\'{a}mka\nobreakspace {}3\else \numberline {3}Pozn\'{a}mka\fi \thmtformatoptarg {Provázání hodnot a podmnožin}}{3}{remark.3}%
 \defcounter {refsection}{0}\relax 
@@ -125,7 +125,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}12\else \numberline {12}Lispový kód\fi \thmtformatoptarg {\texttt {tnum*}}}{33}{lispcodethm.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}44\else \numberline {44}Fakt\fi \thmtformatoptarg {Podíl tnumů}}{34}{fact.44}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}44\else \numberline {44}Fakt\fi \thmtformatoptarg {Podíl tnumů}}{33}{fact.44}%
 \defcounter {refsection}{0}\relax 
 \contentsline {lispcodethm}{\ifthmt@listswap Lispový kód\nobreakspace {}13\else \numberline {13}Lispový kód\fi \thmtformatoptarg {\texttt {tnum/}}}{34}{lispcodethm.13}%
 \defcounter {refsection}{0}\relax 
