@@ -1,31 +1,3 @@
-Zde uvedu některé důkazy, které jsou mimo těžiště práce a pro pochopení práce s tnumy nejsou zapotřebí. Nějaké zájemce by ale mohlo zajímat, jak se některé důkazy vedou a ikdyž se nehodí je napsat přímo v textu práce, zde mohou být.
-\subsection{Fakt \ref{vet:o_castecnem_souctu_geometricke_rady} -- O částečném součtu geometrické řady}\label{duk:o_castecnem_souctu_geometricke_rady}
-\begin{proof}
-Částečný součet je z definice $s^a_n=a+aq+\ldots+aq^n$. Užitím vztahu
-\begin{equation}
-(1-q)(1+q+q^2+\ldots+q^n)=(1-q)^{n+1}
-\end{equation}
-dostaneme
-\begin{equation}
-s^a_n=a(1+q+q^2+\ldots+q^n)=a\frac{1-q^{n+1}}{1-q}.
-\end{equation}
-\end{proof}
-
-\subsection{Fakt \ref{vet:o_geometricke_rade} -- O geometrické řadě}\label{duk:o_geometricke_rade}
-\begin{proof}
-Po užití limity na obě strany ze lemmatu \ref{vet:o_castecnem_souctu_geometricke_rady} dostáváme 
-\begin{equation}
-\sum_{i\in\mathbb{N}}aq^i=\lim_{n\to\infty}s^a_n=\lim_{n\to\infty}a\frac{1-q^{n+1}}{1-q}=\frac{a}{1-q}.
-\end{equation}
-\end{proof}
-
-\subsection{Fakt \ref{vet:o_zbytku_geometricke_rady} -- O zbytku geometrické řady}\label{duk:o_zbytku_geometricke_rady}	
-\begin{proof}
-\begin{equation}
-R_n = \sum_{i\in\mathbb{N}}aq^i -s^a_n =\frac{a}{1-q} - a\frac{1-q^{n+1}}{1-q} = \frac{a-a+aq^{n+1}}{1-q} = \frac{aq^{n+1}}{1-q}
-\end{equation}
-\end{proof}
-
 \subsection{Fakt \ref{vet:exp_jako_rada} -- O exponenciále jako Maclaurinově řadě}\label{duk:exp_jako_rada}
 \begin{proof}
 \begin{equation}

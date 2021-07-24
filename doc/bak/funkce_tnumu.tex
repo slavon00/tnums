@@ -235,17 +235,13 @@ Vychází přímo ze vztahu \ref{rekpresexp3}.
 \begin{lispcode}{\texttt{tnum-exp}}{Funkce pro rozšíření funkcí z racionálních čísel na tnumy}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-exp} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{vedlejsi}{let*} ((num (\textcolor{moje}{tnum-to-num} tnum eps))
-          (expnum (\textcolor{moje}{num-exp} num eps))
-          (new 1))
-      (\textcolor{funkcionalni}{loop} 
+      (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} i \textcolor{obarvi}{from} 0
+        \textcolor{obarvi}{for} num = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) (\textcolor{moje}{tnum-to-num} tnum eps) new)
+        \textcolor{obarvi}{for} new = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) 1 (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} expnum 1) 
+          (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{+} expnum eps))) num))
+        \textcolor{obarvi}{for} expnum = (\textcolor{moje}{num-exp} num eps)
         \textcolor{obarvi}{until} (\textcolor{matematicke}{=} num new)
-        \textcolor{obarvi}{do} (\textcolor{vedlejsi}{setf} new (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} expnum 1)
-              (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{+} expnum eps)))
-              num)
-          num new
-          expnum (\textcolor{moje}{num-exp} num eps))
-        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} expnum)))))
+        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} expnum))))
 \end{lispcode}
 
 \subsection{Goniometrické}

@@ -4,36 +4,35 @@ Matematické operace se neimplementují všechny stejně složitě. Zatímco adi
 Součet je operace neomezeného počtu argumentů, pro žádný vrací nulu (neutrální prvek aditivní grupy \cite{RachALG1}), pro jeden vrací tento a pro více se pak jedná o postupné zvětšování výsledku o hodnoty argumentů. Rozdíl potom vyžaduje alespoň jeden argument, v případě zadání pouze tohoto se vrací tnum k němu opačný, v případě více pak součet prvního a opačného tnumu součtu ostatních.
 
 \begin{theorem}[O součtu tnumů]
-Mějme čísla $x_0, x_1, \ldots, x_n$ a jejich tnumy. Pak platí
+Nechť $\tnum{x_0}\in\Tnum{x_0}, \tnum{x_1}\in\Tnum{x_1}, \ldots, \tnum{x_n}\in\Tnum{x_n}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{\sum_{i=0}^nx_i}(\varepsilon)=\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right)
+\tnum{}(\varepsilon)=\sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right),
 \end{equation}
+pak $\tnum{}\in\Tnum{\sum_{i=0}^nx_i}$.
 
 \begin{proof}
-Předpokládejme $\mathcal{T}^{x_i}(\varepsilon) + \varepsilon \geq x_i$ a $\mathcal{T}^{x_i}(\varepsilon) - \varepsilon \leq x_i$ pro $i \in \{0, 1, \ldots , n\}$ a ukažme $\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) + \varepsilon \geq \sum_{i=0}^nx_i$ a $\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) - \varepsilon \leq \sum_{i=0}^nx_i$.
+Předpokládejme $\tnum{x_i}(\varepsilon) + \varepsilon \geq x_i$ a $\tnum{x_i}(\varepsilon) - \varepsilon \leq x_i$ pro $i \in \{0, 1, \ldots , n\}$ a ukažme $\sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) + \varepsilon \geq \sum_{i=0}^nx_i$ a $\sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) - \varepsilon \leq \sum_{i=0}^nx_i$.
 
 Z definice tnumu předpokládáme
 \begin{equation}
 \begin{aligned}
-\mathcal{T}^{x_0}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_0 &\land \mathcal{T}^{x_0}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_0,\\
-\mathcal{T}^{x_1}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_1 &\land \mathcal{T}^{x_1}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_1,\\
+\tnum{x_0}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_0 &\land \tnum{x_0}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_0,\\
+\tnum{x_1}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_1 &\land \tnum{x_1}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_1,\\
 \vdots \\
-\mathcal{T}^{x_n}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_n &\land \mathcal{T}^{x_n}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_n.\\
+\tnum{x_n}\left(\frac{\varepsilon}{n+1}\right)+\frac{\varepsilon}{n+1}\geq x_n &\land \tnum{x_n}\left(\frac{\varepsilon}{n+1}\right)-\frac{\varepsilon}{n+1}\leq x_n.\\
 \end{aligned}
 \end{equation}
 Sečtěme teď všechny výrazy a získáváme
 \begin{equation}
-\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) + \sum_{i=0}^n\frac{\varepsilon}{n+1} \geq \sum_{i=0}^nx_i \land \sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) - \sum_{i=0}^n\frac{\varepsilon}{n+1} \leq \sum_{i=0}^nx_i,
+\sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) + \sum_{i=0}^n\frac{\varepsilon}{n+1} \geq \sum_{i=0}^nx_i \land \sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) - \sum_{i=0}^n\frac{\varepsilon}{n+1} \leq \sum_{i=0}^nx_i,
 \end{equation}
 dále $\sum_{i=0}^n\frac{\varepsilon}{n+1} = \varepsilon$, takže
 \begin{equation}
-\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) + \varepsilon \geq \sum_{i=0}^nx_i \land \sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right) - \varepsilon \leq \sum_{i=0}^nx_i,
+\sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) + \varepsilon \geq \sum_{i=0}^nx_i \land \sum_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{n+1}\right) - \varepsilon \leq \sum_{i=0}^nx_i,
 \end{equation}
-výraz $\sum_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{n+1}\right)$ je tedy ekvivalentní s $\mathcal{T}^{\sum_{i=0}^nx_i}(\varepsilon)$.
+což jsme chtěli ukázat.
 \end{proof}
 \end{theorem}
-
-V našem chápání nevracíme přímo čísla, ale tnumy, takže pro prázdný argument místo nuly její tnum -- $\mathcal{T}^0$.
 
 \begin{lispcode}{\texttt{tnum+}}{Funkce na součet tnumů}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum+} (&rest tnums)
@@ -48,10 +47,11 @@ V našem chápání nevracíme přímo čísla, ale tnumy, takže pro prázdný 
 
 Odčítání využívá právě dokázané věty a také důsledku \ref{dusl:negace_tnumu}.
 \begin{fact}[Rozdíl tnumů]
-Mějme čísla $x_{-1}, x_0, \ldots, x_n$, a jejich tnumy. Pak platí
+Nechť $\tnum{x_{-1}}\in\Tnum{x_{-1}}, \tnum{x_{0}}\in\Tnum{x_{0}}, \ldots, \tnum{x_{n}}\in\Tnum{x_{n}}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{x_{-1}-x_0-\ldots-x_n}(\varepsilon)=\mathcal{T}^{x_{-1}-\sum_{i=0}^nx_n}(\varepsilon)=\mathcal{T}^{x_{-1}+\left(-\sum_{i=0}^nx_n\right)}(\varepsilon)
+\tnum{}(\varepsilon)=\tnum{x_{-1}-\sum_{i=0}^nx_n}(\varepsilon)=\tnum{x_{-1}+\left(-\sum_{i=0}^nx_n\right)}(\varepsilon),
 \end{equation}
+pak $\tnum{}\in\Tnum{x_{-1}-x_0-\ldots -x_n}$.
 \end{fact}
 
 Kód odpovídá Lispovskému \texttt{-}, tedy pro jeden argument vrací opačný tnum onoho a pro více argumentů vrací jejich rozdíl.
@@ -64,34 +64,32 @@ Kód odpovídá Lispovskému \texttt{-}, tedy pro jeden argument vrací opačný
 \end{lispcode}
 
 \subsection{Multiplikativní operace}
-Jako první multiplikativní operaci představím převrácení hodnoty tnumu. Je to podobná operace jako opačný tnum, jen jde o jinou inverzi.
-
-Protože převrácení pracuje pouze s nenulovými čísly, přidáme do našeho aparátu ještě práci s tnumy nenulových čísel.
+Jako první multiplikativní operaci představím převrácení hodnoty tnumu. Je to podobná operace jako opačný tnum, jen jde o jinou inverzi. Protože převrácení pracuje pouze s nenulovými čísly, přidáme do našeho aparátu ještě práci s tnumy nenulových čísel.
 
 \begin{definition}[Nenulový tnum]
-Tnum $\mathcal{T}$, který nikdy nenabývá nulové hodnoty, neboli $(\forall \varepsilon \in (0,1))(\mathcal{T}(\varepsilon) \neq 0)$ budeme nazývat \textit{nenulový tnum} a budeme ho značit $\mathcal{T}_\emptyset$.
+Tnum $\tnum{}$, který nikdy nenabývá nulové hodnoty, neboli $(\forall \varepsilon \in (0,1))(\tnum{}(\varepsilon) \neq 0)$ budeme nazývat \textit{nenulový tnum} a budeme ho značit $\tnum{}_\emptyset$.
 \end{definition}
 
 Čísla, která nenabývají nuly tedy budeme moci reprezentovat nenulovými tnumy.
 
 \begin{definition}[Bezpečné epsilon]\label{def:bezpecne_epsilon}
-Pro libovolné $\varepsilon$ a tnum $\mathcal{T}^x$, kde $x\neq 0$ uvažujeme \uv{funkci} $\varepsilon_\emptyset : \mathfrak{T}\times(0,1)\to(0,1)$ tak, aby
+K libovolnému $\varepsilon\in (0,1)$ a tnumu $\tnum{x}\in\Tnum{x}, x\neq 0$ uvažujeme číslo $\varepsilon_\emptyset$ tak, že
 \begin{enumerate}
-\item{$0<\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon)\leq\varepsilon$},
-\item{$\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon)) \neq 0$} a
-\item{$|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))| > \varepsilon_\emptyset(\mathcal{T}^x,\varepsilon)$}.
+\item{$0<\varepsilon_\emptyset\leq\varepsilon$},
+\item{$\tnum{x}(\varepsilon_\emptyset) \neq 0$} a
+\item{$|\tnum{x}(\varepsilon_\emptyset)| > \varepsilon_\emptyset$}.
 \end{enumerate}
-a její hodnotu nazýváme bezpečným epsilonem.
+a nazýváme jej \textit{bezpečným epsilonem}. Lze použít též symbol $\varepsilon_\emptyset(\tnum{x},\varepsilon)$, pokud z kontextu není jasné, jaký tnum a $\varepsilon$ se uvažují.
 \end{definition}
 
 \begin{lemma}[O nenulovém tnumu nenulového čísla]\label{vet:nenul}
-Tnum nenulového čísla lze vyčíslit nenulově, čili $(\forall x \neq 0)((\exists \mathcal{T}^x) \to (\exists \mathcal{T}^x_\emptyset))$. 
+Tnum nenulového čísla lze vyčíslit nenulově, čili $(\forall x \neq 0)((\exists \tnum{x}) \rightarrow (\exists \tnum{x}_\emptyset))$. 
 \begin{proof}
-Vezměme za $\mathcal{T}^x_\emptyset$ tnum, který místo $\varepsilon$ dosadí $\varepsilon_\emptyset$, neboli $\mathcal{T}^x_\emptyset(\varepsilon) := \mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))$. Pak díky podmínce $1$ v definici \ref{def:bezpecne_epsilon} se přesnost nemůže zhoršit a tudíž vyčíslení proběhne v pořádku. Dále díky bodu $2$ ve stejné definici bude vyčíslení nenulové, takže se jedná o nenulový tnum.
-\end{proof} 
+Vezměme za $\tnum{x}_\emptyset$ funkci $\tnum{}$, která místo $\varepsilon$ dosadí $\varepsilon_\emptyset$, neboli $\tnum{}(\varepsilon) = \tnum{x}(\varepsilon_\emptyset)$. Pak díky podmínce $1$ v definici \ref{def:bezpecne_epsilon} se přesnost nemůže zhoršit a tudíž vyčíslení proběhne v pořádku. Dále díky bodu $2$ ve stejné definici bude vyčíslení nenulové, takže se jedná o nenulový tnum.
+\end{proof}
 \end{lemma}
 
-Funkce pro vracení bezpečného epsilonu musí kvůli kontrole nenulovosti vypočítat i num zadaného tnumu a musí také vracet nové epsilon. Aby se tnum nevyčísloval vícekrát, když už jeho hodnotu známe, vrací funkce i tento num.
+Bezpečných epsilonů je nekonečně mnoho, stačí nám najít jediné. Funkce pro jeho výpočet potřebuje tnum a epsilon. To je ve shodě se zavedeným symbolem $\varepsilon_\emptyset(\tnum{x}, \varepsilon)$. Dále musí kvůli kontrole nenulovosti vypočítat i num zadaného tnumu a musí také vracet nové epsilon. Aby se tnum nevyčísloval vícekrát, když už jeho hodnotu známe, vrací funkce i tento num.
 
 \begin{lispcode}{\texttt{get-nonzero-num+eps}}{Funkce pro nalezení přesnosti, při které nebude po aplikaci tnumu nulový výsledek a následné vrácení výsledku i epsilonu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{get-nonzero-num+eps} (tnum eps)
@@ -102,43 +100,44 @@ Funkce pro vracení bezpečného epsilonu musí kvůli kontrole nenulovosti vypo
 \end{lispcode}
 
 \begin{theorem}[O převráceném tnumu]\label{hyp:prevraceni_tnumu}
-Mějme $x \neq 0$ a jeho tnum. Pak platí
+Nechť $\tnum{x}\in\Tnum{x},x\neq 0$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{x^{-1}}(\varepsilon)=\left[\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, (\varepsilon*|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|*(|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|-\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon)))))\right]^{-1}
+\tnum{}(\varepsilon)=/\left[\tnum{x}(\varepsilon_\emptyset(\tnum{x}, (\varepsilon*|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|*(|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|-\varepsilon_\emptyset(\tnum{x}, \varepsilon)))))\right],
 \end{equation}
+pak $\tnum{}\in\Tnum{/x}$.
 \begin{proof}
 
 Podle rovnice \ref{rov:def:tnum} platí 
 \begin{equation}
-\left|\mathcal{T}^x(\varepsilon)-x\right|\leq \varepsilon,
+\left|\txe-x\right|\leq \varepsilon,
 \end{equation}
 což lze díky lemmatu \ref{vet:nenul} a předpokladu nenulovosti $x$ přepsat na
 \begin{equation}
-\left|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))-x\right|\leq \varepsilon,
+\left|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))-x\right|\leq \varepsilon,
 \end{equation}
 díky absolutní hodnotě pak platí
 \begin{equation}
-\left| x-\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))\right|\leq \varepsilon.
+\left| x-\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))\right|\leq \varepsilon.
 \end{equation}
-Nerovnici vydělíme kladným číslem $|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))*x|$
+Nerovnici vydělíme kladným číslem $|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))*x|$
 \begin{equation}
-\frac{\left| x-\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))\right|}{|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))*x|}\leq \frac{\varepsilon}{|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))*x|}
+\frac{\left| x-\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))\right|}{|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))*x|}\leq \frac{\varepsilon}{|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))*x|}
 \end{equation}
 a protože $|a|*|b|=|a*b|$, po dvojí aplikaci platí
 \begin{equation}
-\left|\frac{ x-\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))}{\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))*x}\right|\leq \frac{\varepsilon}{|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|*|x|}
+\left|\frac{x-\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))}{\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))*x}\right|\leq \frac{\varepsilon}{|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|*|x|}
 \end{equation}
 a po roztržení levého výrazu na rozdílné jmenovatele dostáváme
 \begin{equation}
-\left|\frac{1}{\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))}-\frac{1}{x}\right|\leq \frac{\varepsilon}{|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|*|x|}.
+\left|\frac{1}{\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))}-\frac{1}{x}\right|\leq \frac{\varepsilon}{|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|*|x|}.
 \end{equation}
-Dále díky předpokladu $3$ z definice \ref{def:bezpecne_epsilon} $|x|\geq|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|-\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon)$ a proto
+Dále díky předpokladu $3$ z definice \ref{def:bezpecne_epsilon} $|x|\geq|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|-\varepsilon_\emptyset(\tnum{x}, \varepsilon)$ a proto
 \begin{equation}
-\left|\frac{1}{\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))}-\frac{1}{x}\right|\leq \frac{\varepsilon}{|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|*(|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|-\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))},
+\left|\frac{1}{\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))}-\frac{1}{x}\right|\leq \frac{\varepsilon}{|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|*(|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|-\varepsilon_\emptyset(\tnum{x}, \varepsilon))},
 \end{equation}
 takže po úpravě přesnosti dostáváme
 \begin{equation}
-\left|\frac{1}{\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, (\varepsilon*|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|*(|\mathcal{T}^x(\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon))|-\varepsilon_\emptyset(\mathcal{T}^x, \varepsilon)))))}-\frac{1}{x}\right|\leq \varepsilon.
+\left|\frac{1}{\tnum{x}(\varepsilon_\emptyset(\tnum{x}, (\varepsilon * |\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|*(|\tnum{x}(\varepsilon_\emptyset(\tnum{x}, \varepsilon))|-\varepsilon_\emptyset(\tnum{x}, \varepsilon)))))}-\frac{1}{x}\right|\leq \varepsilon.
 \end{equation}
 \end{proof}
 \end{theorem}
@@ -157,21 +156,23 @@ takže po úpravě přesnosti dostáváme
 Násobení bere libovolně mnoho argumentů. Pro žádný vrátí jedničku (jednotka v multiplikativní grupě \cite{RachALG1}), pro jeden vrátí tento a pro více pak jejich součin.
 
 \begin{theorem}[O součinu dvou tnumů]\label{vet:soucin_dvou_tnumu}
-Pro nenulová čísla $x$, $y$ a jejich tnumy platí
+Nechť $\tnum{x}\in\Tnum{x},\tnum{y}\in\Tnum{y},x,y\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{x*y}(\varepsilon)=\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)| + \varepsilon + 1)}\right)*\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)| + \varepsilon + 1)}\right)
+\tnum{}(\varepsilon)=\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)| + \varepsilon + 1)}\right)*\tnum{y}\left(\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)| + \varepsilon + 1)}\right),
 \end{equation}
+pak $\tnum{}\in\Tnum{x*y}$.
+
 \begin{proof}
 Nejprve si dokážeme dvě nerovnice, které posléze použijeme v těle důkazu.
 První nerovnicí je 
 \begin{equation}\label{duk:soucin_prvni}
-\frac{|y|}{|\mathcal{T}^y(\varepsilon)| + \varepsilon + 1}\leq 1.
+\frac{|y|}{|\tnum{y}(\varepsilon)| + \varepsilon + 1}\leq 1.
 \end{equation}
 To je ekvivalentní s
 \begin{equation}
-|y|\leq |\mathcal{T}^y(\varepsilon)|+\varepsilon+1
+|y|\leq |\tnum{y}(\varepsilon)|+\varepsilon+1
 \end{equation}
-a protože $\mathcal{T}^y(\varepsilon)+\varepsilon\geq y$, platí
+a protože $\tnum{y}(\varepsilon)+\varepsilon\geq y$, platí
 \begin{equation}
 |y|\leq |y|+1,
 \end{equation}
@@ -179,60 +180,58 @@ což je jistě pravda.
 
 Druhá nerovnice je
 \begin{equation}\label{duk:soucin_druha}
-\frac{|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|}{|\mathcal{T}^x(\varepsilon)|+\varepsilon+1}\leq 1.
+\frac{|\tnum{x}(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon+1|)})|}{|\tnum{x}(\varepsilon)|+\varepsilon+1}\leq 1.
 \end{equation}
 Ekvivalentní zápis je
 \begin{equation}
-|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|\leq |\mathcal{T}^x(\varepsilon)|+\varepsilon+1
+\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon+1|)}\right)\right|\leq |\tnum{x}(\varepsilon)|+\varepsilon+1
 \end{equation}
-a protože $\mathcal{T}^x(\varepsilon)+\varepsilon\geq x$, platí
+a protože $\tnum{x}(\varepsilon)+\varepsilon\geq x$, platí
 \begin{equation}
-|\mathcal{T}^x(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon+1|)})|\leq |x|+1
+\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon+1|)}\right)\right|\leq |x|+1
 \end{equation}
 a stejným postupem rozepíšeme levou stranu, takže dostáváme
 \begin{equation}
-|x|+|\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon+1)}|\leq |x|+1
+|x|+\left|\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon+1)}\right|\leq |x|+1
 \end{equation}
 a po odečtení $|x|$ zbyde
 \begin{equation}
-|\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon+1)}|\leq 1
+\left|\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon+1)}\right|\leq 1
 \end{equation}
 což ale platí, protože
 \begin{equation}
-|\mathcal{T}^x(\varepsilon)+\varepsilon\geq 0.
+|\tnum{x} (\varepsilon)|+\varepsilon\geq 0.
 \end{equation}
 
-Nyní konečně přejděme k důkazu věty. Aby věta platila, musíme dokázat
+Nyní přejděme k důkazu věty. Aby věta platila, musíme dokázat
 \begin{equation}
-\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -xy \right|\leq\varepsilon.
+\left| \tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right) *\tnum{y}\left(\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon +1)}\right) -xy \right|\leq\varepsilon.
 \end{equation}
 Rozepíšeme proto levou stranu
 \begin{equation}
-\left| \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -xy \right| =
+\left| \tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right) *\tnum{y}\left(\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon +1)}\right) -xy \right| =
 \end{equation}
-přičtením a odečtením členu $\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y$ dostáváme
+přičtením a odečtením členu $\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)} \right)y$ dostáváme
 \begin{equation}
-\begin{split}=\bigl\vert \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right) *\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right) -&
-\\-\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y + \mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)} \right)y -xy \bigr\vert =&
+\begin{split}=\bigl\vert \tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right) *\tnum{y}\left(\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon +1)}\right) -&
+\\-\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)} \right)y + \tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)} \right)y -xy \bigr\vert \leq&
 \end{split}
 \end{equation}
-a po vytknutí $|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)|$ z prvních dvou členů a $|y|$ z druhých dvou máme
-\begin{equation}
-\begin{split}
-=|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)||\mathcal{T}^y\left(\frac{\varepsilon}{2(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}\right)-y|+\\+|y||\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)-x|\leq
-\end{split}
-\end{equation}
-a po dvojím použití pravidla $|\mathcal{T}^x(\varepsilon)-x|\leq\varepsilon$ získáváme
+a z trojúhelníkové nerovnosti a po vytknutí $\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right)\right|$ z prvních dvou členů a $|y|$ z druhých dvou máme
 \begin{equation}
 \begin{split}
-\leq |\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)||\frac{\varepsilon}{2}||\frac{1}{(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}|+\\+|y||\frac{\varepsilon}{2}||\frac{1}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}|=
+\leq\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right)\right|\left|\tnum{y}\left(\frac{\varepsilon}{2(|\tnum{x}(\varepsilon)|+\varepsilon +1)}\right)-y\right|+\\+|y|\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right)-x\right|\leq
 \end{split}
 \end{equation}
-a zjednodušíme-li pomocí zlomku, dostáváme
+a po dvojím použití pravidla $|\tnum{x}(\varepsilon)-x|\leq\varepsilon$ získáváme
 \begin{equation}
 \begin{split}
-= |\frac{\varepsilon}{2}||\frac{|\mathcal{T}^x\left(\frac{\varepsilon}{2(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}\right)|}{(|\mathcal{T}^x(\varepsilon)|+\varepsilon +1)}|+\\+|\frac{\varepsilon}{2}||\frac{|y|}{(|\mathcal{T}^y(\varepsilon)|+\varepsilon +1)}|\leq
+\leq\left|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right)\right|\left|\frac{\varepsilon}{2}\right|\left|\frac{1}{(|\tnum{x}(\varepsilon)+\varepsilon +1)}\right|+\\+|y|\left|\frac{\varepsilon}{2}\right|\left|\frac{1}{(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right|=
 \end{split}
+\end{equation}
+a zjednodušíme-li zápis pomocí zlomku, dostáváme
+\begin{equation}
+= \left|\frac{\varepsilon}{2}\right|\frac{|\tnum{x}\left(\frac{\varepsilon}{2(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right)|}{(|\tnum{x}(\varepsilon)|+\varepsilon +1)}+\left|\frac{\varepsilon}{2}\right|\left|\frac{|y|}{(|\tnum{y}(\varepsilon)|+\varepsilon +1)}\right|\leq
 \end{equation}
 a díky dokázaným nerovnostem \ref{duk:soucin_prvni} a \ref{duk:soucin_druha} pak platí
 \begin{equation}
@@ -241,13 +240,14 @@ a díky dokázaným nerovnostem \ref{duk:soucin_prvni} a \ref{duk:soucin_druha} 
 \end{proof}
 \end{theorem}
 
-Právě dokázaná věta mluví o součinu dvou tnumů. Zobecnění na konečný počet tnumů už uvedu bez důkazu.
+Právě dokázaná věta mluví o součinu dvou tnumů. Zobecnění na konečný počet tnumů by v tomto bodě šlo naprogramovat akumulací. To je ale neefektivní řešení a proto by bylo dobré najít obecnou funkci. Následující vztah není dokázaný, vychází však z tvaru násobení pro dva tnumy.
 
 \begin{fact}[Součin tnumů]\label{vet:soucin_tnumu}
-Pro nenulová čísla $\{x_i\}_{i=0}^{n}$ a jejich tnumy platí
+Nechť $\tnum{x_{-1}}\in\Tnum{x_{-1}}, x_{-1}\in\mathbb{R},\tnum{x_0}\in\Tnum{x_0}, x_0\in\mathbb{R},\ldots ,\tnum{x_n}\in\Tnum{x_n}, x_n\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{\prod_{i=0}^nx_i}(\varepsilon)=\prod_{i=0}^n\mathcal{T}^{x_i}\left(\frac{\varepsilon}{(n+1)*\prod_{j=0, i\neq j}^n(|\mathcal{T}^{x_j}(\varepsilon)|+\varepsilon +1)}\right).
+\tnum{}(\varepsilon)=\prod_{i=0}^n\tnum{x_i}\left(\frac{\varepsilon}{(n+1)*\prod_{j=0, i\neq j}^n(|\tnum{x_j}(\varepsilon)|+\varepsilon +1)}\right),
 \end{equation}
+pak $\tnum{}\in\Tnum{\prod_{i=0}^nx_i}$.
 \end{fact}
 
 Věta mluví o nenulových číslech. Nesnižujeme ale obecnost, protože nula je agresivní prvek a výsledkem násobení čehokoli s nulou je nula, takže se ostatní numy ani nemusejí počítat a výsledek se může vrátit.
@@ -269,7 +269,7 @@ Samotná implementace pak využívá pomocnou mapovací funkci, která vypadá t
           (\textcolor{moje}{tnum-to-num} (\textcolor{funkcionalni}{nth} i tnums) actual-eps) result))))))
 \end{lispcode}
 
-a konečně už slíbená hlavní funkce. Místo jedničky vrací odpovídající $\mathcal{T}^1$.
+a konečně už slíbená hlavní funkce.
 
 \begin{lispcode}{\texttt{tnum*}}{Funkce pro násobení tnumů}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum*} (&rest tnums)
@@ -282,9 +282,9 @@ a konečně už slíbená hlavní funkce. Místo jedničky vrací odpovídajíc�
 Druhou obecnou multiplikativní funkcí je dělení.
 
 \begin{fact}[Podíl tnumů]
-Mějme čísla $x_{-1}, x_0, \ldots, x_n$ a jejich tnumy. Pak platí
+Mějme čísla $x_{-1}, x_0, \ldots, x_n$ a jejich tnumy $\mathcal{T}^{x_{-1}}, \mathcal{T}^{x_0}, \ldots, \mathcal{T}^{x_n}$. Pak platí: funkce $\mathfrak{t}^{x_{-1}/x_0/\ldots /x_n}$ s předpisem
 \begin{equation}
-\mathcal{T}^{x_{-1}/x_0/\ldots /x_n}(\varepsilon)=\mathcal{T}^{x_{-1}/\prod_{i=0}^nx_n}(\varepsilon)=\mathcal{T}^{x_{-1}*(\prod_{i=0}^nx_n)^{-1}}(\varepsilon)
+\mathfrak{t}^{x_{-1}/x_0/\ldots /x_n}=\mathfrak{t}^{x_{-1}/\prod_{i=0}^nx_i}=\mathfrak{t}^{x_{-1}*\left(/\prod_{i=0}^nx_i\right)}
 \end{equation}
 \end{fact}
 

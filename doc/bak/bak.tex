@@ -103,6 +103,9 @@ headpunct={:}]{mystyle}
 \makeatother
 
 \newcommand{\mypart}{\newpage\part}
+\newcommand{\tnum}[1]{\mathfrak{t}^{#1}}
+\newcommand{\Tnum}[1]{\mathcal{T}^{#1}}
+\newcommand{\txe}{\tnum{x}(\varepsilon)}
 
 \begin{document}
 \setcounter{tocdepth}{3}
@@ -111,7 +114,7 @@ headpunct={:}]{mystyle}
 \input{uvod.tex}
 \mypart{Teorie}
 V teoretické části je představena axiomatická teorie množin a naznačeno, jak se z ní dají vytvořit čísla. Je ukázáno, že čísla jsou množinami. Poté stručně představím matematické operace a matematické funkce. Dále vyplyne, že jakékoli číslo lze vyjádřit jako funkci a že funkce je také množina. Závěr teoretické části je zaměřen na problém uložení čísla v paměti počítače, která je fyzicky konečná. Nejprve je rozebrán v čistě teoretické rovině a poté je diskutováno řešení v podobě reálně existujících knihoven.
-\section{Čísla}
+\section{Čísla}\label{kap:cisla}
 \input{cisla.tex}	
 \clearpage
 \section{Čísla v počítači}

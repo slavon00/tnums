@@ -84,37 +84,36 @@ Z definice přirozených čísel podle ZF přímo vyplývá, že součástí př
 
 \subsection{Vyšší obory čísel}
 \label{kap:vyssi_obory_cisel}
-V minulé podkapitole jsem rigorózně zavedl přirozená čísla. S dalšími obory už nebudu postupovat takto exaktně, u jedné množiny to -- myslím -- stačilo.
+Vyšším oborem čísel jsou čísla celá, značená $\mathbb{Z}$, a jsou to všechna čísla, která mohou vzniknout libovolným odčítáním přirozených čísel. Jejich výčet je diskrétní: $\mathbb{Z} = \{0, 1, -1, 2, -2, \ldots\}$\cite{OEIS:integer}. Zde \uv{$-$} je znaménko odčítání (snížení hodnoty prvního argumentu o hodnotu druhého).
 
-Vyšším oborem čísel jsou čísla celá, značená $\mathbb{Z}$ a jsou to všechna čísla, která mohou vzniknout libovolným odčítáním přirozených čísel. Jejich výčet je diskrétní: $\mathbb{Z} = \{0, 1, -1, 2, -2, \ldots\}$\cite{OEIS:integer}. Zde \uv{$-$} je znaménko odčítání (snížení hodnoty prvního argumentu o hodnotu druhého). Značení: místo $0-2$ se píše úžeji $-2$.
+Další číselný obor jsou čísla racionální, pro která se vžilo označení $\mathbb{Q}$ a racionálním číslem je číslo $x$, pokud jde zapsat jako $y/z$, kde $y \in \mathbb{Z}$ a $z \in \left( \mathbb{Z} \setminus \{0\} \right)$ a \uv{$/$} je symbol operace dělení \cite{SPIVAK:calculus}. Množina racionálních čísel je spočetná, $\mathbb{Q} = \{0, 1, 1/2, -1, 1/3, -1/2, 2, 1/4, \ldots \}$.
 
-Další obor vyjadřuje poměr velikosti nějakého celku vůči jinému. Zde si opět vypomůžu obory, které už máme zadefinované a mohu představit čísla racionální, pro která se vžil zápis $\mathbb{Q}$ a takovým číslem je číslo $x$, pokud jde zapsat jako $y$/$z$, kde $y \in \mathbb{Z}$ a $z \in \left( \mathbb{Z} \setminus \{0\} \right)$ a \uv{$/$} je symbol operace dělení \cite{SPIVAK:calculus}. Taková čísla jsou například $\mathbb{Q} = \{0, 1, 1/2, -1, 1/3, -1/2, 2, 1/4, \ldots \}$, a jsou také spočetná.
-
-Stále v našem číselném systému nemáme například délku úhlopříčky jednotkového čtverce -- takovéto číslo značíme $\sqrt{2}$. Nebo třeba poměr obvodu kružnice k jejímu průměru -- toto značíme $\pi$. Když do našeho systému doplníme všechna tato čísla, získáváme konečně tzv. číselnou osu (přímku) reprezentující čísla reálná, značená $\mathbb{R}$. Ta čísla, která jsme přidali a tudíž byla iracionální (nebyla racionální), označíme $\mathbb{I}$, $\mathbb{I} = \mathbb{R} \setminus \mathbb{Q}$ \cite{tabulky}. Ke každým dvěma reálným číslům $r$ a $\varepsilon$ lze najít racionální číslo $q$ tak, aby
+Po zavedení racionálních čísel stále v budovaném číselném systému nemáme například délku úhlopříčky jednotkového čtverce -- takovéto číslo značíme $\sqrt{2}$ -- nebo třeba poměr obvodu kružnice k jejímu průměru -- toto značíme $\pi$. Když do systému doplníme všechna tato čísla, získáváme tzv. číselnou osu (přímku) reprezentující čísla reálná, značená $\mathbb{R}$. Množině přidaných čísel říkáme iracionální (nejsou racionální) a značíme ji $\mathbb{I}$, $\mathbb{I} = \mathbb{R} \setminus \mathbb{Q}$ \cite{tabulky}. Ke každým dvěma reálným číslům $r$ a $\varepsilon$ lze najít racionální číslo $q$ tak, aby
 \begin{equation}\label{rov:rac_u_real}
 |r-q|\leq\varepsilon \text{~\cite{TeCis}}.
 \end{equation}
 
-V reálných číslech matematikové objevili ještě jemnější struktury, než jen dělení na obory, které jsem teď představil. První jmenované iracionální číslo ($\sqrt{2}$) je tzv. \textit{algebraické}, protože může vypadnout jako řešení z nějaké algebraické rovnice, např $x ^ 2 = 2$ nebo $(-x) ^ 2 = 2$, zatímco druhé jmenované -- tzv. \textit{Ludolfovo číslo} ($\pi$) takovouto vlastností nedisponuje, je \textit{nealgebraické}, též \textit{transcendentní} \cite{TeMno}. Dále v reálných číslech existují tzv. \textit{rekurzivní čísla} (\textit{computable reals} -- vizte kapitolu \ref{kap:computable-reals}), která se dají vyčíslit v konečném čase. Pro reálné číslo $r$ a dané $\varepsilon$ existuje vyčíslitelná funkce (pro konečný vstup někdy skončí), jejímž výsledkem je racionální číslo $q$ tak, že platí nerovnice \ref{rov:rac_u_real}. Ostatní čísla jsou nerekurzivní a protože Turingových strojů je spočetně mnoho, je nerekurzivních čísel nespočetně mnoho \cite{wiki:CompN}. Poznamenejme už nyní, že přechod od racionálních čísel k rekurzivním je velmi složitý a tato práce je hlavně o tomto přechodu. V jednom oboru jsou i složité věci vcelku jednoduché, zatímco v tom druhém jsou i jednoduché věci vceklu složité.
+V množině reálných čísel matematikové objevili ještě jemnější struktury, než je dělení na obory, které jsem teď představil. První jmenované iracionální číslo $\sqrt{2}$ je tzv. \textit{algebraické}, protože může vypadnout jako řešení nějaké algebraické rovnice, např. $x ^ 2 = 2$ nebo $(-x) ^ 2 = 2$, zatímco druhé jmenované -- tzv. \textit{Ludolfovo číslo} ($\pi$) -- takovouto vlastností nedisponuje, je \textit{nealgebraické} (též \textit{transcendentní}) \cite{TeMno}. Dále v oboru reálných čísel existují tzv. \textit{rekurzivní čísla} (\textit{computable reals} -- vizte kapitolu \ref{kap:computable-reals}), která se dají vyčíslit v konečném čase. Pro reálné číslo $r$ a dané $\varepsilon$ existuje vyčíslitelná funkce (pro konečný vstup někdy skončí), jejímž výsledkem je racionální číslo $q$ tak, že platí nerovnice \ref{rov:rac_u_real}. Ostatní čísla jsou \textit{nerekurzivní} a protože Turingových strojů je spočetně mnoho, je nerekurzivních čísel nespočetně mnoho \cite{wiki:CompN}. Přechod od racionálních čísel k rekurzivním, kterým se zabývá tato práce, je velmi složitý. V jednom oboru jsou i složité věci vcelku jednoduché, zatímco v tom druhém jsou i jednoduché věci vceklu složité.
 
-Pokud nebudeme uvažovat pouze jednu číselnou osu, ale číslo bude mít více složek, přesněji $2^n$ složek, pak připouštíme existenci ještě vyšších číselných oborů -- komplexních čísel ($\mathbb{C}, n = 1$), kvaternionů ($\mathbb{H}, n = 2$), oktonionů ($\mathbb{O}, n = 3$) -- těmto čtyřem (společně s reálnými čísly) oborům říkáme \textit{normované algebry s dělením} (\textit{normed division algebra}) \cite{DAaQT}. Ještě vyšší obory (sedeniony -- $\mathbb{S}, n = 4$ atd.) už jsou úplně mimo ambice tohoto úvodu.
-V této práci již nadále \uv{číslem} myslím číslo \textit{rekurzivní}. Jiným názvem této práce by tedy mohlo být \uv{Přesné výpočty s rekurzivními čísly}. Zadání tedy
+Vyššími obory jsou strukturovaná čísla -- uvažujeme více číselných os a číslo má $2^n$ složek. Jedná se o komplexní čísla ($\mathbb{C}, n = 1$), kvaterniony ($\mathbb{H}, n = 2$), oktoniony ($\mathbb{O}, n = 3$) -- těmto čtyřem (společně s reálnými čísly) oborům říkáme \textit{normované algebry s dělením} (\textit{normed division algebra}) \cite{DAaQT}. Existují ještě vyšší obory (sedeniony -- $\mathbb{S}, n = 4$ atd.), tato práce se nicméně dále zabývá pouze jednorozměrnými čísly a v dalším textu je \uv{číslem} myšleno číslo \textit{reálné}.
 
 \subsection{Operace s čísly}
 \label{operace_s_cisly}
-Už při vymezování číselných oborů jsem zmínil 3 operace, které čísla většinou \uv{zmenšují}, bylo to \textit{odčítání} (rozdíl), \textit{dělení} (poměr) a \textit{odmocňování} (odmocnina). K nim patří ještě operace opačné, které čísla veskrze \uv{zvětšují} a ty po řadě nazýváme \textit{sčítání} (součet), \textit{násobení} (součin) a \textit{umocňování} (mocnina).
+Již v kapitole \ref{kap:vyssi_obory_cisel} byly zmíněny 3 operace -- \textit{odčítání} (rozdíl), \textit{dělení} (podíl) a \textit{odmocňování} (odmocnina). K nim existují ještě operace opačné, a ty po řadě nazýváme \textit{sčítání} (součet), \textit{násobení} (součin) a \textit{umocňování} (mocnina).
 
-Binární operace se značí znaménkem mezi operandy. Například součet čísel $x$ a $y$ značíme $x+y$, součin $x*y$ atd. Základní značení operací je uvedeno v~tabulce \ref{tab:znamenka_operaci}. Binárním operacím, které mají jako první operand neutrální prvek budeme říkat unární. Je to číslo opačné (k číslu $x$ je opak číslo $0-x$ a značíme ho $-x$) a převrácené číslo (k číslu $x\neq0$ je jeho převrácením číslo $1/x$ a značíme ho $/x$ nebo $x^{-1}$).
+Binární operace se značí znaménkem mezi operandy. Například součet čísel $x$ a $y$ značíme $x+y$ atd. Základní značení operací je uvedeno v~tabulce \ref{tab:znamenka_operaci}. Binárním operacím, které mají jako první operand neutrální prvek (při operaci s číslem je výsledkem toto číslo), budeme říkat unární. Unárními operacemi je číslo opačné (k číslu $x$ je opak číslo $0-x$ a značíme ho $-x$) a převrácené číslo (k číslu $x\neq0$ je číslen převráceným číslo $1/x$ a značíme ho $/x$ nebo $x^{-1}$).
 
-Operacím $\langle +, -\rangle$ říkáme aditivní, $\langle +, /\rangle$ multiplikativní a $\langle\string^ , \surd\rangle$ mocninné. Zajímavé jsou vztahy mezi operacemi. Že se dvojice jmenují spolu naznačuje jejich příbuznost. Tyto vztahy bych nazval \uv{horizontální}. Mnohem zajímavější jsou ale vztahy \uv{vertikální}. Platí
+Operacím $\langle +, -\rangle$ říkáme aditivní, $\langle *, /\rangle$ multiplikativní a $\langle\string^ , \surd\rangle$ mocninné. Operace v uvedených dvojicích jsou příbuzné, příslušné vztahy nazveme \uv{horizontální}. Mezi operacemi však existují též vztahy \uv{vertikální}. Platí
 \begin{equation}
 x*n = \underbrace{x + x + \ldots + x}_{n\text{-krát}} \text{~a také~} x^n = \underbrace{x * x * \ldots * x}_{n\text{-krát}}.
 \end{equation}
-Máme tedy návod, jak teoreticky vytvořit více operací. Další operací je 
+Máme tedy návod, jak teoreticky vytvořit více operací.
+
+Další operace je daná předpisem
 \begin{equation}
 x\#n = \underbrace{x \string^ x \string^ \ldots \string^ x}_{n\text{-krát}}
 \end{equation}
-a nazýváme ji \textit{tetrace} (\textit{tetration}) \cite{Operations}.
+a nazýváme ji tetrace \cite{Operations}.
 
 Pro operace vyšší arity je pak zvykem používat prefixovou notaci jednoho velkého znaménka -- součet $a_0 + a_1 + a_2$ je pak zapsán jako $\scalerel*{+}{\sum}(a_0, a_1, a_2)$ nebo též $\sum_{i=0}^2(a_i)$. Součin $a_0 * a_1 * a_2$ pak $\scalerel*{*}{\sum}(a_0, a_1, a_2)$ nebo $\prod_{i=0}^2(a_i)$.
 
@@ -139,7 +138,7 @@ Tabulka zobrazuje zápis binárních operací s čísly $x$ a $y$.
 
 \subsection{Funkce čísel}
 \label{funkce_cisel}
-Další zajímavá manipulace s čísly jsou tzv. funkce, které si (ne)lze představit jako nekonečnou tabulku o dvou sloupcích -- výstupní a výstupní hodnoty (jako příklad pro funkci $sinus$ jsem vytvořil tabulku \ref{tab:sinus_input_output}). Příkladem takových funkcí jsou funkce \textit{goniometrické}, funkce \textit{exponenciální} či \textit{logaritmus}.
+Další manipulace s čísly jsou tzv. funkce, které si představujeme jako nekonečnou tabulku o dvou sloupcích, které představují výstupní a výstupní hodnoty (v tabulce \ref{tab:sinus_input_output} jsou uvedeny některé hodnoty pro funkci sinus). V informatice též mluvíme o argumentu funkce a návratové hodnotě. Příklady funkcí jsou funkce \textit{goniometrické}, funkce \textit{exponenciální} či \textit{logaritmus}.
 
 \begin{table}[H]
 \begin{mdframed}[backgroundcolor=lightpink,innertopmargin=-2.5pt,innerbottommargin=2.5pt]
@@ -157,11 +156,11 @@ $4$ & $-0.7568024953079282\ldots$ \\
 \multicolumn{2}{|>{\columncolor[gray]{1}}c|}{$\vdots$} \\ \hline
 \end{tabular}
 
-Tabulka zobrazuje v prvním sloupci vstup do funkce sinus a ve druhém její výstup. Tabulka je nekonečná ve vertikálním směru, v horizontálním jsou pouze dva sloupce -- pro argument a vrácenou hodnotu.
+Tabulka obsahuje v prvním sloupci vstupní hodnoty funkce sinus a ve druhém hodnoty výstupní. Tabulka je nekonečná ve vertikálním směru, v horizontálním jsou pouze dva sloupce -- pro argument a vrácenou hodnotu.
 \end{mdframed}
 \end{table}
 
-Funkce jsou velmi užitečným a potřebným nástrojem takřka ve všech odvětvích matematiky a jsou často zdrojem \textit{iracionálních} (\textit{transcendentních}) čísel -- například takový $\mathrm{atan}(1)$ dá za výsledek čtvrtinu \textit{Ludolfova čísla}.
+Funkce jsou velmi užitečným a potřebným nástrojem takřka ve všech odvětvích matematiky a jsou často zdrojem \textit{iracionálních} (\textit{transcendentních}) čísel -- například $\mathrm{atan}(1)$ dá za výsledek čtvrtinu \textit{Ludolfova čísla}.
 
 \begin{definition}[Uspořádaná $n$-tice \cite{TeMno}]
 Jsou-li dány množiny $a_1,a_2,\ldots a_m$, uspořádanou $n$-tici množin $a_1,a_2,\ldots,a_n$ pro $n<m$ definujeme tak, že pro $n=1$ položíme
@@ -175,7 +174,7 @@ a je-li již definována uspořádaná $n$-tice $\langle a_1, a_2,\ldots , a_n \
 \end{definition}
 
 \begin{definition}[Kartézský součin \cite{EPJVMAI} \cite{RachALG1}]
-Nechť $A_0, A_1 \ldots A_{n}$ jsou množiny. Symbolem $\bigtimes_{i=0}^{n} A_i$ či $A_0 \times A_1 \times \ldots \times A_{n}$ označujeme množinu všech uspořádaných $(n+1)$-tic tvaru $\langle a_0, a_1, \ldots a_{n} \rangle$, přičemž $(a_0 \in A_0)\land (a_1 \in A_1)\land\ldots\land (a_{n}\in A_{n})$, neboli
+Nechť $A_0, A_1, \ldots , A_{n}$ jsou množiny. Symbolem $\bigtimes_{i=0}^{n} A_i$ či $A_0 \times A_1 \times \ldots \times A_{n}$ označujeme množinu všech uspořádaných $(n+1)$-tic tvaru $\langle a_0, a_1, \ldots a_{n} \rangle$, přičemž $(a_0 \in A_0)\land (a_1 \in A_1)\land\ldots\land (a_{n}\in A_{n})$, neboli
 \begin{equation}
 A_0 \times A_1 \times \ldots \times A_{n} = \{\langle a_0 , a_1, \ldots , a_{n}  \rangle | (\forall i \in \mathbb{N}, i \leq n)(a_i \in A_i)\}
 \end{equation}
@@ -183,7 +182,7 @@ a tuto množinu nazýváme kartézským součinem množin $A_0, A_1, \ldots A_n$
 \end{definition}
 
 \begin{myremark}{Množinovost kartézského součinu}\label{rem:mnozinovost_KS}
-Že je kartézský součin (KS) množina jsem zavedl definitoricky, jako to udělaly autorky v \cite{EPJVMAI}, ovšem možná to nemusí být úplně jasné. V \cite{TeMno} se kartézský součin zavádí jako třída (soubor množin, který množina být nemusí -- například třída všech množin množinou není) a poté se pomocí axiomu potence jeho množinovost dokazuje. Tato práce na tomto faktu nestojí a proto jsem si dovolil přijmout množinovost KS jako fakt, ač je -- podobně jako všech 13 axiomů reálných čísel včetně axiomu o supremu (poté tedy věty o supremu) \cite{DK:DPFJP} -- dokazatelná z ZF teorie množin.
+Že je kartézský součin (KS) množina jsem zavedl definitoricky, jako to udělaly autorky v \cite{EPJVMAI}, ovšem nemusí to být úplně jasné, je to ovšem dokazatelné. V \cite{TeMno} se kartézský součin zavádí jako třída (soubor množin, který množina být nemusí -- například třída všech množin množinou není) a poté se pomocí axiomu potence jeho množinovost dokazuje.
 \end{myremark}
 
 \begin{definition}[Relace \cite{EPJVMAI}]
@@ -200,7 +199,7 @@ Je-li relace $f \subseteq A \times B$ zobrazení, pak skutečnost, že $\langle 
 Zobrazení množiny $\mathbb{N}$ do množiny $\mathbb{R}$ nazýváme \textit{reálná posloupnost}.
 \end{definition}
 
-Místo obecného značení $a:\mathbb{N}\rightarrow\mathbb{R}$ pro zobrazení resp. značení $a(n)$ pro obraz bodu $n$ se vžilo pro posloupnost značení $\{a_n\}_{n\in\mathbb{N}}$ nebo $\{a_n\}_{n=0}^{\infty}$. Obraz bodu $n$ se značí $a_n$ a říkáme mu také $n$-tý člen posloupnosti $a$ \cite{EPJVMAI}. 
+Místo obecného značení $a:\mathbb{N}\rightarrow\mathbb{R}$ pro zobrazení se vžilo pro posloupnost značení $\{a_n\}_{n\in\mathbb{N}}$ nebo $\{a_n\}_{n=0}^{\infty}$. Obraz bodu $n$ se značí $a_n$ a říkáme mu také $n$-tý člen posloupnosti $a$ \cite{EPJVMAI}. 
 
 \begin{definition}[Nekonečná číselná řada \cite{ZDVNNR}]
 Nechť $\{a\}_{n\in\mathbb{N}}$ je reálná posloupnost. Symbol $\sum_{n\in\mathbb{N}}a_n$ nebo $a_0 + a_1 + a_2 + \ldots$ nazýváme nekonečnou číselnou řadou.
@@ -232,11 +231,11 @@ Množina $M$ se nazývá \textit{definiční obor} funkce $f$ a značí se $D(f)
 Funkce $y=sin(x)$ je definována pro všechna $x\in\mathbb{R}$ a její obor hodnot je interval $[-1,1]$, jedná se tedy o reálnou funkci reálné proměnné. Pokud budeme hledět jen na obrazy $sin(x), x\in\mathbb{N}$ (jako v tabulce \ref{tab:sinus_input_output}), jedná se o reálnou posloupnost.
 \end{example}
 
-Povšimněme si, že zobrazení $f:A\rightarrow B$ je definováno tak, že $A$ i $B$ jsou množiny. Jak ale víme z poznámky \ref{rem:mnozinovost_KS}, je množinou i kartézský součin množin. Tedy lze definovat též zobrazení $\mathbb{R}\times\mathbb{I}\rightarrow\mathbb{Q}\times\mathbb{Z}\times\mathbb{N}$ atp., aniž bychom museli definici zobrazení jakkoli upravovat.
+Zobrazení $f:A\rightarrow B$ je definováno tak, že $A$ i $B$ jsou množiny. Poznámka \ref{rem:mnozinovost_KS} říká, že je množinou i kartézský součin množin. Tedy lze definovat též zobrazení $\mathbb{R}\times\mathbb{I}\rightarrow\mathbb{Q}\times\mathbb{Z}\times\mathbb{N}$ atp., aniž bychom museli definici zobrazení jakkoli upravovat.
 
-Při bližším zkoumáním by se daly najít jisté podobnosti mezi operacemi a funkcemi. Pokud se odprostíme od infixové notace a místo $a + b$ napíšeme $+(\langle a, b\rangle)$, lze i operace vyjádřit jako funkce. Matematickou operaci tedy chápeme jako speciální případ funkce, tedy že $n$-ární reálná operace je funkce $\bigtimes_{i=1}^{n}\mathbb{R}\rightarrow \mathbb{R}$.
+Existují podobnosti mezi operacemi a funkcemi. Pokud se odprostíme od infixové notace a místo $a + b$ napíšeme $+(\langle a, b\rangle)$, lze i operace vyjádřit jako funkce. Matematickou operaci pak chápeme jako speciální případ funkce, $n$-ární reálná operace je funkce $\bigtimes_{i=1}^{n}\mathbb{R}\rightarrow \mathbb{R}$.
 
-Ba co více. Pokud vezmeme funkci $\emptyset \rightarrow \mathbb{R}$, zjistíme, že se jedná o konstantu, protože podle definice zobrazení pokud jsou v relaci $\langle \emptyset, x\rangle$ a $\langle \emptyset, y\rangle$, pak $x = y$. Čili taková funkce se vždy zobrazuje na stejné číslo a proto se jedná konstantu. Takže funkcemi můžeme vymodelovat jakákoli čísla i manipulaci s nimi.
+Funkce $\emptyset \rightarrow \mathbb{R}$ je konstanta, neboť podle definice zobrazení, pokud jsou v relaci $\langle \emptyset, x\rangle$ a $\langle \emptyset, y\rangle$, pak $x = y$. Funkce se vždy zobrazuje na stejné číslo, a proto se jedná konstantu. Z toho plyne, že funkcemi můžeme modelovat jakákoli čísla i manipulaci s nimi.
 
 \begin{definition}[Mocninná řada \cite{ZDVNNR}]
 Buď $\{a_n\}_{n\in\mathbb{N}}$ posloupnost reálných čísel, $x_0$ libovolné reálné číslo. \textit{Mocninnou řadou} se středem v bodě $x_0$ a koeficienty $a_n$ rozumíme řadu ve tvaru
@@ -250,7 +249,7 @@ Nechť funkce $f$ má v bodě $x_0$ derivace všech řádů. Mocninnou řadu ve 
 
 Je-li $x_0=0$, mluvíme o \textit{Maclaurinově řadě} funkce $f$ a je ve tvaru $\sum_{n\in\mathbb{N}}\frac{f^{(n)}(0)}{n!}x^n$.
 
-Zbytku Taylorovy řady říkáme Taylorův zbytek a značíme ho $R^{f,a}_n(x)$.
+Zbytku po $n$-tém členu Taylorovy řady říkáme $n$-tý Taylorův zbytek a značíme ho $R^{f,a}_n(x)$.
 \end{definition}
 
 \begin{definition}[Geometrická řada \cite{ZDVNNR}]
@@ -265,7 +264,6 @@ Pro geometrickou řadu ve tvaru $\sum_{i\in\mathbb{N}}aq^i$ a $|q|<1$ platí
 \begin{equation}
 s^a_n=\sum_{i=0}^na*q^i=a\frac{1-q^{n+1}}{1-q}
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:o_castecnem_souctu_geometricke_rady} v příloze \ref{pril:dukazy}.
 \end{fact}
 
 \begin{fact}[Geometrická řada]\label{vet:o_geometricke_rade}
@@ -273,7 +271,6 @@ Pro geometrickou řadu ve tvaru $\sum_{i\in\mathbb{N}}aq^i$ a $|q|<1$ platí
 \begin{equation}
 \sum_{i\in\mathbb{N}}aq^i = \frac{a}{1-q}
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:o_geometricke_rade} v příloze \ref{pril:dukazy}.
 \end{fact}
 
 \begin{fact}[Zbytek geometrické řady]\label{vet:o_zbytku_geometricke_rady}
@@ -281,5 +278,4 @@ Pro $n$-tý zbytek geometrické řady $\sum_{i\in\mathbb{N}}aq^i$ platí
 \begin{equation}
 R_n = \frac{aq^{n+1}}{1-q}
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:o_zbytku_geometricke_rady} v příloze \ref{pril:dukazy}.
 \end{fact}

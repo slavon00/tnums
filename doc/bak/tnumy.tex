@@ -1,26 +1,26 @@
-Svoje struktury jsem zvolil jako funkce dvou proměnných -- reprezentovaného čísla a přesnosti. Podíváme se, jak se dají matematicky definovat, po Lispovsku vymodelovat a na závěr dokážu několik tvrzení, aby čtenář pochopil, jak se tnumy pracuje. Nebude chybět prvních několik kódů, i když nejvíce programování bude spíše ke konci této části.
+Svoje struktury jsem zvolil jako funkce dvou proměnných -- reprezentovaného čísla a přesnosti. Podíváme se, jak se dají matematicky definovat, po Lispovsku vymodelovat a na závěr dokážu několik tvrzení, aby čtenář pochopil, jak se s tnumy pracuje. Nebude chybět prvních několik kódů, i když nejvíce programování bude spíše ke konci této části.
+
 \subsection{Vztah čísel a tnumů}
 Funkce, kterými budu modelovat rekurzivní čísla a implementovat práci s nimi pomocí jazyka Lisp, budu nazývat \textit{True Numbers}, zkráceně \textit{tnums}. Vystihuje to jejich podstatu a cíl - budou ve výsledku opravdovější a přesnější, než ostatní čísla, která by měla mít nekonečný rozvoj, ale jsou uložena jako hodnoty – často jako nějaká plovoucí čísla (jakási Nil Numbers). Vzniknuvší knihovna se pak jmenuje \texttt{tnums}.
 
 \begin{definition}[Tnum]\label{def:tnum}
-Funkci $\mathcal{T}(x, \varepsilon )$ nazýváme tnum. Po částečném dosazení za $x$ dostáváme funkci jedné proměnné, kterou budeme značit $\mathcal{T}^x(\varepsilon)$. 
-
-Proměnnou $x$ myslíme číslo, které tnum reprezentuje a proměnná $\varepsilon$ představuje přesnost, na kterou chceme číslo $x$ vyčíslit. Přesnost předpokládáme v~rozmezí $0<\varepsilon<1$. Pro hodnotu tnumu pak platí
+Funkce $\tnum{x}:(0,1)\rightarrow\mathbb{Q}$, která pro všechna $\varepsilon\in (0,1)$ vrací hodnotu $\txe$ splňující nerovnost
 \begin{equation}\label{rov:def:tnum}
-|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon.
+|\txe - x |\leq \varepsilon
 \end{equation}
+se nazývá \textit{tnum} čísla $x$.
+
+Množinu všech tnumů čísla $x$ značíme $\Tnum{x}=\{\tnum{x}|(\forall x \in\mathbb{R})(\forall\varepsilon\in (0,1)):|\txe-x|\leq\varepsilon\}$, množinu všech tnumů pak symbolem $\mathfrak{T}$.
 \end{definition}
 
-Místo tohoto vztahu lze psát $\mathcal{T}^x(\varepsilon)\in[x-\varepsilon,x+\varepsilon]$ nebo $(\mathcal{T}^x(\varepsilon)\leq x+\varepsilon)\land\land(\mathcal{T}^x(\varepsilon)\geq x-\varepsilon)$. 
+Tnum $\tnum{x}$ je struktura představující rekurzivní číslo $x$. Místo vztahu \ref{rov:def:tnum} lze psát $\txe\in[x-\varepsilon,x+\varepsilon]$. Při výpočtu hodnoty tnumu nejprve tento tnum vytvoříme (toto bude výpočetně rychlé) a jakmile bude vytvořený, necháme ho vyčíslit (zavolat s přesností) a toto může být na dlouho. Vyčíslení tedy odkládáme na nejpozdější možnou dobu. Mluvíme o líném vyhodnocování.
 
-Kvůli možnosti částečného dosazení (kterému říkáme \textit{currying}) lze nejprve k~číslu $x$ vytvořit částečně dosazený tnum (toto bude výpočetně rychlé) a až poté tento tnum nechat vyčíslit (zavolat s přesností) a toto může být na dlouho. Ekvivalencí částečně dosazených tnumů rozumíme ekvivalenci na číslech, čili $(\forall x \in \mathbb{R})(\forall y\in\mathbb{R})((x=y)\to(\mathcal{T}^x=\mathcal{T}^y))$. Symbolem $\mathfrak{T}$ označíme množinu všech tnumů.
-
-Tnumy přesných čísel lze vyčíslit s dokonalou přesností. Využiji co nejvíce z~přesnosti, kterou nabízí Lisp a ten přesně reprezentuje všechna racionální čísla. To je ve shodě s představou o vyčíslení rekurzivního čísla. Pomocí $\mathcal{T}^r(\varepsilon)$ tedy získáváme $q$ z nerovnice \ref{rov:rac_u_real}. Číslu, jak ho chápe Lisp říkám nadále num (number).
+Tnumy přesných čísel lze vyčíslit s dokonalou přesností. Využiji co nejvíce z~přesnosti, kterou nabízí Lisp a ten přesně reprezentuje všechna racionální čísla. To je ve shodě s představou o vyčíslení rekurzivního čísla. Pomocí $\tnum{r}(\varepsilon)$ tedy získáváme $q$ z nerovnice \ref{rov:rac_u_real}. Číslu, jak ho chápe Lisp říkám nadále \textit{num} (number).
 
 \begin{lemma}[O numu jako tnumu]\label{lem:num-to-tnum}
-Pro všechna $x\in\mathbb{R}$ a všechna $\varepsilon \in (0,1)$ platí: číslo $\mathcal{T}^x(\varepsilon)$ lze nahradit $x$.
+Pro všechna $x\in\mathbb{R}$ a všechna $\varepsilon \in (0,1)$ platí: číslo $\txe$ lze nahradit číslem $x$.
 \begin{proof}
-Z nerovnosti \ref{rov:def:tnum} získáváme $|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon$. Po dosazení $\mathcal{T}^x(\varepsilon) := x$ pak $|x - x | = 0 \leq \varepsilon$, což platí pro všechna uvažovaná $x$ i $\varepsilon$.
+Z nerovnosti \ref{rov:def:tnum} získáváme $|\txe - x |\leq \varepsilon$. Po dosazení $\txe := x$ pak $|x - x | = 0 \leq \varepsilon$, což platí pro všechna myslitelná $x$ i $\varepsilon$.
 \end{proof}
 \end{lemma}
 
@@ -33,16 +33,14 @@ Nejpřesnější reprezentace čísla reprezentovaného tnumem reprezentujícím
       rat_num)))
 \end{lispcode}
 
-Převod opačným směrem je také jednoduchý. Pokud chci vyčíslit číslo $x$ s~přesností $\varepsilon$, stačí zavolat $\mathcal{T}^x(\varepsilon)$. Přesnost musí být z $(0, 1)$, takže jiné číslo by byl vstup nevalidní, budeme ho interpretovat jako $10^{-|\varepsilon|}$.
+Převod opačným směrem je přímočarý. Chceme-li číslo $x$ s~přesností $\varepsilon$, stačí zavolat $\txe$. Přesnost musí být z $(0, 1)$, jiné číslo interpretujeme jako $10^{-|\varepsilon|}$.
 
 \begin{lemma}[O převodu tnumu na num]
-Pokud existuje funkce $\mathcal{T}^x$, pak po zavolání s argumentem $\varepsilon$ vrací hodnotu $\mathcal{T}^x(\varepsilon)$ splňující $(|\mathcal{T}^x(\varepsilon) - x |\leq \varepsilon)$.
+Pokud existuje funkce $\tnum{x}\in\Tnum{x}$, pak po zavolání s argumentem $\varepsilon$ vrací hodnotu $\txe$ splňující $(|\txe - x |\leq \varepsilon)$.
 \begin{proof}
 Plyne přímo z definice \ref{def:tnum}.
 \end{proof}
 \end{lemma}
-
-Protože se někdy při vyhodnocení funkce \texttt{expt} výsledek reprezentuje jako plovoucí číslo, přidáme si ještě vlastní funkci pro racionální umocňování.
 
 \begin{lispcode}{\texttt{rat-expt}}{Funkce pro racionální umocňování}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{rat-expt} (num exp)
@@ -69,7 +67,7 @@ Ludolfovo číslo je asi nejslavnější transcendentní konstanta a proto není
 
 \begin{fact}[Ludolfovo číslo jako řada \cite{BBP}]
 Nechť $\pi$ značí Ludolfovo číslo. Pak jej lze zapsat jako
-\begin{equation}
+\begin{equation}\label{rov:pi-rada}
 \pi=\sum_{i\in\mathbb{N}}\frac{1}{16^i}\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right).
 \end{equation}
 \end{fact}
@@ -80,13 +78,17 @@ Mám tedy řadu, která generuje konstantu, kterou chci přidat do \texttt{tnums
 \left|\pi - \sum_{i=0}^n\frac{1}{16^i}\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right) \right| \leq \frac{1}{16^n*15}.
 \end{equation}
 
+\begin{consequence}[Tnum Ludolfova čísla]
+Nechť $\tnum{}$ je funkce s předpisem $\tnum{}(\varepsilon)=$\uv{najdi nějaké $n$ tak, aby platilo $/(16^n15)\leq\varepsilon$ a poté vrať $n$-tý částečný součet řady ze vztahu \ref{rov:pi-rada}}, pak $\tnum{}\in\Tnum{\pi}$.
+\end{consequence}
+
 Kód vypadá trochu složitěji, ale není to nic jiného, než co bylo právě popsáno. Nižší čitelnost je zde vykoupena vyšší efektivitou a protože je vyčíslování $\pi$ jedna z nejdůležitějších funkcionalit, rozhodl jsem se ji zavést takto efektivně, ač na úkor čitelnosti.
 
-\begin{lispcode}{\texttt{tnum-pi}}{Funkce na vytvoření $\mathcal{T}^\pi$}
+\begin{lispcode}{\texttt{tnum-pi}}{Funkce na vytvoření tnumu Ludolfova čísla}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-pi} ()
   (\textcolor{funkcionalni}{lambda} (eps)
-    (\textcolor{vedlejsi}{let*} ((n 0) (/16pown 0) (result 0) (above 1))
-      (\textcolor{funkcionalni}{loop} 
+    (\textcolor{vedlejsi}{let} ((/16pown 0) (result 0) (above 1))
+      (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} n \textcolor{obarvi}{from} 0
         \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} above eps)
         \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
           (\textcolor{vedlejsi}{setf} /16pown (\textcolor{moje}{rat-expt} 16 (\textcolor{matematicke}{-} n)))
@@ -96,42 +98,41 @@ Kód vypadá trochu složitěji, ale není to nic jiného, než co bylo právě 
                 (\textcolor{matematicke}{/} 2 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 4))
                 (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 5))
                 (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 6)))))
-          (\textcolor{vedlejsi}{setf} above (\textcolor{matematicke}{/} /16pown 15))
-          (\textcolor{vedlejsi}{incf} n))
+          (\textcolor{vedlejsi}{setf} above (\textcolor{matematicke}{/} /16pown 15)))
         \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result)))))
 \end{lispcode}
 
 \subsection{Přenásobování numem}
-
 Posledním dílkem, který přidám v této kapitole je přenásobování tnumu konstantou. Když už máme všechna racionální čísla a Ludolfovo číslo, zvládneme pak i například $2\pi$ nebo $\frac{\pi}{-2}$.
 
 \begin{theorem}[O přenásobení tnumu racionální konstantou]
-Pro racionální konstantu $c$, reálné $x$ a jeho tnum platí 
+Necht $c\in\mathbb{Q}$, $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{c*x}(\varepsilon)=\begin{cases}c*\mathcal{T}^{x}\left(\frac{\varepsilon}{|c|}\right) & \text{pro~}c\not = 0\\\mathcal{T}^0&\text{jinak}\end{cases}
+\tnum{}(\varepsilon)=\begin{cases}c*\tnum{x}\left(\frac{\varepsilon}{|c|}\right) & \text{pro~}c\not = 0,\\0&\text{jinak,}\end{cases}
 \end{equation}
+pak $\tnum{}\in\Tnum{x*c}$.
 \begin{proof}
-Pokud přenásobíme tnum nulou, je výsledkem nula, protože je to agresivní prvek vůči násobení. Znění věty pro nenulovou konstantu dokážeme tak, že z předpokladu $|\mathcal{T}^{x}(\varepsilon)-x|\leq\varepsilon$ odvodíme $|c*\mathcal{T}^{x}(\frac{\varepsilon}{|c|})-c*x|\leq\varepsilon$. Protože pracujeme s nerovnicemi, budeme v důkazu postupovat dvěmi větvemi -- pro $c$ kladné a záporné.
+Pokud přenásobíme hodnotu tnumu nulou, je výsledkem nula, protože je to agresivní prvek vůči násobení. Znění věty pro nenulovou konstantu dokážeme tak, že z předpokladu $|\txe -x|\leq\varepsilon$ odvodíme $|c*\tnum{x}(\frac{\varepsilon}{|c|})-c*x|\leq\varepsilon$. Protože pracujeme s nerovnicemi, budeme v důkazu postupovat dvěmi větvemi -- pro $c$ kladné a záporné.
 
 Z definice tnumu předpokládáme
 \begin{equation}
-|\mathcal{T}^{x}(\varepsilon)-x|\leq\varepsilon,
+|\txe-x|\leq\varepsilon,
 \end{equation}
 po přenásobení kladným $c>0$ dostáváme
 \begin{equation}
-c*|\mathcal{T}^{x}(\varepsilon)-x|\leq c*\varepsilon,
+c*|\txe-x|\leq c*\varepsilon,
 \end{equation}
 protože je ale $c$ kladné, můžu jím absolutní hodnotu roznásobit
 \begin{equation}
-|c*\mathcal{T}^{x}(\varepsilon)-c*x|\leq c*\varepsilon,
+|c*\txe-c*x|\leq c*\varepsilon,
 \end{equation}
 a protože na pravé straně potřebuji přesnost $\varepsilon$, v argumentu ji podělím $c$ a pak
 \begin{equation}
-\left|c*\mathcal{T}^{x}\left(\frac{\varepsilon}{c}\right)-c*x\right|\leq \varepsilon.
+\left|c*\tnum{x}\left(\frac{\varepsilon}{c}\right)-c*x\right|\leq \varepsilon.
 \end{equation}
 Pro zápornou konstantu je běh důkazu podobný a protože jako argument tnumů bereme kladné číslo, přibývá v děliteli v argumentu tnumu ještě absolutní hodnota. Dohromady pak získáváme
 \begin{equation}
-\left|c*\mathcal{T}^{x}\left(\frac{\varepsilon}{|c|}\right)-c*x\right|\leq\varepsilon,
+\left|c*\txe^{x}\left(\frac{\varepsilon}{|c|}\right)-c*x\right|\leq\varepsilon,
 \end{equation}
 což jsme chtěli ukázat.
 \end{proof}
@@ -147,11 +148,13 @@ což jsme chtěli ukázat.
 \end{lispcode}
 
 \begin{consequence}[Opačný tnum]\label{dusl:negace_tnumu}
+Nechť $\tnum{x}\in\Tnum{x}, x\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
 \begin{equation}
-\mathcal{T}^{-x}(\varepsilon)=-\mathcal{T}^x(\varepsilon)
+\tnum{}(\varepsilon)=-\txe,
 \end{equation}
+pak $\tnum{}\in\Tnum{-x}$.
 \begin{proof}
-Protože $-x = (-1)x$ a $|-1|=1$, pak podle přechozí věty dostáváme $\mathcal{T}^{-x}(\varepsilon) = \mathcal{T}^{(-1)x}(\varepsilon)=(-1)\mathcal{T}^{x}(\frac{\varepsilon}{|-1|})=(-1)\mathcal{T}^{x}(\frac{\varepsilon}{1})=(-1)\mathcal{T}^{x}(\varepsilon)=-\mathcal{T}^{x}(\varepsilon)$.
+Protože $-x = (-1)x$ a $|-1|=1$, pak podle přechozí věty dostáváme $-\txe=(-1)\txe=(-1)\tnum{x}(\frac{\varepsilon}{1})=(-1)\tnum{x}(\frac{\varepsilon}{|-1|})=\tnum{(-1)x}(\varepsilon)=\tnum{-x}(\varepsilon)\in\Tnum{-x}$.
 \end{proof}
 \end{consequence}
 
