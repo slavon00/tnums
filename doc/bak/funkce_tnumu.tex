@@ -7,7 +7,7 @@ Představa funkce tnumu je, že bude opět vracet tnum. Chci totiž opět libovo
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{factorial} (n)
   (\textcolor{vedlejsi}{let} ((result 1))
     (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} i \textcolor{obarvi}{from} n \textcolor{obarvi}{downto} 1
-      \textcolor{obarvi}{do} (\textcolor{vedlejsi}{setf} result (\textcolor{matematicke}{*} result i)))
+          \textcolor{obarvi}{do} (\textcolor{vedlejsi}{setf} result (\textcolor{matematicke}{*} result i)))
     result))
 \end{lispcode}
 
@@ -45,7 +45,7 @@ Když už máme vyjádřeny zbytky, můžeme se pokusit je zhora omezovat, stejn
 Exponenciála je funkce s předpisem $\mathrm{exp}(x) = e^x$ kde $e$ je tzv. \textit{Eulerovo číslo} definované $e=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n$ \cite{EPJVMAI}. To je transcendentní konstanta a je to též základ přirozeného logaritmu. Exponenciále se proto také dá říkat přirozená mocnina. Ještě podotkněme, že $\frac{d}{dx}\mathrm{exp}(x)=\mathrm{exp}(x)$.
 
 \begin{myremark}{Značení exponenciály}
-Mimo informatickou oblast jsem si nikde nevšiml, že by se exponenciála čísla $x$ značila jinak než $e^x$, mé značení $\mathrm{exp}(x)$ tedy možná působí neadekvátně. V dalším textu ale používám i pouze funkci ($\mathrm{exp}$), nikoli její hodnotu ($\mathrm{exp}(x)$) a zápis $e^x$ umožňuje jen toto druhé použití. Proto se omlouvám matematickému čtenáři za neintuitivní značení, ale je zde důvodné. Navíc lépe vyjadřuje, že je exponenciála funkcí.
+Mimo informatickou oblast jsem si nikde nevšiml, že by se exponenciála čísla $x$ značila jinak než $e^x$, mé značení $\mathrm{exp}(x)$ tedy možná působí neadekvátně. V dalším textu ale používám i pouze funkci ($\mathrm{exp}$), nikoli její hodnotu ($\mathrm{exp}(x)$) a předpis $e^x$ umožňuje jen toto druhé použití. Proto se omlouvám matematickému čtenáři za neintuitivní značení, ale je zde důvodné. Navíc lépe vyjadřuje, že je exponenciála funkcí.
 \end{myremark}
 
 \subsubsection{Exponenciála čísla}
@@ -55,7 +55,6 @@ Funkci $\mathrm{exp}(x)$ lze vyjádřit jako Maclaurinovu řadu ve tvaru
 \begin{equation}
 \mathrm{exp}(x) = \underset{i \in \mathbb{N}}{\sum} \frac{x^i}{i!} = \frac{1}{1} + \frac{x}{1} + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:exp_jako_rada} v příloze \ref{pril:dukazy}.
 \end{fact}
 
 Podívejme se nyní na zbytek této řady. Když rozepíšeme Lagrangeův tvar, získáváme pro nějaké $\xi\in(0,x)$
@@ -76,10 +75,11 @@ Když vše poskládáme dohromady, získáváme aproximaci exponenciály na shor
 \end{fact}
 
 \begin{consequence}[O tnumu exponenciály numu]
-Pro všechna $\varepsilon$ existuje $n\in\mathbb{N}^+$ tak, aby $\left|\frac{2.72^x}{(n+1)!}x^{n+1}\right| \leq \varepsilon$ a pak
+Pro všechna $\varepsilon$ existuje $n\in\mathbb{N}^+$ tak, aby $\left|\frac{2.72^x}{(n+1)!}x^{n+1}\right| \leq \varepsilon$ a nechť funkce $\tnum{}(x)$ má předpis
 \begin{equation}
-\mathcal{T}^{\mathrm{exp}(x)}(\varepsilon)=\sum_{i=0}^n \frac{x^i}{i!}.
+\tnum{}(x)(\varepsilon)=\sum_{i=0}^n \frac{x^i}{i!},
 \end{equation}
+pak $\tnum{}(x)\in\Tnum{\mathrm{exp}(x)},x\in\mathbb{Q}$.
 \begin{proof}
 Existence čísla $n$ je zřejmá z definice limity posloupnosti a z toho, že limita podílu polynomu a faktoriálu je rovna nule.
 
@@ -93,11 +93,7 @@ T^{exp, 0}_n(x) \in [\mathrm{exp}(x) - \left| \frac{2.72^x}{(n+1)!}x^{n+1} \righ
 \end{equation}
 a z předpokladu pak
 \begin{equation}
-T^{exp, 0}_n(x) \in [\mathrm{exp}(x) - \varepsilon, \mathrm{exp}(x) + \varepsilon]
-\end{equation}
-a tedy
-\begin{equation}\label{eq:tat}
-\mathcal{T}^{\mathrm{exp}(x)}(\varepsilon) = T^{exp, 0}_n(x).
+T^{exp, 0}_n(x) \in [\mathrm{exp}(x) - \varepsilon, \mathrm{exp}(x) + \varepsilon].
 \end{equation}
 \end{proof}
 \end{consequence}
@@ -107,20 +103,20 @@ Při implementaci stačí jen iterovat přes $n$, dokud nebude právě odvozené
 \begin{lispcode}{\texttt{num-exp}}{Funkce pro výpočet exponenciály čísla na danou přesnost}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-exp} (num eps)
   (\textcolor{vedlejsi}{let} ((above (\textcolor{moje}{rat-expt} 272/100 num)) (n 0)
-      (nfact 1) (xpown 1) (result 1))
+        (nfact 1) (xpown 1) (result 1))
     (\textcolor{funkcionalni}{loop} 
-      \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} (\textcolor{matematicke}{/} (\textcolor{matematicke}{*} above xpown) nfact) eps)
-      \textcolor{obarvi}{do} (progn
-        (\textcolor{vedlejsi}{incf} n)
-        (\textcolor{vedlejsi}{setf} nfact (\textcolor{moje}{factorial} n)
-          xpown (\textcolor{matematicke}{expt} num n))
-        (\textcolor{vedlejsi}{incf} result (\textcolor{matematicke}{/} xpown nfact)))
-      \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
+     \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} (\textcolor{matematicke}{/} (\textcolor{matematicke}{*} above xpown) nfact) eps)
+     \textcolor{obarvi}{do} (progn
+          (\textcolor{vedlejsi}{incf} n)
+          (\textcolor{vedlejsi}{setf} nfact (\textcolor{moje}{factorial} n)
+                xpown (\textcolor{matematicke}{expt} num n))
+          (\textcolor{vedlejsi}{incf} result (\textcolor{matematicke}{/} xpown nfact)))
+     \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
 \begin{myremarkbez}{Eulerovo číslo jako exponenciála}
 Protože triviálně platí $e = e^1$, můžu do knihovny přidat i samotné Eulerovo číslo jako jednoduchou uživatelskou funkci.
-\begin{lispcode}{\texttt{tnum-e}}{Funkce pro $\mathcal{T}^e$\hfill$\blacksquare$}
+\begin{lispcode}{\texttt{tnum-e}}{Funkce pro tnum Eulerova čísla\hfill$\blacksquare$}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-e} ()
   (\textcolor{funkcionalni}{lambda} (eps)
     (\textcolor{moje}{num-exp} 1 eps)))
@@ -129,12 +125,12 @@ Protože triviálně platí $e = e^1$, můžu do knihovny přidat i samotné Eul
 
 Už tedy umíme exponenciálu čísla na danou přesnost. Teď jsme tedy ve stádiu, kdy lze pro $q\in\mathbb{Q}$ napsat
 \begin{equation}
-\mathcal{T}^{\mathrm{exp}(q)}=\texttt{(num-exp } q \texttt{)}.
+\texttt{(num-exp } q \texttt{)}\in\Tnum{\mathrm{exp}(q)}.
 \end{equation}
 To není malý výsledek, bohužel nás ale sotva uspokojí. Nyní ještě musíme rozšířit funkcionalitu na všechna reálná čísla, která mají tnum. Opět jde o linku rozdílu mezi racionálními a rekurzivními čísly, která prochází celou prací.
 
 \subsubsection{Exponenciála tnumu}
-Víme, že $\mathcal{T}^x(\varepsilon) \in [x-\varepsilon,x+\varepsilon]$, podívejme se, jak se chová přesnost čísla po projití exponenciální funkcí.
+Víme, že $\txe \in [x-\varepsilon,x+\varepsilon]$, podívejme se, jak se chová přesnost čísla po projití exponenciální funkcí.
 
 \begin{myfigure}{H}
 \caption{Obraz přesnosti po průchodu exponenciálou}
@@ -142,10 +138,10 @@ Víme, že $\mathcal{T}^x(\varepsilon) \in [x-\varepsilon,x+\varepsilon]$, podí
 Horní interval je vyšší než spodní.
 
 \includegraphics[width=\linewidth]{graphics/exp4.pdf}\label{fig:exp4}
-Interval $[x-\varepsilon,x+\varepsilon]$ se nezobrazí na $[e^x-\varepsilon,e^x+\varepsilon]$. Tím pádem $\mathcal{T}^{\mathrm{exp}(x)}(\varepsilon) \neq \mathcal{T}^{\mathrm{exp}(\mathcal{T}^x(\varepsilon))}(\varepsilon)$.
+Interval $[x-\varepsilon,x+\varepsilon]$ se nezobrazí na $[e^x-\varepsilon,e^x+\varepsilon]$. Tím pádem $\tnum{\mathrm{exp}(\txe)}\not\in\Tnum{\mathrm{exp}(x)},x\in\mathbb{R}$.
 \end{myfigure}
 
-Vidíme, že $|(x-\varepsilon)-x|=|(x+\varepsilon)-x|$, ale $|\mathrm{exp}(x-\varepsilon)-\mathrm{exp}(x)|\neq|\mathrm{exp}(x+\varepsilon)-\mathrm{exp}(x)|$, tedy že přesnost se průchodem nelineární funkcí deformuje a proto se interval $[\mathrm{exp}(x-\varepsilon),\mathrm{exp}(x+\varepsilon)]$ neshoduje s intervalem $[\mathrm{exp}(x)-\varepsilon,\mathrm{exp}(x)+\varepsilon]$. Důsledkem pak je, že nelze rozšířit funkce racionálních čísel na tnumy ve smyslu $\mathcal{T}^{\mathrm{exp}(x)}(\varepsilon) := \mathcal{T}^{\mathrm{exp}(\mathcal{T}^x(\varepsilon)}(\varepsilon)$, ale budeme to muset udělat šetrněji.
+Vidíme, že $|(x-\varepsilon)-x|=|(x+\varepsilon)-x|$, ale $|\mathrm{exp}(x-\varepsilon)-\mathrm{exp}(x)|\neq|\mathrm{exp}(x+\varepsilon)-\mathrm{exp}(x)|$, tedy že přesnost se průchodem nelineární funkcí deformuje a proto se interval $[\mathrm{exp}(x-\varepsilon),\mathrm{exp}(x+\varepsilon)]$ neshoduje s intervalem $[\mathrm{exp}(x)-\varepsilon,\mathrm{exp}(x)+\varepsilon]$. Důsledkem pak je, že nelze rozšířit funkce racionálních čísel na tnumy ve smyslu $\tnum{}(\varepsilon) := \tnum{\mathrm{exp}(\txe)}(\varepsilon)$, ale budeme to muset udělat šetrněji.
 
 Pátráme po metodě, která nám řekne, jak přesné má být číslo na vstupu do funkce, aby jeho obraz byl v zadané přesnosti.
 
@@ -189,44 +185,44 @@ Podobným způsobem lze odvodit i vztah pro opačný kraj okolí a to
 dohromady to pak po propojení s notací tnumů dává vztah
 
 \begin{equation}\label{rekpresexp3}
-\mathcal{T}^{\mathrm{exp}(x)}(\varepsilon)\in\left[
+\tnum{\mathrm{exp}(x)}(\varepsilon)\in\left[
 \mathrm{exp}\left(x-\frac{\varepsilon}{\mathrm{exp}\left(x-\frac{\varepsilon}{\mathrm{exp}(x-\ldots)}\right)}\right), \mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}\left(x+\frac{\varepsilon}{\mathrm{exp}(x+\ldots)}\right)}\right)\right].
 \end{equation}
 
-\begin{myremark}{Obecnější přesnost vzoru}
+\begin{myremarkbez}{Obecnější přesnost vzoru}
 Odložím si zde obecnější trvzení, které vychází z právě dokázaného vztahu pro exponenciálu, jeho platnost by nyní měla být jasná pro všechny neklesající funkce spojité v $x$.
 \begin{lemma}[O přesnosti závislé proměnné]\label{lem:presprom}
 \begin{equation}\label{eq:presprom}
 f(x)+\varepsilon=f(x+w)\text{,~kde~}w=f\left(x+\frac{\varepsilon}{f^{'}(x+w)}\right).
 \end{equation}
-\begin{proof}
-Tělo důkazu je již v řádcích a obrázcích nad tímto lemmatem. Protože $\varepsilon$ může být jakkoli malé, je úhel $\alpha$ roven derivaci v bodě $x+w$ a proto pak platí právě uvedený vztah.
-\end{proof}
+\begin{proofscernou}
+Tělo důkazu je již v řádcích a obrázcích nad tímto lemmatem. Protože $\varepsilon$ může být jakkoli malé, je úhel $\alpha$ roven derivaci v bodě $x+w$ a proto pak platí právě uvedený vztah.\hfill$\square\blacksquare$
+\end{proofscernou}
 \end{lemma}
-Rekurzivní vztah vede k nějakému iterativnímu výpočtu, na ten se podíváme v následujících řádcích ohledně exponenciály a logaritmu.
-\end{myremark}
+\end{myremarkbez}
 
 Z výše uvedených vztahů by mělo být jasné, že při implementaci budeme hledat pevný bod a proto si zavedeme tzv. \textit{precizní iterátor}.
 
 \begin{definition}[Precizní iterátor exponenciály]
 Definujme následující posloupnost:
 \begin{equation}
-\left[ \mathcal{T}^x\right]_0^{\mathrm{exp},\varepsilon}=\mathcal{T}^{\mathrm{exp}(\mathcal{T}^x(\varepsilon))}(\varepsilon),
+\left[\tnum{x}\right]_0^{\mathrm{exp},\varepsilon}=\tnum{\mathrm{exp}(\txe)}(\varepsilon),
 \end{equation}
 \begin{equation}
-\left[ \mathcal{T}^x\right]_{n+1}^{\mathrm{exp},\varepsilon}=\mathcal{T}^{\mathrm{exp}\left(\mathcal{T}^x\left(\frac{\varepsilon}{\left|\left[ \mathcal{T}^x\right]_n^{\mathrm{exp},\varepsilon}\right|+\varepsilon}\right)\right)}(\varepsilon)
+\left[ \tnum{x}\right]_{n+1}^{\mathrm{exp},\varepsilon}=\tnum{\mathrm{exp}\left(\tnum{x}\left(\frac{\varepsilon}{\left|\left[ \tnum{x}\right]_n^{\mathrm{exp},\varepsilon}\right|+\varepsilon}\right)\right)}(\varepsilon)
 \end{equation}
 a pokud existuje $m$ tak, že
 \begin{equation}
-\left[\mathcal{T}^x\right]_m^{\mathrm{exp},\varepsilon} = \left[\mathcal{T}^x\right]_{m+1}^{\mathrm{exp},\varepsilon}\text{, pak klademe}\left[\mathcal{T}^x \right]_\infty^{\mathrm{exp},\varepsilon} := \left[\mathcal{T}^x\right]_m^{\mathrm{exp},\varepsilon}.
+\left[\tnum{x}\right]_m^{\mathrm{exp},\varepsilon} = \left[\tnum{x}\right]_{m+1}^{\mathrm{exp},\varepsilon}\text{, pak klademe}\left[\tnum{x} \right]_\infty^{\mathrm{exp},\varepsilon} := \left[\tnum{x}\right]_m^{\mathrm{exp},\varepsilon}.
 \end{equation}
 \end{definition}
 
 \begin{consequence}[O exponenciále tnumu]\label{dusl:expotnumu}
-Pro tnum $\mathcal{T}^x$ lze najít tnum $\mathcal{T}^{exp(x)}$ a má tvar
+Nechť $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a $\tnum{\mathrm{exp}(q)}\in\Tnum{\mathrm{exp}(q)},q\in\mathbb{Q}$ a funkce $\tnum{}(\tnum{x})$ má předpis
 \begin{equation}
-\mathcal{T}^{exp(x)}(\varepsilon)=\left[\mathcal{T}^x\right]_\infty^{exp,\varepsilon}.
+\tnum{}(\tnum{x})(\varepsilon)=\left[\tnum{x}\right]_\infty^{exp,\varepsilon},
 \end{equation}
+pak $\tnum{}(\tnum{x})\in\Tnum{\mathrm{exp}(x)},x\in\mathbb{R}$.
 \begin{proof}
 Vychází přímo ze vztahu \ref{rekpresexp3}.
 \end{proof}
@@ -235,17 +231,19 @@ Vychází přímo ze vztahu \ref{rekpresexp3}.
 \begin{lispcode}{\texttt{tnum-exp}}{Funkce pro rozšíření funkcí z racionálních čísel na tnumy}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-exp} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
-      (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} i \textcolor{obarvi}{from} 0
-        \textcolor{obarvi}{for} num = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) (\textcolor{moje}{tnum-to-num} tnum eps) new)
-        \textcolor{obarvi}{for} new = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) 1 (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} expnum 1) 
-          (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{+} expnum eps))) num))
-        \textcolor{obarvi}{for} expnum = (\textcolor{moje}{num-exp} num eps)
-        \textcolor{obarvi}{until} (\textcolor{matematicke}{=} num new)
-        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} expnum))))
+    (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} i \textcolor{obarvi}{from} 0
+          \textcolor{obarvi}{for} num = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) (\textcolor{moje}{tnum-to-num} tnum eps) new)
+          \textcolor{obarvi}{for} new = (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} i) 1
+                      (\textcolor{funkcionalni}{if} (\textcolor{matematicke}{>} expnum 1)
+                          (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps 
+                                               (\textcolor{matematicke}{+} expnum eps)))
+                        num))
+          \textcolor{obarvi}{for} expnum = (\textcolor{moje}{num-exp} num eps)
+          \textcolor{obarvi}{until} (\textcolor{matematicke}{=} num new) \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} expnum))))
 \end{lispcode}
 
 \subsection{Goniometrické}
-Goniometrické funkce jsou opět reálné funkce reálné proměnné. Po zkušenosti s implementací exponenciály už nás kód nepřekvapí. První dvě naprogramujeme nízkoúrovňově, zbylé čtyři pak využijí již existujících. Poznamenejme, že $\frac{d}{dx}\mathrm{sin}(x) = \mathrm{cos}(x)$, $\frac{d}{dx}\mathrm{cos}(x) = -\mathrm{sin}(x)$ a že $H(\mathrm{sin}) = [-1,1] = H(\mathrm{cos})$.
+Goniometrické funkce jsou opět reálné funkce reálné proměnné. Poznamenejme, že $\frac{d}{dx}\mathrm{sin}(x) = \mathrm{cos}(x)$, $\frac{d}{dx}\mathrm{cos}(x) = -\mathrm{sin}(x)$ a že $H(\mathrm{sin}) = [-1,1] = H(\mathrm{cos})$.
 
 \subsubsection{Sinus}
 \begin{fact}[Sinus jako Maclaurinova řada \cite{ZDVNNR}]\label{vet:sin_jako_rada}
@@ -253,7 +251,6 @@ Funkci $\mathrm{sin}(x)$ lze vyjádřit jako Maclaurinovu řadu ve tvaru
 \begin{equation}
 \mathrm{sin}(x) =\sum_{i \in \mathbb{N}} (-1)^i \frac{x^{2i+1}}{(2i+1)!} =\frac{x}{1} - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:sin_jako_rada} v příloze \ref{pril:dukazy}.
 \end{fact}
 
 Dále protože jsou funkční hodnoty všech možných derivací v intervalu $[-1,1]$, lze Lagrangeův tvar zbytku vyjádřit bez znaménka a pak díky Taylorově větě platí
@@ -262,10 +259,11 @@ Dále protože jsou funkční hodnoty všech možných derivací v intervalu $[-
 \end{equation}
 
 \begin{consequence}[Sinus numu]
-Pro všechna $\varepsilon$ existuje $n\in\mathbb{N}^+$ tak, aby $\left|\frac{x^{2n+2}}{(2n+3)!}\right| \leq \varepsilon$ a pak
+Pro všechna $\varepsilon$ existuje $n\in\mathbb{N}^+$ tak, aby $\left|\frac{x^{2n+2}}{(2n+3)!}\right| \leq \varepsilon$ a nechť funkce $\tnum{}(x)$ má předpis
 \begin{equation}
-\mathcal{T}^{\mathrm{sin}(x)}(\varepsilon)=\sum_{i=0}^n (-1)^i \frac{x^{2i+1}}{(2i+1)!}
+\tnum{}(x)(\varepsilon)=\sum_{i=0}^n (-1)^i \frac{x^{2i+1}}{(2i+1)!},
 \end{equation}
+pak $\tnum{}(x)\in\Tnum{\mathrm{sin}(x)},x\in\mathbb{Q}$.
 \begin{proof}
 Běží podobně jako u exponenciály. Jde opět o exponenciálu nad faktoriálem, proto je jasná limita i existence $n$. Dále z omezení $R^{\mathrm{sin}, 0}_n$ lze odvodit $T^{\mathrm{sin}, 0}_n\in[\mathrm{sin}(x)-|R^{\mathrm{sin}, 0}_n|,\mathrm{sin}(x)+|R^{\mathrm{sin}, 0}_n|]$ a pak $T^{\mathrm{sin}, 0}_n\in[\mathrm{sin}(x)-|\frac{x^{2n+2}}{(2n+2)!}|,\mathrm{sin}(x)+|\frac{x^{2n+2}}{(2n+2)!}|]$ a tudíž $T^{\mathrm{sin}, 0}_n\in[\mathrm{sin}(x)-\varepsilon,\mathrm{sin}(x)+\varepsilon]$, z čehož pak $\mathcal{T}^{\mathrm{sin}(x)}(\varepsilon)=T^{\mathrm{sin},0}_n(x)$.
 \end{proof}
@@ -273,27 +271,26 @@ Běží podobně jako u exponenciály. Jde opět o exponenciálu nad faktoriále
 
 \begin{lispcode}{\texttt{num-sin}}{Funkce pro sinus čísla}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-sin} (x eps)
-  (\textcolor{vedlejsi}{let} ((n 0) (result 0) (2n+1 1))
-    (\textcolor{funkcionalni}{loop} 
-      \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} (\textcolor{matematicke}{abs} (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x (\textcolor{matematicke}{1+} 2n+1))
-                        (\textcolor{moje}{factorial} (\textcolor{matematicke}{1+} 2n+1))))
-                eps)
-      \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
-          (\textcolor{vedlejsi}{incf} result
-            (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x 2n+1)
-               (\textcolor{moje}{factorial} 2n+1)
-               (\textcolor{matematicke}{expt} -1 n)))
-          (\textcolor{vedlejsi}{incf} n)
-          (\textcolor{vedlejsi}{setf} 2n+1 (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))))
-      \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
+  (\textcolor{vedlejsi}{let} ((result 0))
+    (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} n \textcolor{obarvi}{from} 0
+          \textcolor{obarvi}{for} 2n+1 = (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))
+          \textcolor{obarvi}{do} (\textcolor{vedlejsi}{incf} result
+                   (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x 2n+1)
+                      (\textcolor{moje}{factorial} 2n+1) (\textcolor{matematicke}{expt} -1 n)))
+          \textcolor{obarvi}{until} (\textcolor{matematicke}{<} (\textcolor{matematicke}{abs} (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x (\textcolor{matematicke}{1+} 2n+1))
+                           (\textcolor{moje}{factorial} (\textcolor{matematicke}{1+} 2n+1))))
+                   eps)
+          \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
 Protože derivace sinu je kosinus, který nabývá hodnot mezi $-1$ a $1$, nebude nutné provádět korekce přesnosti podle funkční hodnoty derivace a tato skutečnost vede na jednoduchý vztah.
 
 \begin{lemma}[O sinu tnumu]
+Nechť $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a $\tnum{\mathrm{sin}(q)}\in\Tnum{\mathrm{sin}(q)},q\in\mathbb{Q}$ a funkce $\tnum{}(\tnum{x})$ má předpis
 \begin{equation}
-\mathcal{T}^{\mathrm{sin}(x)}(\varepsilon)=\mathcal{T}^{sin(\mathcal{T}^x(\varepsilon))}(\varepsilon)
+\tnum{}(\tnum{x})(\varepsilon)=\tnum{sin(\txe)}(\varepsilon),
 \end{equation}
+pak $\tnum{}(\tnum{x})\in\Tnum{\mathrm{sin}(x)},x\in\mathbb{R}$.
 \begin{proof}
 Plyne nepřímo z lemmatu \ref{lem:presprom} a z omezení absolutních funkčních hodnot kosinu jedničkou. Lemma nelze použít doslovně, protože kosinus není neklesající funkce, ale z argumentu o omezení funkčních hodnot plyne, že nás stejně přesný tvar vzoru přesnosti a tudíž ani bod derivace nezajímá.
 \end{proof}
@@ -308,10 +305,9 @@ Plyne nepřímo z lemmatu \ref{lem:presprom} a z omezení absolutních funkční
 \subsubsection{Kosinus}
 \begin{fact}[Kosinus jako Maclaurinova řada \cite{ZDVNNR}]\label{vet:cos_jako_rada}
 Funkci $\mathrm{cos}(x)$ lze vyjádřit jako Maclaurinovu řadu ve tvaru
-\begin{equation}
+\begin{equation}\label{rov:cos:rad}
 \mathrm{cos}(x) = \sum_{i\in\mathbb{N}}(-1)^i \frac{x^{2i}}{(2i)!} = \frac{1}{1} - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots
 \end{equation}
-Pro důkaz vizte podkapitolu \ref{duk:cos_jako_rada} v příloze \ref{pril:dukazy}.
 \end{fact}
 
 Z Taylorovy věty získáváme omezení Taylorova zbytku
@@ -319,30 +315,23 @@ Z Taylorovy věty získáváme omezení Taylorova zbytku
 |R^{cos}_n(x)|\leq\left|\frac{x^{2n+1}}{(2n+1)!}\right|
 \end{equation}
 a proto opět hledáme takové $n$, že když pro jakékoli $\varepsilon$ je $|\frac{x^{2n+1}}{(2n+1)!}|\leq\varepsilon$, pak 
-\begin{consequence}[Kosinus numu]
-\begin{equation}
-\mathcal{T}^{\mathrm{cos}(x)}(\varepsilon)=\sum_{i=0}^n(-1)^i \frac{x^{2i}}{(2i)!}.
-\end{equation}
-\end{consequence}
-
-\begin{lispcode}{\texttt{num-cos}}{Funkce pro výpočet kosinu čísla}
+\begin{consequence}[Kosinus numu] Nechť $\tnum{}(x)$ je funkce s předpisem $\tnum{}(x)(\varepsilon)$=\uv{najdi nějaké $n$ tak, aby $|\frac{x^{2n+1}}{(2n+1)!}|\leq\varepsilon$ a pak vrať $n$-tý částečný součet řady ze vztahu \ref{rov:cos:rad}}, pak $\tnum{}\in\Tnum{\mathrm{cos}(x)},x\in\mathbb{Q}$.
+\end{consequence}\clearpage\begin{lispcode}{\texttt{num-cos}}{Funkce pro výpočet kosinu čísla}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-cos} (x eps)
-  (\textcolor{vedlejsi}{let} ((n 0) (result 0) (2n 0))
-    (\textcolor{funkcionalni}{loop} 
-      \textcolor{obarvi}{until} (\textcolor{matematicke}{<} (\textcolor{matematicke}{abs} (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x (\textcolor{matematicke}{1+} 2n))
-                        (\textcolor{moje}{factorial} (\textcolor{matematicke}{1+} 2n))))
-                eps)
-      \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
-          (\textcolor{vedlejsi}{incf} result
-            (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x 2n)
-               (\textcolor{moje}{factorial} 2n)
-               (\textcolor{matematicke}{expt} -1 n)))
-          (\textcolor{vedlejsi}{incf} n)
-          (\textcolor{vedlejsi}{setf} 2n (\textcolor{matematicke}{*} 2 n)))
-      \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
+  (\textcolor{vedlejsi}{let} ((result 0))
+    (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} n \textcolor{obarvi}{from} 0
+          \textcolor{obarvi}{for} 2n = (\textcolor{matematicke}{*} 2 n)
+          \textcolor{obarvi}{do} (\textcolor{vedlejsi}{incf} result
+                   (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x 2n)
+                      (\textcolor{moje}{factorial} 2n)
+                      (\textcolor{matematicke}{expt} -1 n)))
+          \textcolor{obarvi}{until} (\textcolor{matematicke}{<} (\textcolor{matematicke}{abs} (\textcolor{matematicke}{/} (\textcolor{moje}{rat-expt} x (\textcolor{matematicke}{1+} 2n))
+                           (\textcolor{moje}{factorial} (\textcolor{matematicke}{1+} 2n))))
+                   eps)
+          \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
-A nakonec právě naprogramovanou funkci využijeme ke kosinování jakékoli proměnné s tnumem. Postup je stejný jako u sinu a proto už nepíši příslušné lemma a nechávám ho ke zformulování čtenáři.
+A nakonec právě naprogramovanou funkci využijeme ke kosinování jakékoli proměnné s tnumem. Postup je stejný jako u sinu a proto už nepíši příslušné lemma.
 
 \begin{lispcode}{\texttt{tnum-cos}}{Funkce pro výpočet kosinu tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-cos} (tnum)
@@ -361,7 +350,7 @@ Další goniometrickou funkcí je tangens. Dá se vyjádřit pomocí sinu a kosi
 \end{fact}
 
 \begin{convention}[O vypuštění některých důsledků]
-Nyní by měl následovat důsledek že $\mathcal{T}^{\mathrm{tan}(x)}=\mathcal{T}^{\frac{\mathcal{T}^{\mathrm{sin}(x)}}{\mathcal{T}^{\mathrm{cos}(x)}}}$, což je ale myslím jasné a proto zde ani u dalších zřejmých přepsání vzorečků do jazyka tnumů tyto důsledky neuvádím.\hfill$\blacksquare$
+Nyní by měl následovat důsledek že $\tnum{}(\tnum{x})=\tnum{\tnum{\mathrm{sin}(x)}/\tnum{\mathrm{cos}(x)}}\in\mathcal{T}^{\mathrm{tan}(x)},x\in\mathbb{R}\setminus\{\frac{\pi}{2}+k\pi|k\in\mathbb{Z}\}$, což je ale myslím jasné a proto zde ani u dalších zřejmých přepsání vzorečků do jazyka tnumů tyto důsledky neuvádím.\hfill$\blacksquare$
 \end{convention}
 
 \begin{lispcode}{\texttt{tnum-tan}}{Funkce pro výpočet tangentu tnumu}
@@ -405,24 +394,28 @@ Zbylé funkce jsou obrácenou hodnotou již napsaných.
 Logaritmus je inverzní funkce k exponenciále. Je opět vyjadřitelná řadou.
 \begin{fact}[Logaritmus jako řada \cite{HoMF}]
 Pro $x\in\mathbb{R}^+$ platí
-  \begin{equation}
+  \begin{equation}\label{rov:rad:ln}
     \mathrm{ln}(x)=2\sum_{i\in\mathbb{N}}\frac{1}{2i+1}\left(\frac{x-1}{x+1}\right)^{2i+1}
   \end{equation}
 \end{fact}
 
 Člen $\frac{1}{2i+1}(\frac{x-1}{x+1})^{2i+1}$ je menší než $(\frac{x-1}{x+1})^{2i+1}$ a  tento je menší než $(\frac{x-1}{x+1})^{2i}$. Toto je geometrická posloupnost, jejíž $n$-tý zbytek je roven $\frac{(\frac{x-1}{x+1})^{2n+2}}{1-\frac{x-1}{x+1}}$ podle faktu \ref{vet:o_zbytku_geometricke_rady}.
+
+\begin{fact}[Tnum logaritmu numu]Funkce $\tnum{}(x)$ s předpisem $\tnum{}(x)(\varepsilon)=$\uv{najdi $n$ tak, aby platilo \newline$\frac{(\frac{x-1}{x+1})^{2n+2}}{1-\frac{x-1}{x+1}}\leq\varepsilon$ a pak vrať $n$-tý částečný součet řady ze vztahu \ref{rov:rad:ln}},
+pak $\tnum{}(x)\in\Tnum{\mathrm{ln}(x)}$.
+\end{fact}
 \begin{lispcode}{\texttt{num-ln}}{Funkce pro logaritmus čísla}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-ln} (x eps)
   (\textcolor{vedlejsi}{setf} eps (\textcolor{matematicke}{/} eps 2))
   (\textcolor{vedlejsi}{let} ((n 0) (result 0) (q (\textcolor{matematicke}{/} (\textcolor{matematicke}{1-} x) (\textcolor{matematicke}{1+} x))))
     (\textcolor{funkcionalni}{loop} 
-      \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} (\textcolor{matematicke}{/} (\textcolor{matematicke}{expt} q (\textcolor{matematicke}{*} 2 (\textcolor{matematicke}{1+} n))) (\textcolor{matematicke}{-} 1 q))
-                eps)
-      \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
+     \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} (\textcolor{matematicke}{/} (\textcolor{matematicke}{expt} q (\textcolor{matematicke}{*} 2 (\textcolor{matematicke}{1+} n))) (\textcolor{matematicke}{-} 1 q))
+               eps)
+     \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
           (\textcolor{vedlejsi}{incf} result
-            (\textcolor{matematicke}{/} (\textcolor{matematicke}{expt} q (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))) (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))))
+                (\textcolor{matematicke}{/} (\textcolor{matematicke}{expt} q (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))) (\textcolor{matematicke}{1+} (\textcolor{matematicke}{*} 2 n))))
           (\textcolor{vedlejsi}{incf} n))
-      \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} (\textcolor{matematicke}{*} 2 result)))))
+     \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} (\textcolor{matematicke}{*} 2 result)))))
 \end{lispcode}
 
 Tím bychom měli přirozený logaritmus pro čísla. Podívejme se nyní, jak vypadá omezení nezávislé proměnné pro logaritmus. Po dosazení do vztahu \ref{eq:presprom} získáváme
@@ -437,17 +430,24 @@ a protože $\mathrm{ln}(x+w)=(x+w)^{-1}$, pak
 \mathrm{ln}(x)+\varepsilon=\mathrm{ln}(x+\varepsilon(x+w)),
 \end{equation}
 
-tedy násobíme přesnost hodnotou proměnné a protože přesnost nemůže být nulová, použijeme k vyčíslení $\mathcal{T}^x$ nenulový tnum a tím je problém vyřešen. Vezmeme totiž pesimistický odhad $\mathcal{T}^x(\varepsilon_\emptyset)-\varepsilon_\emptyset$ a přenásobíme jím epsilon. Díky třetí podmínce v definici \ref{def:bezpecne_epsilon} toto mohu udělat.
+tedy násobíme přesnost hodnotou proměnné a protože přesnost nemůže být nulová, použijeme k vyčíslení $\tnum{x}$ nenulový tnum a tím je problém vyřešen. Vezmeme totiž pesimistický odhad $\tnum{x}(\varepsilon_\emptyset)-\varepsilon_\emptyset$ a přenásobíme jím epsilon. Díky třetí podmínce v definici \ref{def:bezpecne_epsilon} toto mohu udělat.
+\begin{fact}[Tnum logaritmu tnumu]
+Nechť $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a $\tnum{\mathrm{ln}(q)}\in\Tnum{\mathrm{ln}(q)},q\in\mathbb{Q}$ a funkce $\tnum{}(\tnum{x})$ má předpis
+\begin{equation}
+\tnum{}(\tnum{x})(\varepsilon)=\tnum{\mathrm{ln}(\tnum{x}(\varepsilon(\tnum{x}(\varepsilon_\emptyset)-\varepsilon_\emptyset)))}(\varepsilon),
+\end{equation}
+pak $\tnum{}(\tnum{x})\in\Tnum{\mathrm{ln}(x)},x\in\mathbb{R}$.
+\end{fact}
 
 \begin{lispcode}{\texttt{tnum-ln}}{Funkce pro logaritmus tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-ln} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
     (\textcolor{matematicke}{multiple-value-bind} (num eps0)
-      (\textcolor{moje}{get-nonzero-num+eps} tnum eps)
+        (\textcolor{moje}{get-nonzero-num+eps} tnum eps)
       (\textcolor{moje}{num-ln} (\textcolor{moje}{tnum-to-num} tnum eps) (\textcolor{matematicke}{*} eps (\textcolor{matematicke}{-} num eps0))))))
 \end{lispcode}
 
-\begin{myremark}{Dokončení systému}
+\begin{myremarkbez}{Dokončení systému}
 Pomocí logaritmu v kombinaci s exponenciálou lze přinést i mocninné operace a ucelím tak základní funkcionalitu knihovny \texttt{tnums}, kterou jsem si předsevzal. Mocninu udělám jako v lemmatu \ref{vet:mocnina_tnumu}.
 \begin{lispcode}{\texttt{tnum-expt}}{Funkce pro umonování tnumů}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-expt} (tnum1 tnum2)
@@ -456,10 +456,10 @@ Pomocí logaritmu v kombinaci s exponenciálou lze přinést i mocninné operace
 
 Odmocninu pak píši podle faktu \ref{fac:odmocnina_tnumu}. Oproti mocnině jsou prohozené argumenty, ale tnum-tou odmocninu tnumu chápu tak, že odmocnitel je jako první a odmocněnec jako druhý, říká se \uv{třetí odmocnina z osmi}.
 
-\begin{lispcode}{\texttt{tnum-root}}{Funkce pro odmocňování tnumu}
+\begin{lispcode}{\texttt{tnum-root}}{Funkce pro odmocňování tnumu\hfill$\blacksquare$}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-root} (tnum1 tnum2)
   (\textcolor{moje}{tnum-expt} tnum2 (\textcolor{moje}{/tnum} tnum1)))
 \end{lispcode}
-\end{myremark}
+\end{myremarkbez}
 
 Takto je tedy dokončena základní funkcionalita knihovny \texttt{tnums} a v další části se podíváme na její používání, perspektivu a doprogramujeme nějaké uživatelské funkce.

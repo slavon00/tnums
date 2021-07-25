@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.12)  24 JUL 2021 23:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.12)  25 JUL 2021 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1524,13 +1524,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ] (./bak.toc [5.5
 
-] [6.6])
+])
 \tf@toc=\write6
 \openout6 = `bak.toc'.
 
- (./bak.lot
+ (./bak.lot [6.6]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-4.
+0.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1658,7 +1658,7 @@ OML/lmm/m/it/12 aq[]$
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 32.
-<graphics/float.png, id=742, 440.6061pt x 57.69556pt>
+<graphics/float.png, id=697, 440.6061pt x 57.69556pt>
 File: graphics/float.png Graphic file (type png)
 <use graphics/float.png>
 Package pdftex.def Info: graphics/float.png  used on input line 34.
@@ -1670,7 +1670,7 @@ Package mdframed Info: mdframed inside a box
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 46.
-<./graphics/uinty.png, id=745, 788.9475pt x 300.12125pt>
+<./graphics/uinty.png, id=700, 788.9475pt x 300.12125pt>
 File: ./graphics/uinty.png Graphic file (type png)
 <use ./graphics/uinty.png>
 Package pdftex.def Info: ./graphics/uinty.png  used on input line 48.
@@ -1689,7 +1689,7 @@ l.51 P
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 55.
-<./graphics/inty.png, id=754, 788.9475pt x 300.12125pt>
+<./graphics/inty.png, id=709, 788.9475pt x 300.12125pt>
 File: ./graphics/inty.png Graphic file (type png)
 <use ./graphics/inty.png>
 Package pdftex.def Info: ./graphics/inty.png  used on input line 57.
@@ -1712,7 +1712,7 @@ l.61
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 65.
-<./graphics/floaty.png, id=762, 788.9475pt x 282.05376pt>
+<./graphics/floaty.png, id=717, 788.9475pt x 282.05376pt>
 File: ./graphics/floaty.png Graphic file (type png)
 <use ./graphics/floaty.png>
 Package pdftex.def Info: ./graphics/floaty.png  used on input line 67.
@@ -1734,7 +1734,7 @@ LaTeX Warning: No positions in optional float specifier.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 129.
-<./graphics/mpmath.png, id=785, 788.9475pt x 462.72874pt>
+<./graphics/mpmath.png, id=739, 788.9475pt x 462.72874pt>
 File: ./graphics/mpmath.png Graphic file (type png)
 <use ./graphics/mpmath.png>
 Package pdftex.def Info: ./graphics/mpmath.png  used on input line 131.
@@ -1756,7 +1756,7 @@ LaTeX Warning: No positions in optional float specifier.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 138.
-<./graphics/jscience.png, id=788, 816.04875pt x 372.39125pt>
+<./graphics/jscience.png, id=742, 816.04875pt x 372.39125pt>
 File: ./graphics/jscience.png Graphic file (type png)
 <use ./graphics/jscience.png>
 Package pdftex.def Info: ./graphics/jscience.png  used on input line 140.
@@ -1783,7 +1783,7 @@ LaTeX Warning: No positions in optional float specifier.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 147.
-<./graphics/gmp.png, id=808, 788.9475pt x 589.20125pt>
+<./graphics/gmp.png, id=763, 788.9475pt x 589.20125pt>
 File: ./graphics/gmp.png Graphic file (type png)
 <use ./graphics/gmp.png>
 Package pdftex.def Info: ./graphics/gmp.png  used on input line 149.
@@ -1805,7 +1805,7 @@ LaTeX Warning: No positions in optional float specifier.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 155.
-<./graphics/clisp.png, id=820, 788.9475pt x 245.91875pt>
+<./graphics/clisp.png, id=775, 788.9475pt x 245.91875pt>
 File: ./graphics/clisp.png Graphic file (type png)
 <use ./graphics/clisp.png>
 Package pdftex.def Info: ./graphics/clisp.png  used on input line 157.
@@ -1821,7 +1821,7 @@ LaTeX Warning: No positions in optional float specifier.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 164.
-<./graphics/computable-reals.png, id=824, 788.9475pt x 354.32375pt>
+<./graphics/computable-reals.png, id=779, 788.9475pt x 354.32375pt>
 File: ./graphics/computable-reals.png Graphic file (type png)
 <use ./graphics/computable-reals.png>
 Package pdftex.def Info: ./graphics/computable-reals.png  used on input line 16
@@ -1901,32 +1901,30 @@ File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [27.38
 
 ]
-Package mdframed Info: Not enough space on this page on input line 46.
+Package mdframed Info: Not enough space on this page on input line 47.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 59.
+(mdframed)              on input line 60.
  [28.39]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 94.
+(mdframed)              on input line 95.
  [29.40]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 145.
+(mdframed)              on input line 146.
  [30.41]
 [31.42] [32.43]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 257.
+(mdframed)              on input line 258.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 274.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 294.
-Package mdframed Info: Not enough space on this page on input line 299.
+(mdframed)              on input line 276.
  [33.44]
-Package mdframed Info: Not enough space on this page on input line 299.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 296.
 ) [34.45] (./funkce_tnumu.tex
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
@@ -1938,33 +1936,33 @@ Package hyperref Info: bookmark level for unknown remind defaults to 0 on input
 ] [36.47] [37.48]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 107.
+(mdframed)              on input line 103.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 123.
+(mdframed)              on input line 119.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 139.
-<graphics/exp1.pdf, id=1058, 361.35pt x 216.81pt>
+(mdframed)              on input line 135.
+<graphics/exp1.pdf, id=1011, 361.35pt x 216.81pt>
 File: graphics/exp1.pdf Graphic file (type pdf)
 <use graphics/exp1.pdf>
-Package pdftex.def Info: graphics/exp1.pdf  used on input line 141.
+Package pdftex.def Info: graphics/exp1.pdf  used on input line 137.
 (pdftex.def)             Requested size: 388.7012pt x 233.22168pt.
-<graphics/exp4.pdf, id=1059, 361.35pt x 216.81pt>
+<graphics/exp4.pdf, id=1012, 361.35pt x 216.81pt>
 File: graphics/exp4.pdf Graphic file (type pdf)
 <use graphics/exp4.pdf>
-Package pdftex.def Info: graphics/exp4.pdf  used on input line 144.
+Package pdftex.def Info: graphics/exp4.pdf  used on input line 140.
 (pdftex.def)             Requested size: 388.7012pt x 233.22168pt.
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 146.
+ mdframed uses option nobreak mdframed on input line 142.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 146.
+ mdframed uses option nobreak mdframed on input line 142.
 
 [38.49] [39.50pdfTeX warning (ext4): destination with the same identifier (name
 {figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.149 
+l.145 
        <./graphics/exp1.pdf> <./graphics/exp4.pdf
 
 pdfTeX warning: pdflatex (file ./graphics/exp4.pdf): PDF inclusion: multiple pd
@@ -1972,26 +1970,26 @@ fs with page group included in a single page
 >]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 152.
-<graphics/exp2.pdf, id=1105, 361.35pt x 216.81pt>
+(mdframed)              on input line 148.
+<graphics/exp2.pdf, id=1057, 361.35pt x 216.81pt>
 File: graphics/exp2.pdf Graphic file (type pdf)
 <use graphics/exp2.pdf>
-Package pdftex.def Info: graphics/exp2.pdf  used on input line 154.
+Package pdftex.def Info: graphics/exp2.pdf  used on input line 150.
 (pdftex.def)             Requested size: 388.7012pt x 233.22168pt.
-<graphics/exp3.pdf, id=1106, 361.35pt x 216.81pt>
+<graphics/exp3.pdf, id=1058, 361.35pt x 216.81pt>
 File: graphics/exp3.pdf Graphic file (type pdf)
 <use graphics/exp3.pdf>
-Package pdftex.def Info: graphics/exp3.pdf  used on input line 157.
+Package pdftex.def Info: graphics/exp3.pdf  used on input line 153.
 (pdftex.def)             Requested size: 388.7012pt x 233.22168pt.
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 159.
+ mdframed uses option nobreak mdframed on input line 155.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 159.
+ mdframed uses option nobreak mdframed on input line 155.
  [40.51pdfTeX warning (ext4): destination with the same identifier (name{figure
 .11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.164 \end{equation}
+l.160 \end{equation}
                      <./graphics/exp2.pdf> <./graphics/exp3.pdf
 
 pdfTeX warning: pdflatex (file ./graphics/exp3.pdf): PDF inclusion: multiple pd
@@ -1999,284 +1997,224 @@ fs with page group included in a single page
 >]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 167.
-<graphics/exp5.pdf, id=1140, 361.35pt x 216.81pt>
+(mdframed)              on input line 163.
+<graphics/exp5.pdf, id=1092, 361.35pt x 216.81pt>
 File: graphics/exp5.pdf Graphic file (type pdf)
 <use graphics/exp5.pdf>
-Package pdftex.def Info: graphics/exp5.pdf  used on input line 169.
+Package pdftex.def Info: graphics/exp5.pdf  used on input line 165.
 (pdftex.def)             Requested size: 194.3506pt x 116.60918pt.
-<graphics/exp6.pdf, id=1141, 361.35pt x 216.81pt>
+<graphics/exp6.pdf, id=1093, 361.35pt x 216.81pt>
 File: graphics/exp6.pdf Graphic file (type pdf)
 <use graphics/exp6.pdf>
-Package pdftex.def Info: graphics/exp6.pdf  used on input line 170.
+Package pdftex.def Info: graphics/exp6.pdf  used on input line 166.
 (pdftex.def)             Requested size: 194.3506pt x 116.60918pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 169--172
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 165--168
 [][][] [][]
  []
 
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 172.
+ mdframed uses option nobreak mdframed on input line 168.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 172.
+ mdframed uses option nobreak mdframed on input line 168.
 [41.52pdfTeX warning (ext4): destination with the same identifier (name{figure.
 12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.201 \end{equation}
+l.197 \end{equation}
                      <./graphics/exp5.pdf> <./graphics/exp6.pdf
 
 pdfTeX warning: pdflatex (file ./graphics/exp6.pdf): PDF inclusion: multiple pd
 fs with page group included in a single page
 >]
+Package hyperref Info: bookmark level for unknown proofscernou defaults to 0 on
+ input line 199.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 235.
+(mdframed)              on input line 231.
  [42.53]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 274.
+(mdframed)              on input line 272.
  [43.54]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 302.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 328.
+(mdframed)              on input line 299.
  [44.55]
-Package mdframed Info: Not enough space on this page on input line 343.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 347.
+(mdframed)              on input line 319.
+Package mdframed Info: Not enough space on this page on input line 332.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 336.
 Package hyperref Info: bookmark level for unknown convention defaults to 0 on i
-nput line 363.
+nput line 352.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 367.
-Package mdframed Info: Not enough space on this page on input line 370.
- [45.56]
-Package mdframed Info: Not enough space on this page on input line 370.
+(mdframed)              on input line 356.
+Package mdframed Info: Not enough space on this page on input line 359.
+ [45.56
+
+]
+Package mdframed Info: Not enough space on this page on input line 359.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 379.
+(mdframed)              on input line 368.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 389.
+(mdframed)              on input line 378.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 399.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 414.
+(mdframed)              on input line 388.
  [46.57]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
+(mdframed)              on input line 407.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
 (mdframed)              on input line 442.
+Package mdframed Info: Not enough space on this page on input line 448.
+ [47.58]
+Package mdframed Info: Not enough space on this page on input line 448.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 452.
-Package mdframed Info: Not enough space on this page on input line 455.
- [47.58]
-Package mdframed Info: Not enough space on this page on input line 455.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 459.
 ) [48.59]
 (./uzivatelske_funkce.tex
-Overfull \hbox (5.35754pt too wide) in paragraph at lines 5--6
-[][]\T1/lmr/bx/n/12 Definice 71 (Uºi-va-tel-ská funkce). []\T1/lmr/m/it/12 Uºi-
-va-tel-skou funkcí mys-líme ta-ko-vou funkci,
- []
-
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 11.
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 31.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 31.
-
-Overfull \hbox (0.70934pt too wide) in paragraph at lines 34--35
-\T1/lmr/m/n/12 s tnumy níz-ko-úrov-¬ov¥ pra-co-vat ne-musí. Uºi-va-tel-ská funk
-ce -- která stavbu tnumu
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 37.
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 57.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 57.
-[49.60] [50.61pdfTeX warning (ext4): destination with the same identifier (name
-{table.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.63 
-     pdfTeX warning (ext4): destination with the same identifier (name{table.4}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.63 
-     ]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 71.
-<./graphics/loading.png, id=1298, 788.9475pt x 426.59375pt>
+(mdframed)              on input line 10.
+<./graphics/loading.png, id=1239, 788.9475pt x 426.59375pt>
 File: ./graphics/loading.png Graphic file (type png)
 <use ./graphics/loading.png>
-Package pdftex.def Info: ./graphics/loading.png  used on input line 73.
+Package pdftex.def Info: ./graphics/loading.png  used on input line 12.
 (pdftex.def)             Requested size: 388.7012pt x 210.17189pt.
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 75.
+ mdframed uses option nobreak mdframed on input line 14.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 75.
+ mdframed uses option nobreak mdframed on input line 14.
+ [49.60]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 80.
- [51.62pdfTeX warning (ext4): destination with the same identifier (name{figure
+(mdframed)              on input line 19.
+Package hyperref Info: bookmark level for unknown lispcodetest defaults to 0 on
+ input line 22.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 26.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 33.
+Package mdframed Info: Not enough space on this page on input line 38.
+ [50.61pdfTeX warning (ext4): destination with the same identifier (name{figure
 .13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.83 \end{lisptest}
+l.38 \end{lisptest}
                     <./graphics/loading.png>]
-Package mdframed Info: Not enough space on this page on input line 83.
-Package hyperref Info: bookmark level for unknown lispcodetest defaults to 0 on
- input line 83.
+Package mdframed Info: Not enough space on this page on input line 38.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 87.
+(mdframed)              on input line 42.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 94.
+(mdframed)              on input line 60.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 103.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 121.
- [52.63]
-Package mdframed Info: Not enough space on this page on input line 124.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 128.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 140.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 147.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 154.
- [53.64]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 170.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 177.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 196.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 203.
- [54.65]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 210.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 224.
+(mdframed)              on input line 67.
 
-Underfull \hbox (badness 1122) in paragraph at lines 230--230
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 72.
+
+[51.62]
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 79.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 86.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 93.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 109.
+Package mdframed Info: Not enough space on this page on input line 112.
+ [52.63]
+Package mdframed Info: Not enough space on this page on input line 112.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 116.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 135.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 142.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 149.
+Package mdframed Info: Not enough space on this page on input line 153.
+ [53.64]
+Package mdframed Info: Not enough space on this page on input line 153.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 161.
+
+Underfull \hbox (badness 1122) in paragraph at lines 167--167
 []|\T1/lmr/m/n/12 Doba vy-hod-
  []
 
-
-Overfull \hbox (23.55132pt too wide) in paragraph at lines 228--238
- [] 
- []
-
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 240.
+ mdframed uses option nobreak mdframed on input line 177.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 240.
+ mdframed uses option nobreak mdframed on input line 177.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 247.
+(mdframed)              on input line 184.
 
-Underfull \hbox (badness 6808) in paragraph at lines 254--255
+Underfull \hbox (badness 6808) in paragraph at lines 191--192
 []|\T1/lmr/m/n/12 p°evod \T1/lmtt/m/n/12 tnum\T1/lmr/m/n/12 u na £íslo
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 255--255
+Underfull \hbox (badness 1067) in paragraph at lines 192--192
 \T1/lmr/m/n/12 °e-t¥-zec o \T1/lmtt/m/n/12 count \T1/lmr/m/n/12 de-se-tin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 []|\T1/lmr/m/n/12 p°irozený lo-ga-rit-mus
  []
 
 Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 283.
+ mdframed uses option nobreak mdframed on input line 220.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 283.
-[55.66pdfTeX warning (ext4): destination with the same identifier (name{table.5
-}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.284 \end{table}
-                 ]) [56.67pdfTeX warning (ext4): destination with the same iden
-tifier (name{table.6}) has been already used, duplicate ignored
+ mdframed uses option nobreak mdframed on input line 220.
+) [54.65pdfTeX warning (ext4): destination with the same identifier (name{table
+.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.136 \clearpage
-                ] (./perspektiva.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 11.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 20.
- [57.68
+                ] [55.66pdfTeX warning (ext4): destination with the same identi
+fier (name{table.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.136 \clearpage
+                ] (./perspektiva.tex [56.67
 
-]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 53.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 61.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 68.
-Package mdframed Info: Not enough space on this page on input line 72.
- [58.69]
-Package mdframed Info: Not enough space on this page on input line 72.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 76.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 88.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 95.
- [59.70]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 104.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 115.
- [60.71] [61.72]
-[62.73] [63.74] [64.75] [65.76]) [66.77] [67.78
+] [57.68] [58.69] [59.70] [60.71])
+[61.72] [62.73
 
-] [68.79
+] [63.74
 
 ]
 
@@ -2298,7 +2236,7 @@ Overfull \hbox (40.58307pt too wide) in paragraph at lines 160--160
  . rotarysaluzzo . it / Z _ Vecchio _ Sito / filePDF / Iperoperazioni %
  []
 
-[69.80
+[64.75
 
 ]
 Overfull \hbox (5.98486pt too wide) in paragraph at lines 160--160
@@ -2331,9 +2269,7 @@ Overfull \hbox (19.40715pt too wide) in paragraph at lines 160--160
  pre-ci-sion, au-to-ma-tic re-computing
  []
 
-[70.81] [71.82] (./dukazy.tex) [72.83
-
-] (./obsah.tex
+[65.76] [66.77] (./obsah.tex
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 6.
 
@@ -2348,7 +2284,7 @@ Overfull \hbox (3.42767pt too wide) in paragraph at lines 20--21
 ¥-dom¥ uºi-va-tel-ské funkce
  []
 
-) [73.84
+) [67.78
 
 ]
 \tf@loe=\write9
@@ -2368,36 +2304,37 @@ Package logreq Info: Writing requests to 'bak.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35839 strings out of 479304
- 641476 string characters out of 5869779
- 1387906 words of memory out of 5000000
- 51656 multiletter control sequences out of 15000+600000
+ 35784 strings out of 479304
+ 640843 string characters out of 5869779
+ 1383944 words of memory out of 5000000
+ 51657 multiletter control sequences out of 15000+600000
  526141 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,22n,103p,1394b,4946s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,21n,103p,1394b,4946s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/te
 xmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
 thex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf/font
-s/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bak.pdf (84 pages, 1153249 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
+7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on bak.pdf (78 pages, 1135530 bytes).
 PDF statistics:
- 2028 PDF objects out of 2073 (max. 8388607)
- 1846 compressed objects within 19 object streams
- 633 named destinations out of 1000 (max. 500000)
- 743 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1887 PDF objects out of 2073 (max. 8388607)
+ 1711 compressed objects within 18 object streams
+ 580 named destinations out of 1000 (max. 500000)
+ 671 words of extra memory for PDF output out of 10000 (max. 10000000)
 

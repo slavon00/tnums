@@ -1,138 +1,4 @@
-V poslední kapitole probereme možné budoucí směřování knihovny \texttt{tnums} a její nedostatky. Nejprve zjistíme, proč není dobrý nápad vnímat \texttt{tnums} jako kalkulačku. Krátce se zastavíme u optimalizace implementace, kde popíšu dva hlavní směry, kterým bychom se při optimalizaci mohli vydat. Nakonec se ohlédneme na proces vzniku knihovny a odkryjeme nějaká děravá místa, která současná verze knihovny bohužel má.
-
-\subsection{Kalkulačka}
-Princip fungování knihovny \texttt{tnums} se dá popsat ve dvou krocích. Nejprve se vytvoří abstraktní datová struktura, která představuje číslo. Říkáme jí tnum. Tento proces je rychlý, protože se nic nevyhodnocuje a jen líně ukládá pro další práci. Vytvořený tnum se potom s danou přesností převede na číslo, kterému říkám num a toto je aproximací výsledku na danou přesnost.
-
-Takto se ale normálně čísla nepočítají. Jsme zvyklí, že napíšeme například výraz \texttt{(+ 2 3)} a evaluátor rovnou vrátí výsledek \texttt{5}. Zkusme se tedy nyní zamyslet, jak napsat nějakou nadstavbu nad tnumy tak, aby se jednalo o \uv{přesnou kalkulačku}. Obě fáze výpočtu rozebereme zvlášť.
-
-\subsubsection{Vytvoření tnumu}
-Všechny funkce jsou nyní napsány tak, že pracují s tnumy. Pokud na jejich vstup místo tnumu přijde číslo, bez ošetření toto volání skončí chybou. My ovšem máme nástroj na převod numu na tnum, takže by nemělo být těžké napsat funkci s~povoleným vstupem jako tnum i číslo. Zkusme to například pro funkci sinus.
-
-\begin{lispcode}{\texttt{tsin}}{Funkce vracející sinus tnumu, případně tnum sinu čísla}
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tsin} (arg)
-  (\textcolor{funkcionalni}{when} (\textcolor{matematicke}{realp} arg)
-    (\textcolor{vedlejsi}{setf} arg (\textcolor{moje}{num-to-tnum} arg)))
-  (\textcolor{moje}{tnum-sin} arg))
-\end{lispcode}
-
-Vše pak funguje, jak očekáváme.
-
-\begin{lisptest}{\texttt{tsin}}{Představení funkce na převod sinu čísla na sinus tnumu}
-* (float (tnum-to-num (tsin 1) 6))
-0.84147096
-\end{lisptest}
-
-V podobném duchu by mohly probíhat i další úpravy. Pro sčítání odvodíme jedno lemma, které nám umožní efektivně rozšířit množinu argumentů.
-
-\begin{lemma}[O sčítání tnumu s numem]
-Mějme reálnou proměnnou $x$ a reálnou konstantu $c$. Pak se přesnost tnumu proměnné $x$ přičtením konstanty nezmění, neboli
-\begin{equation}
-\mathcal{T}^{x+c}(\varepsilon)=\mathcal{T}^x(\varepsilon)+c
-\end{equation}
-\begin{proof}
-Levá strana znamená, že 
-\begin{equation}
-\mathcal{T}^{x+c}(\varepsilon)\leq x+c+\varepsilon\land\mathcal{T}^{x+c}(\varepsilon)\geq x+c-\varepsilon,
-\end{equation}
-po přerovnání získávám
-\begin{equation}
-\mathcal{T}^{x+c}(\varepsilon)\leq x+\varepsilon +c\land\mathcal{T}^{x+c}(\varepsilon)\geq x-\varepsilon +c.
-\end{equation}
-Dále z definice tnumu máme, že
-\begin{equation}
-\mathcal{T}^{x}(\varepsilon)\leq x+\varepsilon\land\mathcal{T}^{x}(\varepsilon)\geq x-\varepsilon,
-\end{equation}přidáním konstanty na všechny strany platnost nerovnice nezměnín, získávám
-\begin{equation}
-\mathcal{T}^{x}(\varepsilon)+c\leq x+\varepsilon +c\land\mathcal{T}^{x}(\varepsilon)+c\geq x-\varepsilon +c,
-\end{equation}z čehož plyne platnost lemmatu.
-\end{proof}
-\end{lemma}
-
-V kódu se pak nejprve posčítají dohromady zvlášť tnumy a zvlášť numy, ty se pak převedou na tnum a vrátí se součet těchto dvou tnumů.
-
-\begin{lispcode}{\texttt{t+}}{Funkce pro součet čísel a tnumů}
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{t+} (&rest args)
-  (\textcolor{moje}{tnum+} (\textcolor{funkcionalni}{apply} '\textcolor{moje}{tnum+} (\textcolor{funkcionalni}{remove-if} '\textcolor{moje}{realp} args))
-    (\textcolor{moje}{num-to-tnum} (\textcolor{funkcionalni}{apply} '\textcolor{moje}{+} (\textcolor{funkcionalni}{remove-if-not} \textquotesingle\textcolor{moje}{realp} args)))))
-\end{lispcode}
-
-Sečtěme například $1+\varphi+2+e+3$.
-
-\begin{lisptest}{\texttt{t+}}{Představení funkce na součet čísel a tnumů}
-* (float (tnum-to-num (t+ 1 (tnum-e) 2 (tnum-phi) 3) 6))
-10.336316
-\end{lisptest}
-
-V podobném smyslu budeme postupovat i u násobení. Snad už je jasný princip a takto by se napsaly funkce pro všechny funkce z tabulky \ref{tab:funkce_rozhrani}. Byla by to sice práce, ale s použitím maker bychom mohli hodně kódu ušetřit. Násobení používá jednu z prvních funkcí, kterou jsme do našeho systému přidali.
-
-\begin{lispcode}{\texttt{t*}}{Funkce pro násobení tnumů a čísel}
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{t*} (&rest args)
-  (\textcolor{moje}{tnum*num} (\textcolor{funkcionalni}{apply} '\textcolor{moje}{tnum*} (\textcolor{funkcionalni}{remove-if} '\textcolor{moje}{realp} args))
-    (\textcolor{funkcionalni}{apply} '\textcolor{moje}{*} (\textcolor{funkcionalni}{remove-if-not} \textquotesingle\textcolor{moje}{realp} args))))
-\end{lispcode}
-
-A test.
-
-\begin{lisptest}{\texttt{t*}}{Představení funkce na součin čísel a tnumů}
-* (float (tnum-to-num (t* 1/2 (tnum-pi) 4) 6))
-6.2831855
-\end{lisptest}
-
-Takto by bylo vyřešeno rozšíření funkcionality \texttt{tnums} z tnumů i na numy. Napsal jsem způsob, jak by se přepisovaly jednotlivé funkce rozhraní. Jde buď jen odchytávat čísla a měnit je pomocí \texttt{num-to-tnum} na tnumy a tyto potom dál zpracovávat jako normální tnumy (pro příklad vizte \texttt{tsin}). Nebo jde někde jít zkratkou a operaci nejprve provést s čísly a na výsledek pak aplikovat \texttt{num-to-tnum} a tento potom pustit do standardní funkce pro tnumy (pro příklad vizte \texttt{t+}). Největší zkratkou pak je úplně obejít standardní funkce pro zpracovávání tnumů a ještě více tak urychlit výpočet (pro příklad vizte \texttt{t*}). První přístup je ale obecný a jde nasadit na všechny případy, s těmi dalšími musíme mít při rozšiřování štěstí.
-
-\subsubsection{Vypsání tnumu}
-Při normální práci s tnumem jej nejprve vytvoříme a potom vyčíslíme (zavoláme s přesností). Na první část tohoto procesu jsem právě napsal návod, jak pracovat mimo tnumů i s numy. Nyní se podívejme na druhou část.
-
-Při vyčíslování tnumu funkcí \texttt{tnum-to-num} vnitřně dochází k zavolání funkce reprezentující tnum s danou přesností a ten se sám vyhodnotí na výsledné číslo. Vše se děje hladce a syntakticky jednoduše. Když ale budeme chtít nad tnumy vytvořit kalkulačku, tento proces bude nabourán, protože uživatel nebude vědět, že tnumy chtějí zadat přesnost. Musíme ji tam tedy nějak dosadit. Podívejme se, jak by vypadal třeba sinus s fixní přesností na 20 desetinných míst.
-
-\begin{lispcode}{\texttt{calc-sin}}{Funkce pro výpočet sinu čísla}
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{calc-sin} (num)
-  (\textcolor{matematicke}{coerce} (\textcolor{moje}{tnum-to-num} (\textcolor{moje}{tsin} num) 20) \textquotesingle\textcolor{moje}{long-float}))
-\end{lispcode}
-
-Toto sice funguje,
-
-\begin{lisptest}{\texttt{calc-sin}}{Představení funkce pro výpočet sinu čísla s pevnou přesností a převodem}{}
-* (calc-sin 2)
-0.9092974268256817d0
-\end{lisptest}
-
-vypadá to ale velmi odpudivě. Ve funkci je napevno zadrátována přesnost i výsledný typ.
-
-Vytvořme si tedy proměnné, které budou určovat chování systému a sice pro přesnost a pro funkci na převod mezivýsledku na výsledek.
-
-\begin{lispcode}{\texttt{global-sin}}{Funkce pro výpočet sinu čísla a definice chování kalkulačky}
-(\textcolor{funkcionalni}{defvar} \textcolor{obarvi}{*calc-eps*} -6)
-(\textcolor{funkcionalni}{defvar} \textcolor{obarvi}{*calc-conversion*} (\textcolor{funkcionalni}{lambda} (num) (\textcolor{matematicke}{float} num)))
-
-(\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{global-sin} (num)
-  (\textcolor{funkcionalni}{funcall} \textcolor{obarvi}{*calc-conversion*} 
-    (\textcolor{moje}{tnum-to-num} (\textcolor{moje}{tsin} num) \textcolor{obarvi}{*calc-eps*})))
-\end{lispcode}
-
-Toto už se chová jako normální kalkulačka. Navíc umožňuji uživateli změnit si přesnost a interpretaci výsledku, což normální kalkulačky neumí.
-
-\begin{lisptest}{\texttt{global-sin}}{Představení kalkulačky sinu s nastavitelnou přesností}
-* (global-sin 3)
-0.14112002
-* (setq *calc-eps* 20)
-20
-* (setq *calc-conversion*
-	(lambda (num) (coerce num 'long-float)))
-#<FUNCTION (LAMBDA (NUM)) {52A4FC5B}>
-* (global-sin 4)
--0.7568024953079282d0
-\end{lisptest}
-
-Vznikla tedy jednoduchá kalkulačka na sinus čísla vracející číslo. To ale není málo, protože tímto návodem lze napsat celou nadstavbu knihovny \texttt{tnums} a přinést tak naprosto přesnou kalkulačku.
-
-Já jsem se ale tímto směrem nevydal a mám k tomu několik důvodů:
-\begin{itemize}
-\item{Mým cílem bylo vymyslet, odvodit a naprogramovat systém, který s vědomím uživatele líně a přesto velmi precizně vytváří abstraktní struktury, o kterých uživatel ví, že jejich následné vyčíslování je nutné provést a to funkcí \texttt{tnum-to-num}, kterou zavolá s kýženým tnumem a libovolnou přesností a tento proces může trvat i velmi dlouho;}
-\item{Mým cílem nebylo vytvořit univerzální kalkulačku pro co nejširší použití, při kterém ostatní kalkulačky využívající hardwarovou optimalizaci a jednotku FPU v rychlosti jistě zvítězí;}
-\item{S výše uvedeným návodem již může vzniknout uživatelská kalkulačka, třeba grafická, napsaná objektově orientovaně nebo jiným, třeba mně neznámým přístupem. Sám sebe vidím v pozici autora základu a jeho vylepšování. Na dobře postavené knihovně pak mohou běžet aplikace a jejich autoři budou těžit z dobrého jádra a ne z existujícího konkurenčního produktu;}
-\item{Nerad používám globální proměnné a vedlejší efekt. Proto se mi nelíbí představa, že uživatel musí při přizpůsobování výsledků \uv{setqovat}, a tak se přikláním spíše k uzpůsobování přímo argumentu funkce \texttt{tnum-to-num}.}
-\end{itemize}
+V poslední kapitole probereme možné budoucí směřování knihovny \texttt{tnums} a její nedostatky. Krátce se zastavíme u optimalizace implementace, kde popíšu dva hlavní směry, kterým bychom se při optimalizaci mohli vydat. Nakonec se ohlédneme na proces vzniku knihovny.
 
 \subsection{Optimalizace}
 Namísto rozšiřování funkčnosti -- což jsme vesměs dělali až doteď -- se nyní podívejme, jak by se dala zrychlit práce knihovny. Mimo triviálního \uv{koupit lepší stroj} mě napadají dva směry, kudy by se optimalizace mohla ubírat. Jak jsme totiž viděli v tabulce \ref{tab:rychlost}, vyčíslení tnumu nemusí být dílem okamžiku, ale může trvat i velmi dlouho. První je využití paralelizace, druhý vložení databáze.
@@ -149,7 +15,7 @@ U funkcí platí to samé jako u $\pi$ a sice, že jednotlivé členy se mohou p
 \subsubsection{Databáze}
 Druhým podstatným vylepšením by bylo vytvoření nástroje pro přístup k již vypočteným výsledkům. Moje představa je taková, že když uživatel zadá příkaz k vypočtení nějakého tnumu, systém se podívá, zda už nemá záznam, že by někdo takovýto tnum s takovouto přesností počítal. Pokud ano, vrátí tento výsledek. Pokud ne, podívá se na nejbližší výsledek s menší přesností a do očekávané přesnosti jej dopočte.
 
-Nemá smysl, aby se vždy vracel ten nejlepší výsledek. Například pokud chci znát desáté místo desetinného rozvoje Ludolfova čísla, nemusí mi databáze vracet výsledek volání \texttt{(tnum-to-num (tnum-pi) 1000000)}. Pokud se v databázi žádný výsledek pro daný tnum nenajde, je vše vypočítáno načisto. Po ukončení výpočtu se do databáze přidá nový záznam, aby ostatní uživatelé mohli využívat vypočtených výsledků. Takhle by časem vznikla databáze s výsledky a namísto optimalizace přímo v kódu bychom se jen zeptali na již někdy vypočtený výsledek. Pokud v knihovně \texttt{tnums} není chyba, měl by mít tento výsledek věčnou platnost.
+Nemá smysl, aby se vždy vracel ten nejlepší výsledek. Pokud se v databázi žádný výsledek pro daný tnum nenajde, je vše vypočítáno načisto. Po ukončení výpočtu se do databáze přidá nový záznam, aby ostatní uživatelé mohli využívat vypočtených výsledků. Takhle by časem vznikla databáze s výsledky a namísto optimalizace přímo v kódu bychom se jen zeptali na již někdy vypočtený výsledek. Pokud v knihovně \texttt{tnums} není chyba, měl by mít tento výsledek věčnou platnost.
 
 Otázek s tímto zlepšením je několik:
 \begin{itemize}
@@ -159,9 +25,9 @@ Otázek s tímto zlepšením je několik:
 \item{Je morální užívat výsledků, za které zaplatil strojovým časem někdo jiný?}
 \end{itemize}
 
-Struktura tnumu je abstraktní a není jen tak uložitelná. Kvůli této nadstavbě by se tedy musela opět změnit reprezentace a byly by to třeba textové řetězce představující $\lambda$ funkce. Zní to sice trochu bizarně, ale mohlo by to vést k cíli. Také je zde velký prostor pro ušetření výpočtů. Například pokud již bude v databázi záznam čísla, jehož chceme opačné číslo, může se vrátit opačný výsledek.
+Struktura tnumu je abstraktní a není jen tak uložitelná. Kvůli této nadstavbě by se musela změnit reprezentace tnumů a byly by to třeba textové řetězce představující $\lambda$ funkce. Zní to sice trochu bizarně, ale mohlo by to vést k cíli. Také je zde velký prostor pro ušetření výpočtů. Například pokud již bude v databázi záznam čísla, jehož chceme opačné číslo, může se vrátit opačný výsledek.
 
-Také může přijít příklad, kdy ve struktuře bude přičítána nula nebo bude násobeno jedničkou. Bez těchto operací je však tnum stejný jako původní a není tedy důvod vést různé záznamy pro stejné tnumy, ačkoli mají jinou strukturu. Vynořuje se zde princip, který jsem již popsal v první kapitole. Tedy, že číslo je dáno svým obsahem, nikoli symbolem. Symboly $2.999\ldots$ a $3$ jsou jiné, ale čísla, která představují jsou stejná. To samé platí pro tnumy $\mathcal{T}^x(\varepsilon)$ a $\mathcal{T}^{x*1}(\varepsilon)$, podobně pro \texttt{x} a \texttt{(tnum+ x (num-to-tnum 0))}. Pokud totiž $1+1=2$, pak i $\mathcal{T}^{1+1}=\mathcal{T}^{2}$, neboli ekvivalence čísel se přenáší i na jejich tnumy.
+Také může přijít příklad, kdy ve struktuře bude přičítána nula nebo bude násobeno jedničkou. Bez těchto operací je však tnum stejný jako původní a není tedy důvod vést různé záznamy pro stejné tnumy, ačkoli mají jinou strukturu. Vynořuje se zde princip, který jsem již popsal v první kapitole. Tedy, že číslo je dáno svým obsahem, nikoli symbolem. Symboly $2.999\ldots$ a $3$ jsou jiné, ale čísla, která představují jsou stejná. To samé platí pro tnumy $\tnum{x}$ a $\tnum{x*1}$, podobně pro \texttt{x} a \texttt{(tnum+ x (num-to-tnum 0))}. Pokud totiž $1+1=2$, pak i $\mathcal{T}^{1+1}=\mathcal{T}^{2}$, neboli ekvivalence čísel se přenáší i na jejich tnumy, ikdyž tnumy nejsou stejné.
 
 Další ekvivalence tnumů už může být mnohem skrytější. Číslo $x^3$ lze napsat jako $x*x*x$. Číslo $x*3$ lze napsat jako $x+x+x$. To už nejsou tak triviální vztahy a přitom jejich souvislost může vést k mnohem rychlejším výpočtům. A že platí rovnost $4*\sum_{i\in\mathbb{N}}\frac{(-1)^i}{2i+1}=\pi=\sum_{i\in\mathbb{N}}\frac{1}{16^i}(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6})$? To už je velmi složité.
 
@@ -170,32 +36,32 @@ V této podkapitole bych rád popsal hlavní překážky, které se během progr
 \subsubsection{Ideové}\label{sss:ideoveperip}
 Celkem jednoduchá otázka, ale asi nejhlubší se týkala samotné reprezentace tnumů. Jak je patrné, nakonec jsou tnumy vytvořeny jako funkce přesnosti a to velmi dobře koresponduje s jejich posláním. Tento nápad ale nepřišel jako první a vpravdě k němu vedla dlouhá cesta. Je to v pořadí třetí reprezentace tnumů. První byla reprezentace pomocí řad a druhá pomocí posloupností.
 
-Nápad využít řady byl jako první z jednoduchého důvodu. Bylo to nejjednodušší. Když jsem se začal zabývat návrhem tnumů, bylo jasné, že musím umět vyčíslovat Ludolfovo číslo. Liebnitzův vzorec je vyjádřen ve formě řady. Také funkce čísel jsou řady -- buď Taylorovy nebo Fourierovy. Eulerovo číslo nabízí vyjádření řadou i posloupností, vše ale do sebe zapadalo a bylo přímočaré vzít existující vzorce a jen je přetavit do kódu. Takhle vznikla verze knihovny, která při vyčíslování tnumu vracela částečné součty. Při vnořování řad do řad se ale mnohé výpočty prováděly vícekrát a působilo to těžkopádně. Další problém přišel když jsem se snažil dokázat korektnost. To bylo v době, kdy v podstatě celá knihovna byla naprogramována. Nebyl jsem schopen najít jasné souvislosti mezi přesností a počty sčítaných členů. Celková neohrabanost narůstala s každou novou funkcí. Při hledání optimalizace výpočtů funkcí a převrácených hodnot jsem si uvědomil, že lepší než používat řady bude rychlejší přejít na posloupnosti.
+Nápad využít řady byl jako první z jednoduchého důvodu. Bylo to nejjednodušší. Když jsem se začal zabývat návrhem tnumů, bylo jasné, že musím umět vyčíslovat Ludolfovo číslo. Liebnitzův vzorec je vyjádřen ve formě řady. Také funkce čísel jsou řady -- buď Taylorovy nebo Fourierovy. Eulerovo číslo nabízí vyjádření řadou i posloupností, vše ale do sebe zapadalo a bylo přímočaré vzít existující vzorce a jen je přetavit do kódu. Takhle vznikla verze knihovny, která při vyčíslování tnumu vracela částečné součty. Při vnořování řad do řad se ale mnohé výpočty prováděly vícekrát a působilo to těžkopádně. Další problém přišel, když jsem se snažil dokázat korektnost. To bylo v době, kdy v podstatě celá knihovna byla naprogramována. Nebyl jsem schopen najít jasné souvislosti mezi přesností a počty sčítaných členů. Celková neohrabanost narůstala s každou novou funkcí. Při hledání optimalizace výpočtů funkcí a převrácených hodnot jsem si uvědomil, že lepší než používat řady bude rychlejší přejít na posloupnosti.
 
-Posloupnosti byly výhodné například na poli rychlosti operací. Tam, kde se u řad sčítaly dlouhé posloupnosti nul, posloupnosti rovnou vracely správné výsledky v konstantní rychlosti. Stále ale byl problém s korektností převodu přesnosti na přirozené číslo aby se mohl zavolat příslušný člen. To tedy vedlo na nápad použít přesnost jako niternou součást tnumů a vyjadřovat je jako funkce právě přesnosti.
+Posloupnosti byly výhodné například na poli rychlosti operací. Tam, kde se u řad sčítaly dlouhé posloupnosti nul, posloupnosti rovnou vracely správné výsledky v konstantní rychlosti. Stále ale byl problém s korektností převodu přesnosti na přirozené číslo, aby se mohl zavolat příslušný člen. To tedy vedlo na nápad použít přesnost jako niternou součást tnumů a vyjadřovat je jako funkce právě přesnosti.
 
-Idea byla, že oproti posloupnostem by se neměla snížit rychlost, ale velmi zestručnit kód a celkový návrh zjednodušit. Místo přepočítávání počtu členů, případně pořadí členu na přesnost se teď děje obráceně. Využívají se k tomu jen dva mechanismy a sice Taylorův zbytek a zbytek geometrické řady. Po předchozích změnách interpretace jsem před samotným programováním a poté dokazováním začal postupovat opačně a velmi se to nakonec otisklo do vyznění této práce. Než opět zahazovat velké části kódu nejprve na papír zkusím, jestli nepůjde o slepou uličku. Takto vznikla i notace tnumu $x$ jako $\mathcal{T}^x$. V původní představě to ale mělo být $\mathcal{T}(x)$, ale pak se začaly množit závorky při volání s argumenty a musel jsem v zájmu čitelnosti přejít na notaci s horním indexem. V názvu tnum je schován ještě malý easter egg: věděl, jsem, že budu hodně pracovat s Taylorovými rozvoji a že se snad někdy povede vyjádřit vztah jako třeba v rovnici \ref{eq:tat}, kde se potkávají dva fonty velkých T a celkově tento vztah působí velmi elegantně. Protože v Lispu T znamená True, bylo po krátkém zvážení jasné, že se knihovna musí jmenovat TrueNumbers.
+Idea byla, že oproti posloupnostem by se neměla snížit rychlost, ale velmi zestručnit kód a celkový návrh zjednodušit. Místo přepočítávání počtu členů, případně pořadí členu na přesnost se teď děje obráceně. Využívají se k tomu jen dva mechanismy a sice Taylorův zbytek a zbytek geometrické řady. Po předchozích změnách interpretace jsem před samotným programováním a poté dokazováním začal postupovat opačně a velmi se to nakonec otisklo do vyznění této práce. Než opět zahazovat velké části kódu nejprve na papír zkusím, jestli nepůjde o slepou uličku. Takto vznikla i notace množiny tnumů $x$ jako $\Tnum{x}$. V původní představě to ale mělo být $\Tnum{}(x)$, ale pak se začaly množit závorky při volání s argumenty a musel jsem v zájmu čitelnosti přejít na notaci s horním indexem. Poté, co přišly problémy s jednoznačností tnumů, vznikl ještě zápis konkrétního tnumu jako $\tnum{x}$.
 
-Příští implementace možná bude muset zohledňovat zaměření knihovny na uložitelnost do databáze výsledků, jak bylo konstatováno výše. Teď je ale podle mě brzy přemýšlet o budoucích reprezentacích, přijdou samy jako přišly doteď.
+Příští implementace možná bude muset zohledňovat zaměření knihovny na uložitelnost do databáze výsledků, jak bylo konstatováno výše.
 
 \subsubsection{Matematické}
-Samotná práce je hodně matematicky zaměřena. Ne snad složitostí ale celkově svým vyzněním, že informatický problém jako je efektivní uložení a manipulace s teoreticky nekonečnými čísly není tak o inženýrském přístupu kódování paměti, ale o výsledcích základního kurzu matematické analýzy.
+Celkově práce vyznívá velmi matematicky. Tvrdí, že informatický problém jako je efektivní uložení a manipulace s teoreticky nekonečnými čísly není tak o inženýrském přístupu kódování paměti, ale o výsledcích základního kurzu matematické analýzy.
 
-Vše je psáno s důrazem na čitelnost a preciznost. To znamená, že u velkého množství použité matematiky je důkaz nebo se jedná o fakt -- v tomto případě je buď na úrovni středoškolských znalostí nebo je u něj odkaz do literatury. Důkazy některých faktů, o které jsem nechtěl čtenáře připravit ale nejsou nutné k pochopení matematiky tnumů naleznete v příloze \ref{pril:dukazy}.
+Vše je psáno s důrazem na čitelnost a preciznost. To znamená, že u velkého množství použité matematiky je důkaz nebo se jedná o fakt -- v tomto případě je buď na úrovni středoškolských znalostí nebo je u něj odkaz do literatury.
 
-Dále jsem řešil praktické nalezení řad funkcí a jejich důkazy. Dobře se chovají exponenciála, kosinus a sinus. U ostatních řad jsem řešil, že jejich konvergence je omezena pouze na nějaký interval. Když se počítá normálně s čísly, není toto takový problém a střed řady se posune k hodnotě hledaného obrazu. Protože ale tnumy nejsou čísla a jejich vyčíslování probíhá líně, není možné před výpočtem upravit střed řady. Konvergence by se musela kontrolovat během vyčíslování a interaktivně měnit střed a to celé hloubkově a to už mi přišlo obtížné. Naštěstí jsem našel řadu pro logaritmus, která konverguje pro všechna kladná čísla a goniometrické funkce jsem pak přepsal podle středoškolských vzorečků pomocí již existujících. Mimochodem řady dalších goniometrických funkcí jsou nesmírně zajímavé a používají posloupnosti jako Bernoulliho nebo Eulerova čísla.
+Dále jsem řešil praktické nalezení řad funkcí a jejich důkazy. Dobře se chovají exponenciála, kosinus a sinus. U ostatních řad jsem řešil, že jejich konvergence je omezena pouze na nějaký interval. Když se počítá normálně s čísly, není toto takový problém a střed řady se posune k hodnotě hledaného obrazu. Protože ale tnumy nejsou čísla a jejich vyčíslování probíhá líně, není možné před výpočtem upravit střed řady. Konvergence by se musela kontrolovat během vyčíslování a interaktivně měnit střed a to celé hloubkově. Naštěstí jsem našel řadu pro logaritmus, která konverguje pro všechna kladná čísla a goniometrické funkce jsem pak přepsal podle středoškolských vzorečků pomocí již existujících. Mimochodem řady dalších goniometrických funkcí jsou nesmírně zajímavé a používají posloupnosti jako Bernoulliho nebo Eulerova čísla.
 
 \subsubsection{Implementační}
-Implementace je relativně jednoduchá v tom smyslu, že velmi přesně kopíruje matematický jazyk, a tak není moc prostoru pro chyby. Také kód vypadá -- až na tři výjimky v podobě funkcí \texttt{tnum-pi}, \texttt{create-list-for-multiplication} a \texttt{tnum-to-string} -- velmi spořádaně a v základní verzi (po začátek poslední části) ho tvoří jen 174 řádků. To je také důvod, proč jsem si dovolil celý zdrojový kód vpravit i do této práce, ačkoli mi to zpočátku přišlo jako moc násilné. Nakonec mi ale nepřijde, že by kódy překážely a působily jako výplň, nýbrž podtrhují použitelnost odvozené matematiky a díky tomu přibližují abstraktní svět matematiky čísel aplikovanějšímu čtenáři v osobě informatika.
+Implementace je relativně jednoduchá v tom smyslu, že velmi přesně kopíruje matematický jazyk, a tak není moc prostoru pro chyby. Také kód vypadá -- až na výjimku v podobě funkce \texttt{create-list-for-multiplication} -- velmi spořádaně a v základní verzi (po začátek poslední části) ho tvoří jen 174 řádků. To je také důvod, proč jsem si dovolil celý zdrojový kód vpravit i do této práce, ačkoli mi to zpočátku přišlo jako moc násilné. Nakonec mi ale nepřijde, že by kódy překážely a působily jako výplň, nýbrž podtrhují použitelnost odvozené matematiky a díky tomu přibližují abstraktní svět matematiky čísel aplikovanějšímu čtenáři v osobě informatika.
 
 \subsubsection{Mezery}
 Při psaní knihovny \texttt{tnums} i tohoto textu bylo mým cílem přinést produkt co nejvíce neprůstřelný a pokud se někde vyskytuje mezera, aby byla přesně lokalizovatelná.
 
 \paragraph{Matematické}\label{par:matematickemezery} Uvědomuji si, že můj jazyk a především zápis jsou na některých místech chaotické. Snad ale na druhé přečtení plně pochopíte nosnou myšlenku veškeré matematiky a proč byla přijímána.
 
-Mimo kostrbatého vyjádření o žádných chybách nevím a pokud tam nějaké jsou, jsou nevědomé. Ikdyž jsem se snažil vše psát co nejvíce precizně, samozřejmě se mi tam něco mohlo vloudit a takováto chyba mě mrzí. Mým cílem v této diskuzi jistě není nějaké chyby zamlčovat. Naopak budu rád, pokud čtenář nalezne chybu nebo lépe i její řešení a kontaktuje mě na \href{mailto:ondrej.slavik01@upol.cz}{ondrej.slavik01@upol.cz}.
+Mimo kostrbatého vyjádření o žádných chybách nevím a pokud tam nějaké jsou, jsou nevědomé. Ikdyž jsem se snažil vše psát co nejvíce precizně, samozřejmě se mi tam něco mohlo vloudit a takováto chyba mě mrzí. Mým cílem jistě není nějaké chyby zamlčovat. Naopak budu rád, pokud čtenář nalezne chybu nebo lépe i její řešení a kontaktuje mě na \href{mailto:ondrej.slavik01@upol.cz}{ondrej.slavik01@upol.cz}.
 
-\paragraph{Implementační} Ohledně kódu celkem věřím, že je napsán kvalitně. Důkazem může být i že jsem se ho nebál otisknout do této práce a nepřidávám pouze odkaz na repozitář. Jeho vysoká stručnost a čitelnost je vykoupena spoustou práce na matematickém pozadí. V kódu by doufám žádná chyba právě pro jeho stručnost neměla být. Pokud se tak ale stalo, beru to jako menší chybu, než kdybych ji měl v matematice.
+\paragraph{Implementační} Ohledně kódu celkem věřím, že je napsán dobře. Důkazem může být i že jsem se ho nebál otisknout do této práce a nepřidávám pouze odkaz na repozitář. Jeho vysoká stručnost a čitelnost je vykoupena spoustou práce na matematickém pozadí. V kódu by doufám žádná chyba právě pro jeho stručnost neměla být. Pokud se tak ale stalo, beru to jako menší chybu, než kdybych ji měl v matematice.
 
 Pokud je chyba v implementaci, i když matematicky to bylo správně, pak je to hloupá chyba, protože kód je velmi podobný odvozeným tvrzením, v podstatě se jedná jen o syntaktický převod. Tam, kde to bylo důležité a byl na to prostor jsem si dovolil nějaké optimalizace, takže tam se kód od matematiky odchýlil, ale všechny funkce jsou pouze na několik řádků, a tak doufám, že jsem tam žádné chyby neudělal. I tak se samozřejmě mohlo stát.
 
@@ -203,17 +69,10 @@ Pokud je chyba v implementaci, i když matematicky to bylo správně, pak je to 
 
 \paragraph{Rychlost} Co se týče rychlosti, v minulé podkapitole jsem navrhl nějaké směry, kudy by se mohla ubírat optimalizace. Přímo v existujícím kódu bez přidání paralelizace nebo databáze myslím nelze o mnoho rychlost výpočtů zlepšit. Systém jsem navrhl tak, aby byl syntakticky jednoduchý a přitom plně funkční. Možná nějaké dílčí zapamatovávání proměnných by ho mohlo zrychlit, ale bez fundamentálního přepracování jeho plynulost příliš nezlepším. Knihovna je tedy relativně pomalá, ale její poslání je přesnost a nikoli rychlost.
 
-\subsection{Svébytnost}
-\subsubsection{Kontext knihovny} Knihovna \texttt{tnums} je unikátní ve své kompatibilitě se svým jazykem. Sice vytváří abstraktní struktury, výsledkem vyčíslení je ale vždy číslo. Narozdíl od ostatních představených knihoven tedy může zajišťovat přesné výpočty v části systému kritické na přesnost a s těmito výsledky lze přímo pracovat a nemusí se kopírovat nebo převádět na zlomky. Knihovna toho neumí tolik jako třeba \texttt{mpmath}, naopak umí více než \texttt{computable reals}. Při pohledu zvnějšku bere čísla a tři konstanty a vrací opět čísla. Uživatel je tedy odstíněn od implementace (jako funkce přesnosti) a v této bariéře je velká síla. Ostatní knihovny, které vracejí vlastní typy pak na mě působí, že jsou samy pro sebe a dají se použít jen jako kalkulačky.
+\subsection{}
+\subsubsection{Kontext knihovny} Knihovna \texttt{tnums} je unikátní ve své kompatibilitě se svým jazykem. Sice vytváří abstraktní struktury, výsledkem vyčíslení je ale vždy číslo. Narozdíl od ostatních představených knihoven tedy může zajišťovat přesné výpočty v části systému kritické na přesnost a s těmito výsledky lze přímo pracovat a nemusí se kopírovat nebo převádět na zlomky. Knihovna toho neumí tolik jako třeba \texttt{mpmath}, naopak umí více než \texttt{computable reals}. Při pohledu zvnějšku bere čísla a tři konstanty a vrací opět čísla. Uživatel je tedy odstíněn od implementace a v této bariéře je velká síla. Ostatní knihovny, které vracejí vlastní typy pak na mě působí, že jsou samy pro sebe a dají se použít jen jako kalkulačky.
 
-\subsubsection{Kontext práce} Když jsem pročítal bakalářské práce absolventů, přišla mi škoda, že si nemohu prohlédnout jejich kódy. Protože se odevzdávají na CD a do STAGu se nenahrávají. Pro čtenáře jsem tedy přidal odkaz \url{https://github.com/slavon00/tnums}, na kterém je aktuální verze knihovny k dostání.
-
-\subsubsection{K zapamatování} Kdyby si čtenář měl odnést jen tři poučky z přečtení této práce, ať je to
-\begin{enumerate}
-\item{že symbol je něco jiného než to, co představuje,}
-\item{že věci nad racionálními čísly jsou diametrálně jednodušší než věci nad rekurzivními čísly}
-\item{a že když se pochopí obě tyto věci, dá se i celkem přehledně s rekurzivními čísly pracovat.}
-\end{enumerate}
+\subsubsection{Kontext práce} Když jsem pročítal bakalářské práce absolventů, přišla mi škoda, že si nemohu prohlédnout jejich kódy. Protože se odevzdávají na CD a do STAGu se nenahrávají. Pro čtenáře jsem tedy přidal odkaz \url{https://github.com/slavon00/tnums}, na kterém je aktuální verze knihovny k dostání.´
 
 \subsubsection{Adakvátnost} Nyní v rychlosti zopakuji 6 podmínek, které jsem stanovil, že musí abstraktní struktury splňovat a připomenu, že je tnumy dodržují.
 \begin{itemize}

@@ -89,28 +89,28 @@ Kód vypadá trochu složitěji, ale není to nic jiného, než co bylo právě 
   (\textcolor{funkcionalni}{lambda} (eps)
     (\textcolor{vedlejsi}{let} ((/16pown 0) (result 0) (above 1))
       (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} n \textcolor{obarvi}{from} 0
-        \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} above eps)
-        \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
-          (\textcolor{vedlejsi}{setf} /16pown (\textcolor{moje}{rat-expt} 16 (\textcolor{matematicke}{-} n)))
-          (\textcolor{vedlejsi}{incf} result
-            (\textcolor{matematicke}{*} /16pown
-              (\textcolor{matematicke}{-} (\textcolor{matematicke}{/} 4 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 1))
-                (\textcolor{matematicke}{/} 2 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 4))
-                (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 5))
-                (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 6)))))
-          (\textcolor{vedlejsi}{setf} above (\textcolor{matematicke}{/} /16pown 15)))
-        \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result)))))
+            \textcolor{obarvi}{until} (\textcolor{matematicke}{<=} above eps)
+            \textcolor{obarvi}{do} (\textcolor{funkcionalni}{progn} 
+                 (\textcolor{vedlejsi}{setf} /16pown (\textcolor{moje}{rat-expt} 16 (\textcolor{matematicke}{-} n)))
+                 (\textcolor{vedlejsi}{incf} result
+                       (\textcolor{matematicke}{*} /16pown
+                          (\textcolor{matematicke}{-} (\textcolor{matematicke}{/} 4 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 1))
+                             (\textcolor{matematicke}{/} 2 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 4))
+                             (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 5))
+                             (\textcolor{matematicke}{/} 1 (\textcolor{matematicke}{+} (\textcolor{matematicke}{*} 8 n) 6)))))
+                 (\textcolor{vedlejsi}{setf} above (\textcolor{matematicke}{/} /16pown 15)))
+            \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result)))))
 \end{lispcode}
 
 \subsection{Přenásobování numem}
 Posledním dílkem, který přidám v této kapitole je přenásobování tnumu konstantou. Když už máme všechna racionální čísla a Ludolfovo číslo, zvládneme pak i například $2\pi$ nebo $\frac{\pi}{-2}$.
 
 \begin{theorem}[O přenásobení tnumu racionální konstantou]
-Necht $c\in\mathbb{Q}$, $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
+Necht $c\in\mathbb{Q}$, $\tnum{x}\in\Tnum{x},x\in\mathbb{R}$ a funkce $\tnum{}(\tnum{x},c)$ má předpis
 \begin{equation}
-\tnum{}(\varepsilon)=\begin{cases}c*\tnum{x}\left(\frac{\varepsilon}{|c|}\right) & \text{pro~}c\not = 0,\\0&\text{jinak,}\end{cases}
+\tnum{}(\tnum{x},c)(\varepsilon)=\begin{cases}c*\tnum{x}\left(\frac{\varepsilon}{|c|}\right) & \text{pro~}c\not = 0,\\0&\text{jinak,}\end{cases}
 \end{equation}
-pak $\tnum{}\in\Tnum{x*c}$.
+pak $\tnum{}(\tnum{x},c)\in\Tnum{x*c}$.
 \begin{proof}
 Pokud přenásobíme hodnotu tnumu nulou, je výsledkem nula, protože je to agresivní prvek vůči násobení. Znění věty pro nenulovou konstantu dokážeme tak, že z předpokladu $|\txe -x|\leq\varepsilon$ odvodíme $|c*\tnum{x}(\frac{\varepsilon}{|c|})-c*x|\leq\varepsilon$. Protože pracujeme s nerovnicemi, budeme v důkazu postupovat dvěmi větvemi -- pro $c$ kladné a záporné.
 
@@ -143,16 +143,16 @@ což jsme chtěli ukázat.
   (\textcolor{vedlejsi}{let} ((rat_num (\textcolor{matematicke}{rationalize} num)))
     (\textcolor{funkcionalni}{lambda} (eps)
       (\textcolor{funkcionalni}{if} (\textcolor{funkcionalni}{zerop} num)
-        (\textcolor{moje}{num-to-tnum} 0)
-        (\textcolor{matematicke}{*} (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{abs} rat_num))) rat_num)))))
+          (\textcolor{moje}{num-to-tnum} 0)
+        (\textcolor{matematicke}{*} (\textcolor{moje}{tnum-to-num} tnum (\textcolor{matematicke}{/} eps (\textcolor{matematicke}{abs} rat_num))) rat_num)))))  
 \end{lispcode}
 
 \begin{consequence}[Opačný tnum]\label{dusl:negace_tnumu}
-Nechť $\tnum{x}\in\Tnum{x}, x\in\mathbb{R}$ a funkce $\tnum{}$ má předpis
+Nechť $\tnum{x}\in\Tnum{x}, x\in\mathbb{R}$ a funkce $\tnum{}(\tnum{x})$ má předpis
 \begin{equation}
-\tnum{}(\varepsilon)=-\txe,
+\tnum{}(\tnum{x})(\varepsilon)=-\txe,
 \end{equation}
-pak $\tnum{}\in\Tnum{-x}$.
+pak $\tnum{}(\tnum{x})\in\Tnum{-x}$.
 \begin{proof}
 Protože $-x = (-1)x$ a $|-1|=1$, pak podle přechozí věty dostáváme $-\txe=(-1)\txe=(-1)\tnum{x}(\frac{\varepsilon}{1})=(-1)\tnum{x}(\frac{\varepsilon}{|-1|})=\tnum{(-1)x}(\varepsilon)=\tnum{-x}(\varepsilon)\in\Tnum{-x}$.
 \end{proof}

@@ -585,6 +585,14 @@
 	qed=\qedsymbol,
 ]{kiproofstyle}
 
+\declaretheoremstyle[
+	headfont=\normalfont\itshape,
+	notefont=\normalfont\itshape,
+	spaceabove=\baselineskip,
+	spacebelow=\baselineskip,
+	qed=\qedsymbol$\blacksquare$,
+]{kiproofstylescernou}
+
 %% Zakázání starého prostředí pro sazbu důkazů.
 \let\proof\@undefined
 
@@ -597,6 +605,7 @@
 \declaretheorem[sibling=definition,style=kiremexstyle,numbered=yes,name=\@textexample]{example}
 \declaretheorem[sibling=definition,style=kithmstyle,numbered=yes,name=\@texttheorem]{theorem}
 \declaretheorem[style=kiproofstyle,numbered=no,name=\@textproof]{proof}
+\declaretheorem[style=kiproofstylescernou,numbered=no,name=\@textproof]{proofscernou}
 \declaretheorem[sibling=definition,style=kiremexstyle,numbered=yes,name=\@textremind]{remind}
 \declaretheorem[sibling=definition,style=kithmstyle,numbered=yes,name=\@textfact]{fact}
 \declaretheorem[sibling=definition,style=kithmstyle,numbered=yes,name=\@textpoz]{observe}

@@ -7,15 +7,15 @@
     (when (< num 0) (setf output "-" num (- num)))
     (multiple-value-bind (digit rem)
         (floor num)
-        (setf output (concatenate 'string output 
-              (write-to-string digit) ".")
-          num (* 10 rem)))
+      (setf output (concatenate 'string output 
+                                (write-to-string digit) ".")
+            num (* 10 rem)))
     (dotimes (i count (concatenate 'string output "..."))
       (multiple-value-bind (digit rem)
-        (floor num)
+          (floor num)
         (setf output (concatenate 'string output 
-              (write-to-string digit))
-          num (* 10 rem))))))
+                                  (write-to-string digit))
+              num (* 10 rem))))))
 
 ;funkce pro inkrementaci tnumu o jednicku
 (defun tnum-1+ (tnum)

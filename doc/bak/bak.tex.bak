@@ -134,7 +134,7 @@ V uživatelské části pojednám o vlastním používání knihovny \texttt{tnu
 \section{Uživatelské funkce}
 \input{uzivatelske_funkce.tex}
 \clearpage
-\section{Perspektiva}
+\section{Diskuze}
 \input{perspektiva.tex}
 \begin{kiconclusions}
 Popsal jsem, jak jsou vytvořena přirozená čísla pomocí teorie množin, také jak na tomto základě vznikají další číselné obory. Dále jsem popsal, jak se s \textbf{čísly} pracuje v paměti v počítače.
@@ -159,9 +159,6 @@ I also brought some examples of how user can extend functionality.
 \clearpage
 \printbibliography[heading=bibintoc, title={Seznam literatury}]
 \appendix
-\section{Některé důkazy}\label{pril:dukazy}
-\input{dukazy.tex}
-\clearpage
 \section{Obsah přiloženého CD/DVD}\label{pril:adresar}
 \input{obsah.tex}
 \end{document}
