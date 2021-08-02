@@ -101,7 +101,7 @@ T^{exp, 0}_n(x) \in [\mathrm{exp}(x) - \varepsilon, \mathrm{exp}(x) + \varepsilo
 
 Při implementaci stačí jen iterovat přes $n$ a po cestě sčítat řadu, dokud nebude zbytek menší než $\varepsilon$. Stejný přístup jsme viděli již u Ludolfova čísla.
 
-\begin{lispcode}{\texttt{num-exp}}{Funkce exponenciálu numu}
+\begin{lispcode}{\texttt{num-exp}}{Funkce pro exponenciálu numu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{num-exp} (num eps)
   (\textcolor{vedlejsi}{let} ((above (\textcolor{moje}{rat-expt} 272/100 num)) (result 0))
     (\textcolor{funkcionalni}{loop} \textcolor{obarvi}{for} n \textcolor{obarvi}{from} 0
@@ -170,7 +170,7 @@ Podobným způsobem lze odvodit i vztah pro opačný kraj okolí a to
 
 \begin{myremarkbez}{Obecnější přesnost vzoru}
 Právě odvozený vztah není specifický jen pro exponenciálu, uveďme si obecnější znění.
-\begin{fact}[O přesnosti závislé proměnné]\label{lem:presprom}Nechť $f$ je neklesající funkce spojitá na celém definičním oboru, pak
+\begin{fact}[Přesnost závisle proměnné]\label{lem:presprom}Nechť $f$ je neklesající funkce spojitá na celém definičním oboru, pak
 \begin{equation}\label{eq:presprom}
 \begin{aligned}
 [f(x)-\varepsilon , f(x)+\varepsilon]&=[f(x-v),f(x+w)],\\\text{~kde~}v&=f\left(x-\frac{\varepsilon}{f^{'}(x-v)}\right),w=f\left(x+\frac{\varepsilon}{f^{'}(x+w)}\right).\mathrm{~~~~~\hfill}\blacksquare
@@ -393,7 +393,7 @@ Pro $x\in\mathbb{R}^+$ platí
 \begin{fact}[Logaritmus numu]
 Nechť $x\in\mathbb{R}^+$ a nechť funkce $\tnum{}(x)$ má předpis
 \begin{equation}
-\tnum{}(x)(\varepsilon)=\left[\begin{array}{l}\mathrm{1.~}\text{Najdi~nejmenší~}n\text{~tak,~aby~}\left|\frac{(\frac{x-1}{x+1})^{2n+2}}{1-\frac{x-1}{x+1}}\right| \leq \varepsilon;\\
+\tnum{}(x)(\varepsilon)=\left[\begin{array}{l}\mathrm{1.~}\text{Najdi~nejmenší~}n\in\mathbb{N}^+\text{~tak,~aby~}\left|\frac{(\frac{x-1}{x+1})^{2n+2}}{1-\frac{x-1}{x+1}}\right| \leq \varepsilon;\\
 \mathrm{2.~}\text{Vrať~}\sum_{i=0}^n \frac{1}{2i+1}\left(\frac{x-1}{x+1}\right)^{2i+1},\end{array}\right.
 \end{equation}
 pak $\tnum{}(x)\in\Tnum{\mathrm{ln}(x)}$.

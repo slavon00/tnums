@@ -82,7 +82,7 @@ Máme řadu čísla, jež chceme přidat do \texttt{tnums}. Výraz v závorce je
 Nechť $\tnum{}()$ je funkce s předpisem 
 \begin{equation}
 \tnum{}()(\varepsilon)=\left[\begin{array}{l}
-\mathrm{1.~}\text{Najdi~nějaké~}n\in\mathbb{N}^+\text{~tak,~aby~}/(16^n15)\leq\varepsilon;\\
+\mathrm{1.~}\text{Najdi~nejmenší~}n\in\mathbb{N}^+\text{~tak,~aby~}/(16^n15)\leq\varepsilon;\\
 \mathrm{2.~}\text{Vrať~}\sum_{i=0}^n\frac{1}{16^i}\left(\frac{4}{8i+1}-\frac{2}{8i+4}-\frac{1}{8i+5}-\frac{1}{8i+6}\right),
 \end{array}\right.
 \end{equation} pak $\tnum{}\in\Tnum{\pi}$.

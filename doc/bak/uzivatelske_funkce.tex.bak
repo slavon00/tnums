@@ -1,9 +1,9 @@
-Uživatelská funkce je funkce, která nezná vnitřní implementaci tnumů (jako funkcí přesnosti) a volá jen funkce rozhraní zobrazené v Tabulce \ref{tab:funkce_rozhrani}. Během programování knihovny již některé mimoděk vznikly (například \texttt{tnum-}), v této kapitole nějaké přidáme. Ukážeme, že síla knihovny spočívá v jednoduchém vytváření nových tnumů a ve velmi silně oddělené vnitřní implementaci od vnějšího chování.
+Uživatelská funkce je funkce, která nezná vnitřní implementaci tnumů (jako funkcí přesnosti) a volá jen funkce rozhraní zobrazené v Tabulce \ref{tab:funkce_rozhrani}. Během programování knihovny již některé mimoděk vznikly (například \texttt{tnum-}), v této kapitole další přidáme. Ukážeme, že síla knihovny spočívá v jednoduchém vytváření nových tnumů a ve velmi silně oddělené vnitřní implementaci od vnějšího chování.
 
 \subsection{Instalace}\label{ssec:inst}
 Knihovna \texttt{tnums} je k dostání na githubu na odkaze \url{https://github.com/slavon00/tnums} nebo pro čtenáře tištěné verze na přiloženém fyzickém disku. Je to Lispová knihovna, od uživatele se předpokládá znalost základů práce s Lispem.
 
-Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{src/tnums.lisp} a všechny funkce, které přidáme v této kapitole, pak v \texttt{src/user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{src/tests.lisp}. Vše je možné jednoduše načíst evaluací souboru \texttt{load.lisp}, jak ukazuje Obrázek \ref{obr:loading}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
+Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{src/tnums.lisp} a všechny funkce, které přidáme v této kapitole, pak v \texttt{src/user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{src/tests.lisp}. Vše je možné jednoduše načíst evaluací souboru \texttt{load.lisp}, jak ukazuje Obrázek \ref{obr:loading}. Při ručním překladu je nutné nejdřív přeložit soubor \texttt{src/tnums.lisp} a až poté \texttt{src/user-}\\\texttt{-functions.lisp}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
 
 Knihovna se v budoucnosti může měnit, takže tyto informace mohou zastarat. Knihovna na githubu bude ale vždy obsahovat soubor \texttt{README.md} nebo ekvivalentní, s popisem postupu instalace.
 

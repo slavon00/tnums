@@ -74,7 +74,7 @@ Racionální čísla vyjádřená jako plovoucí můžeme považovat za přesná
 Již víme, že některá čísla lze přesně uložit jejich hodnotou. Nicméně standardní datové typy mají své limity, například přetékání nebo nedostatečná přesnost. Číslo lze však namísto hodnotového datového typu reprezentovat typem referenčním. V kapitole \ref{kap:cisla} bylo nastíněno, že stejné číslo lze vyjádřit několika symboly, i když jeho hodnota je pouze jedna. Takto reprezentovaná čísla umíme velmi dobře v počítači vyjadřovat. Struktury v této podkapitole jsou pouze teoretickými koncepty bez konkrétní implementace.
 
 \subsubsection{Přirozená čísla}
-Jak bylo ukázáno v minulé podkapitole, přirozená čísla jsou uzavřena na sčítání a násobení, \texttt{unsigned int} ovšem nikoli. Cílem je tedy vymyslet strukturu, která dokáže reprezentovat jakékoli přirozené číslo. Jako hodnoty umíme na $n$ bytech uložit čísla $0$ až $2^n-1$, proto by pro přirozená čísla bylo dobré adekvátně upravovat toto $n$. Velikost čísla by pak byla omezena jen velikostí paměti.
+Jak bylo ukázáno v minulé podkapitole, přirozená čísla jsou uzavřena na sčítání a násobení, \texttt{unsigned int} ovšem nikoli. Cílem je tedy vymyslet strukturu, která dokáže reprezentovat jakékoli přirozené číslo. Jako hodnoty umíme na $n$ bitech uložit čísla $0$ až $2^n-1$, proto by pro přirozená čísla bylo dobré adekvátně upravovat toto $n$. Velikost čísla by pak byla omezena jen velikostí paměti.
 
 Struktura představující přirozené číslo musí zajišťovat, aby jeho hodnota při aplikaci matematických operací nepřetekla. Pokud struktura obdrží požadavek na násobení nebo sčítání, musí mít alokovaný další prostor a tam posunout bity, které by normálně přetekly. To je možné zajistit tak, že ve svém pomyslném paměťovém prostoru bude vždy po provedení operace procházet svých levých $2^{n-1}$ bitů, a pokud zde najde alespoň jednu jedničku, požádá o alokaci dalšího prostoru o velikost $2^n$, tedy zvedne $n$ o~jedna.
 
@@ -83,7 +83,7 @@ Pak už bude na operačním systému, kolik paměti bude moci struktuře přiřa
 \subsubsection{Celá čísla}
 Situace v případě celých čísel je velmi podobná jako u přirozených čísel. Kromě přetečení navíc hrozí také podtečení, protože celá čísla musí být uzavřena i na odčítání. 
 
-Vytvořme strukturu pro celé číslo jako dvojici přirozeného čísla a příznaku kladnosti. Metody struktury pak budou jen nastavovat příznak kladnosti -- u násobení jako exklusivní disjunkci, odčítání odpovídá sčítání s negací příznaku a u sčítání se příznak nastaví podle příznaku u většího čísla. Takto vytvořené struktury pak \textit{naprosto přesně} reprezentují jakékoli celé číslo.
+Vytvořme strukturu pro celé číslo jako dvojici přirozeného čísla a příznaku kladnosti. Metody struktury pak budou jen nastavovat příznak kladnosti -- u násobení jako exkluzivní disjunkci, odčítání odpovídá sčítání s negací příznaku a u sčítání se příznak nastaví podle příznaku u většího čísla. Takto vytvořené struktury pak \textit{naprosto přesně} reprezentují jakékoli celé číslo.
 
 \subsubsection{Racionální čísla}
 Racionální čísla jsme definovali jako podíl celého a nenulového celého čísla. Racionální čísla (bez nuly) jsou uzavřená i na dělení. Zaveďme teď racionální číslo jako dvojici celých čísel (čitatele a jmenovatele) s invariantem, že druhé číslo nesmí být nikdy nula a že obě čísla jsou nesoudělná.
@@ -97,7 +97,7 @@ Tato struktura je \textit{naprosto přesnou} reprezentací racionálních číse
 \subsection{Reálná čísla}
 Předchozí číselné obory lze s dostatkem paměti naprosto přesně reprezentovat. Zbývají už jen iracionální čísla a máme všechna reálná čísla v přesné reprezentaci. Iracionálních čísel je nespočetně mnoho (stejně jako transcendentních a nerekurzivních čísel), a tak je není možné vytvořit z přirozených čísel nabalováním struktur jako předchozí obory. Nic jiného ale v paměti, která pracuje s diskrétními hodnotami, neumíme vytvořit.
 
-Dosud jsme mluvili o \textit{naprosto přesných} číslech, struktura vyjadřující přesné číslo však může být i taková, která počítá jen přibližná čísla, nastavitelně vzdálená od (neznámé) přesné hodnoty. Takových čísel je spočetně mnoho a říkáme jim čísla rekurzivní. Ve skutečnosti je právě hranice mezi racionálními čísly a rekurzivními čísly velká bariéra, která odděluje svět, kde vše funguje relativně jednoduše a ten, kde je vše o řád těžší.
+Dosud jsme mluvili o \textit{naprosto přesných} číslech, struktura vyjadřující přesné číslo však může být i taková, která počítá jen přibližná čísla, nastavitelně vzdálená od (neznámé) přesné hodnoty. Takových čísel je spočetně mnoho a říkáme jim čísla rekurzivní. Ve skutečnosti je právě hranice mezi racionálními čísly a rekurzivními čísly velká bariéra, která odděluje svět, kde vše funguje relativně jednoduše (jak jsme viděli) a ten, kde je vše o řád těžší.
 
 \subsubsection{Představa}\label{kap:predstava}
 Než struktury definovat imperativně pomocí definic, jak by co měla implementovat, se spíše pokusím o definici struktury deklarativně, čili pomocí vlastností, které by měla splňovat.
@@ -105,7 +105,7 @@ Než struktury definovat imperativně pomocí definic, jak by co měla implement
 Abstraktní struktura reprezentující reálné číslo by měla umožnit
 \begin{itemize}
 \item{jeho vyčíslení -- když struktura existuje, pak po zavolání vhodného nástroje je výsledkem hodnota, kterou tato struktura představuje;}
-\item{přesnost -- i když má číslo nekonečný rozvoj nebo je velmi velké, abstrakce umožňuje jeho vyčíslení na danou přesnost v konečném čase;}
+\item{jeho přesnost -- i když má číslo nekonečný rozvoj nebo je velmi velké, abstrakce umožňuje jeho vyčíslení na danou přesnost v konečném čase;}
 \item{podporovat matematické operace -- ve smyslu kapitoly \ref{operace_s_cisly};}
 \item{podporovat matematické funkce -- ve smyslu kapitoly \ref{funkce_cisel};}
 \item{být vracena jako výsledek funkce -- mít jasně popsanou strukturu, aby se dala rozšiřovat funkčnost;}

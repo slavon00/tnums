@@ -120,7 +120,7 @@ V teoretické části je představena axiomatická teorie množin a naznačeno, 
 \section{Čísla v počítači}
 \input{cisla_v_pocitaci.tex}
 \mypart{Implementace}
-V implementační části aplikujeme teorii a dáme vzniknout knihovně \texttt{tnums}. Všechna čísla i manipulaci s nimi lze vyjádřit jako funkce, přesně toto naprogramujeme. Situace nás vede k užití funkcionálního programovacího jazyka, zvolen byl Lisp. Budou ukázány převody, konstanty, operace a funkce.
+V implementační části aplikujeme teorii a dáme vzniknout knihovně \texttt{tnums}. Všechna čísla i manipulaci s nimi lze vyjádřit jako funkce (množiny), přesně toto naprogramujeme. Situace nás vede k užití funkcionálního programovacího jazyka, zvolen byl Lisp. Budou ukázány převody, konstanty, operace a funkce.
 \section{Tnumy}
 \input{tnumy.tex}
 \section{Operace tnumů}
@@ -144,13 +144,13 @@ Představil jsem, jak vypadají \textbf{výpočty s reálnými čísly}. Kromě 
 V textu jsem se věnoval i produktu celého tohoto snažení a sice programování Lispovské knihovny \texttt{tnums} implementující \textbf{přesné výpočty s reálnými čísly}. Také jsem přinesl několik příkladů, jak uživatelsky funkcionalitu rozšiřovat.
 \end{kiconclusions}
 \begin{kiconclusions}[english]
-I have described how natural \textbf{numbers} are created using set theory, as well as how other number systems are created on this basis. I also described how it works with numbers in a computer memory.
+I have described how natural \textbf{numbers} are created using set theory, as well as how other number systems are created on this basis. I have also described how it works with numbers in a computer memory.
 
 It was also mentioned that the number line is made up of \textbf{real numbers} and if we use more axes, we get structured numbers. We wondered if all of the real numbers are recursive and unfortunately we got a negative answer.
 
-I presented what \textbf{computation of real numbers} looks like. In addition to mathematical operations, there were mathematical functions. We found that all these calculations, including the real constants themselves, can be represented as functions.
+I have presented what \textbf{computation of real numbers} looks like. In addition to mathematical operations, there were mathematical functions. We have found out that all these calculations, including the real constants themselves, can be represented as functions.
 
-In the text, I also focused on the product of all this effort, namely programming Lisp \texttt{tnums} library implementing \textbf{precise computation of real numbers}. I also brought some examples of how user can extend the functionality.
+In the text, I also focused on the product of all this effort, namely programming Lisp \texttt{tnums} library implementing \textbf{precise computation of real numbers}. I have also come up with some examples of how user can extend the functionality.
 \end{kiconclusions}
 \clearpage
 \printbibliography[heading=bibintoc, title={Seznam literatury}]

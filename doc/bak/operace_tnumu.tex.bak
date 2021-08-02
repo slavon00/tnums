@@ -46,7 +46,7 @@ což jsme chtěli ukázat.
 \end{lispcode}
 
 \begin{fact}[Rozdíl tnumů]
-Nechť $\tnum{x_{i}}\in\Tnum{x_{i}}, x\in\mathbb{R}$ pro $i\in\{-1,0,\ldots,n\}$ a funkce $\tnum{}(\tnum{x_{-1}},\tnum{x_0},\ldots,\tnum{x_n})$ má předpis
+Nechť $\tnum{x_{i}}\in\Tnum{x_{i}}, x_i\in\mathbb{R}$ pro $i\in\{-1,0,\ldots,n\}$ a funkce $\tnum{}(\tnum{x_{-1}},\tnum{x_0},\ldots,\tnum{x_n})$ má předpis
 \begin{equation}
 \tnum{}(\tnum{x_{-1}},\tnum{x_0},\ldots,\tnum{x_n})(\varepsilon)=\tnum{x_{-1}-\sum_{i=0}^nx_n}(\varepsilon)=\tnum{x_{-1}+\left(-\sum_{i=0}^nx_n\right)}(\varepsilon),
 \end{equation}
@@ -82,7 +82,7 @@ a nazýváme jej \textit{bezpečným epsilonem}.
 \begin{lemma}[O nenulovém tnumu nenulového čísla]\label{vet:nenul}
 Tnum nenulového čísla lze vyčíslit nenulově, čili $(\forall x \in(\mathbb{R}\setminus\{0\}))((\exists \tnum{x}) \rightarrow (\exists \tnum{x}_\emptyset))$. 
 \begin{proof}
-Vezměme za $\tnum{x}_\emptyset$ funkci $\tnum{}$, s předpisem $\tnum{}(\varepsilon) = \tnum{x}(\varepsilon_\emptyset(\tnum{x},\varepsilon))$. Pak díky podmínce $1$ v definici \ref{def:bezpecne_epsilon} vyčíslení proběhne v pořádku a díky bodu $2$ ve stejné definici bude vyčíslení nenulové, díky čemuž se jedná o nenulový tnum.
+Vezměme za $\tnum{x}_\emptyset$ funkci $\tnum{}(\tnum{x})$, s předpisem $\tnum{}(\tnum{x})(\varepsilon) = \tnum{x}(\varepsilon_\emptyset(\tnum{x},\varepsilon))$. Pak díky podmínce $1$ v definici \ref{def:bezpecne_epsilon} vyčíslení proběhne v pořádku a díky bodu $2$ ve stejné definici bude vyčíslení nenulové, díky čemuž se jedná o nenulový tnum.
 \end{proof}
 \end{lemma}
 
@@ -139,7 +139,7 @@ takže po úpravě přesnosti dostáváme
 \end{proof}
 \end{theorem}
 
-\begin{lispcode}{\texttt{/tnum}}{Funkce pro převracenou hodnotu tnumu}
+\begin{lispcode}{\texttt{/tnum}}{Funkce pro převrácenou hodnotu tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{/tnum} (tnum)
   (\textcolor{funkcionalni}{lambda} (eps)
     (\textcolor{matematicke}{multiple-value-bind} (num eps0)
@@ -243,7 +243,7 @@ Nechť $\tnum{x_i}\in\Tnum{x_i}, x_i\in\mathbb{R}$ pro $i=0,1,\ldots,n$ a funkce
 pak $\tnum{}(\tnum{x_0},\tnum{x_1},\ldots,\tnum{x_n})\in\Tnum{\prod_{i=0}^nx_i}$.
 \end{hypothesis}
 
-Věta mluví o nenulových číslech. Nesnižujeme ale obecnost, protože nula je agresivní prvek a výsledkem násobení čehokoli s nulou je nula, takže se ostatní numy ani nemusejí počítat a výsledek se může vrátit.
+Hypotéza mluví o nenulových číslech. Nesnižujeme ale obecnost, protože nula je agresivní prvek a výsledkem násobení čehokoli s nulou je nula, takže se ostatní numy ani nemusejí počítat a výsledek se může vrátit.
 
 Samotná implementace pak využívá pomocnou mapovací funkci.
 
@@ -296,10 +296,10 @@ K implementaci mocninných operací potřebujeme funkce, které přidáme až v 
 
 Obecná mocnina využívá přirozený logaritmus a exponenciálu
 \begin{equation}\label{rov:obmoc}
-a^b=e^{\mathrm{ln}(a)^b}=e^{(b*\mathrm{ln}(a))}.
+a^b=e^{\mathrm{ln}(a)^b}=e^{(b*\mathrm{ln}(a))},a>0.
 \end{equation}
 
 Odmocninu lze vyjádřit pomocí převrácení hodnoty mocniny
 \begin{equation}\label{rov:odmoc}
-\sqrt[b]{a}=a^{(/b)}.
+\sqrt[b]{a}=a^{(/b)},b\neq0.
 \end{equation}

@@ -1,6 +1,6 @@
 V bakalářské práci, která se zabývá přesnou reprezentací reálných čísel jsme pochopili, že vše je funkce a funkcionálním paradigmatem implementovali rekurzivní čísla. Vzniklou knihovnu \texttt{tnums} je možné rozvíjet ve smyslu rozšířování funkcionality, zrychlováním výpočtů a opravou chyb.
 
-\subsection{Kontext}
+\subsection{Souvislosti}
 Rekurzivní číslo reprezentujeme jako funkci přesnosti a říkáme mu \textit{tnum}. Současná verze knihovny (\texttt{tnums.3}) je třetí implementací tnumů. Oproti implementaci pomocí řad (\texttt{tnums.1}) je tato reprezentace rychlejší. Oproti implementaci pomocí posloupností (\texttt{tnums.2}) je kód přehlednější.
 
 Implementovali jsme 3 matematické konstanty, obousměrné převody mezi racionálními čísly a tnumy, matematické operace nad tnumy a tnumovské funkce. Operace i funkce kopírují lispovskou syntaxi matematických výrazů.
@@ -11,14 +11,14 @@ Narozdíl od knihoven představených v kapitole \ref{ssec:knihovny} vrací \tex
 
 Knihovna toho neumí tolik jako třeba \texttt{mpmath}, naopak umí více než \texttt{computable reals}.
 
-\subsection{Budoucnost}
-Funkcionalita knihovny je velmi základní. Pro její rozšíření by bylo možné přidat cyklometrické funkce, další konstanry, případně funkce více proměnných či tetraci.
+\subsection{Výhled}
+Funkcionalita knihovny je velmi základní. Pro její rozšíření by bylo možné přidat cyklometrické funkce, další konstanty, případně funkce více proměnných či tetraci.
 
 Dále je možné všechnu funkcionalitu určenou tnumům rozšířit pomocí funkce \texttt{num-to-tnum} i na numy a vytvořit tak přesnou kalkulačku.
 
 Rychlost knihovny odpovídá stručnosti kódu. V kapitole \ref{ssec:optimalizace} jsou navrženy dva směry, kudy by se mohla ubírat optimalizace. V existující reprezentaci 	by se rychlost mohla zvýšit dílčím zapamatováváním proměnných, řádová změna v rychlosti výpočtů bez fundamentálního zásahu do zdrojového kódu ale možná není. Knihovna je relativně pomalá, ale její poslání je přesnost a nikoli rychlost.
 
-\subsection{Problémy}
+\subsection{Úskalí}
 Při psaní knihovny \texttt{tnums} byl dbán důraz na korektnost. I tak jsou v knihovně lokalizovány dvě chyby, první příliš omezující není, druhá je závažná.
 
 \paragraph{Dotaz na $n$-tou číslici} Pokud řetězec končí řadou číslic $0$ nebo $9$, nemusí být tyto a jedna předcházející číslice správně. Číslo sice správně je ($2.999...=3$), ale číslice bez kontextu správně nejsou.
@@ -56,7 +56,7 @@ Otázek s tímto zlepšením je několik:
 
 Lepší by bylo, kdyby se na výpočet dalo navazovat. Pak by se nemusel každý výsledek bez záznamu počítat odznova, ale jen od nejbližší horší přesnosti.
 
-Další problém je, jak ukládat tnumy do databáze. Mohly by to být textové řetězce.
+Další problém je, jak ukládat tnumy do databáze. O žádné funkcionální databázi nevím. Mohly by se v klasické relační implementaci ukládat textové řetězce.
 
 I zde je prostor pro urychlení některých výpočtů. Například pokud bude dotaz mířit na číslo opačné k číslu, které v databázi záznam má, může se použít tento záznam a jen změnit znaménko.
 

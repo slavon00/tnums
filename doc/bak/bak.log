@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.12)  2 AUG 2021 14:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.12)  2 AUG 2021 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2335,8 +2335,8 @@ Package logreq Info: Writing requests to 'bak.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  36461 strings out of 479304
- 649310 string characters out of 5869779
- 1391509 words of memory out of 5000000
+ 649306 string characters out of 5869779
+ 1391501 words of memory out of 5000000
  52342 multiletter control sequences out of 15000+600000
  532407 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2362,7 +2362,7 @@ m/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/
 fonts/type1/fkr/tipa/tipa12.pfb>
-Output written on bak.pdf (69 pages, 1133982 bytes).
+Output written on bak.pdf (69 pages, 1134203 bytes).
 PDF statistics:
  1751 PDF objects out of 2073 (max. 8388607)
  1598 compressed objects within 16 object streams

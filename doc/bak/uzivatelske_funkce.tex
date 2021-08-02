@@ -1,9 +1,9 @@
-Uživatelská funkce je funkce, která nezná vnitřní implementaci tnumů (jako funkcí přesnosti) a volá jen funkce rozhraní zobrazené v Tabulce \ref{tab:funkce_rozhrani}. Během programování knihovny již některé mimoděk vznikly (například \texttt{tnum-}), v této kapitole nějaké přidáme. Ukážeme, že síla knihovny spočívá v jednoduchém vytváření nových tnumů a ve velmi silně oddělené vnitřní implementaci od vnějšího chování.
+Uživatelská funkce je funkce, která nezná vnitřní implementaci tnumů (jako funkcí přesnosti) a volá jen funkce rozhraní zobrazené v Tabulce \ref{tab:funkce_rozhrani}. Během programování knihovny již některé mimoděk vznikly (například \texttt{tnum-}), v této kapitole další přidáme. Ukážeme, že síla knihovny spočívá v jednoduchém vytváření nových tnumů a ve velmi silně oddělené vnitřní implementaci od vnějšího chování.
 
 \subsection{Instalace}\label{ssec:inst}
 Knihovna \texttt{tnums} je k dostání na githubu na odkaze \url{https://github.com/slavon00/tnums} nebo pro čtenáře tištěné verze na přiloženém fyzickém disku. Je to Lispová knihovna, od uživatele se předpokládá znalost základů práce s Lispem.
 
-Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{src/tnums.lisp} a všechny funkce, které přidáme v této kapitole, pak v \texttt{src/user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{src/tests.lisp}. Vše je možné jednoduše načíst evaluací souboru \texttt{load.lisp}, jak ukazuje Obrázek \ref{obr:loading}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
+Vše, co jsme doposud naprogramovali najdeme v souboru \texttt{src/tnums.lisp} a všechny funkce, které přidáme v této kapitole, pak v \texttt{src/user-functions.lisp}. Testy, které budu ukazovat jsou v souboru \texttt{src/tests.lisp}. Vše je možné jednoduše načíst evaluací souboru \texttt{load.lisp}, jak ukazuje Obrázek \ref{obr:loading}. Při ručním překladu je nutné nejdřív přeložit soubor \texttt{src/tnums.lisp} a až poté \texttt{src/user-}\\\texttt{-functions.lisp}. Pro kompletní obsah adresáře vizte přílohu \ref{pril:adresar}.
 
 Knihovna se v budoucnosti může měnit, takže tyto informace mohou zastarat. Knihovna na githubu bude ale vždy obsahovat soubor \texttt{README.md} nebo ekvivalentní, s popisem postupu instalace.
 
@@ -161,8 +161,8 @@ Tabulka \ref{tab:rychlost} zobrazuje, jak dlouho běžně trvá vyhodnocení vý
 \begin{tabular}{| >{\columncolor[gray]{1}} l |>{\columncolor[gray]{1}}p{2.5cm}|}
 \hline
 \multicolumn{1}{|>{\columncolor[gray]{1}}c|}{Výraz} & Doba vyhodnocení~(s)\\\hline\hline
-\texttt{((let ((tn}& \cellcolor[gray]{1} \\
-\texttt{~~~~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi)))} & \multirow{-2}{*}{-}\\ \hline
+\texttt{(let ((tn}& \cellcolor[gray]{1} \\
+\texttt{~~~~~~(tnum/ (tnum-pi) (tnum-e) (tnum-phi))))} & \multirow{-2}{*}{-}\\ \hline
 \texttt{~~~(tnum-to-string tn 50)} & 0.427424 \\ \hline
 \texttt{~~~(tnum-to-string (tnum-sin tn) 50)} & 31.412191 \\ \hline
 \texttt{~~~(tnum-to-string (tnum-csc tn) 50)} & 4690.939552 \\ \hline
@@ -192,16 +192,16 @@ Název & Argumenty & Význam\\ \hline \hline
 \texttt{tnum-phi}&$\emptyset$&tnum Zlatého řezu\\\hline
 \texttt{-tnum}&\texttt{tnum:tnum}&$-\texttt{tnum}$\\
 \texttt{tnum+}&0+ \texttt{tnum}ů&tnumovský protějšek \texttt{+}\\
-\texttt{tnum-}&1+ \texttt{tnum}ů&numovský protějšek \texttt{-}\\
-\texttt{/tnum}&\texttt{tnum:tnum}&$1/\texttt{tnum}$\\
-\texttt{tnum*}&0+ \texttt{tnum}ů&numovský protějšek \texttt{*}\\
-\texttt{tnum/}&1+ \texttt{tnum}ů&numovský protějšek \texttt{/}\\
+\texttt{tnum-}&1+ \texttt{tnum}ů&tnumovský protějšek \texttt{-}\\
+\texttt{/tnum}&\texttt{tnum:tnum}&$\texttt{tnum}$\\
+\texttt{tnum*}&0+ \texttt{tnum}ů&tnumovský protějšek \texttt{*}\\
+\texttt{tnum/}&1+ \texttt{tnum}ů&tnumovský protějšek \texttt{/}\\
 \texttt{tnum-expt}&\texttt{arg1:tnum}, \texttt{arg2:tnum}&$\texttt{arg1}^{\texttt{arg2}}$\\
 \texttt{tnum-sqrt}&\texttt{arg1:tnum}, \texttt{arg2:tnum}&$\sqrt[\texttt{arg1}]{\texttt{arg2}}$\\
 \texttt{tnum-log}&\texttt{arg1:tnum}, \texttt{arg2:tnum}&$\mathrm{log}_{\texttt{arg1}}(\texttt{arg2})$\\
 \texttt{tnum-1+}&\texttt{tnum:tnum}&$\texttt{tnum} + 1$\\
 \texttt{tnum-1-}&\texttt{tnum:tnum}&$\texttt{tnum} - 1$\\\hline
-\texttt{tnum-exp}&\texttt{tnum:tnum}&přirozená mnocnina \texttt{tnum}u\\
+\texttt{tnum-exp}&\texttt{tnum:tnum}&přirozená mocnina \texttt{tnum}u\\
 \texttt{tnum-ln}&\texttt{tnum:tnum}&přirozený logaritmus \texttt{tnum}u\\
 \texttt{tnum-sqrt}&\texttt{tnum:tnum}&druhá odmocnina \texttt{tnum}u\\
 \texttt{tnum-sin}&\texttt{tnum:tnum}&sinus \texttt{tnum}u\\
