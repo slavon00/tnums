@@ -193,7 +193,7 @@ vyplývá z nerovnice \eqref{ner:abst}, ekvivalentně je ji totiž možné zapsa
 \begin{equation}\label{ner:abst3}
 \frac{\left|\tnum{x}\left(\frac{\varepsilon}{2*\mathrm{max}\left\{(|\tnum{y}(\varepsilon)| + \varepsilon);1\right\}}\right)\right|}{\mathrm{max}\left\{(|\tnum{x}(\varepsilon)| + \varepsilon);1\right\}}\leq 1
 \end{equation}
-vyplývá ze skutečnosti, že $0\leq\frac{\varepsilon}{2*\mathrm{max}\{(|\tnum{y}(\varepsilon)+\varepsilon);1\}}\leq\varepsilon$ a proto
+vyplývá ze skutečnosti, že $0\leq\frac{\varepsilon}{2*\mathrm{max}\{(|\tnum{y}(\varepsilon)+\varepsilon);1\}}\leq\varepsilon$, a proto
 \begin{equation}
 \frac{\left|\tnum{x}\left(\frac{\varepsilon}{2*\mathrm{max}\left\{(|\tnum{y}(\varepsilon)| + \varepsilon);1\right\}}\right)\right|}{\mathrm{max}\left\{(|\tnum{x}(\varepsilon)| + \varepsilon);1\right\}}\leq\frac{|\tnum{x}(\varepsilon)|+\varepsilon}{\mathrm{max}\left\{(|\tnum{x}(\varepsilon)| + \varepsilon);1\right\}}\leq 1,
 \end{equation}což platí.}
@@ -233,7 +233,7 @@ a díky dokázaným nerovnostem \eqref{ner:abst2} a \eqref{ner:abst3} pak platí
 \end{proof}
 \end{theorem}
 
-Právě dokázaná věta mluví o součinu dvou tnumů. Zobecnění na konečný počet tnumů by v tomto bodě šlo naprogramovat akumulací. To je ale neefektivní řešení a proto by bylo dobré najít obecnou funkci. Následující vztah není dokázaný, vychází však z tvaru násobení pro dva tnumy.
+Právě dokázaná věta mluví o součinu dvou tnumů. Zobecnění na konečný počet tnumů by v tomto bodě šlo naprogramovat akumulací. To je ale neefektivní řešení, a proto by bylo dobré najít obecnou funkci. Následující vztah není dokázaný, vychází však z tvaru násobení pro dva tnumy.
 
 \begin{hypothesis}[Součin tnumů]\label{vet:soucin_tnumu}
 Nechť $\tnum{x_i}\in\Tnum{x_i}, x_i\in\mathbb{R}$ pro $i=0,1,\ldots,n$ a funkce $\tnum{}(\tnum{x_0},\tnum{x_1},\ldots,\tnum{x_n})$ má předpis

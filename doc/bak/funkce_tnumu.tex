@@ -296,7 +296,7 @@ Funkci $\mathrm{cos}(x)$ lze vyjádřit jako Maclaurinovu řadu ve tvaru
 
 Z Taylorovy věty získáváme omezení Taylorova zbytku
 \begin{equation}
-|R^{cos}_n(x)|\leq\left|\frac{x^{2n+1}}{(2n+1)!}\right|
+|R^{cos}_n(x)|\leq\left|\frac{x^{2n+1}}{(2n+1)!}\right|,
 \end{equation}
 a proto opět hledáme takové $n$, že když pro jakékoli $\varepsilon$ je $|\frac{x^{2n+1}}{(2n+1)!}|\leq\varepsilon$, pak vrátíme $n$-tý částečný součet řady z rovnice \eqref{rov:cos:rad}.
 \begin{consequence}[Kosinus numu] Nechť $x\in\mathbb{Q}$ a funkce $\tnum{}(x)$ má předpis
@@ -320,7 +320,7 @@ pak $\tnum{}(x)\in\Tnum{\mathrm{cos}(x)},x\in\mathbb{Q}$.
           \textcolor{obarvi}{finally} (\textcolor{funkcionalni}{return} result))))
 \end{lispcode}
 
-A nakonec právě naprogramovanou funkci využijeme ke kosinování jakéhokoli tnumu. Postup je stejný jako u sinu a proto už nepíši příslušné lemma.
+A nakonec právě naprogramovanou funkci využijeme ke kosinování jakéhokoli tnumu. Postup je stejný jako u sinu, a proto už nepíši příslušné lemma.
 
 \begin{lispcode}{\texttt{tnum-cos}}{Funkce pro výpočet kosinu tnumu}
 (\textcolor{funkcionalni}{defun} \textcolor{pojmenovan}{tnum-cos} (tnum)
