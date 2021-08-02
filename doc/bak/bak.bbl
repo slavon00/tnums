@@ -34,8 +34,8 @@
       \strng{authorbibnamehash}{3c7397097589523a75bc738d5ffeea4b}
       \strng{authornamehash}{3c7397097589523a75bc738d5ffeea4b}
       \strng{authorfullhash}{3c7397097589523a75bc738d5ffeea4b}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Číslo}
@@ -71,8 +71,8 @@
       \strng{authorbibnamehash}{158abe6a41d884d94cb4683cee47d48b}
       \strng{authornamehash}{158abe6a41d884d94cb4683cee47d48b}
       \strng{authorfullhash}{158abe6a41d884d94cb4683cee47d48b}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -100,8 +100,8 @@
       \strng{authorbibnamehash}{c1877dc945cc34c8614fc465f3667c5b}
       \strng{authornamehash}{c1877dc945cc34c8614fc465f3667c5b}
       \strng{authorfullhash}{c1877dc945cc34c8614fc465f3667c5b}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Tutorial Introduction to the Lambda Calculus}
@@ -273,8 +273,8 @@
       \strng{authorbibnamehash}{c8623ddf9ba9e57862c145c70c067afd}
       \strng{authornamehash}{c8623ddf9ba9e57862c145c70c067afd}
       \strng{authorfullhash}{c8623ddf9ba9e57862c145c70c067afd}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2., upravené}
@@ -298,8 +298,8 @@
       \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
       \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -446,8 +446,8 @@
       \strng{authorbibnamehash}{92af1df49a6b521d00791da85c86acdf}
       \strng{authornamehash}{92af1df49a6b521d00791da85c86acdf}
       \strng{authorfullhash}{92af1df49a6b521d00791da85c86acdf}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Algebra 1}
@@ -478,8 +478,8 @@
       \strng{authorbibnamehash}{33fe1fda40a222c4d92525a6575862b5}
       \strng{authornamehash}{33fe1fda40a222c4d92525a6575862b5}
       \strng{authorfullhash}{33fe1fda40a222c4d92525a6575862b5}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -541,8 +541,8 @@
       \strng{authorbibnamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
       \strng{authornamehash}{f61020ca200cbc57bcb3d9fe9c509eeb}
       \strng{authorfullhash}{f61020ca200cbc57bcb3d9fe9c509eeb}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Operační systémy}
@@ -574,8 +574,8 @@
       \strng{authorbibnamehash}{16ba958eaf56fad580491eef4f771cee}
       \strng{authornamehash}{16ba958eaf56fad580491eef4f771cee}
       \strng{authorfullhash}{16ba958eaf56fad580491eef4f771cee}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -600,8 +600,8 @@
       \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
       \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
       \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -633,8 +633,8 @@
       \strng{authorbibnamehash}{fdd2f61af59ed2a44fd676d9fe00190b}
       \strng{authornamehash}{fdd2f61af59ed2a44fd676d9fe00190b}
       \strng{authorfullhash}{fdd2f61af59ed2a44fd676d9fe00190b}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -668,8 +668,8 @@
       \strng{authornamehash}{1890598e81a8ac330faf8049c123312d}
       \strng{authorfullhash}{1890598e81a8ac330faf8049c123312d}
       \field{extraname}{3}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -700,8 +700,8 @@
       \strng{authorbibnamehash}{6c4a804ce0589508eaff59d8f0f68a20}
       \strng{authornamehash}{6c4a804ce0589508eaff59d8f0f68a20}
       \strng{authorfullhash}{6c4a804ce0589508eaff59d8f0f68a20}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -736,8 +736,8 @@
       \strng{authorbibnamehash}{577c772e504efcfcc6e0b45594b8de24}
       \strng{authornamehash}{577c772e504efcfcc6e0b45594b8de24}
       \strng{authorfullhash}{577c772e504efcfcc6e0b45594b8de24}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{Tools \& Libraries for the Advancement of Sciences}
@@ -768,8 +768,8 @@
       \strng{authorbibnamehash}{2b87a9e692bb7dff9525d9e6d83292ac}
       \strng{authornamehash}{2b87a9e692bb7dff9525d9e6d83292ac}
       \strng{authorfullhash}{2b87a9e692bb7dff9525d9e6d83292ac}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{The GNU Multiple Precision Arithmetic Library}
@@ -787,8 +787,8 @@
       \endverb
     \endentry
     \entry{wiki:mpfr}{manual}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labeltitlesource}{title}
       \field{subtitle}{The Multiple Precision Floating-Point Reliable Library}
       \field{title}{GNU MPFR}
@@ -828,8 +828,8 @@
       \strng{authorbibnamehash}{3d57df5d659180398852b86c3bbb234d}
       \strng{authornamehash}{3d57df5d659180398852b86c3bbb234d}
       \strng{authorfullhash}{3d57df5d659180398852b86c3bbb234d}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{The Multiple Precision Integers and Rationals Library}
@@ -865,8 +865,8 @@
       \strng{authorbibnamehash}{a894657f4322ed592ad9fbf54e7d819e}
       \strng{authornamehash}{a894657f4322ed592ad9fbf54e7d819e}
       \strng{authorfullhash}{a894657f4322ed592ad9fbf54e7d819e}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{a Class Library for Numbers}
@@ -900,8 +900,8 @@
       \strng{authorbibnamehash}{e2ade80adbfbfd71f022302debc80b92}
       \strng{authornamehash}{e2ade80adbfbfd71f022302debc80b92}
       \strng{authorfullhash}{e2ade80adbfbfd71f022302debc80b92}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{Arbitrary precision, automatic re-computing real numbers in Common Lisp}
@@ -933,8 +933,8 @@
       \strng{authorbibnamehash}{e628a0bac74ac10f0c52a0a1aba401fc}
       \strng{authornamehash}{e628a0bac74ac10f0c52a0a1aba401fc}
       \strng{authorfullhash}{e628a0bac74ac10f0c52a0a1aba401fc}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{Numbers}
@@ -971,8 +971,8 @@
       \strng{authorbibnamehash}{2c2f121ccb852d836d3aa06800b6fc8d}
       \strng{authornamehash}{2c2f121ccb852d836d3aa06800b6fc8d}
       \strng{authorfullhash}{2c2f121ccb852d836d3aa06800b6fc8d}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -997,8 +997,8 @@
       \strng{authorbibnamehash}{e619d088dfcd740618030bc6b83296f5}
       \strng{authornamehash}{e619d088dfcd740618030bc6b83296f5}
       \strng{authorfullhash}{e619d088dfcd740618030bc6b83296f5}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Circular Reasoning: Who First Proved That $C/d$ Is a Constant?}
@@ -1031,8 +1031,8 @@
       \strng{authorbibnamehash}{38add6717a284ced8cfef47c3480a814}
       \strng{authornamehash}{38add6717a284ced8cfef47c3480a814}
       \strng{authorfullhash}{38add6717a284ced8cfef47c3480a814}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Approximation of $\pi$}
@@ -1072,8 +1072,8 @@
       \strng{authorbibnamehash}{223d5ed5e503687dc73a3112bead489b}
       \strng{authornamehash}{223d5ed5e503687dc73a3112bead489b}
       \strng{authorfullhash}{223d5ed5e503687dc73a3112bead489b}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{On the Rapid Computation of Various Polylogarithmic Constants}
@@ -1106,8 +1106,8 @@
       \strng{authorbibnamehash}{f90cabc304a16dc176463dd52cef5aca}
       \strng{authornamehash}{f90cabc304a16dc176463dd52cef5aca}
       \strng{authorfullhash}{f90cabc304a16dc176463dd52cef5aca}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proceedings of the American Mathematical Society}
@@ -1148,8 +1148,8 @@
       \strng{authorbibnamehash}{ea83938f1023688d7a44926bd8fce12d}
       \strng{authornamehash}{ea83938f1023688d7a44926bd8fce12d}
       \strng{authorfullhash}{ea83938f1023688d7a44926bd8fce12d}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Taylorův polynom}
@@ -1184,8 +1184,8 @@
       \strng{authorbibnamehash}{125cfbd85cc6e304e8467fb8dded9ad1}
       \strng{authornamehash}{125cfbd85cc6e304e8467fb8dded9ad1}
       \strng{authorfullhash}{125cfbd85cc6e304e8467fb8dded9ad1}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -1219,8 +1219,8 @@
       \strng{authorbibnamehash}{63984f02de086b7d6004b5486dbf6cab}
       \strng{authornamehash}{63984f02de086b7d6004b5486dbf6cab}
       \strng{authorfullhash}{63984f02de086b7d6004b5486dbf6cab}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{10, with corrections}
@@ -1255,8 +1255,8 @@
       \strng{authorbibnamehash}{59513463f1dc9a1ea22337107690f00b}
       \strng{authornamehash}{59513463f1dc9a1ea22337107690f00b}
       \strng{authorfullhash}{59513463f1dc9a1ea22337107690f00b}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{On the Golden Ratio}
