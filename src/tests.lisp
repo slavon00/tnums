@@ -29,8 +29,8 @@
 ;(coerce (tnum-to-num (tnum-sin (num-to-tnum 1)) -20) 'long-float)
 ;0.8414709848078965d0
 
-;(let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
-;    (time (tnum-to-string tn 50)) 1.367339
-;    (time (tnum-to-string (tnum-sin tn) 50)) 28.180623
-;    (time (tnum-to-string (tnum-csc tn) 50)) 3600.500439
-;    (time (tnum-to-string (tnum-ctan tn) 50))) 25431.702944
+; (let ((tn (tnum/ (tnum-pi) (tnum-e) (tnum-phi))))
+;    (time (tnum-to-string tn 50)) 0.427424
+;    (time (tnum-to-string (tnum-sin tn) 50)) 31.412191
+;    (time (tnum-to-string (tnum-csc tn) 50)) 4690.939552
+;    (time (tnum-to-string (tnum-ctan tn) 50))) 26756.683374

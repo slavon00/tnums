@@ -13,149 +13,135 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.3}Operace s čísly}{6}{subsection.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4}Funkce čísel}{7}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Funkce čísel}{6}{subsection.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Čísla v počítači}{11}{section.2}%
+\contentsline {section}{\numberline {2}Čísla v počítači}{10}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Čísla uložená jako hodnoty}{11}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Čísla uložená jako hodnoty}{10}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.1}Vážený poziční kód}{11}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Vážený poziční kód}{10}{subsubsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2}Záporná čísla}{11}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.2}Záporná čísla}{10}{subsubsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.3}Plovoucí řádová tečka}{12}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.3}Plovoucí řádová tečka}{11}{subsubsection.2.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Přesná reprezentace čísel jako hodnot}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Přesná reprezentace čísel jako hodnot}{11}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Přirozená čísla}{12}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1}Přirozená čísla}{11}{subsubsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}Celá čísla}{13}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}Celá čísla}{12}{subsubsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.3}Racionální čísla}{14}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3}Racionální čísla}{13}{subsubsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Přesná reprezentace čísel jako struktur}{14}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Přesná reprezentace čísel jako struktur}{13}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Přirozená čísla}{15}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}Přirozená čísla}{14}{subsubsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Celá čísla}{15}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Celá čísla}{14}{subsubsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Racionální čísla}{15}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Racionální čísla}{14}{subsubsection.2.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Reálná čísla}{16}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Reálná čísla}{15}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}Představa}{16}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.1}Představa}{15}{subsubsection.2.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.2}Existující nástroje}{17}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2}Existující nástroje}{16}{subsubsection.2.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.1}Mpmath \cite {mpmath}}{17}{paragraph.2.4.2.1}%
+\contentsline {paragraph}{\numberline {2.4.2.1}Mpmath \cite {mpmath}}{16}{paragraph.2.4.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.2}JScience \cite {jscience}}{17}{paragraph.2.4.2.2}%
+\contentsline {paragraph}{\numberline {2.4.2.2}JScience \cite {jscience}}{16}{paragraph.2.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.3}GNU Multiple Precision Arithmetic Library \cite {wiki:gmp} (GMP)}{19}{paragraph.2.4.2.3}%
+\contentsline {paragraph}{\numberline {2.4.2.3}GNU Multiple Precision Arithmetic Library \cite {wiki:gmp} (GMP)}{18}{paragraph.2.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.4}Class Library for Numbers \cite {wiki:CLN} (CLN)}{20}{paragraph.2.4.2.4}%
+\contentsline {paragraph}{\numberline {2.4.2.4}Class Library for Numbers \cite {wiki:CLN} (CLN)}{19}{paragraph.2.4.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.5}Computable-reals \cite {gh:cr}}{20}{paragraph.2.4.2.5}%
+\contentsline {paragraph}{\numberline {2.4.2.5}Computable-reals \cite {gh:cr}}{19}{paragraph.2.4.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {2.4.2.6}Cíl práce}{21}{paragraph.2.4.2.6}%
+\contentsline {paragraph}{\numberline {2.4.2.6}Cíl práce}{19}{paragraph.2.4.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{II\hspace {1em}Implementace}{22}{part.2}%
+\contentsline {part}{II\hspace {1em}Implementace}{21}{part.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Tnumy}{22}{section.3}%
+\contentsline {section}{\numberline {3}Tnumy}{21}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Vztah čísel a tnumů}{22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Vztah čísel a tnumů}{21}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Ludolfovo číslo}{24}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Ludolfovo číslo}{22}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Přenásobování numem}{25}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Přenásobování numem}{23}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Operace tnumů}{27}{section.4}%
+\contentsline {section}{\numberline {4}Operace tnumů}{25}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Aditivní operace}{27}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Aditivní operace}{25}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Multiplikativní operace}{28}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Multiplikativní operace}{26}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Mocninné operace}{34}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Mocninné operace}{32}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Funkce tnumů}{35}{section.5}%
+\contentsline {section}{\numberline {5}Funkce tnumů}{32}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Aproximace funkcí}{35}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.1}Aproximace funkcí}{32}{subsection.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Exponenciála}{36}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Exponenciála}{33}{subsection.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1}Exponenciála čísla}{37}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1}Exponenciála čísla}{34}{subsubsection.5.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2}Exponenciála tnumu}{39}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2}Exponenciála tnumu}{35}{subsubsection.5.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Goniometrické}{43}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.3}Goniometrické}{38}{subsection.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1}Sinus}{43}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1}Sinus}{39}{subsubsection.5.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.2}Kosinus}{44}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2}Kosinus}{40}{subsubsection.5.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.3}Další goniometrické funkce}{45}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3}Další goniometrické funkce}{41}{subsubsection.5.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Logaritmus}{46}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Logaritmus}{42}{subsection.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{III\hspace {1em}Rozhraní}{49}{part.3}%
+\contentsline {part}{III\hspace {1em}Rozhraní}{45}{part.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Uživatelské funkce}{49}{section.6}%
+\contentsline {section}{\numberline {6}Uživatelské funkce}{45}{section.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Instalace}{49}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.1}Instalace}{45}{subsection.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Převody a konstanty}{50}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.2}Převody a konstanty}{46}{subsection.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Operace}{52}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Operace}{47}{subsection.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Funkce}{53}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.4}Funkce}{48}{subsection.6.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5}Rychlost}{54}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Rychlost}{49}{subsection.6.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.6}Vnější volání}{54}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.6}Vnější volání}{49}{subsection.6.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Diskuze}{56}{section.7}%
+\contentsline {section}{\numberline {7}Diskuze}{51}{section.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Optimalizace}{56}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.1}Kontext}{51}{subsection.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}Paralelizace}{56}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}Budoucnost}{51}{subsection.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Databáze}{56}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.3}Problémy}{51}{subsection.7.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Peripetie}{57}{subsection.7.2}%
+\contentsline {paragraph}{\numberline {7.3.0.1}Dotaz na $n$-tou číslici}{52}{paragraph.7.3.0.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.1}Ideové}{58}{subsubsection.7.2.1}%
+\contentsline {paragraph}{\numberline {7.3.0.2}Odmocnina čísla $\leq 1$}{52}{paragraph.7.3.0.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.2}Matematické}{58}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.4}Optimalizace}{52}{subsection.7.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.3}Implementační}{59}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.4.1}Paralelizace}{52}{subsubsection.7.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.4}Mezery}{59}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.4.2}Databáze}{53}{subsubsection.7.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.2.4.1}Matematické}{59}{paragraph.7.2.4.1}%
+\contentsline {subsection}{\numberline {7.5}Adekvátnost}{53}{subsection.7.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.2.4.2}Implementační}{59}{paragraph.7.2.4.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.2.4.3}Funkcionalita}{60}{paragraph.7.2.4.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.2.4.4}Rychlost}{60}{paragraph.7.2.4.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}}{60}{subsection.7.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.1}Kontext knihovny}{60}{subsubsection.7.3.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.2}Kontext práce}{60}{subsubsection.7.3.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.3}Adakvátnost}{61}{subsubsection.7.3.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Z\'av\v er}{62}{section*.11}%
+\contentsline {section}{Z\'av\v er}{54}{section*.11}%
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{63}{section*.13}%
+\contentsline {section}{Conclusions}{55}{section*.13}%
 \babel@toc {english}{}
 \babel@toc {czech}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Seznam literatury}{64}{section*.15}%
+\contentsline {section}{Seznam literatury}{56}{section*.15}%
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \babel@toc {czech}{}
@@ -315,4 +301,4 @@
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Obsah přiloženého CD/DVD}{67}{appendix.A}%
+\contentsline {section}{\numberline {A}Obsah přiloženého CD/DVD}{59}{appendix.A}%

@@ -120,11 +120,11 @@
 (defun num-exp (num eps)
   (let ((above (rat-expt 272/100 num)) (result 0))
     (loop for n from 0
-          for nfact = (factorial n)
-          for xpown = (expt num n)
-          do (incf result (/ xpown nfact))
-          until (<= (/ (* above xpown) nfact) eps)
-          finally (return result))))
+        for nfact = (factorial n)
+        for xpown = (expt num n)
+     do (incf result (/ xpown nfact))
+     until (<= (/ (* above xpown) nfact) eps)
+     finally (return result))))
 
 ;eulerovo cislo
 (defun tnum-e ()

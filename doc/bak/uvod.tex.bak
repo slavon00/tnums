@@ -1,14 +1,14 @@
-Funkcionální programování umožňuje důsledně popsat matematický svět, což v této práci bude ukázáno na příkladu výpočtů reálných čísel. Jako funkcionální jazyk byl zvolen Common Lisp (Lisp) pro jeho syntaktickou jednoduchost, dynamičnost a lenost. Každý Lispový kód následuje vždy za matematickým výrazem a ve stejném znění ho převádí. Lisp představuje nástroj, pomocí něhož realizujeme matematické výpočty, hlavním těžištěm poznání je ale vybudovaná matematická teorie, která není specifická pro konkrétní programovací jazyk.
+Funkcionální programování umožňuje důsledně popsat matematický svět, což bude v této práci ukázáno na příkladu výpočtů reálných čísel. Jako funkcionální jazyk byl zvolen Common Lisp (Lisp) pro jeho syntaktickou jednoduchost, výstižnost a lenost. Každý Lispový kód následuje vždy za matematickým výrazem a ve stejném znění ho převádí. Lisp představuje nástroj, pomocí něhož realizujeme matematické výpočty, hlavním těžištěm poznání je ale vybudovaná matematická teorie, která není specifická pro konkrétní programovací jazyk.
 
 V první části je teoreticky popsáno, co čísla jsou a jak se rozvrstvují podle vlastností na obory. Také je zde ukázáno, jak se s čísly operuje a je představen pojem zobrazení a jeho dva důležité typy -- funkce a posloupnost. Je zde zavedena stěžejní představa, co znamená přesná reprezentace čísla pro jeho různé podoby a představeno několik existujících knihoven.
 
 Ve druhé části práce je popsána konstrukce knihovny \texttt{tnums} přesně vyčíslující reálná čísla. Je využita existence racionálních čísel v Lispu a přidáno Ludolfovo číslo. Zavedená čísla jsou poté kombinována operacemi a měněna svými funkcemi, v návaznosti na to je zavedeno Eulerovo číslo.
 
-V závěrečné části je uvedeno praktické užití řešení a vymezen pojem uživatelské funkce. Je zde ukázáno, jak lze takové funkce přidávat, a je zde demonstrováno, že některé vznikly mimoděk už při programování. Také doplníme poslední konstantu, a to Zlatý řez. V poslední kapitole je představena možnost tvorby přesné kalkulačky, nápady na urychlení práce knihovny \texttt{tnums} a nakonec její nedostatky.
+V závěrečné části je uvedeno praktické užití řešení a vymezen pojem uživatelské funkce. Je zde ukázáno, jak lze takové funkce přidávat. Také doplníme poslední konstantu, a to Zlatý řez. V poslední kapitole jsou představeny nápady na urychlení a rozšíření práce knihovny \texttt{tnums} a její problémy.
 
 \section*{Značení}
 \begin{tabular}{l|l}
-$\square$ & konec důkazu a konec poznámky \\
+$\square$ & konec důkazu \\
 $\blacksquare$ & konec poznámky \\
 modré pozadí & obrázek \\
 nachové pozadí & tabulka \\
@@ -16,9 +16,10 @@ $(a,b)$& otevřený interval mezi $a$ a $b$ \\
 $[a,b]$ & uzavřený interval mezi $a$ a $b$ \\
 $\rightarrow$ & logická implikace nebo \uv{do} \\
 $\leftrightarrow$ & logická ekvivalence \\
-$\Leftrightarrow$ & \uv{právě tehdy když} \\
-$\cup$ a $\cap$ & množinové sjednocení a množinový průnik \\
+$\Leftrightarrow$ & \uv{právě tehdy, když} \\
+$\cup$& množinové sjednocení \\
+$\cap$ & množinový průnik \\
 $|a|$ & absolutní hodnota čísla $a$ \\
 := & přiřazení \\
-$\frac{d}{dx}f(x)$ & derivace funkce $f$ v bodě $x$, je-li jasná proměnná, pak jen $f^{'}(x)$.
+$\frac{d}{dx}f(x_0)$ & derivace funkce $f$ v bodě $x_0$; je-li jasná proměnná, pak jen $f^{'}(x)$
 \end{tabular}

@@ -3,7 +3,7 @@ master=false,
 field=inf,
 encoding=utf8,
 language=czech,
-printversion=false,]{kidiplom}
+printversion=true,]{kidiplom}
 
 \definecolor{funkcionalni}{RGB}{0,0,100}
 \definecolor{pojmenovan}{RGB}{0,100,0}
@@ -71,12 +71,12 @@ headpunct={:}]{mystyle}
 \author{Ondřej Slavík}
 \supervisor{doc. RNDr. Michal Krupka, Ph.D.}
 
-\annotation{Fenomén vyčíslitelnosti reálných čísel provází každého informatika, který se někdy snažil používat počítač k počítání. Jakmile se totiž musíme spolehnout na výpočty s čísly uloženými jako hodnoty, narážíme na limity přesnosti a rozsahu takto reprezentovaných čísel. Řešením není zpřesňování pomocí vyšší dotace paměťového prostoru (např. binary32 $\rightarrow$ binary64) a související změna architektury systému, nýbrž fundamentální změna v přístupu k vyčíselní reálných čísel. Tato práce dává návod, jak takovýto přístup přijmout, a přináší knihovnu, která umožňuje základní výpočty a vyčíslení reálných čísel.}
+\annotation{Fenomén vyčíslitelnosti reálných čísel provází každého informatika, který se snaží používat počítač k počítání. Jakmile se totiž musíme spolehnout na výpočty s čísly uloženými jako hodnoty, narážíme na limity přesnosti a rozsahu takto reprezentovaných čísel. Řešením není zpřesňování pomocí vyšší dotace paměťového prostoru (např. binary32 $\rightarrow$ binary64) a související změna architektury systému, nýbrž fundamentální změna v přístupu k vyčíslení reálných čísel. Tato práce dává návod, jak takovýto přístup přijmout, a přináší knihovnu, která umožňuje základní výpočty a vyčíslení reálných čísel.}
 
-\annotation[english]{The Real Numbers' computation phenomenon meets every single computer scientist trying to use computer to compute. When one needs to trust to calculations of numbers saved with their values, the limitations of these numbers' precisivity and range appear. The solution is not to assign more memory (e.g. binary32 $\rightarrow$ binary64) and linked swap of system's architecture but fundamental switch in approach to real numbers' computations. The Work gives a guideline how to admit the access and brings library providing basic real numbers' enumeration and calculation.}
+\annotation[english]{Every computer scientist who tries to use a computer to compute encounters the phenomenon of real numbers' computability. Once we have to rely on calculations with numbers stored as values, we come across limits of precision and range of thus represented numbers. The solution is not to refine using a higher memory space allocation (eg binary32 $\rightarrow$ binary64) and the related change in system architecture, but fundamental change in the approach to computation of real numbers. This work gives direction of how to adopt such an approach, and brings a library that allows the basic calculations and enumerations of real numbers.}
 
-\keywords{reálná čísla, funkce, Lisp, líné vyhodnocování, libovolná přesnost}
-\keywords[english]{real numbers, functions, Lisp, lazy evaluation, arbitrary precision}
+\keywords{reálná čísla, funkce, Lisp, líné vyhodnocování, libovolná přesnost, rekurzivní čísla}
+\keywords[english]{real numbers, functions, Lisp, lazy evaluation, arbitrary precision, recursive numbers}
 
 \thanks{Mockrát děkuji doc. RNDr. Michalu Krupkovi, Ph.D. za vedení práce a rodině za podporu.}
 
@@ -113,24 +113,22 @@ headpunct={:}]{mystyle}
 \section{Úvod}
 \input{uvod.tex}
 \mypart{Teorie}
-V teoretické části je představena axiomatická teorie množin a naznačeno, jak se z ní dají vytvořit čísla. Je ukázáno, že čísla jsou množinami. Poté stručně představím matematické operace a matematické funkce. Dále vyplyne, že jakékoli číslo lze vyjádřit jako funkci a že funkce je také množina. Závěr teoretické části je zaměřen na problém uložení čísla v paměti počítače, která je fyzicky konečná. Nejprve je rozebrán v čistě teoretické rovině a poté je diskutováno řešení v podobě reálně existujících knihoven.
+V teoretické části je představena axiomatická teorie množin a naznačeno, jak se z ní vytváří čísla. Je demonstrováno, že čísla jsou množinami. Poté jsou stručně představeny matematické operace a matematické funkce. Dále vyplyne, že jakékoli číslo lze vyjádřit jako funkci a že funkce je také množina. Závěr teoretické části je zaměřen na problém uložení čísla v paměti počítače, která je fyzicky konečná. Nejprve je rozebrán v čistě teoretické rovině a poté je diskutováno řešení v podobě reálně existujících knihoven.
 \section{Čísla}\label{kap:cisla}
-\input{cisla.tex}	
+\input{cisla.tex}
 \clearpage
 \section{Čísla v počítači}
 \input{cisla_v_pocitaci.tex}
 \mypart{Implementace}
-V implementační části propojíme teoreticky orientované výsledky s aplikovaným aspektem a dáme vzniknout knihovně \texttt{tnums}. Jak jsem napsal výše, všechna čísla i manipulaci s nimi lze vyjádřit jako funkce. Nejpřímější aplikace tohoto poznání tedy vede k užití funkcionálního paradigmatu. Jako jeho zástupce byl vedoucím práce zvolen Lisp. Nejprve se podíváme na jednoduché převody mezi reprezentacemi v Lispu a tnumy, poté se podíváme na matematické operace tnumů a nakonec také na matematické funkce tnumů.
+V implementační části aplikujeme teorii a dáme vzniknout knihovně \texttt{tnums}. Všechna čísla i manipulaci s nimi lze vyjádřit jako funkce, přesně toto naprogramujeme. Situace nás vede k užití funkcionálního programovacího jazyka, zvolen byl Lisp. Budou ukázány převody, konstanty, operace a funkce.
 \section{Tnumy}
 \input{tnumy.tex}
-\clearpage
 \section{Operace tnumů}
 \input{operace_tnumu.tex}
-\clearpage
 \section{Funkce tnumů}
 \input{funkce_tnumu.tex}
-\mypart{Rozhraní}
-V uživatelské části pojednám o vlastním používání knihovny \texttt{tnums}. Nejprve zkusíme převádět čísla mezi interními reprezentacemi Lispu a tnumů. Poté se podíváme, jak se používají matematické operace a poté spočítáme nějaké matematické funkce. Také ještě několik funkcí doprogramujeme, ale nezávisle na vnitřní implementaci tnumů. Nakonec se podíváme na nedostatky knihovny a její výhled jak v oblasti rozšiřování funkcionality, tak na poli zvyšování efektivity.
+\mypart{Rozhraní}\label{cast:rozhrani}
+V poslední části pojednáme o uživatelském pohledu na knihovnu \texttt{tnums} -- používání (převody, konstanty, operace, funkce), rychlost a uživatelskou rozšiřitelnost.
 \section{Uživatelské funkce}
 \input{uzivatelske_funkce.tex}
 \clearpage
@@ -143,18 +141,16 @@ Také bylo zmíněno, že číselná osa je tvořena \textbf{reálnými čísly}
 
 Představil jsem, jak vypadají \textbf{výpočty s reálnými čísly}. Kromě matematických operací to byly matematické funkce. Zjistili jsme, že všechny tyto výpočty, včetně samotných reálných konstant lze reprezentovat jako funkce.
 
-V textu jsme se věnovali i produktu celého tohoto snažení a sice programování Lispovské knihovny \texttt{tnums} implementující \textbf{přesné výpočty s reálnými čísly}. Také jsem přinesl několik příkladů, jak uživatelsky funkcionalitu rozšiřovat.
+V textu jsem se věnoval i produktu celého tohoto snažení a sice programování Lispovské knihovny \texttt{tnums} implementující \textbf{přesné výpočty s reálnými čísly}. Také jsem přinesl několik příkladů, jak uživatelsky funkcionalitu rozšiřovat.
 \end{kiconclusions}
 \begin{kiconclusions}[english]
-I have described how natural numbers are created using set theory, as well as on this basis, other numerical fields are created. I also described how to deal with \textbf{numbers} in memory of a computer.
+I have described how natural \textbf{numbers} are created using set theory, as well as how other number systems are created on this basis. I also described how it works with numbers in a computer memory.
 
-It was also mentioned that the numerical axis is made up of \textbf{real numbers} and if we use more axes, we get structured numbers. We wondered if all real numbers are computable and unfortunately we got a negative answer.
+It was also mentioned that the number line is made up of \textbf{real numbers} and if we use more axes, we get structured numbers. We wondered if all of the real numbers are recursive and unfortunately we got a negative answer.
 
-I introduced what \textbf{real numbers' computation} looks like. In addition to mathematical operations there were mathematical functions. We found that all these calculations, including the real constants themselves, can be represented as functions.
+I presented what \textbf{computation of real numbers} looks like. In addition to mathematical operations, there were mathematical functions. We found that all these calculations, including the real constants themselves, can be represented as functions.
 
-In the text, we also focused on the product of all this effort, namely programming Lisp \texttt{tnums} library implementing \textbf{precise real numbers' computation}.
-
-I also brought some examples of how user can extend functionality.
+In the text, I also focused on the product of all this effort, namely programming Lisp \texttt{tnums} library implementing \textbf{precise computation of real numbers}. I also brought some examples of how user can extend the functionality.
 \end{kiconclusions}
 \clearpage
 \printbibliography[heading=bibintoc, title={Seznam literatury}]

@@ -4,15 +4,14 @@
 (defun tnum-to-string (tnum count)
   (let ((num (tnum-to-num tnum (1+ count))) (output ""))
     (flet ((get-digit (&optional (end ""))
-             (multiple-value-bind (digit rem) (floor num)
-               (setf output (concatenate 'string output 
-                                         (write-to-string digit)
-                                         end)
-                     num (* 10 rem)))))
-      (when (< num 0) (setf output "-" num (- num)))
-      (get-digit ".")  
-      (dotimes (i count (concatenate 'string output "..."))
-        (get-digit )))))
+      (multiple-value-bind (digit rem) (floor num)
+      (setf output (concatenate 'string output 
+                                (write-to-string digit) end)
+            num (* 10 rem)))))
+    (when (< num 0) (setf output "-" num (- num)))
+    (get-digit ".")  
+    (dotimes (i count (concatenate 'string output "..."))
+      (get-digit)))))
 
 (tnum-to-string (tnum-pi) 767)
 

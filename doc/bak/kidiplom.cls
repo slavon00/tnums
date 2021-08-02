@@ -90,7 +90,7 @@
 \RequirePackage{euscript}
 
 %% Komentování a Ondrovy kódy
-\RequirePackage{verbatim, xcolor, calc, fancyvrb, mdframed, mathtools, scalerel, thmtools, float, everyshi, totpages, breakurl, epigraph, tikz, placeins, color, soul, upquote, multirow}
+\RequirePackage{verbatim, xcolor, calc, fancyvrb, mdframed, mathtools, scalerel, thmtools, float, everyshi, totpages, breakurl, epigraph, tikz, placeins, color, soul, upquote, multirow, tipa}
 \usepackage[sorting=none, backend=biber, style=iso-numeric]{biblatex}
 \addbibresource{zdroje.bib}
 
@@ -536,12 +536,12 @@
 
 %% Obsah a seznamy obrázků, tabulek, vět a zdrojových kódů.
 \tableofcontents
-\listoftables
-\listoffigures
 \clearpage
+\listoffigures
 \renewcommand\listtheoremname{Seznam definic}
 \listoftheorems[ignoreall, show={definition}]
 \clearpage
+\listoftables
 \renewcommand\listtheoremname{Seznam faktů}
 \listoftheorems[ignoreall, show={fact}]
 \renewcommand\listtheoremname{Seznam vět a lemmat}
@@ -549,6 +549,7 @@
 \clearpage
 \renewcommand\listtheoremname{Seznam zdrojových kódů}
 \listoftheorems[ignoreall, show={lispcodethm}]
+\clearpage
 \renewcommand\listtheoremname{Seznam testů}
 \listoftheorems[ignoreall, show={lispcodetest}]
 \renewcommand\listtheoremname{Seznam zbytku}

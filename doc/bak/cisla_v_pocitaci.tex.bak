@@ -1,4 +1,4 @@
-Standardně jsou čísla v počítači uložena jako sled bitů v nějaké reprezentaci vyjadřující hodnotu. Tímto způsobem lze reprezentovat číslo jen s danou přeností a rozsahem, což je však v řadě případů dostačující. Čísla lze reprezentovat i naprosto přesně -- pomocí struktur je reprezentujícími a s nimi manipulujícími. I tyto samozřejmě musí být uloženy v paměti, v tomto případě se však nejedná o uložení hodnoty čísla, nýbrž se ukládá abstrakce, která číslo na požádání umí vygenerovat. Tento přístup nazýváme líným. Nejprve bude popsáno ukládání čísel jako hodnot a na jeho přesnost. Poté navrhneme struktury pro přesná čísla a nakonec budou ukázány existující knihovny.
+Standardně jsou čísla v počítači uložena jako sled bitů v nějaké reprezentaci vyjadřující hodnotu. Tímto způsobem lze reprezentovat číslo jen s danou přeností a rozsahem, což je však v řadě případů dostačující. Čísla lze reprezentovat i naprosto přesně -- pomocí struktur je reprezentujícími a s nimi manipulujícími. I tyto samozřejmě musí být uloženy v paměti, v tomto případě se však nejedná o uložení hodnoty čísla, nýbrž se ukládá abstrakce, která číslo na požádání umí vygenerovat. Tento přístup nazýváme líným. Nejprve bude popsáno ukládání čísel jako hodnot a zřetel bude brán na přesnost takto uložených čísel. Poté navrhneme struktury pro přesná čísla a nakonec budou ukázány existující knihovny.
 
 \subsection{Čísla uložená jako hodnoty}
 Paměť počítače většinou pracuje s tzv. \textit{bity}, paměťovými buňkami nabývajícími dvou rozlišitelných hodnot \cite{KepOS}. Ke kódování čísel se tedy používá výhradně dvojková soustava. Celá následující podkapitola pojednávající o uložení čísel jejich hodnotami je převzata z \cite{Knu02}.
@@ -28,7 +28,7 @@ U váženého pozičního kódu známe přesně pozici řádové tečky -- je me
 Plovoucí číslo je dáno uspořádanou dvojicí $\langle e,f\rangle = f * b^{e-q}$, kde $e$ nazýváme \textit{exponent} a $f$ \textit{zlomkovou částí (fraction)}. Čísla $b$ a $q$ jsou konstanty dané použitým typem, $b$ se nazývá \textit{základ} a $q$ \textit{přesah}.
 
 \begin{example}[Plovoucí číslo -- jednoduchá přesnost]
-Číslo s jednoduchou přesností (\textit{single} dle IEEE 754-1985, \textit{binary32} dle IEEE 754-2008) je uloženo v paměti jako 32b struktura. První bit je příznak znaménka, dalších 8 bitů je pro exponent a dalších 23 bitů pro fraction. Konstanty jsou ohodnoceny následovně: $q=127$, $b=2$. V \textit{C}, \textit{C++}, \textit{C\#} nebo \textit{Javě} se tento číselný datový typ nazývá \textit{float}, v \textit{Haskellu Float} a v \textit{Lispu} pak \textit{single-float} \cite{wiki:float}.
+Číslo s jednoduchou přesností (\textit{single} dle IEEE 754-1985, \textit{binary32} dle IEEE 754-2008) je uloženo v paměti jako 32b struktura. První bit je příznak znaménka, dalších 8 bitů je pro exponent a dalších 23 bitů pro fraction (vizte Obrázek \ref{obr:binary32}). Konstanty jsou ohodnoceny následovně: $q=127$, $b=2$. V \textit{C}, \textit{C++}, \textit{C\#} nebo \textit{Javě} se tento číselný datový typ nazývá \textit{float}, v \textit{Haskellu Float} a v \textit{Lispu} pak \textit{single-float} \cite{wiki:float}.
 \begin{myfigure}{H}
 \caption{Seřazení bitů v datovém typu binary32 \cite{wiki:file:binary32}}
 \includegraphics[width=\linewidth]{graphics/float.png}\label{obr:binary32}
@@ -39,7 +39,7 @@ Plovoucí číslo je dáno uspořádanou dvojicí $\langle e,f\rangle = f * b^{e
 \subsection{Přesná reprezentace čísel jako hodnot}
 Nyní se podívejme, jaká čísla uložená jako hodnoty považujeme za přesná. Projdeme opět všechny obory jako v první kapitole a poprvé propojíme matematickou teorii s informatickou realitou. Jako modelový jazyk nám poslouží C.
 
-Všechny ukázky v této kapitole představují reálné chování představených datových typů na konkrétní AMD64 architektuře. Nejde teď tedy o žádnou teorii a jen ukazuji reálné limity. Na 128-bitové architektuře mohou být tyto limity jiné a typy použitelnější. Nicméně tato práce směřuje k přesným výpočtům rekurzivních čísel bez ohledu na architekturu.
+Všechny ukázky v této kapitole představují reálné chování představených datových typů na konkrétní AMD64 architektuře. Nejde teď tedy o žádnou teorii a jsou jen prezentovány reálné limity. Na 128-bitové architektuře mohou být tyto limity jiné a typy použitelnější. Nicméně tato práce směřuje k přesným výpočtům rekurzivních čísel bez ohledu na architekturu.
 
 \subsubsection{Přirozená čísla}
 Přirozená čísla jsou uzavřena na operace sčítání a násobení. V počítači se jako hodnoty ukládají pomocí váženého pozičního kódu a tento má horní limit, jak velké číslo lze na dané architektuře uložit. Takto uložená přirozená čísla ovšem nejsou na operace uzavřena, protože může dojít k přetečení -- číslo ukládané se liší od čísla uloženého. Příklad tohoto chování vydíme na Obrázku \ref{obr:uinty}.
@@ -60,7 +60,7 @@ Nejširší datový typ jazyka C, který umí uložit celá čísla je \texttt{s
 Pakliže ukládáme celé číslo jako hodnotu, která se vejde do datového typu bez přetečení nebo podtečení, lze takto vyjádřené číslo považovat za přesné.
 
 \subsubsection{Racionální čísla}
-Racionální číslo se v jazyce C ukládá jako číslo s plovoucí řádovou tečkou. S~největší přesností se ukládá datový typ \texttt{long double}. Není specifikováno, jak má být přesný, pouze že má být minimálně tak přesný jako \texttt{double} \cite{wiki:LD}. Čísla, která jsou různá, ale kvůli zaokrouhlení se vyjádří jako stejná hodnota plovoucího čísla, jsou v~tomto směru potom nerozeznatelná. Každý plovoucí typ pak má garantovanou přesnost, na kterou by se různá čísla neměla reprezentovat stejně.
+Racionální číslo se v jazyce C ukládá jako číslo s plovoucí řádovou tečkou. S~největší přesností se ukládá datový typ \texttt{long double}. Není specifikováno, jak má být přesný, pouze že má být minimálně tak přesný jako \texttt{double} \cite{wiki:LD}. Čísla, která jsou různá, ale kvůli zaokrouhlení se vyjádří jako stejná hodnota plovoucího čísla, jsou poté nerozeznatelná. Každý plovoucí typ pak má garantovanou přesnost, na kterou by se různá čísla neměla reprezentovat stejně.
 
 \begin{myfigure}{H}
 \caption{Racionální čísla v jazyce C}
@@ -71,12 +71,12 @@ Nejrozsáhlejším datovým typem čísla s plovoucí řádovou tečkou je v jaz
 Racionální čísla vyjádřená jako plovoucí můžeme považovat za přesná, pokud se nedostaneme mimo interval a přesnost stanovenou typem. Na Obrázku \ref{obr:floaty} vidíme, že rozsah datového typu \texttt{long double} je téměř $10^4$ řádů a přesnost je maximálně 15 desetinných míst. Čísla s plovoucí řádovou tečkou jsou nejlepší přiblížení k racionálním číslům, které lze vyjádřit jako hodnoty.
 
 \subsection{Přesná reprezentace čísel jako struktur}
-Již víme, že některá čísla lze přesně uložit jejich hodnotou. Nicméně standardní datové typy mají své limity, například přetékání nebo nedostatečná přesnost. Číslo je však namísto hodnotového datového typu reprezentovat typem referenčním. V kapitole \ref{kap:cisla} bylo nastíněno, že stejné číslo lze vyjádřit několika symboly, i když jeho hodnota je pouze jedna. Takto reprezentovaná čísla umíme velmi dobře v počítači vyjadřovat. Struktury v této podkapitole jsou pouze teoretickými koncepty bez konkrétní implementace.
+Již víme, že některá čísla lze přesně uložit jejich hodnotou. Nicméně standardní datové typy mají své limity, například přetékání nebo nedostatečná přesnost. Číslo lze však namísto hodnotového datového typu reprezentovat typem referenčním. V kapitole \ref{kap:cisla} bylo nastíněno, že stejné číslo lze vyjádřit několika symboly, i když jeho hodnota je pouze jedna. Takto reprezentovaná čísla umíme velmi dobře v počítači vyjadřovat. Struktury v této podkapitole jsou pouze teoretickými koncepty bez konkrétní implementace.
 
 \subsubsection{Přirozená čísla}
-Jak bylo ukázáno v minulé podkapitole, přirozená čísla jsou uzavřena na sčítání a násobení, \texttt{unsigned int} ovšem nikoli. Cílem je tedy vymyslet strukturu, která dokáže reprezentovat jakékoli přirozené číslo. Jako hodnoty umíme na $n$ bytech uložit čísla $0$ až $2^n-1$, proto by pro přirozená čísla bylo možné adekvátně upravovat toto $n$.Velikost čísla by pak byla omezena jen velikostí paměti.
+Jak bylo ukázáno v minulé podkapitole, přirozená čísla jsou uzavřena na sčítání a násobení, \texttt{unsigned int} ovšem nikoli. Cílem je tedy vymyslet strukturu, která dokáže reprezentovat jakékoli přirozené číslo. Jako hodnoty umíme na $n$ bytech uložit čísla $0$ až $2^n-1$, proto by pro přirozená čísla bylo dobré adekvátně upravovat toto $n$. Velikost čísla by pak byla omezena jen velikostí paměti.
 
-Struktura představující přirozené číslo musí zajišťovat, aby jeho hodnota při aplikaci matematických operací nepřetekla. Pokud struktura obdrží požadavek na násobení nebo sčítání, musí mít připravený další prostor a tam posunout bity, které by normálně přetekly. To je možné zajistit tak, že ve svém pomyslném paměťovém prostoru bude vždy po provedení operace procházet svých levých $2^{n-1}$ bitů, a pokud zde najde alespoň jednu jedničku, požádá o alokaci dalšího prostoru o velikost $2^n$, tedy zvedne $n$ o~jedna.
+Struktura představující přirozené číslo musí zajišťovat, aby jeho hodnota při aplikaci matematických operací nepřetekla. Pokud struktura obdrží požadavek na násobení nebo sčítání, musí mít alokovaný další prostor a tam posunout bity, které by normálně přetekly. To je možné zajistit tak, že ve svém pomyslném paměťovém prostoru bude vždy po provedení operace procházet svých levých $2^{n-1}$ bitů, a pokud zde najde alespoň jednu jedničku, požádá o alokaci dalšího prostoru o velikost $2^n$, tedy zvedne $n$ o~jedna.
 
 Pak už bude na operačním systému, kolik paměti bude moci struktuře přiřadit. Tato paměť je vždy prakticky omezená, teoreticky je však neomezená. Strukturu si tedy lze představit jako pouhý chytrý řadič bloků paměti za sebe. Pak lze \textit{naprosto přesně} zapsat jakékoli přirozené číslo. Paměťově toto není příliš efektivní, jedná se však o funkční princip. Optimalizace je ponechána až na konkrétní implementace.
 
@@ -88,16 +88,16 @@ Vytvořme strukturu pro celé číslo jako dvojici přirozeného čísla a pří
 \subsubsection{Racionální čísla}
 Racionální čísla jsme definovali jako podíl celého a nenulového celého čísla. Racionální čísla (bez nuly) jsou uzavřená i na dělení. Zaveďme teď racionální číslo jako dvojici celých čísel (čitatele a jmenovatele) s invariantem, že druhé číslo nesmí být nikdy nula a že obě čísla jsou nesoudělná.
 
-Násobení bude fungovat jako násobení na složkách, dělení pak bude jen prohození obou složek druhého argumentu a následné násobení. Odčítání je sčítání s opačným číslem a sčítání musí najít společný jmenovatel a poté specificky přenásobovat jednotlivé operandy.
+Násobení bude fungovat jako násobení na složkách, dělení pak bude jen prohození obou složek druhého argumentu a následné násobení. Odčítání je sčítání s opačným číslem a sčítání musí najít společný jmenovatel a poté specificky přenásobovat a sčítat jednotlivé operandy.
 
 Metody musí stále kontrolovat, zda nedochází k dělení nulou. Po konci výpočtu musí dojít ke zkrácení obou složek čísla. Predikát rovnosti dvou racionálních čísel kvůli podmínce nesoudělnosti je pak jednoduchý a je to rovnost na složkách.
 
-Tato struktura je \textit{naprosto přesnou} reprezentací racionálních čísel. Jazyk Lisp implementuje racionální čísla zmíněným způsobem a nabízí datový typ \texttt{ratio}.
+Tato struktura je \textit{naprosto přesnou} reprezentací racionálních čísel. Jazyk Lisp implementuje racionální čísla v této úrovni přesnosti a nabízí datový typ \texttt{ratio}.
 
 \subsection{Reálná čísla}
-Předchozí číselné obory lze s dostatkem paměti naprosto přesně reprezentovat. Zbývají už jen iracionální čísla a máme všechna reálná čísla v přesné reprezentaci. Těch je nepočitatelně mnoho, a tak je není možné vytvořit z přirozených čísel nabalováním struktur jako předchozí obory. Nic jiného ale v paměti, která pracuje s diskrétními hodnotami, neumíme vytvořit.
+Předchozí číselné obory lze s dostatkem paměti naprosto přesně reprezentovat. Zbývají už jen iracionální čísla a máme všechna reálná čísla v přesné reprezentaci. Iracionálních čísel je nespočetně mnoho (stejně jako transcendentních a nerekurzivních čísel), a tak je není možné vytvořit z přirozených čísel nabalováním struktur jako předchozí obory. Nic jiného ale v paměti, která pracuje s diskrétními hodnotami, neumíme vytvořit.
 
-Dosud jsme mluvili o \textit{naprosto přesných} číslech, struktura vyjadřující přesné číslo však může být i taková, která počítá jen přibližná čísla, nastavitelně vzdálená od (neznámé) přesné hodnoty. Takových čísel je počitatelně mnoho a říkáme jim čísla rekurzivní. Ve skutečnosti je právě hranice mezi racionálními čísly a rekurzivními čísly ta velká bariéra, která odděluje svět, kde vše funguje relativně jednoduše a ten, kde je všechno o řád těžší.
+Dosud jsme mluvili o \textit{naprosto přesných} číslech, struktura vyjadřující přesné číslo však může být i taková, která počítá jen přibližná čísla, nastavitelně vzdálená od (neznámé) přesné hodnoty. Takových čísel je spočetně mnoho a říkáme jim čísla rekurzivní. Ve skutečnosti je právě hranice mezi racionálními čísly a rekurzivními čísly velká bariéra, která odděluje svět, kde vše funguje relativně jednoduše a ten, kde je vše o řád těžší.
 
 \subsubsection{Představa}\label{kap:predstava}
 Než struktury definovat imperativně pomocí definic, jak by co měla implementovat, se spíše pokusím o definici struktury deklarativně, čili pomocí vlastností, které by měla splňovat.
@@ -112,28 +112,28 @@ Abstraktní struktura reprezentující reálné číslo by měla umožnit
 \item{být použita jako argument nějaké funkce -- typicky funkce pro vyčíslení.}
 \end{itemize}
 
-První dvě podmínky jsou přímo esenciální -- zajišťují, že abstrakce mohou reprezentovat reálná čísla na libovolnou (kladnou) přenost. Kdykoli budu potřebovat číslo dané konkrétní abstrakcí, zavolám příslušnou funkci s parametrem $\varepsilon$ reprezentujícím přesnost, na kterou toto číslo potřebuji. Obecně totiž nemusí být výsledkem vyčíslovací funkce přesná hodnota hledaného čísla, avšak díky těmto podmínkám budu výsledku vzdálen maximálně o zadanou hodnotu odchylky. \textit{Přesné} číslo tedy představuje číslo, které je od výsledku vzdálené o jasně definovanou hodnotu vyčíslitelné konečným výpočtem. Uvažujme strukturu $s_x$ přesně vyjadřující nějaké číslo $x$, zavolejme vyčíslovací funkci $enum$ a jako argumenty volme tuto strukturu a libovolné kladné $\varepsilon$, pak by výsledkem mělo být číslo $enum(s_x, \varepsilon)$ splňující nerovnost
-\begin{equation}
-|enum(s_x, \varepsilon)-x| \leq \varepsilon.
+První dvě podmínky jsou přímo esenciální -- zajišťují, že abstrakce mohou reprezentovat reálná čísla na libovolnou (kladnou) přenost. Kdykoli budu potřebovat číslo dané konkrétní abstrakcí, zavolám příslušnou funkci s parametrem $\varepsilon$ reprezentujícím přesnost, na kterou toto číslo potřebuji. Obecně totiž nemusí být výsledkem vyčíslovací funkce přesná hodnota hledaného čísla, avšak díky těmto podmínkám budu výsledku vzdálen maximálně o zadanou hodnotu odchylky. \textit{Přesné} číslo tedy představuje číslo, které je od výsledku vzdálené o jasně definovanou hodnotu vyčíslitelné konečným výpočtem. Uvažujme strukturu $s_r$ přesně vyjadřující nějaké číslo $r\in\mathbb{R}$, zavolejme vyčíslovací funkci $enum$ a jako argumenty volme tuto strukturu a libovolné kladné $\varepsilon$, pak by výsledkem mělo být číslo $enum(s_r, \varepsilon)$ splňující nerovnost
+\begin{equation}\label{ner:struktura}
+|enum(s_r, \varepsilon)-r| \leq \varepsilon.
 \end{equation}
 
-Druhé dvě podmínky vštěpují dané struktuře reprezentující reálná čísla vlastnosti reálných čísel, a sice že s nimi jde sčítat, násobit atp. a že mohou být argumentem nějaké matematické funkce. Jistě nejde o to tyto struktury vkládat do stejných operací jako si představujeme s normálními čísly, například ve výrazu $3+4$ nechceme operandy nahrazovat abstraktními strukturami a očekávat správný výsledek, nýbrž chceme existenci ekvivalentní operace pro tyto struktury. To nutně neznamená, že musí být skutečně někde implementována, ale potřebujeme docílit stavu, kdy existence této není dokazatelně vyloučena.
+Druhé dvě podmínky vštěpují dané struktuře reprezentující reálná čísla vlastnosti reálných čísel, a sice že s nimi jde sčítat, násobit atp. a že mohou být argumentem nějaké matematické funkce. Jistě nejde o to tyto struktury vkládat do stejných operací jako si představujeme s normálními čísly, nýbrž chceme existenci ekvivalentní operace pro tyto struktury. To nutně neznamená, že musí být skutečně někde implementována, ale potřebujeme docílit stavu, kdy existence této není dokazatelně vyloučena.
 
-Třetí a poslední dvě podmínky jsou spíše návod pro praktické použití těchto hypotetických struktur, aby se s nimi dalo smysluplně pracovat. To vlastně znamená, že musí být elementy prvního řádu (\textit{first-class citizen}), čili implementovány jako niterná součást použitého jazyka a ne jako svébytná konstrukce, která sice funguje, ale je nekompatibilní s jazykem svého vzniku, takže je vlastně nepoužitelná, uživatelsky nerozšiřitelná.
+Třetí a poslední dvě podmínky jsou spíše návod pro praktické použití těchto hypotetických struktur, aby se s nimi dalo smysluplně pracovat. To vlastně znamená, že musí být elementy prvního řádu (\textit{first-class citizen}), čili implementovány jako niterná součást použitého jazyka a ne jako svébytná konstrukce, která sice funguje, ale je uživatelsky nerozšiřitelná.
 
-\subsubsection{Existující nástroje}\FloatBarrier
+\subsubsection{Existující nástroje}\label{ssec:knihovny}\FloatBarrier
 Nyní se podíváme, co na poli vyčíslování reálných čísel existuje v současné době.
 \paragraph{Mpmath \cite{mpmath}}
-\texttt{mpmath} je velmi rozsáhlá knihovna pro Python. Je publikována pod licensí BSD a je dosažitelná i pomocí \texttt{pip}u. Kromě základní funkčnosti pro výpočet funkcí a operací s čísly jsou implementovány i funkce pro výpočet funkcí intervalů, určitých integrálů, podpora tvorby grafů a mnoho dalšího. Dokumentace je velice hezky zpracovaná se spoustou příkladů. Přesnost se nastavuje proměnnou \texttt{mp.dps}. Jde o počet vypisovaných míst. Knihovna oplývá tolika možnostmi, že dokonce existuje stránka pro výpočet Ludolfova čísla sty možnými one-linery. Knihovna používá tři vlastní datové typy a sice \texttt{mpf} pro reálná čísla, \texttt{mpc} pro komplexní čísla a \texttt{matrix} pro matice.
+\texttt{mpmath} je velmi rozsáhlá knihovna pro Python. Je publikována pod licensí BSD a je dosažitelná i pomocí \texttt{pip}u. Kromě základní funkčnosti pro výpočet funkcí a operací s čísly jsou implementovány i funkce pro výpočet funkcí intervalů, určitých integrálů, podpora tvorby grafů a mnoho dalšího. Dokumentace je velice hezky zpracovaná s množstvím příkladů. Přesnost se nastavuje proměnnou \texttt{mp.dps}. Jde o počet vypisovaných míst. Knihovna oplývá tolika možnostmi, že dokonce existuje stránka pro výpočet Ludolfova čísla sty možnými one-linery. Knihovna používá tři vlastní datové typy a sice \texttt{mpf} pro reálná čísla, \texttt{mpc} pro komplexní čísla a \texttt{matrix} pro matice. Příklad použití je na Obrázku \ref{obr:mpmath}.
 
 \begin{myfigure}{}
 \caption{Používání knihovny \texttt{mpmath}}
 \includegraphics[width=\linewidth]{./graphics/mpmath.png}\label{obr:mpmath}
-Struktura \texttt{mpf} podporuje matematické operace, na příkladu je vyobrazena odmocnina ze dvou. Ta je zde ve dvou provedeních, s defaultní přesností a s nastavenou na 50. Ukázány jsou i další matematické funkce, jmenovitě logaritmus, cyklometrické, gamma a Riemannovu zeta funkci, na jejímž vstupu i výstupu vidíme komplexní číslo.
+Struktura \texttt{mpf} podporuje matematické operace, na příkladu je vyobrazena odmocnina ze dvou. Ta je zde ve dvou provedeních, s defaultní přesností a s nastavenou na 50. Ukázány jsou i další matematické funkce, jmenovitě logaritmus, cyklometrické, gamma a Riemannova zeta funkce, na jejímž vstupu i výstupu vidíme komplexní číslo.
 \end{myfigure}
 
 \paragraph{JScience \cite{jscience}}
-\texttt{JScience} je knihovna pro jazyk Java. Její část pro práci s jednotkami se dostala do knihovny \texttt{javax}. Knihovna je široce rozkročena. Přináší podporu pro porovnávání a počítání jednotek z fyziky, geografie nebo ekonomie. Z matematiky je zde podpora pro jednoduchou symbolickou analýzu a strukturální algebru. Nás nejvíce zajímá část \texttt{org.jscience.mathematics.number}. Zde jsou zajímavé 3 datové typy a to \texttt{Real} umožnující základní výpočty s nastavitelnou přesností, \texttt{LargeInteger} ukládající velká celá čísla a \texttt{Rational} ukládající dvojice \texttt{LargeInteger}ů a umožňující jejich implicitní usměrňování a základní matematické operace.
+\texttt{JScience} je knihovna pro jazyk Java. Její část pro práci s jednotkami se dostala do knihovny \texttt{javax}. Knihovna je široce rozkročena. Přináší podporu pro porovnávání a počítání jednotek z fyziky, geografie nebo ekonomie. Z matematiky je zde podpora pro jednoduchou symbolickou analýzu a strukturální algebru. Nás nejvíce zajímá \texttt{org.jscience.mathematics.number}. Zde jsou 3 zajímavé datové typy a to \texttt{Real} umožnující základní výpočty s nastavitelnou přesností, \texttt{LargeInteger} ukládající velká celá čísla a \texttt{Rational} ukládající dvojice \texttt{LargeInteger}ů a umožňující jejich implicitní usměrňování a základní matematické operace. Příklad použití je na Obrázku \ref{obr:jscience}.
 
 \begin{myfigure}{}
 \caption{Používání knihovny \texttt{JScience}}
@@ -142,34 +142,41 @@ Na obrázku je ukázáno používání třídy \texttt{Real}. Operace jsou použ
 \end{myfigure}
 
 \paragraph{GNU Multiple Precision Arithmetic Library \cite{wiki:gmp} (GMP)}
-\texttt{GMP} je knihovna pro jazyk C. Datový typ \texttt{mpz\_t} představuje celé číslo, u kterého nehrozí přetečení nebo podtečení. Zlomky velkých čísel představuje \texttt{mpq\_t} a operace podporují usměrňování. Přesný ekvivalent čísla s plovoucí řádovou tečkou představuje \texttt{mpf\_t}. Minimální počet bytů, ve kterém je uložen v paměti, se nastavuje funkcí \texttt{mpf\_set\_default\_prec}. Všechny typy implementují základní matematické operace. Protože je GMP součástí projektu GNU a protože je to knihovna pro C, je velmi mnoho nadstavbových knihoven, které její funkcionalitu využívají a rozšiřují. Z C-čkových jmenujme například \texttt{GNU MPFR}, která na je na GMP přímo založena \cite{wiki:mpfr} a přináší matematické funkce floatů, nebo \texttt{MPIR} -- paralelní projekt odtrhnuvší se od vývoje GMP a jdoucí svojí cestou, přesto snažící se implementovat rozhraní GMP, aby byly zastupitelné \cite{wiki:mpir}. Dále existují wrappery pro kompatibilitu s jinými jazyky a tudíž je GMP velmi rozšířená, ač se to nemusí uživateli zdát. Například pro platformu .NET je to knihovna \texttt{Math.GMP.Native}, pro Python \texttt{gmpy}, pro R \texttt{gmp}.
+\texttt{GMP} je knihovna pro jazyk C. Datový typ \texttt{mpz\_t} představuje celé číslo, u kterého nehrozí přetečení nebo podtečení. Zlomky velkých čísel představuje \texttt{mpq\_t} a operace podporují usměrňování. Přesný ekvivalent čísla s plovoucí řádovou tečkou představuje \texttt{mpf\_t}. Minimální počet bytů, ve kterém je uložen v paměti, se nastavuje funkcí \texttt{mpf\_set\_default\_prec}. Všechny typy implementují základní matematické operace. Protože je GMP součástí projektu GNU a protože je to knihovna pro C, je velmi mnoho nadstavbových knihoven, které její funkcionalitu využívají a rozšiřují. Z C-čkových jmenujme například \texttt{GNU MPFR}, která je na GMP přímo založena \cite{wiki:mpfr} a přináší matematické funkce floatů, nebo \texttt{MPIR} -- paralelní projekt odtrhnuvší se od vývoje GMP a jdoucí svojí cestou, přesto snažící se implementovat rozhraní GMP, aby byly zastupitelné \cite{wiki:mpir}. Dále existují wrappery pro kompatibilitu s jinými jazyky a tudíž je GMP velmi rozšířená, ač se to nemusí uživateli zdát. Například pro platformu .NET je to knihovna \texttt{Math.GMP.Native}, pro Python \texttt{gmpy}, pro R \texttt{gmp}. Příklad použití je na Obrázku \ref{obr:gmp}.
 
 \begin{myfigure}{}
 \caption{Používání knihovny \texttt{GMP}}
 \includegraphics[width=\linewidth]{./graphics/gmp.png}\label{obr:gmp}
-Na příkladu vidíme nejprve porovnání násobení klasických intů versus struktur typu \texttt{mpz\_t}. U intů dojde k přetečení, u mpz nikoli. Dále vidíme práci se zlomky, jejich inicializaci ze stringu a násobení. Nakonec vidíme základní operace s typem \texttt{mpf\_t}, protějškem čísel s plovoucí řádovou tečkou.
+Na příkladu vidíme nejprve porovnání násobení klasických \texttt{int}ů versus struktur typu \texttt{mpz\_t}. U \texttt{int}ů dojde k přetečení, u mpz nikoli. Dále vidíme práci se zlomky, jejich inicializaci ze \texttt{string}u a násobení. Nakonec vidíme základní operace s typem \texttt{mpf\_t}, protějškem čísel s plovoucí řádovou tečkou.
 \end{myfigure}
 
-\paragraph{Class Library for Numbers \cite{wiki:CLN} (CLN)} \texttt{CLN} je knihovna pro jazyk C++ a je zdarma šířená pod licensí GPL. Implementuje čísla s~plovoucí řádovou tečkou racionální čísla jako zlomky, navíc komplexní čísla. Za přesné se považují racionální čísla a komplexní čísla s přesnou imaginární i reálnou částí. Plovoucí čísla pak typově přesně kopírují Lispovské a dají se tedy použít k Lispovským implementacím. Tím pádem se zkratka CLN dá chápat i jako \uv{Common Lisp Numbers}.
-
+\paragraph{Class Library for Numbers \cite{wiki:CLN} (CLN)} \texttt{CLN} je knihovna pro jazyk C++ a je zdarma šířená pod licensí GPL. Implementuje čísla s~plovoucí řádovou tečkou, racionální čísla jako zlomky, navíc komplexní čísla. Za přesná se považují racionální čísla a komplexní čísla s přesnou imaginární i reálnou částí. Plovoucí čísla pak typově přesně kopírují Lispovské a lze je tedy tedy použít k Lispovským implementacím. Zkratku CLN je tedy možné chápat i jako \uv{Common Lisp Numbers}. Nepřímé použití je na Obrázku \ref{obr:clisp}.
+	
 \begin{myfigure}{}
 \caption{Implicitní používání knihovny \texttt{CLN}}
 \includegraphics[width=\linewidth]{./graphics/clisp.png}\label{obr:clisp}
-Knihovnu CLN používá CLisp, interpret jazyka Lisp. Využívá implementace čísel. Příklad ukazuje, že se zlomky zkracují, aniž by bylo třeba k tomu voláním vybízet, ale děje se automaticky. Že je CLisp založen na CLN usuzuji podle osoby Bruna Heible-a, který figuruje jako autor jak u CLN, tak u CLisp-u.
+Knihovnu CLN používá CLisp, interpret jazyka Lisp. Využívá implementace čísel. Příklad ukazuje, že se zlomky automaticky zkracují. Že je CLisp založen na CLN usuzuji podle osoby Bruna Heible-a, který figuruje jako autor jak u CLN, tak u CLisp-u.
 \end{myfigure}
 
 \paragraph{Computable-reals \cite{gh:cr}}\label{kap:computable-reals}
-\texttt{computable-reals} je Lispovská knihovna. Je volně ke stažení a dokonce k dostání pomocí \texttt{quicklisp}u. Podporuje základní funkcionalitu. Její funkce poznáme tak, že končí koncovkou \texttt{-r}. Vracené výsledky nejsou čísla, ale vlastního typu \texttt{C-REAL}. Defaultně se tisknou výsledky na 20 míst, ale nastavením proměnné \texttt{*print-prec*} se tento počet dá měnit \cite{lpb:numbers}. Kromě odmocniny jsou zde třeba základní násobky čísla $\pi$, logaritmy, mocniny, základní goniometrické funkce, arcus tangens. Knihovna se používá jako kalkulačka s nastavitelnou přesností.
+\texttt{computable-reals} je Lispovská knihovna. Je volně ke stažení a dokonce k dostání pomocí \texttt{quicklisp}u. Podporuje základní funkcionalitu. Její funkce poznáme tak, že končí koncovkou \texttt{-r}. Vracené výsledky nejsou čísla, ale vlastního typu \texttt{C-REAL}. Defaultně se tisknou výsledky na 20 míst, ale nastavením proměnné \texttt{*print-prec*} se tento počet dá měnit \cite{lpb:numbers}. Kromě odmocniny jsou zde třeba základní násobky čísla $\pi$, logaritmy, mocniny, základní goniometrické funkce, arcus tangens. Knihovna se používá jako kalkulačka s nastavitelnou přesností. Příklad použití je na Obrázku \ref{obr:computable-reals}.
 
 \begin{myfigure}{}
 \caption{Používání knihovny \texttt{computable-reals}}
 \includegraphics[width=\linewidth]{./graphics/computable-reals.png}\label{obr:computable-reals}
 Na příkladu vidíme výpis odmocniny ze dvou na různé přesnosti, operace násobení a  několik matematických funkcí.
-\end{myfigure}\FloatBarrier
+\end{myfigure}
 
 \paragraph{Cíl práce}
 Tolik tedy k strukturám již nyní implementujícím čísla a jejich operace, případně funkce. V některých implementacích se jedná o třídy, v jiných jde o strukturované datové typy. V následujícím textu se pokusíme navázat tam, kde končí naprostá přesnost nad racionálními čísly jazyka Lisp a naprogramujeme knihovnu přinášející některá iracionální čísla.
 
 V této práci nám jde o přesnost a nikoli o rychlost a proto jako nativní typy budu používat právě zlomky, ačkoli pro rychlé operace s desetinnými čísly se používají plovoucí čísla, které mají často i hardwarovou podporu v jednotce FPU. Ostatně proto jsou v Lispu i plovoucí typy \cite{PS:PCL}.
 
-K programování jsem jako textový editor použil \textit{Visual Studio Code} s rozšířením \textit{Rainbow Brackets} a jako překladač \textit{SBCL}.
+\begin{myfigure}{H}
+\caption{Editor \texttt{code}}
+\includegraphics[width=\linewidth]{./graphics/code.png}\label{obr:code}
+Snímek editoru. Vidíme podbarvování syntaxe a duhové závorky. Dále terminál přímo v prostředí editoru a v něm spuštěný kompilátor. Zároveň vypsání $\pi$ až do Feynmanova bodu pomocí knihovny \texttt{tnums}, která vznikne na dalších stránkách.
+\end{myfigure}
+
+K programování jsem jako textový editor použil \textit{Visual Studio Code} s rozšířeními \textit{2gua.rainbow-brackets} a \textit{qingpeng.common-lisp}, jako kompilátor \textit{SBCL}. Jak přibližně vypadalo kódování a testování je zobrazeno na Obrázku \ref{obr:code}. Odsazování jsem nakonec poupravil v LispWorks.
+\FloatBarrier
