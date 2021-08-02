@@ -261,3 +261,8 @@ Note that the string is precise only if the last digit is not 9 or 0.
 ### Cosecant
     * (tnum-to-string (tnum-csc (tnum- (tnum-pi) (num-to-tnum (expt 10 -25)))) 25)
     "10000000000000000000000000.0000000000000000000000000..."
+
+## Isues
+### Square root of number smaller or equal to one is not working
+    * (tnum-to-string (tnum-sqrt (num-to-tnum 1)) 50)
+    "2.71828182845904523536028747135266249775724709369995..."
